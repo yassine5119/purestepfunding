@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trader Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#020817;
+color:white;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+position:fixed;
+left:0;
+top:0;
+
+width:260px;
+height:100vh;
+
+background:#071224;
+
+padding:35px 25px;
+
+border-right:1px solid rgba(0,255,153,0.15);
+
+}
+
+.logo{
+
+font-size:34px;
+font-weight:800;
+margin-bottom:50px;
+
+color:#00ff99;
+
+text-shadow:0 0 20px #00ff99;
+
+}
+
+.logo span{
+color:#2d7cff;
+}
+
+.sidebar a{
+
+display:block;
+
+padding:16px 20px;
+
+margin-bottom:18px;
+
+background:#0b1730;
+
+border-radius:14px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:600;
+
+transition:0.3s;
+
+}
+
+.sidebar a:hover{
+
+background:#00ff99;
+color:black;
+
+}
+
+/* MAIN */
+
+.main{
+
+margin-left:260px;
+padding:45px;
+
+}
+
+/* TOP */
+
+.top{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:45px;
+
+}
+
+.top h1{
+
+font-size:42px;
+
+}
+
+.logout{
+
+padding:14px 25px;
+
+background:#ff3b3b;
+
+border:none;
+
+border-radius:12px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:white;
+
+}
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+margin-bottom:45px;
+
+}
+
+.card{
+
+background:#081225;
+
+padding:30px;
+
+border-radius:25px;
+
+border:1px solid rgba(0,255,153,0.15);
+
+}
+
+.card h3{
+
+color:#94a3b8;
+margin-bottom:15px;
+
+}
+
+.card h2{
+
+font-size:40px;
+color:#00ff99;
+
+}
+
+/* STATUS */
+
+.status{
+
+background:#081225;
+
+padding:35px;
+
+border-radius:25px;
+
+border:1px solid rgba(0,255,153,0.15);
+
+}
+
+.status h2{
+
+margin-bottom:25px;
+font-size:34px;
+
+}
+
+.progress{
+
+width:100%;
+height:24px;
+
+background:#020817;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin-bottom:18px;
+
+}
+
+.progress-bar{
+
+width:68%;
+height:100%;
+
+background:#00ff99;
+
+}
+
+.info{
+
+margin-top:18px;
+font-size:18px;
+line-height:1.9;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+<span>PURE</span>Step
+</div>
+
+<a href="index.html">Home</a>
+
+<a href="#">Trader Panel</a>
+
+<a href="#">Accounts</a>
+
+<a href="#">Certificates</a>
+
+<a href="#">Payouts</a>
+
+<a href="#">Support</a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="top">
+
+<h1>
+Welcome,
+<span id="traderName"></span>
+</h1>
+
+<button class="logout" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Account Type</h3>
+
+<h2>$5K</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Current Balance</h3>
+
+<h2>$5,482</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Profit</h3>
+
+<h2>+$482</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Max Drawdown</h3>
+
+<h2>4%</h2>
+
+</div>
+
+</div>
+
+<!-- STATUS -->
+
+<div class="status">
+
+<h2>Challenge Progress</h2>
+
+<div class="progress">
+
+<div class="progress-bar"></div>
+
+</div>
+
+<div class="info">
+
+<p>✅ Profit Target: 68%</p>
+
+<p>✅ Minimum Trading Days: 2/2</p>
+
+<p>✅ Daily Drawdown Respected</p>
+
+<p>✅ Account Status: ACTIVE</p>
+
+<p>✅ Profit Split: 100%</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let trader = localStorage.getItem("email");
+
+document.getElementById("traderName").innerHTML = trader;
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
+
+window.location.href = "login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
