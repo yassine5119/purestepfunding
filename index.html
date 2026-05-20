@@ -78,7 +78,7 @@ text-align:center;
 position:relative;
 
 background:
-linear-gradient(rgba(3,7,18,0.90),rgba(3,7,18,0.95)),
+linear-gradient(rgba(3,7,18,0.88),rgba(3,7,18,0.93)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1600&auto=format&fit=crop');
 
 background-size:cover;
@@ -88,13 +88,13 @@ background-position:center;
 .hero::before{
 content:'';
 position:absolute;
-width:600px;
-height:600px;
+width:700px;
+height:700px;
 background:#00ff9930;
 filter:blur(140px);
 border-radius:50%;
-top:-200px;
-right:-100px;
+top:-250px;
+right:-150px;
 }
 
 .hero-content{
@@ -108,7 +108,7 @@ padding:20px;
 font-size:95px;
 line-height:1.05;
 font-weight:800;
-text-shadow:0 0 25px #00ff99;
+text-shadow:0 0 30px #00ff99;
 }
 
 .hero h1 span{
@@ -209,11 +209,13 @@ font-weight:800;
 text-shadow:0 0 20px #00ff99;
 }
 
-/* PLANS */
+/* SECTION */
 
 .section{
 padding:90px 40px;
 }
+
+/* PLANS */
 
 .cards{
 display:flex;
@@ -242,6 +244,7 @@ box-shadow:0 0 45px rgba(0,255,153,0.35);
 
 .popular{
 border:1px solid #00ff99;
+box-shadow:0 0 45px rgba(0,255,153,0.35);
 }
 
 .badge{
@@ -363,33 +366,6 @@ text-shadow:0 0 20px #00ff99;
 margin-bottom:12px;
 }
 
-/* FAQ */
-
-.faq{
-max-width:1000px;
-margin:auto;
-}
-
-.faq-item{
-background:#071224;
-border:1px solid rgba(0,255,153,0.2);
-padding:30px;
-border-radius:22px;
-margin-bottom:22px;
-box-shadow:0 0 20px rgba(0,255,153,0.08);
-}
-
-.faq-item h3{
-font-size:24px;
-margin-bottom:10px;
-color:#00ff99;
-}
-
-.faq-item p{
-color:#d1d5db;
-line-height:1.7;
-}
-
 /* FOOTER */
 
 footer{
@@ -448,7 +424,6 @@ font-size:48px;
 <a href="#">Home</a>
 <a href="#plans">Plans</a>
 <a href="#rules">Rules</a>
-<a href="#faq">FAQ</a>
 
 </nav>
 
@@ -492,8 +467,8 @@ VIEW RULES
 </div>
 
 <div class="feature">
-<h2>HIGH SPLIT</h2>
-<p>Receive up to 80% of your profits.</p>
+<h2>100% SPLIT</h2>
+<p>Keep 100% of your profits after payout request.</p>
 </div>
 
 <div class="feature">
@@ -529,7 +504,7 @@ $20
 <p>Maximum Loss: 8%</p>
 <p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>Profit Split: Up To 80%</p>
+<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $75</p>
 
 <a href="#" class="choose-btn">
@@ -555,7 +530,7 @@ $35
 <p>Maximum Loss: 8%</p>
 <p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>Profit Split: Up To 80%</p>
+<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $150</p>
 
 <a href="#" class="choose-btn">
@@ -577,7 +552,7 @@ $65
 <p>Maximum Loss: 8%</p>
 <p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>Profit Split: Up To 80%</p>
+<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $350</p>
 
 <a href="#" class="choose-btn">
@@ -642,52 +617,6 @@ Our Rules. Your Edge.
 
 </div>
 
-<div class="rules-grid" style="margin-top:30px;">
-
-<div class="rule-card">
-
-<h2>LEVERAGE</h2>
-
-<div class="rule-big">
-1:10
-</div>
-
-<p>Forex: 1:10</p>
-<p>Crypto: 1:5</p>
-
-</div>
-
-<div class="rule-card">
-
-<h2>PROHIBITED</h2>
-
-<div class="rule-big">
-RULES
-</div>
-
-<p>No Martingale</p>
-<p>No Arbitrage</p>
-<p>No HFT</p>
-<p>No Account Sharing</p>
-
-</div>
-
-<div class="rule-card">
-
-<h2>TRADING STYLES</h2>
-
-<div class="rule-big">
-ALL
-</div>
-
-<p>Scalping Allowed</p>
-<p>Day Trading Allowed</p>
-<p>Swing Trading Allowed</p>
-
-</div>
-
-</div>
-
 </section>
 
 <section class="section">
@@ -699,7 +628,7 @@ PureStep Statistics
 <div class="stats">
 
 <div class="stat">
-<h1>80%</h1>
+<h1>100%</h1>
 <p>Profit Split</p>
 </div>
 
@@ -711,33 +640,6 @@ PureStep Statistics
 <div class="stat">
 <h1>1:10</h1>
 <p>Leverage</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="faq">
-
-<h1 class="title">
-FAQ
-</h1>
-
-<div class="faq">
-
-<div class="faq-item">
-<h3>How do payouts work?</h3>
-<p>Traders can request payouts every 14 days depending on account type.</p>
-</div>
-
-<div class="faq-item">
-<h3>Is news trading allowed?</h3>
-<p>Yes. News trading is fully allowed with no restrictions.</p>
-</div>
-
-<div class="faq-item">
-<h3>What markets can I trade?</h3>
-<p>Forex, Crypto, Gold and Indices are all supported.</p>
 </div>
 
 </div>
