@@ -17,8 +17,9 @@ font-family:Arial;
 }
 
 body{
-background:#0b0f19;
+background:#050816;
 color:white;
+overflow-x:hidden;
 }
 
 /* HEADER */
@@ -27,101 +28,188 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 50px;
-background:#111827;
+padding:25px 60px;
+background:#071224;
+border-bottom:1px solid #00ff99;
 position:sticky;
 top:0;
+z-index:1000;
 }
 
 .logo{
-font-size:32px;
+font-size:34px;
 font-weight:bold;
 color:#00ff99;
+text-shadow:0 0 20px #00ff99;
+}
+
+.logo span{
+color:#2d7cff;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin-left:25px;
+margin-left:30px;
 font-size:18px;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00ff99;
 }
 
 /* HERO */
 
 .hero{
-height:90vh;
+height:100vh;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
-background:linear-gradient(to bottom,#0b0f19,#111827);
+background:
+linear-gradient(rgba(5,8,22,0.9),rgba(5,8,22,0.95)),
+url('https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
 }
 
-.hero h1{
-font-size:75px;
+.hero-content{
 max-width:1000px;
 }
 
+.hero h1{
+font-size:80px;
+line-height:1.1;
+text-shadow:0 0 25px #00ff99;
+}
+
+.hero h1 span{
+color:#00ff99;
+}
+
 .hero p{
+margin-top:25px;
 font-size:24px;
-margin-top:20px;
-max-width:700px;
 color:#cbd5e1;
+line-height:1.7;
 }
 
 .btn{
-margin-top:35px;
+display:inline-block;
+margin-top:40px;
 padding:18px 45px;
 background:#00ff99;
-border-radius:12px;
-text-decoration:none;
 color:black;
+font-size:20px;
 font-weight:bold;
-font-size:18px;
+border-radius:14px;
+text-decoration:none;
+box-shadow:0 0 30px #00ff99;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+/* FEATURES */
+
+.features{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:70px 40px;
+}
+
+.feature{
+background:#071224;
+border:1px solid #00ff99;
+box-shadow:0 0 20px #00ff9940;
+padding:30px;
+border-radius:20px;
+width:250px;
+text-align:center;
+}
+
+.feature h2{
+font-size:24px;
+margin-bottom:15px;
+color:#00ff99;
+}
+
+.feature p{
+color:#cbd5e1;
+line-height:1.6;
+}
+
+/* SECTION TITLE */
+
+.title{
+text-align:center;
+font-size:65px;
+margin-top:40px;
+margin-bottom:60px;
+text-shadow:0 0 20px #00ff99;
 }
 
 /* PLANS */
 
-.section{
-padding:90px 40px;
-}
-
-.title{
-text-align:center;
-font-size:55px;
-margin-bottom:50px;
-}
-
 .cards{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:35px;
 flex-wrap:wrap;
+padding:20px 30px 90px;
 }
 
 .card{
-background:#111827;
-padding:35px;
-border-radius:20px;
-width:320px;
+background:#071224;
+border:2px solid #00ff99;
+box-shadow:0 0 30px #00ff9940;
+padding:40px;
+border-radius:25px;
+width:340px;
 text-align:center;
 transition:0.3s;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
+box-shadow:0 0 40px #00ff99;
+}
+
+.popular{
+border:2px solid #2dff7a;
+box-shadow:0 0 45px #2dff7a;
+}
+
+.badge{
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%);
+background:#00ff99;
+color:black;
+padding:8px 18px;
+border-radius:30px;
+font-weight:bold;
+font-size:14px;
 }
 
 .card h2{
-font-size:40px;
+font-size:45px;
+margin-bottom:10px;
 }
 
 .price{
-font-size:50px;
+font-size:55px;
 color:#00ff99;
 margin:20px 0;
+text-shadow:0 0 20px #00ff99;
 }
 
 .card p{
@@ -130,16 +218,30 @@ font-size:18px;
 color:#d1d5db;
 }
 
+.choose-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:#00ff99;
+color:black;
+border-radius:12px;
+font-weight:bold;
+text-decoration:none;
+box-shadow:0 0 20px #00ff99;
+}
+
 /* RULES */
 
 .rules{
-max-width:900px;
-margin:auto;
-background:#111827;
-padding:40px;
-border-radius:20px;
+max-width:1000px;
+margin:0 auto 100px;
+background:#071224;
+border:1px solid #00ff99;
+box-shadow:0 0 30px #00ff9940;
+padding:45px;
+border-radius:25px;
+font-size:22px;
 line-height:2;
-font-size:20px;
 }
 
 /* STATS */
@@ -149,30 +251,35 @@ display:flex;
 justify-content:center;
 gap:30px;
 flex-wrap:wrap;
-margin-top:50px;
+padding-bottom:100px;
 }
 
 .stat{
-background:#111827;
-padding:30px;
+background:#071224;
+border:1px solid #00ff99;
+padding:35px;
+width:260px;
 border-radius:20px;
-width:250px;
 text-align:center;
+box-shadow:0 0 20px #00ff9940;
 }
 
 .stat h1{
-font-size:50px;
+font-size:55px;
 color:#00ff99;
+text-shadow:0 0 20px #00ff99;
+margin-bottom:10px;
 }
 
 /* FOOTER */
 
 footer{
-background:#111827;
+background:#071224;
+border-top:1px solid #00ff99;
 padding:35px;
 text-align:center;
-margin-top:80px;
 font-size:18px;
+color:#cbd5e1;
 }
 
 /* MOBILE */
@@ -180,7 +287,7 @@ font-size:18px;
 @media(max-width:768px){
 
 .hero h1{
-font-size:45px;
+font-size:48px;
 }
 
 .hero p{
@@ -190,6 +297,12 @@ font-size:20px;
 header{
 flex-direction:column;
 gap:20px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 }
@@ -202,7 +315,7 @@ gap:20px;
 <header>
 
 <div class="logo">
-PURESTEP FUNDING
+<span>PURE</span>Step Funding
 </div>
 
 <nav>
@@ -210,61 +323,104 @@ PURESTEP FUNDING
 <a href="#">Challenges</a>
 <a href="#">Rules</a>
 <a href="#">Dashboard</a>
+<a href="#">Login</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
+<div class="hero-content">
+
 <h1>
-Get Funded Up To $10,000
+Choose Your Account.<br>
+Take The <span>Next Step.</span>
 </h1>
 
 <p>
-Professional proprietary trading firm with fast payouts, strict risk management and powerful trader dashboard.
+We fund disciplined traders — not gamblers.<br>
+Fast payouts, strict rules and real opportunities.
 </p>
 
 <a href="#" class="btn">
-Start Challenge
+START CHALLENGE
 </a>
+
+</div>
 
 </section>
 
-<section class="section">
+<section class="features">
+
+<div class="feature">
+<h2>FAST PAYOUTS</h2>
+<p>Get paid quickly and securely every 14 days.</p>
+</div>
+
+<div class="feature">
+<h2>NEWS TRADING</h2>
+<p>Trade the news with no restrictions.</p>
+</div>
+
+<div class="feature">
+<h2>HIGH SPLIT</h2>
+<p>Receive up to 90% of your profits.</p>
+</div>
+
+<div class="feature">
+<h2>BUILT FOR TRADERS</h2>
+<p>Designed for disciplined and serious traders.</p>
+</div>
+
+</section>
 
 <h1 class="title">
 Funding Plans
 </h1>
 
-<div class="cards">
+<section class="cards">
 
 <div class="card">
 
 <h2>$2,500</h2>
 
-<div class="price">
-$10
-</div>
+<div class="price">$20</div>
 
-<p>Max Withdrawal: $75</p>
-<p>Risk Limit: 2%</p>
+<p>Profit Target: 8%</p>
+<p>Daily Loss: 4%</p>
+<p>Maximum Loss: 8%</p>
+<p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>2-Step Challenge</p>
+<p>Profit Split: Up To 90%</p>
+<p>Max Withdrawal: $75</p>
+
+<a href="#" class="choose-btn">
+Choose This Plan
+</a>
 
 </div>
 
-<div class="card">
+<div class="card popular">
+
+<div class="badge">
+MOST POPULAR
+</div>
 
 <h2>$5,000</h2>
 
-<div class="price">
-$35
-</div>
+<div class="price">$35</div>
 
-<p>Max Withdrawal: $150</p>
-<p>Risk Limit: 2%</p>
+<p>Profit Target: 8%</p>
+<p>Daily Loss: 4%</p>
+<p>Maximum Loss: 8%</p>
+<p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>2-Step Challenge</p>
+<p>Profit Split: Up To 90%</p>
+<p>Max Withdrawal: $150</p>
+
+<a href="#" class="choose-btn">
+Choose This Plan
+</a>
 
 </div>
 
@@ -272,22 +428,23 @@ $35
 
 <h2>$10,000</h2>
 
-<div class="price">
-$60
-</div>
+<div class="price">$65</div>
 
-<p>Max Withdrawal: $350</p>
-<p>Risk Limit: 2%</p>
+<p>Profit Target: 8%</p>
+<p>Daily Loss: 4%</p>
+<p>Maximum Loss: 8%</p>
+<p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>2-Step Challenge</p>
+<p>Profit Split: Up To 80%</p>
+<p>Max Withdrawal: $350</p>
 
-</div>
+<a href="#" class="choose-btn">
+Choose This Plan
+</a>
 
 </div>
 
 </section>
-
-<section class="section">
 
 <h1 class="title">
 Trading Rules
@@ -295,26 +452,23 @@ Trading Rules
 
 <div class="rules">
 
-<p>✅ Daily Drawdown: 5%</p>
-<p>✅ Maximum Drawdown: 10%</p>
+<p>✅ Daily Drawdown: 4%</p>
+<p>✅ Maximum Drawdown: 8%</p>
 <p>✅ Profit Split Up To 90%</p>
 <p>✅ Forex & Crypto Allowed</p>
 <p>✅ News Trading Allowed</p>
+<p>✅ Minimum Trading Days: 2</p>
 <p>❌ No High Frequency Trading</p>
 <p>❌ No Arbitrage</p>
 <p>❌ No Account Sharing</p>
 
 </div>
 
-</section>
-
-<section class="section">
-
 <h1 class="title">
 PureStep Statistics
 </h1>
 
-<div class="stats">
+<section class="stats">
 
 <div class="stat">
 <h1>90%</h1>
@@ -327,10 +481,8 @@ PureStep Statistics
 </div>
 
 <div class="stat">
-<h1>2%</h1>
-<p>Risk Limit</p>
-</div>
-
+<h1>1:10</h1>
+<p>Leverage</p>
 </div>
 
 </section>
