@@ -8,7 +8,7 @@
 
 <title>Login - PureStep Funding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,96 +20,147 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
+
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 
 background:
-linear-gradient(rgba(3,7,18,0.90),rgba(3,7,18,0.95)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1600&auto=format&fit=crop');
+linear-gradient(rgba(2,8,23,0.92),rgba(2,8,23,0.96)),
+url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
 
-color:white;
+overflow:hidden;
+
 }
 
 .login-box{
-width:420px;
-background:rgba(7,18,36,0.92);
-padding:45px;
-border-radius:30px;
+
+width:430px;
+
+padding:50px;
+
+background:rgba(8,18,37,0.92);
+
 border:1px solid rgba(0,255,153,0.2);
-box-shadow:0 0 40px rgba(0,255,153,0.2);
-backdrop-filter:blur(12px);
+
+border-radius:30px;
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 0 45px rgba(0,255,153,0.22);
+
+text-align:center;
+
 }
 
 .logo{
-text-align:center;
-font-size:38px;
+
+font-size:42px;
 font-weight:800;
+
+margin-bottom:20px;
+
 color:#00ff99;
-margin-bottom:35px;
+
 text-shadow:0 0 20px #00ff99;
+
 }
 
 .logo span{
+
 color:#2d7cff;
+
 }
 
-.login-box h1{
-text-align:center;
-margin-bottom:30px;
-font-size:34px;
+h1{
+
+font-size:42px;
+margin-bottom:35px;
+color:white;
+
 }
 
 .input-box{
+
 margin-bottom:22px;
+
 }
 
 .input-box input{
+
 width:100%;
+
 padding:18px;
+
 border:none;
 outline:none;
-border-radius:14px;
-background:#0b1730;
+
+border-radius:15px;
+
+background:#020817;
+
 color:white;
+
 font-size:16px;
+
 }
 
 .input-box input::placeholder{
+
 color:#94a3b8;
+
 }
 
 .btn{
+
 width:100%;
+
 padding:18px;
-background:#00ff99;
+
 border:none;
-border-radius:14px;
+
+border-radius:15px;
+
+background:#00ff99;
+
 font-size:18px;
+
 font-weight:700;
+
 cursor:pointer;
-box-shadow:0 0 25px #00ff99;
+
+box-shadow:0 0 30px #00ff99;
+
 transition:0.3s;
+
 }
 
 .btn:hover{
+
 transform:translateY(-4px);
+
 }
 
 .bottom{
+
 margin-top:25px;
-text-align:center;
+
 color:#cbd5e1;
+
 }
 
 .bottom a{
+
 color:#00ff99;
+
 text-decoration:none;
+
 font-weight:700;
+
 }
 
 </style>
@@ -127,7 +178,7 @@ font-weight:700;
 <h1>Trader Login</h1>
 
 <div class="input-box">
-<input type="text" id="username" placeholder="Username">
+<input type="email" id="username" placeholder="Email">
 </div>
 
 <div class="input-box">
@@ -152,15 +203,18 @@ function login(){
 let username = document.getElementById("username").value;
 let password = document.getElementById("password").value;
 
-if(username === "" || password === ""){
+let savedEmail = localStorage.getItem("email");
+let savedPassword = localStorage.getItem("password");
 
-alert("Please fill all fields");
+if(username === savedEmail && password === savedPassword){
+
+localStorage.setItem("loggedIn", "true");
+
+window.location.href = "dashboard.html";
 
 }else{
 
-localStorage.setItem("trader", username);
-
-window.location.href = "dashboard.html";
+alert("Invalid Email Or Password");
 
 }
 
