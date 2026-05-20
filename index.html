@@ -8,7 +8,6 @@
 
 <title>PureStep Funding</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -22,48 +21,54 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#030712;
+background:#020817;
 color:white;
 overflow-x:hidden;
 }
 
-/* HEADER */
+/* NAVBAR */
 
-header{
-position:fixed;
-top:0;
+nav{
 width:100%;
+padding:25px 70px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 60px;
-background:rgba(3,7,18,0.85);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(0,255,153,0.2);
+position:fixed;
+top:0;
+left:0;
 z-index:1000;
+background:rgba(2,8,23,0.92);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(0,255,153,0.15);
 }
 
 .logo{
-font-size:34px;
+font-size:42px;
 font-weight:800;
 color:#00ff99;
-text-shadow:0 0 20px #00ff99;
+text-shadow:0 0 25px #00ff99;
 }
 
 .logo span{
 color:#2d7cff;
 }
 
-nav a{
-color:white;
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
 text-decoration:none;
-margin-left:30px;
+color:white;
+font-weight:600;
 font-size:17px;
-font-weight:500;
 transition:0.3s;
 }
 
-nav a:hover{
+nav ul li a:hover{
 color:#00ff99;
 }
 
@@ -71,89 +76,76 @@ color:#00ff99;
 
 .hero{
 height:100vh;
+
+background:
+linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.94)),
+url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-position:relative;
-
-background:
-linear-gradient(rgba(3,7,18,0.88),rgba(3,7,18,0.93)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1600&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:#00ff9930;
-filter:blur(140px);
-border-radius:50%;
-top:-250px;
-right:-150px;
+padding:0 20px;
 }
 
 .hero-content{
-position:relative;
-z-index:2;
-max-width:1100px;
-padding:20px;
+max-width:1000px;
 }
 
 .hero h1{
 font-size:95px;
 line-height:1.05;
 font-weight:800;
-text-shadow:0 0 30px #00ff99;
+margin-bottom:25px;
+text-shadow:0 0 40px rgba(0,255,153,0.45);
 }
 
 .hero h1 span{
 color:#00ff99;
+text-shadow:0 0 40px #00ff99;
 }
 
 .hero p{
-margin-top:28px;
-font-size:24px;
-line-height:1.8;
+font-size:28px;
+line-height:1.6;
 color:#d1d5db;
+margin-bottom:45px;
 }
 
 .hero-buttons{
-margin-top:45px;
 display:flex;
 justify-content:center;
-gap:20px;
+gap:25px;
 flex-wrap:wrap;
 }
 
 .btn{
-padding:18px 45px;
+padding:20px 45px;
 background:#00ff99;
-color:black;
-font-size:18px;
-font-weight:700;
-border-radius:14px;
+border-radius:16px;
 text-decoration:none;
+font-weight:700;
+font-size:18px;
+color:black;
 box-shadow:0 0 30px #00ff99;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 }
 
 .btn2{
-padding:18px 45px;
-border:1px solid #00ff99;
-color:#00ff99;
-font-size:18px;
-font-weight:700;
-border-radius:14px;
+padding:20px 45px;
+border:2px solid #00ff99;
+border-radius:16px;
 text-decoration:none;
+font-weight:700;
+font-size:18px;
+color:#00ff99;
 transition:0.3s;
 }
 
@@ -162,60 +154,19 @@ background:#00ff99;
 color:black;
 }
 
-/* FEATURES */
+/* PLANS */
 
-.features{
-padding:110px 40px 40px;
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-}
-
-.feature{
-width:260px;
-background:#071224;
-border:1px solid rgba(0,255,153,0.25);
-border-radius:24px;
-padding:35px;
+.plans{
+padding:120px 40px;
 text-align:center;
-box-shadow:0 0 25px rgba(0,255,153,0.12);
-transition:0.3s;
+background:#020b1f;
 }
 
-.feature:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(0,255,153,0.3);
-}
-
-.feature h2{
-font-size:23px;
-margin-bottom:15px;
-color:#00ff99;
-}
-
-.feature p{
-line-height:1.7;
-color:#d1d5db;
-}
-
-/* TITLES */
-
-.title{
-text-align:center;
+.section-title{
 font-size:70px;
 margin-bottom:70px;
 font-weight:800;
-text-shadow:0 0 20px #00ff99;
 }
-
-/* SECTION */
-
-.section{
-padding:90px 40px;
-}
-
-/* PLANS */
 
 .cards{
 display:flex;
@@ -225,184 +176,96 @@ flex-wrap:wrap;
 }
 
 .card{
-position:relative;
-width:350px;
-background:#071224;
-border:1px solid rgba(0,255,153,0.25);
+width:340px;
+padding:45px 30px;
 border-radius:28px;
-padding:45px;
-text-align:center;
-box-shadow:0 0 30px rgba(0,255,153,0.12);
+background:#081225;
+border:1px solid rgba(0,255,153,0.15);
 transition:0.3s;
-overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 45px rgba(0,255,153,0.35);
-}
-
-.popular{
-border:1px solid #00ff99;
-box-shadow:0 0 45px rgba(0,255,153,0.35);
-}
-
-.badge{
-position:absolute;
-top:18px;
-right:18px;
-background:#00ff99;
-color:black;
-padding:8px 16px;
-border-radius:30px;
-font-size:13px;
-font-weight:700;
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,255,153,0.18);
 }
 
 .card h2{
-font-size:46px;
-font-weight:700;
-margin-bottom:10px;
+font-size:55px;
+margin-bottom:20px;
 }
 
 .price{
 font-size:65px;
 font-weight:800;
 color:#00ff99;
-margin:18px 0;
-text-shadow:0 0 20px #00ff99;
+margin-bottom:25px;
 }
 
 .card p{
-margin:13px 0;
-font-size:17px;
+margin:12px 0;
+font-size:19px;
 color:#d1d5db;
-}
-
-.choose-btn{
-display:inline-block;
-margin-top:25px;
-padding:16px 35px;
-background:#00ff99;
-color:black;
-text-decoration:none;
-font-weight:700;
-border-radius:14px;
-box-shadow:0 0 20px #00ff99;
-transition:0.3s;
-}
-
-.choose-btn:hover{
-transform:scale(1.05);
 }
 
 /* RULES */
 
-.rules-grid{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-}
-
-.rule-card{
-width:340px;
-background:#071224;
-border:1px solid rgba(0,255,153,0.25);
-padding:40px;
-border-radius:25px;
-box-shadow:0 0 25px rgba(0,255,153,0.1);
-transition:0.3s;
-}
-
-.rule-card:hover{
-transform:translateY(-8px);
-}
-
-.rule-card h2{
-color:#00ff99;
-margin-bottom:20px;
-font-size:28px;
-}
-
-.rule-big{
-font-size:60px;
-font-weight:800;
-color:#00ff99;
-margin-bottom:20px;
-text-shadow:0 0 20px #00ff99;
-}
-
-.rule-card p{
-line-height:1.8;
-color:#d1d5db;
-margin:10px 0;
-}
-
-/* STATS */
-
-.stats{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:60px;
-}
-
-.stat{
-width:260px;
-background:#071224;
-border:1px solid rgba(0,255,153,0.25);
-padding:35px;
-border-radius:22px;
+.rules{
+padding:120px 40px;
+background:#030d22;
 text-align:center;
-box-shadow:0 0 20px rgba(0,255,153,0.12);
 }
 
-.stat h1{
-font-size:60px;
-color:#00ff99;
-text-shadow:0 0 20px #00ff99;
-margin-bottom:12px;
+.rules-box{
+max-width:950px;
+margin:auto;
+padding:55px;
+background:#081225;
+border-radius:30px;
+border:1px solid rgba(0,255,153,0.15);
+text-align:left;
+}
+
+.rules-box p{
+font-size:24px;
+margin:22px 0;
 }
 
 /* FOOTER */
 
 footer{
-padding:45px;
+padding:40px;
 text-align:center;
-background:#071224;
-border-top:1px solid rgba(0,255,153,0.2);
-color:#cbd5e1;
-margin-top:80px;
+background:#01060f;
+color:#94a3b8;
+font-size:17px;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
-
-header{
-flex-direction:column;
-gap:20px;
-padding:20px;
-}
-
-nav{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-}
+@media(max-width:900px){
 
 .hero h1{
-font-size:52px;
+font-size:60px;
 }
 
 .hero p{
-font-size:20px;
+font-size:22px;
 }
 
-.title{
-font-size:48px;
+.section-title{
+font-size:50px;
+}
+
+nav{
+padding:20px;
+}
+
+nav ul{
+gap:18px;
+}
+
+.logo{
+font-size:30px;
 }
 
 }
@@ -413,21 +276,41 @@ font-size:48px;
 
 <body>
 
-<header>
-
-<div class="logo">
-<span>PURE</span>Step Funding
-</div>
+<!-- NAVBAR -->
 
 <nav>
 
-<a href="#">Home</a>
-<a href="#plans">Plans</a>
-<a href="#rules">Rules</a>
+<div class="logo">
+<span>PURE</span>Step
+</div>
+
+<ul>
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="challenges.html">Plans</a>
+</li>
+
+<li>
+<a href="rules.html">Rules</a>
+</li>
+
+<li>
+<a href="login.html">Login</a>
+</li>
+
+<li>
+<a href="dashboard.html">Dashboard</a>
+</li>
+
+</ul>
 
 </nav>
 
-</header>
+<!-- HERO -->
 
 <section class="hero">
 
@@ -445,11 +328,11 @@ Fast payouts, transparent rules and real opportunities.
 
 <div class="hero-buttons">
 
-<a href="#plans" class="btn">
+<a href="login.html" class="btn">
 START CHALLENGE
 </a>
 
-<a href="#rules" class="btn2">
+<a href="rules.html" class="btn2">
 VIEW RULES
 </a>
 
@@ -459,35 +342,13 @@ VIEW RULES
 
 </section>
 
-<section class="features">
+<!-- PLANS -->
 
-<div class="feature">
-<h2>FAST PAYOUTS</h2>
-<p>Get paid quickly and securely every 14 days.</p>
-</div>
+<section class="plans" id="plans">
 
-<div class="feature">
-<h2>100% SPLIT</h2>
-<p>Keep 100% of your profits after payout request.</p>
-</div>
-
-<div class="feature">
-<h2>NEWS TRADING</h2>
-<p>Trade news events with no restrictions.</p>
-</div>
-
-<div class="feature">
-<h2>BUILT FOR TRADERS</h2>
-<p>Created for disciplined and serious traders.</p>
-</div>
-
-</section>
-
-<section class="section" id="plans">
-
-<h1 class="title">
+<h2 class="section-title">
 Funding Plans
-</h1>
+</h2>
 
 <div class="cards">
 
@@ -496,28 +357,18 @@ Funding Plans
 <h2>$2,500</h2>
 
 <div class="price">
-$20
+$10
 </div>
 
-<p>Profit Target: 8%</p>
-<p>Daily Loss: 4%</p>
-<p>Maximum Loss: 8%</p>
-<p>Leverage: 1:10</p>
-<p>Minimum Trading Days: 2</p>
-<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $75</p>
-
-<a href="#" class="choose-btn">
-Choose Plan
-</a>
+<p>Profit Split: 100%</p>
+<p>Risk Limit: 2%</p>
+<p>Minimum Trading Days: 2</p>
+<p>2-Step Challenge</p>
 
 </div>
 
-<div class="card popular">
-
-<div class="badge">
-MOST POPULAR
-</div>
+<div class="card">
 
 <h2>$5,000</h2>
 
@@ -525,17 +376,11 @@ MOST POPULAR
 $35
 </div>
 
-<p>Profit Target: 8%</p>
-<p>Daily Loss: 4%</p>
-<p>Maximum Loss: 8%</p>
-<p>Leverage: 1:10</p>
-<p>Minimum Trading Days: 2</p>
-<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $150</p>
-
-<a href="#" class="choose-btn">
-Choose Plan
-</a>
+<p>Profit Split: 100%</p>
+<p>Risk Limit: 2%</p>
+<p>Minimum Trading Days: 2</p>
+<p>2-Step Challenge</p>
 
 </div>
 
@@ -544,74 +389,14 @@ Choose Plan
 <h2>$10,000</h2>
 
 <div class="price">
-$65
+$60
 </div>
 
-<p>Profit Target: 8%</p>
-<p>Daily Loss: 4%</p>
-<p>Maximum Loss: 8%</p>
-<p>Leverage: 1:10</p>
-<p>Minimum Trading Days: 2</p>
-<p>Profit Split: 100%</p>
 <p>Max Withdrawal: $350</p>
-
-<a href="#" class="choose-btn">
-Choose Plan
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="rules">
-
-<h1 class="title">
-Our Rules. Your Edge.
-</h1>
-
-<div class="rules-grid">
-
-<div class="rule-card">
-
-<h2>MAX DAILY LOSS</h2>
-
-<div class="rule-big">
-4%
-</div>
-
-<p>Maximum loss allowed in a single day.</p>
-<p>Calculated from highest equity.</p>
-<p>Resets every day at 00:00 UTC.</p>
-
-</div>
-
-<div class="rule-card">
-
-<h2>MAX OVERALL LOSS</h2>
-
-<div class="rule-big">
-8%
-</div>
-
-<p>Total maximum drawdown allowed.</p>
-<p>Violation disqualifies the account.</p>
-<p>Calculated from initial balance.</p>
-
-</div>
-
-<div class="rule-card">
-
-<h2>RISK PER TRADE</h2>
-
-<div class="rule-big">
-2%
-</div>
-
-<p>Maximum 2% risk per trade.</p>
-<p>No excessive overleveraging.</p>
-<p>Built for disciplined traders.</p>
+<p>Profit Split: 100%</p>
+<p>Risk Limit: 2%</p>
+<p>Minimum Trading Days: 2</p>
+<p>2-Step Challenge</p>
 
 </div>
 
@@ -619,45 +404,44 @@ Our Rules. Your Edge.
 
 </section>
 
-<section class="section">
+<!-- RULES -->
 
-<h1 class="title">
-PureStep Statistics
-</h1>
+<section class="rules">
 
-<div class="stats">
+<h2 class="section-title">
+Trading Rules
+</h2>
 
-<div class="stat">
-<h1>100%</h1>
-<p>Profit Split</p>
-</div>
+<div class="rules-box">
 
-<div class="stat">
-<h1>14D</h1>
-<p>Payout Cycle</p>
-</div>
+<p>✅ Daily Drawdown: 4%</p>
 
-<div class="stat">
-<h1>1:10</h1>
-<p>Leverage</p>
-</div>
+<p>✅ Maximum Drawdown: 8%</p>
+
+<p>✅ Profit Split Up To 100%</p>
+
+<p>✅ News Trading Allowed</p>
+
+<p>✅ Minimum Trading Days: 2</p>
+
+<p>✅ Fast Payouts Within 14 Days</p>
+
+<p>✅ Crypto & Forex Trading Allowed</p>
+
+<p>✅ No Martingale Allowed</p>
 
 </div>
 
 </section>
+
+<!-- FOOTER -->
 
 <footer>
 
-© 2026 PureStep Funding — All Rights Reserved.
+© 2026 PureStep Funding — All Rights Reserved
 
 </footer>
 
 </body>
-</html>
 
-© 2026 PureStep Funding — All Rights Reserved.
-
-</footer>
-
-</body>
 </html>
