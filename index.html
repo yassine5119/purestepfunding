@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PureStep Funding</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,11 +17,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#050816;
+background:#030712;
 color:white;
 overflow-x:hidden;
 }
@@ -25,20 +30,22 @@ overflow-x:hidden;
 /* HEADER */
 
 header{
+position:fixed;
+top:0;
+width:100%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 60px;
-background:#071224;
-border-bottom:1px solid #00ff99;
-position:sticky;
-top:0;
+padding:22px 60px;
+background:rgba(3,7,18,0.85);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(0,255,153,0.2);
 z-index:1000;
 }
 
 .logo{
 font-size:34px;
-font-weight:bold;
+font-weight:800;
 color:#00ff99;
 text-shadow:0 0 20px #00ff99;
 }
@@ -51,7 +58,8 @@ nav a{
 color:white;
 text-decoration:none;
 margin-left:30px;
-font-size:18px;
+font-size:17px;
+font-weight:500;
 transition:0.3s;
 }
 
@@ -67,21 +75,39 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+position:relative;
+
 background:
-linear-gradient(rgba(5,8,22,0.9),rgba(5,8,22,0.95)),
-url('https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=1600&auto=format&fit=crop');
+linear-gradient(rgba(3,7,18,0.90),rgba(3,7,18,0.95)),
+url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1600&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
 }
 
+.hero::before{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:#00ff9930;
+filter:blur(140px);
+border-radius:50%;
+top:-200px;
+right:-100px;
+}
+
 .hero-content{
-max-width:1000px;
+position:relative;
+z-index:2;
+max-width:1100px;
+padding:20px;
 }
 
 .hero h1{
-font-size:80px;
-line-height:1.1;
+font-size:95px;
+line-height:1.05;
+font-weight:800;
 text-shadow:0 0 25px #00ff99;
 }
 
@@ -90,20 +116,26 @@ color:#00ff99;
 }
 
 .hero p{
-margin-top:25px;
+margin-top:28px;
 font-size:24px;
-color:#cbd5e1;
-line-height:1.7;
+line-height:1.8;
+color:#d1d5db;
+}
+
+.hero-buttons{
+margin-top:45px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
-display:inline-block;
-margin-top:40px;
 padding:18px 45px;
 background:#00ff99;
 color:black;
-font-size:20px;
-font-weight:bold;
+font-size:18px;
+font-weight:700;
 border-radius:14px;
 text-decoration:none;
 box-shadow:0 0 30px #00ff99;
@@ -111,137 +143,197 @@ transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.08);
+transform:translateY(-6px);
+}
+
+.btn2{
+padding:18px 45px;
+border:1px solid #00ff99;
+color:#00ff99;
+font-size:18px;
+font-weight:700;
+border-radius:14px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.btn2:hover{
+background:#00ff99;
+color:black;
 }
 
 /* FEATURES */
 
 .features{
+padding:110px 40px 40px;
 display:flex;
 justify-content:center;
 gap:25px;
 flex-wrap:wrap;
-padding:70px 40px;
 }
 
 .feature{
+width:260px;
 background:#071224;
-border:1px solid #00ff99;
-box-shadow:0 0 20px #00ff9940;
-padding:30px;
-border-radius:20px;
-width:250px;
+border:1px solid rgba(0,255,153,0.25);
+border-radius:24px;
+padding:35px;
 text-align:center;
+box-shadow:0 0 25px rgba(0,255,153,0.12);
+transition:0.3s;
+}
+
+.feature:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(0,255,153,0.3);
 }
 
 .feature h2{
-font-size:24px;
+font-size:23px;
 margin-bottom:15px;
 color:#00ff99;
 }
 
 .feature p{
-color:#cbd5e1;
-line-height:1.6;
+line-height:1.7;
+color:#d1d5db;
 }
 
-/* SECTION TITLE */
+/* TITLES */
 
 .title{
 text-align:center;
-font-size:65px;
-margin-top:40px;
-margin-bottom:60px;
+font-size:70px;
+margin-bottom:70px;
+font-weight:800;
 text-shadow:0 0 20px #00ff99;
 }
 
 /* PLANS */
+
+.section{
+padding:90px 40px;
+}
 
 .cards{
 display:flex;
 justify-content:center;
 gap:35px;
 flex-wrap:wrap;
-padding:20px 30px 90px;
 }
 
 .card{
-background:#071224;
-border:2px solid #00ff99;
-box-shadow:0 0 30px #00ff9940;
-padding:40px;
-border-radius:25px;
-width:340px;
-text-align:center;
-transition:0.3s;
 position:relative;
+width:350px;
+background:#071224;
+border:1px solid rgba(0,255,153,0.25);
+border-radius:28px;
+padding:45px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,255,153,0.12);
+transition:0.3s;
+overflow:hidden;
 }
 
 .card:hover{
 transform:translateY(-12px);
-box-shadow:0 0 40px #00ff99;
+box-shadow:0 0 45px rgba(0,255,153,0.35);
 }
 
 .popular{
-border:2px solid #2dff7a;
-box-shadow:0 0 45px #2dff7a;
+border:1px solid #00ff99;
 }
 
 .badge{
 position:absolute;
-top:-15px;
-left:50%;
-transform:translateX(-50%);
+top:18px;
+right:18px;
 background:#00ff99;
 color:black;
-padding:8px 18px;
+padding:8px 16px;
 border-radius:30px;
-font-weight:bold;
-font-size:14px;
+font-size:13px;
+font-weight:700;
 }
 
 .card h2{
-font-size:45px;
+font-size:46px;
+font-weight:700;
 margin-bottom:10px;
 }
 
 .price{
-font-size:55px;
+font-size:65px;
+font-weight:800;
 color:#00ff99;
-margin:20px 0;
+margin:18px 0;
 text-shadow:0 0 20px #00ff99;
 }
 
 .card p{
-margin:12px 0;
-font-size:18px;
+margin:13px 0;
+font-size:17px;
 color:#d1d5db;
 }
 
 .choose-btn{
 display:inline-block;
-margin-top:20px;
-padding:14px 30px;
+margin-top:25px;
+padding:16px 35px;
 background:#00ff99;
 color:black;
-border-radius:12px;
-font-weight:bold;
 text-decoration:none;
+font-weight:700;
+border-radius:14px;
 box-shadow:0 0 20px #00ff99;
+transition:0.3s;
+}
+
+.choose-btn:hover{
+transform:scale(1.05);
 }
 
 /* RULES */
 
-.rules{
-max-width:1000px;
-margin:0 auto 100px;
+.rules-grid{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.rule-card{
+width:340px;
 background:#071224;
-border:1px solid #00ff99;
-box-shadow:0 0 30px #00ff9940;
-padding:45px;
+border:1px solid rgba(0,255,153,0.25);
+padding:40px;
 border-radius:25px;
-font-size:22px;
-line-height:2;
+box-shadow:0 0 25px rgba(0,255,153,0.1);
+transition:0.3s;
+}
+
+.rule-card:hover{
+transform:translateY(-8px);
+}
+
+.rule-card h2{
+color:#00ff99;
+margin-bottom:20px;
+font-size:28px;
+}
+
+.rule-big{
+font-size:60px;
+font-weight:800;
+color:#00ff99;
+margin-bottom:20px;
+text-shadow:0 0 20px #00ff99;
+}
+
+.rule-card p{
+line-height:1.8;
+color:#d1d5db;
+margin:10px 0;
 }
 
 /* STATS */
@@ -251,52 +343,72 @@ display:flex;
 justify-content:center;
 gap:30px;
 flex-wrap:wrap;
-padding-bottom:100px;
+margin-top:60px;
 }
 
 .stat{
-background:#071224;
-border:1px solid #00ff99;
-padding:35px;
 width:260px;
-border-radius:20px;
+background:#071224;
+border:1px solid rgba(0,255,153,0.25);
+padding:35px;
+border-radius:22px;
 text-align:center;
-box-shadow:0 0 20px #00ff9940;
+box-shadow:0 0 20px rgba(0,255,153,0.12);
 }
 
 .stat h1{
-font-size:55px;
+font-size:60px;
 color:#00ff99;
 text-shadow:0 0 20px #00ff99;
+margin-bottom:12px;
+}
+
+/* FAQ */
+
+.faq{
+max-width:1000px;
+margin:auto;
+}
+
+.faq-item{
+background:#071224;
+border:1px solid rgba(0,255,153,0.2);
+padding:30px;
+border-radius:22px;
+margin-bottom:22px;
+box-shadow:0 0 20px rgba(0,255,153,0.08);
+}
+
+.faq-item h3{
+font-size:24px;
 margin-bottom:10px;
+color:#00ff99;
+}
+
+.faq-item p{
+color:#d1d5db;
+line-height:1.7;
 }
 
 /* FOOTER */
 
 footer{
-background:#071224;
-border-top:1px solid #00ff99;
-padding:35px;
+padding:45px;
 text-align:center;
-font-size:18px;
+background:#071224;
+border-top:1px solid rgba(0,255,153,0.2);
 color:#cbd5e1;
+margin-top:80px;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:20px;
-}
-
 header{
 flex-direction:column;
 gap:20px;
+padding:20px;
 }
 
 nav{
@@ -305,9 +417,22 @@ flex-wrap:wrap;
 justify-content:center;
 }
 
+.hero h1{
+font-size:52px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.title{
+font-size:48px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -319,11 +444,12 @@ justify-content:center;
 </div>
 
 <nav>
+
 <a href="#">Home</a>
-<a href="#">Challenges</a>
-<a href="#">Rules</a>
-<a href="#">Dashboard</a>
-<a href="#">Login</a>
+<a href="#plans">Plans</a>
+<a href="#rules">Rules</a>
+<a href="#faq">FAQ</a>
+
 </nav>
 
 </header>
@@ -333,18 +459,26 @@ justify-content:center;
 <div class="hero-content">
 
 <h1>
-Choose Your Account.<br>
-Take The <span>Next Step.</span>
+Fund Your Skills.<br>
+Keep The <span>Profits.</span>
 </h1>
 
 <p>
-We fund disciplined traders — not gamblers.<br>
-Fast payouts, strict rules and real opportunities.
+Professional proprietary trading firm built for disciplined traders.
+Fast payouts, transparent rules and real opportunities.
 </p>
 
-<a href="#" class="btn">
+<div class="hero-buttons">
+
+<a href="#plans" class="btn">
 START CHALLENGE
 </a>
+
+<a href="#rules" class="btn2">
+VIEW RULES
+</a>
+
+</div>
 
 </div>
 
@@ -358,44 +492,48 @@ START CHALLENGE
 </div>
 
 <div class="feature">
-<h2>NEWS TRADING</h2>
-<p>Trade the news with no restrictions.</p>
+<h2>HIGH SPLIT</h2>
+<p>Receive up to 80% of your profits.</p>
 </div>
 
 <div class="feature">
-<h2>HIGH SPLIT</h2>
-<p>Receive up to 90% of your profits.</p>
+<h2>NEWS TRADING</h2>
+<p>Trade news events with no restrictions.</p>
 </div>
 
 <div class="feature">
 <h2>BUILT FOR TRADERS</h2>
-<p>Designed for disciplined and serious traders.</p>
+<p>Created for disciplined and serious traders.</p>
 </div>
 
 </section>
+
+<section class="section" id="plans">
 
 <h1 class="title">
 Funding Plans
 </h1>
 
-<section class="cards">
+<div class="cards">
 
 <div class="card">
 
 <h2>$2,500</h2>
 
-<div class="price">$20</div>
+<div class="price">
+$20
+</div>
 
 <p>Profit Target: 8%</p>
 <p>Daily Loss: 4%</p>
 <p>Maximum Loss: 8%</p>
 <p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>Profit Split: Up To 90%</p>
+<p>Profit Split: Up To 80%</p>
 <p>Max Withdrawal: $75</p>
 
 <a href="#" class="choose-btn">
-Choose This Plan
+Choose Plan
 </a>
 
 </div>
@@ -408,18 +546,20 @@ MOST POPULAR
 
 <h2>$5,000</h2>
 
-<div class="price">$35</div>
+<div class="price">
+$35
+</div>
 
 <p>Profit Target: 8%</p>
 <p>Daily Loss: 4%</p>
 <p>Maximum Loss: 8%</p>
 <p>Leverage: 1:10</p>
 <p>Minimum Trading Days: 2</p>
-<p>Profit Split: Up To 90%</p>
+<p>Profit Split: Up To 80%</p>
 <p>Max Withdrawal: $150</p>
 
 <a href="#" class="choose-btn">
-Choose This Plan
+Choose Plan
 </a>
 
 </div>
@@ -428,7 +568,9 @@ Choose This Plan
 
 <h2>$10,000</h2>
 
-<div class="price">$65</div>
+<div class="price">
+$65
+</div>
 
 <p>Profit Target: 8%</p>
 <p>Daily Loss: 4%</p>
@@ -439,39 +581,125 @@ Choose This Plan
 <p>Max Withdrawal: $350</p>
 
 <a href="#" class="choose-btn">
-Choose This Plan
+Choose Plan
 </a>
+
+</div>
 
 </div>
 
 </section>
 
+<section class="section" id="rules">
+
 <h1 class="title">
-Trading Rules
+Our Rules. Your Edge.
 </h1>
 
-<div class="rules">
+<div class="rules-grid">
 
-<p>✅ Daily Drawdown: 4%</p>
-<p>✅ Maximum Drawdown: 8%</p>
-<p>✅ Profit Split Up To 90%</p>
-<p>✅ Forex & Crypto Allowed</p>
-<p>✅ News Trading Allowed</p>
-<p>✅ Minimum Trading Days: 2</p>
-<p>❌ No High Frequency Trading</p>
-<p>❌ No Arbitrage</p>
-<p>❌ No Account Sharing</p>
+<div class="rule-card">
+
+<h2>MAX DAILY LOSS</h2>
+
+<div class="rule-big">
+4%
+</div>
+
+<p>Maximum loss allowed in a single day.</p>
+<p>Calculated from highest equity.</p>
+<p>Resets every day at 00:00 UTC.</p>
 
 </div>
+
+<div class="rule-card">
+
+<h2>MAX OVERALL LOSS</h2>
+
+<div class="rule-big">
+8%
+</div>
+
+<p>Total maximum drawdown allowed.</p>
+<p>Violation disqualifies the account.</p>
+<p>Calculated from initial balance.</p>
+
+</div>
+
+<div class="rule-card">
+
+<h2>RISK PER TRADE</h2>
+
+<div class="rule-big">
+2%
+</div>
+
+<p>Maximum 2% risk per trade.</p>
+<p>No excessive overleveraging.</p>
+<p>Built for disciplined traders.</p>
+
+</div>
+
+</div>
+
+<div class="rules-grid" style="margin-top:30px;">
+
+<div class="rule-card">
+
+<h2>LEVERAGE</h2>
+
+<div class="rule-big">
+1:10
+</div>
+
+<p>Forex: 1:10</p>
+<p>Crypto: 1:5</p>
+
+</div>
+
+<div class="rule-card">
+
+<h2>PROHIBITED</h2>
+
+<div class="rule-big">
+RULES
+</div>
+
+<p>No Martingale</p>
+<p>No Arbitrage</p>
+<p>No HFT</p>
+<p>No Account Sharing</p>
+
+</div>
+
+<div class="rule-card">
+
+<h2>TRADING STYLES</h2>
+
+<div class="rule-big">
+ALL
+</div>
+
+<p>Scalping Allowed</p>
+<p>Day Trading Allowed</p>
+<p>Swing Trading Allowed</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
 
 <h1 class="title">
 PureStep Statistics
 </h1>
 
-<section class="stats">
+<div class="stats">
 
 <div class="stat">
-<h1>90%</h1>
+<h1>80%</h1>
 <p>Profit Split</p>
 </div>
 
@@ -485,9 +713,45 @@ PureStep Statistics
 <p>Leverage</p>
 </div>
 
+</div>
+
+</section>
+
+<section class="section" id="faq">
+
+<h1 class="title">
+FAQ
+</h1>
+
+<div class="faq">
+
+<div class="faq-item">
+<h3>How do payouts work?</h3>
+<p>Traders can request payouts every 14 days depending on account type.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is news trading allowed?</h3>
+<p>Yes. News trading is fully allowed with no restrictions.</p>
+</div>
+
+<div class="faq-item">
+<h3>What markets can I trade?</h3>
+<p>Forex, Crypto, Gold and Indices are all supported.</p>
+</div>
+
+</div>
+
 </section>
 
 <footer>
+
+© 2026 PureStep Funding — All Rights Reserved.
+
+</footer>
+
+</body>
+</html>
 
 © 2026 PureStep Funding — All Rights Reserved.
 
