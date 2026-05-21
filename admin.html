@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PURESTEP ADMIN PANEL</title>
+<title>PURESTEP SECURE ADMIN PANEL</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -28,29 +28,137 @@ color:white;
 
 padding:40px;
 
+overflow-x:hidden;
+
+}
+
+/* BACKGROUND */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:-250px;
+right:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.05);
+
+border-radius:50%;
+
+z-index:-1;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+bottom:-250px;
+left:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.05);
+
+border-radius:50%;
+
+z-index:-1;
+
+}
+
+/* HEADER */
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+margin-bottom:40px;
+
+}
+
+.logo{
+
+font-size:52px;
+
+font-weight:800;
+
+color:white;
+
+}
+
+.logo span{
+
+color:#00ff99;
+
+text-shadow:0 0 25px #00ff99;
+
+}
+
+.logout{
+
+padding:16px 28px;
+
+background:#ef4444;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:700;
+
+border-radius:50px;
+
+box-shadow:0 0 25px rgba(239,68,68,0.4);
+
+transition:0.3s;
+
+}
+
+.logout:hover{
+
+transform:translateY(-5px);
+
 }
 
 /* TITLE */
 
 .title{
 
-font-size:50px;
+font-size:42px;
 
 font-weight:800;
 
-margin-bottom:40px;
+margin-bottom:10px;
 
 }
 
-.title span{
+.subtitle{
 
-color:#00ff99;
+color:#94a3b8;
 
-text-shadow:0 0 20px #00ff99;
+font-size:18px;
+
+margin-bottom:45px;
 
 }
 
-/* USERS */
+/* USERS GRID */
 
 .users{
 
@@ -78,6 +186,16 @@ position:relative;
 
 overflow:hidden;
 
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 35px rgba(0,255,153,0.15);
+
 }
 
 .card::before{
@@ -86,11 +204,11 @@ content:"";
 
 position:absolute;
 
-top:-80px;
-right:-80px;
+top:-90px;
+right:-90px;
 
-width:180px;
-height:180px;
+width:220px;
+height:220px;
 
 background:rgba(0,255,153,0.05);
 
@@ -98,27 +216,61 @@ border-radius:50%;
 
 }
 
+/* USERNAME */
+
 .card h2{
 
-font-size:24px;
+font-size:28px;
 
-margin-bottom:12px;
+margin-bottom:15px;
 
 position:relative;
 z-index:2;
 
 }
 
+/* INFO */
+
 .card p{
 
-margin:10px 0;
-
-font-size:16px;
+margin:12px 0;
 
 color:#cbd5e1;
 
+font-size:16px;
+
+line-height:1.7;
+
 position:relative;
 z-index:2;
+
+word-break:break-word;
+
+}
+
+/* STATUS */
+
+.active{
+
+color:#00ff99;
+
+font-weight:800;
+
+}
+
+.pending{
+
+color:#ffcc00;
+
+font-weight:800;
+
+}
+
+.breached{
+
+color:#ef4444;
+
+font-weight:800;
 
 }
 
@@ -128,21 +280,21 @@ z-index:2;
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 margin-top:15px;
 
 border:none;
 
-border-radius:15px;
+outline:none;
+
+border-radius:16px;
 
 background:#0f172a;
 
 color:white;
 
 font-size:16px;
-
-outline:none;
 
 border:1px solid rgba(255,255,255,0.05);
 
@@ -154,27 +306,30 @@ border:1px solid rgba(255,255,255,0.05);
 
 width:100%;
 
-padding:16px;
+padding:18px;
 
 margin-top:18px;
 
 border:none;
 
-border-radius:16px;
+border-radius:18px;
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-font-weight:800;
-
 font-size:16px;
+
+font-weight:800;
 
 cursor:pointer;
 
 transition:0.3s;
 
 box-shadow:0 0 25px rgba(0,255,153,0.25);
+
+position:relative;
+z-index:2;
 
 }
 
@@ -183,24 +338,6 @@ box-shadow:0 0 25px rgba(0,255,153,0.25);
 transform:translateY(-5px);
 
 box-shadow:0 0 40px rgba(0,255,153,0.6);
-
-}
-
-/* STATUS */
-
-.pending{
-
-color:#ffcc00;
-
-font-weight:700;
-
-}
-
-.active{
-
-color:#00ff99;
-
-font-weight:700;
 
 }
 
@@ -214,9 +351,21 @@ padding:20px;
 
 }
 
+.logo{
+
+font-size:40px;
+
+}
+
 .title{
 
-font-size:38px;
+font-size:32px;
+
+}
+
+.subtitle{
+
+font-size:16px;
 
 }
 
@@ -228,19 +377,53 @@ font-size:38px;
 
 <body>
 
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+PURE<span>Step</span>
+</div>
+
+<a href="login.html" class="logout">
+
+Logout
+
+</a>
+
+</div>
+
+<!-- TITLE -->
+
 <h1 class="title">
 
-PURE<span>Step</span> Admin Panel
+Secure Admin Dashboard 🚀
 
 </h1>
+
+<p class="subtitle">
+
+Manage traders, approve funded accounts, monitor balances and control PureStep Funding.
+
+</p>
+
+<!-- USERS -->
 
 <div class="users" id="users-container">
 
 </div>
 
+<!-- FIREBASE -->
+
 <script type="module">
 
 import { auth, db } from "./firebase.js";
+
+import {
+
+onAuthStateChanged
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
 
@@ -251,17 +434,71 @@ updateDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+/* ADMIN PROTECTION */
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+const adminEmail =
+"purestepfunding@gmail.com";
+
+const adminKey =
+prompt("Enter Admin Secret Key");
+
+/* CHECK */
+
+if(
+
+user.email !== adminEmail
+
+||
+
+adminKey !== "PURESTEPYASSINE2026"
+
+){
+
+alert("Access Denied");
+
+window.location.href =
+"dashboard.html";
+
+}
+
+/* ACCESS */
+
+else{
+
+loadUsers();
+
+}
+
+}
+
+/* NO LOGIN */
+
+else{
+
+window.location.href =
+"login.html";
+
+}
+
+});
+
 /* USERS CONTAINER */
 
 const container =
 
 document.getElementById("users-container");
 
-/* GET USERS */
+/* LOAD USERS */
 
 async function loadUsers(){
 
-const querySnapshot = await getDocs(collection(db,"users"));
+const querySnapshot =
+
+await getDocs(collection(db,"users"));
 
 container.innerHTML = "";
 
@@ -273,13 +510,31 @@ const data = docSnap.data();
 
 const uid = docSnap.id;
 
+/* STATUS */
+
+let statusClass = "pending";
+
+if(data.status === "ACTIVE"){
+
+statusClass = "active";
+
+}
+
+if(data.status === "BREACHED"){
+
+statusClass = "breached";
+
+}
+
 /* CARD */
 
 container.innerHTML += `
 
 <div class="card">
 
-<h2>${data.username}</h2>
+<h2>
+${data.username}
+</h2>
 
 <p>
 📧 ${data.email}
@@ -307,11 +562,7 @@ container.innerHTML += `
 
 <p>
 📌 Status:
-<b class="${
-data.status === "ACTIVE"
-? "active"
-: "pending"
-}">
+<b class="${statusClass}">
 ${data.status}
 </b>
 </p>
@@ -327,7 +578,7 @@ ${data.status}
 </p>
 
 <p>
-🧾 Transaction:
+🧾 Transaction ID:
 <b>${data.transactionID || "None"}</b>
 </p>
 
@@ -377,6 +628,8 @@ document.getElementById(
 `type-${uid}`
 ).value;
 
+/* UPDATE */
+
 await updateDoc(doc(db,"users",uid),{
 
 balance:Number(balance),
@@ -393,15 +646,11 @@ maxDrawdown:"8%"
 
 });
 
-alert("Account Approved 🚀");
+alert("Account Approved Successfully 🚀");
 
 loadUsers();
 
 };
-
-/* START */
-
-loadUsers();
 
 </script>
 
