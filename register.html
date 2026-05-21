@@ -21,20 +21,57 @@ font-family:'Poppins',sans-serif;
 
 body{
 
-background:
-linear-gradient(rgba(2,6,23,0.88),rgba(2,6,23,0.95)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
+background:#020617;
 
-background-size:cover;
-background-position:center;
-
-min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
+
+min-height:100vh;
+
 padding:20px;
 
-color:white;
+overflow:hidden;
+
+position:relative;
+
+}
+
+/* BACKGROUND */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+top:-250px;
+right:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.08);
+
+border-radius:50%;
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-250px;
+left:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.08);
+
+border-radius:50%;
 
 }
 
@@ -43,20 +80,41 @@ color:white;
 .register-box{
 
 width:100%;
-max-width:480px;
+max-width:520px;
 
-background:rgba(7,18,38,0.95);
-backdrop-filter:blur(10px);
+background:#071226;
 
-padding:50px 35px;
+padding:50px 40px;
 
-border-radius:30px;
+border-radius:35px;
 
-border:1px solid rgba(0,255,153,0.2);
+border:1px solid rgba(0,255,153,0.1);
 
-box-shadow:0 0 35px rgba(0,255,153,0.15);
+position:relative;
 
-animation:fadeIn 1s ease;
+overflow:hidden;
+
+z-index:2;
+
+box-shadow:0 0 40px rgba(0,255,153,0.08);
+
+}
+
+.register-box::before{
+
+content:"";
+
+position:absolute;
+
+top:-120px;
+right:-120px;
+
+width:240px;
+height:240px;
+
+background:rgba(0,255,153,0.06);
+
+border-radius:50%;
 
 }
 
@@ -65,25 +123,42 @@ animation:fadeIn 1s ease;
 .logo{
 
 text-align:center;
-font-size:40px;
+
+font-size:48px;
+
 font-weight:800;
+
 margin-bottom:15px;
+
+position:relative;
+z-index:2;
 
 }
 
 .logo span{
 
 color:#00ff99;
-text-shadow:0 0 20px #00ff99;
+
+text-shadow:0 0 25px #00ff99;
 
 }
+
+/* SUBTITLE */
 
 .subtitle{
 
 text-align:center;
+
+font-size:18px;
+
 color:#cbd5e1;
+
 margin-bottom:40px;
+
 line-height:1.7;
+
+position:relative;
+z-index:2;
 
 }
 
@@ -91,15 +166,21 @@ line-height:1.7;
 
 .input-group{
 
-margin-bottom:22px;
+margin-bottom:24px;
+
+position:relative;
+z-index:2;
 
 }
 
 .input-group label{
 
 display:block;
+
 margin-bottom:10px;
+
 font-weight:600;
+
 color:#cbd5e1;
 
 }
@@ -107,19 +188,21 @@ color:#cbd5e1;
 .input-group input{
 
 width:100%;
-padding:16px;
+
+padding:17px;
 
 border:none;
 outline:none;
 
-border-radius:14px;
-
 background:#0f172a;
+
+border-radius:18px;
+
 color:white;
 
 font-size:16px;
 
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.06);
 
 transition:0.3s;
 
@@ -128,7 +211,8 @@ transition:0.3s;
 .input-group input:focus{
 
 border:1px solid #00ff99;
-box-shadow:0 0 15px rgba(0,255,153,0.3);
+
+box-shadow:0 0 20px rgba(0,255,153,0.2);
 
 }
 
@@ -137,47 +221,37 @@ box-shadow:0 0 15px rgba(0,255,153,0.3);
 .register-btn{
 
 width:100%;
+
 padding:18px;
 
 border:none;
-border-radius:14px;
 
-background:#00ff99;
+border-radius:18px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
 
 font-size:18px;
-font-weight:700;
+
+font-weight:800;
 
 cursor:pointer;
 
-transition:0.4s;
+transition:0.3s;
 
-box-shadow:0 0 25px #00ff99;
+box-shadow:0 0 25px rgba(0,255,153,0.35);
+
+position:relative;
+z-index:2;
 
 }
 
 .register-btn:hover{
 
-transform:translateY(-4px);
-box-shadow:0 0 40px #00ff99;
+transform:translateY(-5px);
 
-}
-
-/* EXTRA */
-
-.extra{
-
-margin-top:25px;
-text-align:center;
-color:#94a3b8;
-
-}
-
-.extra a{
-
-color:#00ff99;
-text-decoration:none;
-font-weight:600;
+box-shadow:0 0 40px rgba(0,255,153,0.7);
 
 }
 
@@ -185,32 +259,120 @@ font-weight:600;
 
 .message{
 
-margin-top:20px;
-text-align:center;
-font-weight:600;
+margin-top:25px;
+
+padding:18px;
+
+border-radius:16px;
+
+font-weight:700;
+
 display:none;
 
+position:relative;
+z-index:2;
+
 }
 
-/* ANIMATION */
+.success{
 
-@keyframes fadeIn{
+background:#00ff99;
 
-from{
-opacity:0;
-transform:translateY(30px);
+color:black;
+
 }
 
-to{
-opacity:1;
-transform:translateY(0);
+.error{
+
+background:#ef4444;
+
+color:white;
+
+}
+
+/* LOGIN */
+
+.login{
+
+text-align:center;
+
+margin-top:30px;
+
+color:#cbd5e1;
+
+position:relative;
+z-index:2;
+
+}
+
+.login a{
+
+color:#00ff99;
+
+text-decoration:none;
+
+font-weight:700;
+
+}
+
+/* SUPPORT */
+
+.support-btn{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+padding:18px 28px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:700;
+
+border-radius:50px;
+
+text-decoration:none;
+
+box-shadow:0 0 25px rgba(0,255,153,0.5);
+
+z-index:9999;
+
+transition:0.3s;
+
+animation:pulse 2s infinite;
+
+}
+
+.support-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.8);
+
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 15px rgba(0,255,153,0.4);
+}
+
+50%{
+box-shadow:0 0 35px rgba(0,255,153,0.8);
+}
+
+100%{
+box-shadow:0 0 15px rgba(0,255,153,0.4);
 }
 
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
+@media(max-width:600px){
 
 .register-box{
 
@@ -220,7 +382,13 @@ padding:40px 25px;
 
 .logo{
 
-font-size:34px;
+font-size:40px;
+
+}
+
+.subtitle{
+
+font-size:16px;
 
 }
 
@@ -232,6 +400,8 @@ font-size:34px;
 
 <body>
 
+<!-- REGISTER BOX -->
+
 <div class="register-box">
 
 <div class="logo">
@@ -239,92 +409,213 @@ PURE<span>Step</span>
 </div>
 
 <p class="subtitle">
-Create your PureStep Funding account and start your funded trading journey.
+
+Create your PureStep trader account and start your funded journey today.
+
 </p>
 
-<!-- REGISTER FORM -->
+<!-- USERNAME -->
 
 <div class="input-group">
 
-<label>Full Name</label>
+<label>
+Username
+</label>
 
-<input type="text" id="name" placeholder="Enter your full name">
+<input type="text" id="username" placeholder="Enter username">
 
 </div>
 
+<!-- EMAIL -->
+
 <div class="input-group">
 
-<label>Email</label>
+<label>
+Email Address
+</label>
 
 <input type="email" id="email" placeholder="Enter your email">
 
 </div>
 
+<!-- PASSWORD -->
+
 <div class="input-group">
 
-<label>Password</label>
+<label>
+Password
+</label>
 
 <input type="password" id="password" placeholder="Create password">
 
 </div>
 
-<button class="register-btn" onclick="register()">
+<!-- BUTTON -->
+
+<button class="register-btn" onclick="registerUser()">
+
 CREATE ACCOUNT
+
 </button>
 
-<div class="message" id="message">
+<!-- SUCCESS -->
+
+<div class="message success" id="success-message">
+
 Account Created Successfully 🚀
+
 </div>
 
-<div class="extra">
+<!-- ERROR -->
+
+<div class="message error" id="error-message">
+
+Registration Failed
+
+</div>
+
+<!-- LOGIN -->
+
+<div class="login">
 
 Already have an account?
+
 <a href="login.html">
+
 Login
+
 </a>
 
 </div>
 
 </div>
 
-<!-- SCRIPT -->
+<!-- SUPPORT -->
 
-<script>
+<a href="https://instagram.com/purestepfunding"
+target="_blank"
+class="support-btn">
 
-function register(){
+Support
 
-let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
+</a>
 
-let message = document.getElementById("message");
+<!-- FIREBASE -->
 
-if(name === "" || email === "" || password === ""){
+<script type="module">
 
-message.style.display = "block";
-message.style.color = "red";
-message.innerHTML = "Please fill all fields";
+import { auth, db } from "./firebase.js";
 
-return;
+import {
 
-}
+createUserWithEmailAndPassword
 
-localStorage.setItem("userName", name);
-localStorage.setItem("userEmail", email);
-localStorage.setItem("userPassword", password);
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-message.style.display = "block";
-message.style.color = "#00ff99";
+import {
 
-setTimeout(()=>{
+doc,
+setDoc
 
-window.location.href = "login.html";
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* REGISTER */
+
+window.registerUser = async function(){
+
+const username =
+document.getElementById("username").value;
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const success =
+document.getElementById("success-message");
+
+const error =
+document.getElementById("error-message");
+
+success.style.display = "none";
+
+error.style.display = "none";
+
+try{
+
+const userCredential =
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+const user =
+userCredential.user;
+
+/* SAVE USER */
+
+await setDoc(doc(db,"users",user.uid),{
+
+username: username,
+
+email: email,
+
+balance: 0,
+
+profit: 0,
+
+status: "ACTIVE",
+
+phase: "Phase 1",
+
+accountType: "No Challenge Yet",
+
+createdAt: new Date()
+
+});
+
+/* LOCAL STORAGE */
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+localStorage.setItem(
+"userName",
+username
+);
+
+localStorage.setItem(
+"userEmail",
+email
+);
+
+success.style.display = "block";
+
+setTimeout(() => {
+
+window.location.href =
+"dashboard.html";
 
 },1500);
 
 }
 
+catch(err){
+
+error.style.display = "block";
+
+console.log(err);
+
+}
+
+};
+
 </script>
 
 </body>
+
 </html>
