@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Register - PureStep Funding</title>
+<title>PURESTEP REGISTER</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -21,120 +21,208 @@ font-family:'Poppins',sans-serif;
 
 body{
 
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
 background:
-linear-gradient(rgba(2,8,23,0.92),rgba(2,8,23,0.95)),
+linear-gradient(rgba(2,6,23,0.88),rgba(2,6,23,0.95)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
 
-}
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
 
-.box{
-
-width:430px;
-padding:50px;
-
-background:rgba(8,18,37,0.92);
-
-border:1px solid rgba(0,255,153,0.18);
-
-border-radius:30px;
-
-backdrop-filter:blur(15px);
-
-box-shadow:0 0 45px rgba(0,255,153,0.2);
-
-text-align:center;
-
-}
-
-.logo{
-
-font-size:42px;
-font-weight:800;
-margin-bottom:20px;
-color:#00ff99;
-
-text-shadow:0 0 20px #00ff99;
-
-}
-
-.logo span{
-color:#2d7cff;
-}
-
-h1{
-
-font-size:40px;
-margin-bottom:35px;
 color:white;
 
 }
 
-.input-box{
+/* REGISTER BOX */
+
+.register-box{
+
+width:100%;
+max-width:480px;
+
+background:rgba(7,18,38,0.95);
+backdrop-filter:blur(10px);
+
+padding:50px 35px;
+
+border-radius:30px;
+
+border:1px solid rgba(0,255,153,0.2);
+
+box-shadow:0 0 35px rgba(0,255,153,0.15);
+
+animation:fadeIn 1s ease;
+
+}
+
+/* LOGO */
+
+.logo{
+
+text-align:center;
+font-size:40px;
+font-weight:800;
+margin-bottom:15px;
+
+}
+
+.logo span{
+
+color:#00ff99;
+text-shadow:0 0 20px #00ff99;
+
+}
+
+.subtitle{
+
+text-align:center;
+color:#cbd5e1;
+margin-bottom:40px;
+line-height:1.7;
+
+}
+
+/* INPUTS */
+
+.input-group{
 
 margin-bottom:22px;
 
 }
 
-.input-box input{
+.input-group label{
 
-width:100%;
-padding:18px;
-
-border:none;
-outline:none;
-
-border-radius:15px;
-
-background:#020817;
-
-color:white;
-
-font-size:16px;
-
-}
-
-.btn{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:15px;
-
-background:#00ff99;
-
-font-size:18px;
-
-font-weight:700;
-
-cursor:pointer;
-
-box-shadow:0 0 30px #00ff99;
-
-}
-
-.bottom{
-
-margin-top:25px;
+display:block;
+margin-bottom:10px;
+font-weight:600;
 color:#cbd5e1;
 
 }
 
-.bottom a{
+.input-group input{
+
+width:100%;
+padding:16px;
+
+border:none;
+outline:none;
+
+border-radius:14px;
+
+background:#0f172a;
+color:white;
+
+font-size:16px;
+
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.3s;
+
+}
+
+.input-group input:focus{
+
+border:1px solid #00ff99;
+box-shadow:0 0 15px rgba(0,255,153,0.3);
+
+}
+
+/* BUTTON */
+
+.register-btn{
+
+width:100%;
+padding:18px;
+
+border:none;
+border-radius:14px;
+
+background:#00ff99;
+color:black;
+
+font-size:18px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.4s;
+
+box-shadow:0 0 25px #00ff99;
+
+}
+
+.register-btn:hover{
+
+transform:translateY(-4px);
+box-shadow:0 0 40px #00ff99;
+
+}
+
+/* EXTRA */
+
+.extra{
+
+margin-top:25px;
+text-align:center;
+color:#94a3b8;
+
+}
+
+.extra a{
 
 color:#00ff99;
 text-decoration:none;
-font-weight:700;
+font-weight:600;
+
+}
+
+/* MESSAGE */
+
+.message{
+
+margin-top:20px;
+text-align:center;
+font-weight:600;
+display:none;
+
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.register-box{
+
+padding:40px 25px;
+
+}
+
+.logo{
+
+font-size:34px;
+
+}
 
 }
 
@@ -144,59 +232,99 @@ font-weight:700;
 
 <body>
 
-<div class="box">
+<div class="register-box">
 
 <div class="logo">
-<span>PURE</span>Step
+PURE<span>Step</span>
 </div>
 
-<h1>Create Account</h1>
+<p class="subtitle">
+Create your PureStep Funding account and start your funded trading journey.
+</p>
 
-<div class="input-box">
-<input type="email" id="email" placeholder="Email">
+<!-- REGISTER FORM -->
+
+<div class="input-group">
+
+<label>Full Name</label>
+
+<input type="text" id="name" placeholder="Enter your full name">
+
 </div>
 
-<div class="input-box">
-<input type="password" id="password" placeholder="Password">
+<div class="input-group">
+
+<label>Email</label>
+
+<input type="email" id="email" placeholder="Enter your email">
+
 </div>
 
-<button class="btn" onclick="register()">
-REGISTER
+<div class="input-group">
+
+<label>Password</label>
+
+<input type="password" id="password" placeholder="Create password">
+
+</div>
+
+<button class="register-btn" onclick="register()">
+CREATE ACCOUNT
 </button>
 
-<div class="bottom">
-Already have account?
-<a href="login.html">Login</a>
+<div class="message" id="message">
+Account Created Successfully 🚀
+</div>
+
+<div class="extra">
+
+Already have an account?
+<a href="login.html">
+Login
+</a>
+
 </div>
 
 </div>
+
+<!-- SCRIPT -->
 
 <script>
 
 function register(){
 
+let name = document.getElementById("name").value;
 let email = document.getElementById("email").value;
 let password = document.getElementById("password").value;
 
-if(email === "" || password === ""){
+let message = document.getElementById("message");
 
-alert("Fill all fields");
+if(name === "" || email === "" || password === ""){
 
-}else{
+message.style.display = "block";
+message.style.color = "red";
+message.innerHTML = "Please fill all fields";
 
-localStorage.setItem("email", email);
-localStorage.setItem("password", password);
+return;
 
-alert("Account Created Successfully");
+}
+
+localStorage.setItem("userName", name);
+localStorage.setItem("userEmail", email);
+localStorage.setItem("userPassword", password);
+
+message.style.display = "block";
+message.style.color = "#00ff99";
+
+setTimeout(()=>{
 
 window.location.href = "login.html";
 
-}
+},1500);
 
 }
 
 </script>
 
 </body>
-
 </html>
