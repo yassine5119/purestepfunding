@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -17,50 +16,32 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
 background:#020817;
 color:white;
-overflow-x:hidden;
 }
 
 /* NAVBAR */
 
 nav{
-
-width:100%;
-padding:25px 70px;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
+padding:25px 60px;
+background:#081225;
 position:fixed;
-
 top:0;
-left:0;
-
+width:100%;
 z-index:1000;
-
-background:rgba(2,8,23,0.92);
-
-backdrop-filter:blur(10px);
-
 border-bottom:1px solid rgba(0,255,153,0.15);
-
 }
 
 .logo{
-
-font-size:40px;
+font-size:35px;
 font-weight:800;
-
 color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
 }
 
 .logo span{
@@ -68,39 +49,27 @@ color:#2d7cff;
 }
 
 nav ul{
-
 display:flex;
-gap:35px;
-
+gap:30px;
 list-style:none;
-
 }
 
 nav ul li a{
-
-text-decoration:none;
 color:white;
-
+text-decoration:none;
 font-weight:600;
-font-size:17px;
-
 transition:0.3s;
-
 }
 
 nav ul li a:hover{
-
 color:#00ff99;
-
 }
 
 /* HERO */
 
 .hero{
-
 padding-top:180px;
 padding-bottom:100px;
-
 text-align:center;
 
 background:
@@ -109,342 +78,129 @@ url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&au
 
 background-size:cover;
 background-position:center;
-
 }
 
 .hero h1{
-
-font-size:85px;
-
-font-weight:800;
-
+font-size:80px;
 margin-bottom:20px;
-
-text-shadow:0 0 35px rgba(0,255,153,0.4);
-
 }
 
 .hero h1 span{
-
 color:#00ff99;
-
 }
 
 .hero p{
-
-font-size:24px;
-
-max-width:850px;
-
+font-size:22px;
+max-width:800px;
 margin:auto;
-
-line-height:1.7;
-
 color:#d1d5db;
-
+line-height:1.7;
 }
 
 /* PLANS */
 
 .plans{
-
-padding:120px 40px;
-
-}
-
-.section-title{
-
-text-align:center;
-
-font-size:65px;
-
-margin-bottom:70px;
-
-font-weight:800;
-
+padding:100px 40px;
 }
 
 .cards{
-
 display:flex;
 justify-content:center;
-gap:35px;
-
+gap:30px;
 flex-wrap:wrap;
-
 }
 
 .card{
-
-width:360px;
-
-padding:45px 35px;
-
+width:340px;
 background:#081225;
-
-border-radius:30px;
-
+padding:40px;
+border-radius:25px;
 border:1px solid rgba(0,255,153,0.15);
-
 transition:0.3s;
-
-position:relative;
-
+text-align:center;
 }
 
 .card:hover{
-
 transform:translateY(-10px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.2);
-
+box-shadow:0 0 30px rgba(0,255,153,0.2);
 }
 
 .popular{
-
 border:1px solid #00ff99;
-
-box-shadow:0 0 35px rgba(0,255,153,0.15);
-
-}
-
-.badge{
-
-position:absolute;
-
-top:18px;
-right:18px;
-
-padding:8px 15px;
-
-background:#00ff99;
-
-border-radius:30px;
-
-color:black;
-
-font-size:13px;
-
-font-weight:700;
-
 }
 
 .card h2{
-
-font-size:55px;
-
-margin-bottom:20px;
-
+font-size:50px;
+margin-bottom:15px;
 }
 
 .price{
-
-font-size:68px;
-
-font-weight:800;
-
+font-size:60px;
 color:#00ff99;
-
+font-weight:800;
 margin-bottom:25px;
-
-text-shadow:0 0 25px #00ff99;
-
 }
 
 .card p{
-
-margin:14px 0;
-
+margin:12px 0;
 font-size:18px;
-
 color:#d1d5db;
-
 }
 
-/* BUTTONS */
+/* BUTTON */
 
 .btn{
-
 display:inline-block;
-
 margin-top:25px;
-
 padding:18px 35px;
-
 background:#00ff99;
-
-border-radius:16px;
-
-text-decoration:none;
-
-font-weight:700;
-
-font-size:18px;
-
 color:black;
-
+text-decoration:none;
+font-weight:700;
+border-radius:15px;
 box-shadow:0 0 25px #00ff99;
-
 transition:0.3s;
-
 }
 
 .btn:hover{
-
 transform:translateY(-5px);
-
 }
 
-.btn2{
-
-display:inline-block;
-
-margin-top:18px;
-
-padding:16px 30px;
-
-border:2px solid #00ff99;
-
-border-radius:16px;
-
-text-decoration:none;
-
-font-weight:700;
-
-font-size:17px;
-
-color:#00ff99;
-
-transition:0.3s;
-
-}
-
-.btn2:hover{
-
-background:#00ff99;
-
-color:black;
-
-}
-
-/* DASHBOARD CTA */
+/* DASHBOARD BOX */
 
 .dashboard-box{
-
-margin-top:120px;
-
+margin-top:100px;
 padding:60px;
-
 background:#081225;
-
-border-radius:35px;
-
-max-width:1200px;
-
+border-radius:30px;
+text-align:center;
+border:1px solid rgba(0,255,153,0.15);
+max-width:1100px;
 margin-left:auto;
 margin-right:auto;
-
-text-align:center;
-
-border:1px solid rgba(0,255,153,0.15);
-
 }
 
 .dashboard-box h1{
-
-font-size:60px;
-
-margin-bottom:25px;
-
+font-size:55px;
+margin-bottom:20px;
 }
 
 .dashboard-box p{
-
-font-size:24px;
-
+font-size:22px;
 line-height:1.7;
-
-max-width:850px;
-
-margin:auto;
-
-margin-bottom:40px;
-
 color:#d1d5db;
-
-}
-
-/* COMPARISON */
-
-.compare{
-
-padding:120px 40px;
-
-background:#030d22;
-
-}
-
-table{
-
-width:100%;
-
-max-width:1200px;
-
-margin:auto;
-
-border-collapse:collapse;
-
-background:#081225;
-
-border-radius:25px;
-
-overflow:hidden;
-
-}
-
-table th{
-
-background:#00ff99;
-
-color:black;
-
-padding:22px;
-
-font-size:18px;
-
-}
-
-table td{
-
-padding:22px;
-
-text-align:center;
-
-border-bottom:1px solid rgba(255,255,255,0.08);
-
-font-size:17px;
-
+margin-bottom:35px;
 }
 
 /* FOOTER */
 
 footer{
-
-padding:50px;
-
+padding:40px;
 text-align:center;
-
 background:#01060f;
-
 color:#94a3b8;
-
-font-size:17px;
-
 margin-top:80px;
-
 }
-
-/* MOBILE */
 
 @media(max-width:900px){
 
@@ -453,15 +209,7 @@ font-size:55px;
 }
 
 .hero p{
-font-size:20px;
-}
-
-.section-title{
-font-size:45px;
-}
-
-.dashboard-box h1{
-font-size:45px;
+font-size:19px;
 }
 
 nav{
@@ -469,11 +217,11 @@ padding:20px;
 }
 
 nav ul{
-gap:18px;
+gap:15px;
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 }
 
 }
@@ -494,25 +242,15 @@ font-size:30px;
 
 <ul>
 
-<li>
-<a href="index.html">Home</a>
-</li>
+<li><a href="index.html">Home</a></li>
 
-<li>
-<a href="plans.html">Plans</a>
-</li>
+<li><a href="plans.html">Plans</a></li>
 
-<li>
-<a href="rules.html">Rules</a>
-</li>
+<li><a href="rules.html">Rules</a></li>
 
-<li>
-<a href="login.html">Login</a>
-</li>
+<li><a href="login.html">Login</a></li>
 
-<li>
-<a href="dashboard.html">Dashboard</a>
-</li>
+<li><a href="dashboard.html">Dashboard</a></li>
 
 </ul>
 
@@ -527,7 +265,7 @@ Funding <span>Plans</span>
 </h1>
 
 <p>
-Choose your funded challenge and start trading with PureStep Funding.
+Choose your funded challenge and start your trading journey with PureStep Funding.
 </p>
 
 </section>
@@ -535,10 +273,6 @@ Choose your funded challenge and start trading with PureStep Funding.
 <!-- PLANS -->
 
 <section class="plans">
-
-<h2 class="section-title">
-Choose Your Account
-</h2>
 
 <div class="cards">
 
@@ -552,21 +286,14 @@ Choose Your Account
 $10
 </div>
 
-<p>✔ Profit Split: 100%</p>
-<p>✔ Max Withdrawal: $75</p>
-<p>✔ Risk Per Trade: 2%</p>
-<p>✔ Daily Drawdown: 4%</p>
-<p>✔ Overall Drawdown: 8%</p>
-<p>✔ Trading Days: 2</p>
+<p>Profit Split: 100%</p>
+<p>Max Withdrawal: $75</p>
+<p>Daily Drawdown: 4%</p>
+<p>Overall Drawdown: 8%</p>
+<p>Minimum Trading Days: 2</p>
 
 <a href="rules.html?account=2500" class="btn">
 BUY CHALLENGE
-</a>
-
-<br>
-
-<a href="dashboard.html" class="btn2">
-VIEW DASHBOARD
 </a>
 
 </div>
@@ -575,31 +302,20 @@ VIEW DASHBOARD
 
 <div class="card popular">
 
-<div class="badge">
-MOST POPULAR
-</div>
-
 <h2>$5,000</h2>
 
 <div class="price">
 $35
 </div>
 
-<p>✔ Profit Split: 100%</p>
-<p>✔ Max Withdrawal: $150</p>
-<p>✔ Risk Per Trade: 2%</p>
-<p>✔ Daily Drawdown: 4%</p>
-<p>✔ Overall Drawdown: 8%</p>
-<p>✔ Trading Days: 2</p>
+<p>Profit Split: 100%</p>
+<p>Max Withdrawal: $150</p>
+<p>Daily Drawdown: 4%</p>
+<p>Overall Drawdown: 8%</p>
+<p>Minimum Trading Days: 2</p>
 
 <a href="rules.html?account=5000" class="btn">
 BUY CHALLENGE
-</a>
-
-<br>
-
-<a href="dashboard.html" class="btn2">
-VIEW DASHBOARD
 </a>
 
 </div>
@@ -614,28 +330,21 @@ VIEW DASHBOARD
 $60
 </div>
 
-<p>✔ Profit Split: 100%</p>
-<p>✔ Max Withdrawal: $350</p>
-<p>✔ Risk Per Trade: 2%</p>
-<p>✔ Daily Drawdown: 4%</p>
-<p>✔ Overall Drawdown: 8%</p>
-<p>✔ Trading Days: 2</p>
+<p>Profit Split: 100%</p>
+<p>Max Withdrawal: $350</p>
+<p>Daily Drawdown: 4%</p>
+<p>Overall Drawdown: 8%</p>
+<p>Minimum Trading Days: 2</p>
 
 <a href="rules.html?account=10000" class="btn">
 BUY CHALLENGE
 </a>
 
-<br>
-
-<a href="dashboard.html" class="btn2">
-VIEW DASHBOARD
-</a>
-
 </div>
 
 </div>
 
-<!-- DASHBOARD SECTION -->
+<!-- DASHBOARD -->
 
 <div class="dashboard-box">
 
@@ -644,8 +353,7 @@ Trader Dashboard
 </h1>
 
 <p>
-Access your trader dashboard, monitor your challenge progress,
-track payouts and manage your funded account in real time.
+Track your challenge progress, payouts and funded account directly from your dashboard.
 </p>
 
 <a href="dashboard.html" class="btn">
@@ -653,60 +361,6 @@ OPEN DASHBOARD
 </a>
 
 </div>
-
-</section>
-
-<!-- COMPARISON -->
-
-<section class="compare">
-
-<h2 class="section-title">
-Challenge Comparison
-</h2>
-
-<table>
-
-<tr>
-
-<th>Account</th>
-<th>Price</th>
-<th>Profit Split</th>
-<th>Max Withdrawal</th>
-<th>Trading Days</th>
-
-</tr>
-
-<tr>
-
-<td>$2,500</td>
-<td>$10</td>
-<td>100%</td>
-<td>$75</td>
-<td>2 Days</td>
-
-</tr>
-
-<tr>
-
-<td>$5,000</td>
-<td>$35</td>
-<td>100%</td>
-<td>$150</td>
-<td>2 Days</td>
-
-</tr>
-
-<tr>
-
-<td>$10,000</td>
-<td>$60</td>
-<td>100%</td>
-<td>$350</td>
-<td>2 Days</td>
-
-</tr>
-
-</table>
 
 </section>
 
@@ -719,5 +373,4 @@ Challenge Comparison
 </footer>
 
 </body>
-
 </html>
