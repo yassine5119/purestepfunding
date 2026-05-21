@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login - PureStep Funding</title>
+<title>PURESTEP LOGIN</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -21,145 +21,208 @@ font-family:'Poppins',sans-serif;
 
 body{
 
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
 background:
-linear-gradient(rgba(2,8,23,0.92),rgba(2,8,23,0.96)),
+linear-gradient(rgba(2,6,23,0.88),rgba(2,6,23,0.95)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
 
-overflow:hidden;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+
+color:white;
 
 }
+
+/* LOGIN BOX */
 
 .login-box{
 
-width:430px;
+width:100%;
+max-width:450px;
 
-padding:50px;
+background:rgba(7,18,38,0.95);
+backdrop-filter:blur(10px);
 
-background:rgba(8,18,37,0.92);
-
-border:1px solid rgba(0,255,153,0.2);
+padding:50px 35px;
 
 border-radius:30px;
 
-backdrop-filter:blur(15px);
+border:1px solid rgba(0,255,153,0.2);
 
-box-shadow:0 0 45px rgba(0,255,153,0.22);
+box-shadow:0 0 35px rgba(0,255,153,0.15);
 
-text-align:center;
+animation:fadeIn 1s ease;
 
 }
 
+/* LOGO */
+
 .logo{
 
-font-size:42px;
+text-align:center;
+font-size:40px;
 font-weight:800;
-
-margin-bottom:20px;
-
-color:#00ff99;
-
-text-shadow:0 0 20px #00ff99;
+margin-bottom:15px;
 
 }
 
 .logo span{
 
-color:#2d7cff;
+color:#00ff99;
+text-shadow:0 0 20px #00ff99;
 
 }
 
-h1{
+.subtitle{
 
-font-size:42px;
-margin-bottom:35px;
-color:white;
+text-align:center;
+color:#cbd5e1;
+margin-bottom:40px;
+line-height:1.7;
 
 }
 
-.input-box{
+/* INPUTS */
+
+.input-group{
 
 margin-bottom:22px;
 
 }
 
-.input-box input{
+.input-group label{
+
+display:block;
+margin-bottom:10px;
+font-weight:600;
+color:#cbd5e1;
+
+}
+
+.input-group input{
 
 width:100%;
-
-padding:18px;
+padding:16px;
 
 border:none;
 outline:none;
 
-border-radius:15px;
+border-radius:14px;
 
-background:#020817;
-
+background:#0f172a;
 color:white;
 
 font-size:16px;
 
-}
-
-.input-box input::placeholder{
-
-color:#94a3b8;
-
-}
-
-.btn{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:15px;
-
-background:#00ff99;
-
-font-size:18px;
-
-font-weight:700;
-
-cursor:pointer;
-
-box-shadow:0 0 30px #00ff99;
+border:1px solid rgba(255,255,255,0.08);
 
 transition:0.3s;
 
 }
 
-.btn:hover{
+.input-group input:focus{
+
+border:1px solid #00ff99;
+box-shadow:0 0 15px rgba(0,255,153,0.3);
+
+}
+
+/* BUTTON */
+
+.login-btn{
+
+width:100%;
+padding:18px;
+
+border:none;
+border-radius:14px;
+
+background:#00ff99;
+color:black;
+
+font-size:18px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.4s;
+
+box-shadow:0 0 25px #00ff99;
+
+}
+
+.login-btn:hover{
 
 transform:translateY(-4px);
+box-shadow:0 0 40px #00ff99;
 
 }
 
-.bottom{
+/* EXTRA */
+
+.extra{
 
 margin-top:25px;
-
-color:#cbd5e1;
+text-align:center;
+color:#94a3b8;
 
 }
 
-.bottom a{
+.extra a{
 
 color:#00ff99;
-
 text-decoration:none;
+font-weight:600;
 
-font-weight:700;
+}
+
+/* MESSAGE */
+
+.message{
+
+margin-top:20px;
+text-align:center;
+font-weight:600;
+display:none;
+
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.login-box{
+
+padding:40px 25px;
+
+}
+
+.logo{
+
+font-size:34px;
+
+}
 
 }
 
@@ -172,49 +235,84 @@ font-weight:700;
 <div class="login-box">
 
 <div class="logo">
-<span>PURE</span>Step
+PURE<span>Step</span>
 </div>
 
-<h1>Trader Login</h1>
+<p class="subtitle">
+Login to access your trading dashboard, challenges and funded progress.
+</p>
 
-<div class="input-box">
-<input type="email" id="username" placeholder="Email">
+<!-- LOGIN FORM -->
+
+<div class="input-group">
+
+<label>Email</label>
+
+<input type="email" id="email" placeholder="Enter your email">
+
 </div>
 
-<div class="input-box">
-<input type="password" id="password" placeholder="Password">
+<div class="input-group">
+
+<label>Password</label>
+
+<input type="password" id="password" placeholder="Enter your password">
+
 </div>
 
-<button class="btn" onclick="login()">
+<button class="login-btn" onclick="login()">
 LOGIN
 </button>
 
-<div class="bottom">
-No account?
-<a href="register.html">Register</a>
+<div class="message" id="message">
+Login Successful 🚀
+</div>
+
+<div class="extra">
+
+Don't have an account?
+<a href="register.html">
+Register
+</a>
+
 </div>
 
 </div>
+
+<!-- SCRIPT -->
 
 <script>
 
 function login(){
 
-let username = document.getElementById("username").value;
+let email = document.getElementById("email").value;
 let password = document.getElementById("password").value;
 
-let savedEmail = localStorage.getItem("email");
-let savedPassword = localStorage.getItem("password");
+let savedEmail = localStorage.getItem("userEmail");
+let savedPassword = localStorage.getItem("userPassword");
 
-if(username === savedEmail && password === savedPassword){
+let message = document.getElementById("message");
 
-localStorage.setItem("loggedIn", "true");
+if(email === savedEmail && password === savedPassword){
+
+localStorage.setItem("loggedIn","true");
+
+message.style.display = "block";
+message.style.color = "#00ff99";
+
+setTimeout(()=>{
 
 window.location.href = "dashboard.html";
 
-}else{
+},1500);
 
-alert("Invalid Email Or Password");
+}
+
+else{
+
+message.style.display = "block";
+message.style.color = "red";
+message.innerHTML = "Invalid Email or Password";
 
 }
 
@@ -223,5 +321,4 @@ alert("Invalid Email Or Password");
 </script>
 
 </body>
-
 </html>
