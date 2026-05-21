@@ -602,7 +602,79 @@ error.style.display = "block";
 };
 
 </script>
+<!-- FIREBASE LOGIN SYSTEM -->
 
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import {
+
+signInWithEmailAndPassword
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+/* LOGIN FUNCTION */
+
+window.loginUser = async function(){
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const success =
+document.getElementById("success-message");
+
+const error =
+document.getElementById("error-message");
+
+success.style.display = "none";
+
+error.style.display = "none";
+
+try{
+
+const userCredential =
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+localStorage.setItem(
+"userEmail",
+email
+);
+
+success.style.display = "block";
+
+setTimeout(() => {
+
+window.location.href =
+"dashboard.html";
+
+},1500);
+
+}
+
+catch(err){
+
+console.log(err);
+
+error.style.display = "block";
+
+}
+
+};
+
+</script>
 </body>
 
 </html>
