@@ -45,6 +45,7 @@ border-bottom:1px solid rgba(0,255,153,0.1);
 
 font-size:38px;
 font-weight:800;
+color:white;
 
 }
 
@@ -216,6 +217,8 @@ margin-bottom:15px;
 
 }
 
+/* COPY */
+
 .copy-btn{
 
 width:100%;
@@ -291,6 +294,14 @@ border:1px solid rgba(255,255,255,0.06);
 .form-group input:focus{
 
 border:1px solid #00ff99;
+
+}
+
+/* FILE */
+
+input[type="file"]{
+
+padding:12px;
 
 }
 
@@ -376,34 +387,6 @@ text-decoration:none;
 box-shadow:0 0 25px rgba(0,255,153,0.5);
 
 z-index:9999;
-
-transition:0.3s;
-
-animation:pulse 2s infinite;
-
-}
-
-.support-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.8);
-
-}
-
-@keyframes pulse{
-
-0%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
 
 }
 
@@ -506,7 +489,7 @@ Binance Pay ID
 </h3>
 
 <div class="pay-info" id="binance-id">
-123456789
+YOUR_BINANCE_ID
 </div>
 
 <button class="copy-btn"
@@ -527,7 +510,7 @@ USDT Wallet (TRC20)
 </h3>
 
 <div class="pay-info" id="wallet">
-TQX8PURESTEPWALLET2026
+YOUR_USDT_WALLET
 </div>
 
 <button class="copy-btn"
@@ -544,10 +527,11 @@ COPY WALLET
 <div class="form-group">
 
 <label>
-Your Instagram Username
+Instagram Username
 </label>
 
-<input type="text" placeholder="@username">
+<input type="text" id="instagram"
+placeholder="@username">
 
 </div>
 
@@ -557,19 +541,31 @@ Your Instagram Username
 Transaction ID
 </label>
 
-<input type="text" placeholder="Paste Transaction ID">
+<input type="text" id="transaction"
+placeholder="Paste transaction ID">
 
 </div>
 
-<button class="submit-btn" onclick="submitPayment()">
+<div class="form-group">
 
-I PAID - CONTACT SUPPORT
+<label>
+Upload Payment Screenshot
+</label>
+
+<input type="file" id="payment-proof">
+
+</div>
+
+<button class="submit-btn"
+onclick="submitPayment()">
+
+I PAID
 
 </button>
 
 <div class="message" id="message">
 
-Payment Submitted Successfully 🚀
+Payment Sent Successfully 🚀
 
 </div>
 
@@ -587,56 +583,96 @@ Support
 
 </a>
 
-<!-- SCRIPT -->
+<script type="module">
 
-<script>
+import { auth, db } from "./firebase.js";
 
-/* PLAN SYSTEM */
+import {
+
+doc,
+updateDoc
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* PLAN */
 
 const params = new URLSearchParams(window.location.search);
 
 const plan = params.get("plan");
-const price = params.get("price");
 
-/* PLAN NAME */
+const price = params.get("price");
 
 document.getElementById("plan-name").innerHTML =
 "$" + plan + " Challenge";
-
-/* PLAN PRICE */
 
 document.getElementById("plan-price").innerHTML =
 "$" + price;
 
 /* COPY */
 
-function copyText(id){
+window.copyText = function(id){
 
-let text =
+const text =
 document.getElementById(id).innerText;
 
 navigator.clipboard.writeText(text);
 
 alert("Copied Successfully 🚀");
 
-}
+};
 
-/* PAYMENT */
+/* SUBMIT PAYMENT */
 
-function submitPayment(){
+window.submitPayment = async function(){
 
-document.getElementById("message").style.display = "block";
+const user = auth.currentUser;
 
-setTimeout(() => {
+if(!user){
 
-window.open(
-"https://instagram.com/purestepfunding",
-"_blank"
-);
+alert("Login First");
 
-},1500);
+return;
 
 }
+
+const instagram =
+document.getElementById("instagram").value;
+
+const transaction =
+document.getElementById("transaction").value;
+
+await updateDoc(doc(db,"users",user.uid),{
+
+accountType: plan + "K Challenge",
+
+balance: Number(plan),
+
+profit: 0,
+
+phase: "Phase 1",
+
+status: "Pending Review",
+
+transactionID: transaction,
+
+instagram: instagram,
+
+dailyDrawdown: "4%",
+
+maxDrawdown: "8%"
+
+});
+
+document.getElementById("message").style.display =
+"block";
+
+setTimeout(()=>{
+
+window.location.href = "dashboard.html";
+
+},2000);
+
+};
 
 </script>
 
