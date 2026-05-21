@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PURESTEP CHECKOUT</title>
@@ -20,9 +21,13 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
+
 background:#020617;
+
 color:white;
+
 overflow-x:hidden;
+
 }
 
 /* NAVBAR */
@@ -30,7 +35,9 @@ overflow-x:hidden;
 nav{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
 padding:25px 7%;
@@ -43,7 +50,7 @@ border-bottom:1px solid rgba(0,255,153,0.1);
 
 .logo{
 
-font-size:40px;
+font-size:42px;
 
 font-weight:800;
 
@@ -67,7 +74,7 @@ padding:70px 7%;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
 
 gap:40px;
 
@@ -113,7 +120,7 @@ border-radius:50%;
 
 .plan-title{
 
-font-size:52px;
+font-size:50px;
 
 margin-bottom:10px;
 
@@ -124,18 +131,18 @@ z-index:2;
 
 .price{
 
-font-size:70px;
+font-size:68px;
 
 font-weight:800;
 
 color:#00ff99;
 
-margin-bottom:25px;
+margin-bottom:30px;
+
+text-shadow:0 0 20px #00ff99;
 
 position:relative;
 z-index:2;
-
-text-shadow:0 0 20px #00ff99;
 
 }
 
@@ -212,9 +219,9 @@ padding:18px;
 
 border-radius:16px;
 
-font-size:15px;
-
 word-break:break-all;
+
+font-size:15px;
 
 margin-bottom:15px;
 
@@ -282,6 +289,7 @@ width:100%;
 padding:16px;
 
 border:none;
+
 outline:none;
 
 border-radius:16px;
@@ -307,6 +315,39 @@ border:1px solid #00ff99;
 input[type="file"]{
 
 padding:12px;
+
+}
+
+/* INFO BOX */
+
+.info-box{
+
+background:rgba(0,255,153,0.08);
+
+border:1px solid rgba(0,255,153,0.15);
+
+padding:22px;
+
+border-radius:20px;
+
+margin-bottom:25px;
+
+line-height:1.8;
+
+color:#cbd5e1;
+
+font-size:16px;
+
+position:relative;
+z-index:2;
+
+}
+
+.info-box span{
+
+color:#00ff99;
+
+font-weight:700;
 
 }
 
@@ -461,19 +502,19 @@ Loading...
 
 <li>✔ 2-Step Evaluation Challenge</li>
 
-<li>✔ 100% Profit Split</li>
-
 <li>✔ MT5 Platform Included</li>
 
-<li>✔ Crypto Payout System</li>
+<li>✔ Crypto Payment Supported</li>
+
+<li>✔ 100% Profit Split</li>
 
 <li>✔ 4% Daily Drawdown</li>
 
 <li>✔ 8% Max Drawdown</li>
 
-<li>✔ Fast Account Reviews</li>
+<li>✔ Fast Human Review</li>
 
-<li>✔ Instant Dashboard Access</li>
+<li>✔ Real Funded Dashboard</li>
 
 </ul>
 
@@ -535,6 +576,24 @@ COPY USDT WALLET
 
 </div>
 
+<!-- INFO -->
+
+<div class="info-box">
+
+<span>Important:</span>
+
+After completing your crypto payment, please upload your payment screenshot and send your Instagram username.
+
+<br><br>
+
+⏳ Review time usually takes between <span>1 hour and 24 hours</span>.
+
+<br><br>
+
+✅ Your funded challenge will only be activated after manual review by the PureStep admin team.
+
+</div>
+
 <!-- FORM -->
 
 <div class="form-group">
@@ -546,18 +605,6 @@ Instagram Username
 <input type="text"
 id="instagram"
 placeholder="@username">
-
-</div>
-
-<div class="form-group">
-
-<label>
-Transaction ID
-</label>
-
-<input type="text"
-id="transaction"
-placeholder="Paste transaction ID">
 
 </div>
 
@@ -581,7 +628,8 @@ I PAID
 
 <div class="message" id="message">
 
-Payment Submitted Successfully 🚀
+Payment submitted successfully 🚀  
+Your request is now under review.
 
 </div>
 
@@ -612,7 +660,7 @@ updateDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* PLAN SYSTEM */
+/* PLAN */
 
 const params = new URLSearchParams(window.location.search);
 
@@ -620,13 +668,11 @@ const plan = params.get("plan");
 
 const price = params.get("price");
 
-/* PLAN NAME */
+/* PLAN */
 
 document.getElementById("plan-name").innerHTML =
 
 "$" + plan + " Challenge";
-
-/* PLAN PRICE */
 
 document.getElementById("plan-price").innerHTML =
 
@@ -664,41 +710,43 @@ const instagram =
 
 document.getElementById("instagram").value;
 
-const transaction =
-
-document.getElementById("transaction").value;
+/* UPDATE USER */
 
 await updateDoc(doc(db,"users",user.uid),{
 
-accountType: plan + "K Challenge",
+accountType: "Pending Challenge",
 
-balance: Number(plan),
+balance: 0,
 
 profit: 0,
 
-phase: "Phase 1",
+phase: "Waiting Approval",
 
 status: "Pending Review",
 
-transactionID: transaction,
+pendingPlan: plan + "K Challenge",
 
 instagram: instagram,
 
-dailyDrawdown: "4%",
+dailyDrawdown: "0%",
 
-maxDrawdown: "8%"
+maxDrawdown: "0%"
 
 });
+
+/* MESSAGE */
 
 document.getElementById("message").style.display =
 
 "block";
 
+/* REDIRECT */
+
 setTimeout(()=>{
 
 window.location.href = "dashboard.html";
 
-},2000);
+},2500);
 
 };
 
