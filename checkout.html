@@ -43,8 +43,10 @@ border-bottom:1px solid rgba(0,255,153,0.1);
 
 .logo{
 
-font-size:38px;
+font-size:40px;
+
 font-weight:800;
+
 color:white;
 
 }
@@ -52,6 +54,7 @@ color:white;
 .logo span{
 
 color:#00ff99;
+
 text-shadow:0 0 25px #00ff99;
 
 }
@@ -60,11 +63,11 @@ text-shadow:0 0 25px #00ff99;
 
 .checkout{
 
-padding:80px 7%;
+padding:70px 7%;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
 
 gap:40px;
 
@@ -80,7 +83,7 @@ padding:40px;
 
 border-radius:35px;
 
-border:1px solid rgba(0,255,153,0.1);
+border:1px solid rgba(0,255,153,0.08);
 
 position:relative;
 
@@ -97,22 +100,22 @@ position:absolute;
 top:-100px;
 right:-100px;
 
-width:220px;
-height:220px;
+width:240px;
+height:240px;
 
-background:rgba(0,255,153,0.06);
+background:rgba(0,255,153,0.05);
 
 border-radius:50%;
 
 }
 
-/* LEFT */
+/* PLAN */
 
 .plan-title{
 
-font-size:50px;
+font-size:52px;
 
-margin-bottom:15px;
+margin-bottom:10px;
 
 position:relative;
 z-index:2;
@@ -121,13 +124,13 @@ z-index:2;
 
 .price{
 
-font-size:65px;
+font-size:70px;
 
 font-weight:800;
 
 color:#00ff99;
 
-margin-bottom:30px;
+margin-bottom:25px;
 
 position:relative;
 z-index:2;
@@ -155,11 +158,11 @@ color:#cbd5e1;
 
 }
 
-/* RIGHT */
+/* PAYMENT */
 
 .payment-title{
 
-font-size:40px;
+font-size:38px;
 
 margin-bottom:25px;
 
@@ -184,7 +187,7 @@ border-radius:25px;
 
 margin-bottom:25px;
 
-border:1px solid rgba(0,255,153,0.08);
+border:1px solid rgba(255,255,255,0.05);
 
 position:relative;
 z-index:2;
@@ -197,7 +200,7 @@ margin-bottom:15px;
 
 color:#00ff99;
 
-font-size:24px;
+font-size:22px;
 
 }
 
@@ -207,17 +210,19 @@ background:#020617;
 
 padding:18px;
 
-border-radius:15px;
+border-radius:16px;
+
+font-size:15px;
 
 word-break:break-all;
 
-font-size:16px;
-
 margin-bottom:15px;
+
+line-height:1.7;
 
 }
 
-/* COPY */
+/* COPY BUTTON */
 
 .copy-btn{
 
@@ -233,7 +238,7 @@ background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-font-weight:700;
+font-weight:800;
 
 cursor:pointer;
 
@@ -287,7 +292,7 @@ color:white;
 
 font-size:16px;
 
-border:1px solid rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.05);
 
 }
 
@@ -331,7 +336,7 @@ transition:0.3s;
 
 margin-top:10px;
 
-box-shadow:0 0 25px rgba(0,255,153,0.3);
+box-shadow:0 0 25px rgba(0,255,153,0.25);
 
 }
 
@@ -339,7 +344,7 @@ box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 transform:translateY(-5px);
 
-box-shadow:0 0 40px rgba(0,255,153,0.7);
+box-shadow:0 0 40px rgba(0,255,153,0.6);
 
 }
 
@@ -394,6 +399,12 @@ z-index:9999;
 
 @media(max-width:768px){
 
+.checkout{
+
+padding:40px 5%;
+
+}
+
 .plan-title{
 
 font-size:38px;
@@ -402,19 +413,13 @@ font-size:38px;
 
 .price{
 
-font-size:48px;
+font-size:50px;
 
 }
 
 .payment-title{
 
 font-size:30px;
-
-}
-
-.checkout{
-
-padding:40px 5%;
 
 }
 
@@ -454,19 +459,21 @@ Loading...
 
 <ul class="features">
 
-<li>✔ 2-Step Challenge</li>
+<li>✔ 2-Step Evaluation Challenge</li>
 
 <li>✔ 100% Profit Split</li>
 
-<li>✔ MT5 Supported</li>
+<li>✔ MT5 Platform Included</li>
 
-<li>✔ Crypto Payouts</li>
+<li>✔ Crypto Payout System</li>
 
 <li>✔ 4% Daily Drawdown</li>
 
 <li>✔ 8% Max Drawdown</li>
 
-<li>✔ Fast Reviews</li>
+<li>✔ Fast Account Reviews</li>
+
+<li>✔ Instant Dashboard Access</li>
 
 </ul>
 
@@ -477,7 +484,9 @@ Loading...
 <div class="card">
 
 <h2 class="payment-title">
+
 Complete <span>Payment</span>
+
 </h2>
 
 <!-- BINANCE -->
@@ -489,7 +498,9 @@ Binance Pay ID
 </h3>
 
 <div class="pay-info" id="binance-id">
-YOUR_BINANCE_ID
+
+1027786179
+
 </div>
 
 <button class="copy-btn"
@@ -510,13 +521,15 @@ USDT Wallet (TRC20)
 </h3>
 
 <div class="pay-info" id="wallet">
-YOUR_USDT_WALLET
+
+TGFVz2gTYiDn8FnP838vNWNaevhToERo9E
+
 </div>
 
 <button class="copy-btn"
 onclick="copyText('wallet')">
 
-COPY WALLET
+COPY USDT WALLET
 
 </button>
 
@@ -530,7 +543,8 @@ COPY WALLET
 Instagram Username
 </label>
 
-<input type="text" id="instagram"
+<input type="text"
+id="instagram"
 placeholder="@username">
 
 </div>
@@ -541,7 +555,8 @@ placeholder="@username">
 Transaction ID
 </label>
 
-<input type="text" id="transaction"
+<input type="text"
+id="transaction"
 placeholder="Paste transaction ID">
 
 </div>
@@ -552,7 +567,8 @@ placeholder="Paste transaction ID">
 Upload Payment Screenshot
 </label>
 
-<input type="file" id="payment-proof">
+<input type="file"
+id="payment-proof">
 
 </div>
 
@@ -565,7 +581,7 @@ I PAID
 
 <div class="message" id="message">
 
-Payment Sent Successfully 🚀
+Payment Submitted Successfully 🚀
 
 </div>
 
@@ -583,6 +599,8 @@ Support
 
 </a>
 
+<!-- FIREBASE -->
+
 <script type="module">
 
 import { auth, db } from "./firebase.js";
@@ -594,7 +612,7 @@ updateDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* PLAN */
+/* PLAN SYSTEM */
 
 const params = new URLSearchParams(window.location.search);
 
@@ -602,10 +620,16 @@ const plan = params.get("plan");
 
 const price = params.get("price");
 
+/* PLAN NAME */
+
 document.getElementById("plan-name").innerHTML =
+
 "$" + plan + " Challenge";
 
+/* PLAN PRICE */
+
 document.getElementById("plan-price").innerHTML =
+
 "$" + price;
 
 /* COPY */
@@ -613,6 +637,7 @@ document.getElementById("plan-price").innerHTML =
 window.copyText = function(id){
 
 const text =
+
 document.getElementById(id).innerText;
 
 navigator.clipboard.writeText(text);
@@ -621,7 +646,7 @@ alert("Copied Successfully 🚀");
 
 };
 
-/* SUBMIT PAYMENT */
+/* PAYMENT */
 
 window.submitPayment = async function(){
 
@@ -636,9 +661,11 @@ return;
 }
 
 const instagram =
+
 document.getElementById("instagram").value;
 
 const transaction =
+
 document.getElementById("transaction").value;
 
 await updateDoc(doc(db,"users",user.uid),{
@@ -664,6 +691,7 @@ maxDrawdown: "8%"
 });
 
 document.getElementById("message").style.display =
+
 "block";
 
 setTimeout(()=>{
