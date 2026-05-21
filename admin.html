@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PURESTEP ADMIN PANEL</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#020617;
+
+color:white;
+
+padding:40px;
+
+}
+
+/* TITLE */
+
+.title{
+
+font-size:50px;
+
+font-weight:800;
+
+margin-bottom:40px;
+
+}
+
+.title span{
+
+color:#00ff99;
+
+text-shadow:0 0 20px #00ff99;
+
+}
+
+/* USERS */
+
+.users{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+
+gap:30px;
+
+}
+
+/* CARD */
+
+.card{
+
+background:#071226;
+
+padding:30px;
+
+border-radius:35px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-80px;
+right:-80px;
+
+width:180px;
+height:180px;
+
+background:rgba(0,255,153,0.05);
+
+border-radius:50%;
+
+}
+
+.card h2{
+
+font-size:24px;
+
+margin-bottom:12px;
+
+position:relative;
+z-index:2;
+
+}
+
+.card p{
+
+margin:10px 0;
+
+font-size:16px;
+
+color:#cbd5e1;
+
+position:relative;
+z-index:2;
+
+}
+
+/* INPUT */
+
+.input{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:15px;
+
+background:#0f172a;
+
+color:white;
+
+font-size:16px;
+
+outline:none;
+
+border:1px solid rgba(255,255,255,0.05);
+
+}
+
+/* BUTTON */
+
+.btn{
+
+width:100%;
+
+padding:16px;
+
+margin-top:18px;
+
+border:none;
+
+border-radius:16px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:800;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 25px rgba(0,255,153,0.25);
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.6);
+
+}
+
+/* STATUS */
+
+.pending{
+
+color:#ffcc00;
+
+font-weight:700;
+
+}
+
+.active{
+
+color:#00ff99;
+
+font-weight:700;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+body{
+
+padding:20px;
+
+}
+
+.title{
+
+font-size:38px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="title">
+
+PURE<span>Step</span> Admin Panel
+
+</h1>
+
+<div class="users" id="users-container">
+
+</div>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+
+collection,
+getDocs,
+doc,
+updateDoc
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* USERS CONTAINER */
+
+const container =
+
+document.getElementById("users-container");
+
+/* GET USERS */
+
+async function loadUsers(){
+
+const querySnapshot = await getDocs(collection(db,"users"));
+
+container.innerHTML = "";
+
+/* LOOP */
+
+querySnapshot.forEach((docSnap)=>{
+
+const data = docSnap.data();
+
+const uid = docSnap.id;
+
+/* CARD */
+
+container.innerHTML += `
+
+<div class="card">
+
+<h2>${data.username}</h2>
+
+<p>
+📧 ${data.email}
+</p>
+
+<p>
+💰 Balance:
+<b>$${data.balance}</b>
+</p>
+
+<p>
+📈 Profit:
+<b>$${data.profit}</b>
+</p>
+
+<p>
+🏆 Account:
+<b>${data.accountType}</b>
+</p>
+
+<p>
+⚡ Phase:
+<b>${data.phase}</b>
+</p>
+
+<p>
+📌 Status:
+<b class="${
+data.status === "ACTIVE"
+? "active"
+: "pending"
+}">
+${data.status}
+</b>
+</p>
+
+<p>
+🛒 Pending Plan:
+<b>${data.pendingPlan || "None"}</b>
+</p>
+
+<p>
+📷 Instagram:
+<b>${data.instagram || "None"}</b>
+</p>
+
+<p>
+🧾 Transaction:
+<b>${data.transactionID || "None"}</b>
+</p>
+
+<input
+type="number"
+placeholder="Balance"
+class="input"
+id="balance-${uid}">
+
+<input
+type="text"
+placeholder="Challenge Type"
+class="input"
+id="type-${uid}">
+
+<button
+class="btn"
+onclick="approveUser(
+'${uid}'
+)">
+
+APPROVE ACCOUNT
+
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+/* APPROVE */
+
+window.approveUser = async function(uid){
+
+const balance =
+
+document.getElementById(
+`balance-${uid}`
+).value;
+
+const type =
+
+document.getElementById(
+`type-${uid}`
+).value;
+
+await updateDoc(doc(db,"users",uid),{
+
+balance:Number(balance),
+
+accountType:type,
+
+status:"ACTIVE",
+
+phase:"Phase 1",
+
+dailyDrawdown:"4%",
+
+maxDrawdown:"8%"
+
+});
+
+alert("Account Approved 🚀");
+
+loadUsers();
+
+};
+
+/* START */
+
+loadUsers();
+
+</script>
+
+</body>
+
+</html>
