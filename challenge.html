@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PURESTEP CHALLENGE</title>
+<title>PURESTEP CHALLENGES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -20,9 +20,60 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
+
 background:#020617;
+
 color:white;
+
 overflow-x:hidden;
+
+}
+
+/* BACKGROUND */
+
+.bg-glow{
+
+position:fixed;
+
+width:700px;
+height:700px;
+
+background:rgba(0,255,153,0.06);
+
+border-radius:50%;
+
+filter:blur(120px);
+
+z-index:-1;
+
+animation:moveGlow 8s infinite alternate;
+
+}
+
+.bg1{
+
+top:-250px;
+left:-200px;
+
+}
+
+.bg2{
+
+bottom:-250px;
+right:-200px;
+
+}
+
+@keyframes moveGlow{
+
+0%{
+transform:translateY(0px);
+}
+
+100%{
+transform:translateY(60px);
+}
+
 }
 
 /* NAVBAR */
@@ -30,24 +81,31 @@ overflow-x:hidden;
 nav{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
 padding:25px 7%;
 
-background:#071226;
+background:rgba(7,18,38,0.85);
+
+backdrop-filter:blur(10px);
 
 border-bottom:1px solid rgba(0,255,153,0.1);
 
 position:sticky;
+
 top:0;
-z-index:999;
+
+z-index:1000;
 
 }
 
 .logo{
 
-font-size:38px;
+font-size:42px;
+
 font-weight:800;
 
 }
@@ -55,31 +113,26 @@ font-weight:800;
 .logo span{
 
 color:#00ff99;
+
 text-shadow:0 0 25px #00ff99;
 
 }
 
-.nav-links{
+.nav-btn{
 
-display:flex;
-gap:25px;
+padding:14px 24px;
 
-}
+border-radius:50px;
 
-.nav-links a{
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:800;
 
 text-decoration:none;
-color:white;
 
-font-weight:600;
-
-transition:0.3s;
-
-}
-
-.nav-links a:hover{
-
-color:#00ff99;
+box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 }
 
@@ -87,64 +140,23 @@ color:#00ff99;
 
 .hero{
 
-padding:120px 7%;
+padding:120px 7% 90px;
 
 text-align:center;
 
 position:relative;
 
-overflow:hidden;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-top:-250px;
-right:-250px;
-
-width:600px;
-height:600px;
-
-background:rgba(0,255,153,0.07);
-
-border-radius:50%;
-
-}
-
-.hero::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-250px;
-left:-250px;
-
-width:600px;
-height:600px;
-
-background:rgba(0,255,153,0.07);
-
-border-radius:50%;
-
 }
 
 .hero h1{
 
-font-size:95px;
-
-font-weight:800;
+font-size:85px;
 
 line-height:1.1;
 
 margin-bottom:25px;
 
-position:relative;
-z-index:2;
+font-weight:800;
 
 }
 
@@ -158,117 +170,117 @@ text-shadow:0 0 35px #00ff99;
 
 .hero p{
 
-font-size:22px;
-
-color:#cbd5e1;
-
 max-width:900px;
 
 margin:auto;
 
+font-size:22px;
+
 line-height:1.8;
 
-position:relative;
-z-index:2;
+color:#94a3b8;
+
+margin-bottom:45px;
 
 }
 
 .hero-buttons{
 
-margin-top:45px;
-
 display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
 
-position:relative;
-z-index:2;
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
 
 }
 
-.hero-btn{
+.hero-buttons a{
 
-display:inline-block;
-
-padding:18px 35px;
+padding:18px 34px;
 
 border-radius:18px;
 
-font-weight:700;
-
 text-decoration:none;
+
+font-weight:800;
 
 transition:0.3s;
 
 }
 
-.primary{
+.primary-btn{
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-box-shadow:0 0 30px rgba(0,255,153,0.4);
+box-shadow:0 0 35px rgba(0,255,153,0.35);
 
 }
 
-.secondary{
+.secondary-btn{
 
-border:2px solid #00ff99;
-
-color:#00ff99;
-
-}
-
-.hero-btn:hover{
-
-transform:translateY(-6px);
-
-}
-
-/* BADGES */
-
-.badges{
-
-display:flex;
-
-justify-content:center;
-
-gap:18px;
-
-flex-wrap:wrap;
-
-margin-top:60px;
-
-position:relative;
-z-index:2;
-
-}
-
-.badge{
-
-padding:16px 24px;
+border:1px solid rgba(255,255,255,0.1);
 
 background:#071226;
 
-border-radius:50px;
-
-border:1px solid rgba(0,255,153,0.15);
-
-font-weight:600;
-
-box-shadow:0 0 20px rgba(0,255,153,0.08);
+color:white;
 
 }
 
-/* STEPS */
+.hero-buttons a:hover{
 
-.steps{
-
-padding:100px 7%;
+transform:translateY(-5px);
 
 }
+
+/* STATS */
+
+.stats{
+
+padding:0 7% 80px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+.stat{
+
+background:#071226;
+
+padding:35px;
+
+border-radius:30px;
+
+text-align:center;
+
+border:1px solid rgba(0,255,153,0.08);
+
+}
+
+.stat h2{
+
+font-size:48px;
+
+color:#00ff99;
+
+margin-bottom:12px;
+
+}
+
+.stat p{
+
+color:#94a3b8;
+
+}
+
+/* CHALLENGES */
 
 .section-title{
 
@@ -276,7 +288,7 @@ text-align:center;
 
 font-size:60px;
 
-margin-bottom:60px;
+margin-bottom:70px;
 
 font-weight:800;
 
@@ -290,116 +302,21 @@ text-shadow:0 0 25px #00ff99;
 
 }
 
-.steps-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-
-gap:30px;
-
-}
-
-.step-card{
-
-background:#071226;
-
-padding:45px;
-
-border-radius:30px;
-
-border:1px solid rgba(0,255,153,0.1);
-
-text-align:center;
-
-transition:0.3s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.step-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-100px;
-right:-100px;
-
-width:220px;
-height:220px;
-
-background:rgba(0,255,153,0.06);
-
-border-radius:50%;
-
-}
-
-.step-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.2);
-
-}
-
-.step-card h2{
-
-font-size:42px;
-
-margin-bottom:15px;
-
-color:#00ff99;
-
-position:relative;
-z-index:2;
-
-}
-
-.step-card h3{
-
-font-size:30px;
-
-margin-bottom:20px;
-
-position:relative;
-z-index:2;
-
-}
-
-.step-card p{
-
-color:#cbd5e1;
-
-line-height:1.8;
-
-position:relative;
-z-index:2;
-
-}
-
-/* CHALLENGES */
-
 .challenges{
 
-padding:100px 7%;
-
-}
-
-.challenge-grid{
+padding:20px 7% 120px;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 
 gap:35px;
 
 }
 
-.challenge-card{
+/* CARD */
+
+.card{
 
 background:#071226;
 
@@ -407,7 +324,7 @@ padding:40px;
 
 border-radius:35px;
 
-border:1px solid rgba(0,255,153,0.12);
+border:1px solid rgba(0,255,153,0.08);
 
 position:relative;
 
@@ -417,56 +334,64 @@ transition:0.4s;
 
 }
 
-.challenge-card::before{
+.card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:0 0 45px rgba(0,255,153,0.18);
+
+}
+
+.card::before{
 
 content:"";
 
 position:absolute;
 
-top:-120px;
-right:-120px;
+top:-100px;
+right:-100px;
 
-width:260px;
-height:260px;
+width:240px;
+height:240px;
 
-background:rgba(0,255,153,0.06);
+background:rgba(0,255,153,0.05);
 
 border-radius:50%;
 
 }
 
-.challenge-card:hover{
+.popular{
 
-transform:translateY(-12px);
+border:1px solid #00ff99;
 
-box-shadow:0 0 40px rgba(0,255,153,0.2);
+box-shadow:0 0 45px rgba(0,255,153,0.15);
 
 }
 
-.popular-badge{
+.badge{
 
 position:absolute;
 
-top:20px;
-right:20px;
+top:22px;
+right:22px;
 
 background:#00ff99;
 
 color:black;
 
-padding:10px 16px;
+padding:10px 18px;
 
 border-radius:50px;
 
-font-size:13px;
-
 font-weight:800;
+
+font-size:14px;
 
 }
 
-.challenge-card h2{
+.card h2{
 
-font-size:55px;
+font-size:52px;
 
 margin-bottom:10px;
 
@@ -475,20 +400,24 @@ z-index:2;
 
 }
 
-.challenge-card h3{
+.price{
 
-font-size:28px;
+font-size:72px;
 
-margin-bottom:25px;
+font-weight:800;
 
 color:#00ff99;
+
+margin-bottom:25px;
 
 position:relative;
 z-index:2;
 
+text-shadow:0 0 20px #00ff99;
+
 }
 
-.challenge-card ul{
+.features{
 
 list-style:none;
 
@@ -499,15 +428,52 @@ z-index:2;
 
 }
 
-.challenge-card ul li{
+.features li{
 
-margin:16px 0;
+margin:18px 0;
+
+font-size:18px;
 
 color:#cbd5e1;
 
-font-size:17px;
+}
+
+/* TABLE */
+
+.table{
+
+background:#0f172a;
+
+padding:25px;
+
+border-radius:25px;
+
+margin-bottom:30px;
+
+position:relative;
+z-index:2;
 
 }
+
+.row{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:15px 0;
+
+font-size:16px;
+
+}
+
+.row span:first-child{
+
+color:#94a3b8;
+
+}
+
+/* BUTTON */
 
 .buy-btn{
 
@@ -515,9 +481,11 @@ display:block;
 
 width:100%;
 
+padding:20px;
+
 text-align:center;
 
-padding:18px;
+border-radius:20px;
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
@@ -525,16 +493,16 @@ color:black;
 
 font-weight:800;
 
-border-radius:18px;
+font-size:18px;
 
 text-decoration:none;
 
 transition:0.3s;
 
+box-shadow:0 0 30px rgba(0,255,153,0.3);
+
 position:relative;
 z-index:2;
-
-box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 }
 
@@ -542,127 +510,43 @@ box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 transform:translateY(-5px);
 
-box-shadow:0 0 40px rgba(0,255,153,0.7);
+box-shadow:0 0 45px rgba(0,255,153,0.7);
 
 }
 
-/* PAYMENT */
+/* FAQ */
 
-.payment{
+.faq{
 
-padding:100px 7%;
-
-}
-
-.payment-box{
-
-background:#071226;
-
-padding:60px;
-
-border-radius:35px;
-
-border:1px solid rgba(0,255,153,0.1);
-
-text-align:center;
+padding:0 7% 120px;
 
 }
 
-.payment-box h2{
-
-font-size:55px;
-
-margin-bottom:25px;
-
-}
-
-.payment-box h2 span{
-
-color:#00ff99;
-
-}
-
-.payment-box p{
-
-font-size:20px;
-
-color:#cbd5e1;
-
-margin-bottom:40px;
-
-}
-
-.payment-methods{
-
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-
-}
-
-.method{
-
-padding:22px 35px;
-
-background:#0f172a;
-
-border-radius:20px;
-
-border:1px solid rgba(0,255,153,0.1);
-
-font-weight:700;
-
-font-size:18px;
-
-}
-
-/* RULES */
-
-.rules{
-
-padding:100px 7%;
-
-}
-
-.rules-grid{
+.faq-grid{
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
 gap:25px;
 
 }
 
-.rule{
+.faq-box{
 
 background:#071226;
 
-padding:35px;
+padding:30px;
 
-border-radius:28px;
+border-radius:30px;
 
-border:1px solid rgba(0,255,153,0.1);
-
-transition:0.3s;
+border:1px solid rgba(0,255,153,0.08);
 
 }
 
-.rule:hover{
+.faq-box h3{
 
-transform:translateY(-8px);
-
-box-shadow:0 0 30px rgba(0,255,153,0.18);
-
-}
-
-.rule h3{
-
-font-size:26px;
+font-size:24px;
 
 margin-bottom:15px;
 
@@ -670,132 +554,37 @@ color:#00ff99;
 
 }
 
-.rule p{
-
-color:#cbd5e1;
+.faq-box p{
 
 line-height:1.8;
 
-}
-
-/* CTA */
-
-.cta{
-
-padding:120px 7%;
+color:#cbd5e1;
 
 }
 
-.cta-box{
+/* FOOTER */
 
-background:linear-gradient(135deg,#00ff99,#00c97a);
+footer{
 
-padding:70px;
+padding:40px 7%;
 
-border-radius:40px;
+border-top:1px solid rgba(0,255,153,0.08);
 
-text-align:center;
+display:flex;
 
-color:black;
+justify-content:space-between;
 
-}
+flex-wrap:wrap;
 
-.cta-box h2{
+gap:20px;
 
-font-size:70px;
-
-margin-bottom:20px;
-
-font-weight:800;
+color:#94a3b8;
 
 }
 
-.cta-box p{
-
-font-size:22px;
-
-margin-bottom:35px;
-
-}
-
-.cta-btn{
-
-display:inline-block;
-
-padding:20px 40px;
-
-background:black;
+footer span{
 
 color:#00ff99;
-
-font-weight:800;
-
-border-radius:18px;
-
-text-decoration:none;
-
-transition:0.3s;
-
-}
-
-.cta-btn:hover{
-
-transform:translateY(-5px);
-
-}
-
-/* SUPPORT */
-
-.support-btn{
-
-position:fixed;
-
-bottom:25px;
-right:25px;
-
-padding:18px 28px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-color:black;
-
-font-weight:700;
-
-border-radius:50px;
-
-text-decoration:none;
-
-box-shadow:0 0 25px rgba(0,255,153,0.5);
-
-z-index:9999;
-
-transition:0.3s;
-
-animation:pulse 2s infinite;
-
-}
-
-.support-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.8);
-
-}
-
-@keyframes pulse{
-
-0%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
 
 }
 
@@ -803,9 +592,15 @@ box-shadow:0 0 15px rgba(0,255,153,0.4);
 
 @media(max-width:768px){
 
+.hero{
+
+padding-top:90px;
+
+}
+
 .hero h1{
 
-font-size:55px;
+font-size:52px;
 
 }
 
@@ -821,27 +616,15 @@ font-size:40px;
 
 }
 
-.cta-box h2{
+.price{
 
-font-size:42px;
-
-}
-
-.payment-box{
-
-padding:40px 25px;
+font-size:55px;
 
 }
 
-.payment-box h2{
+.card h2{
 
 font-size:40px;
-
-}
-
-.nav-links{
-
-display:none;
 
 }
 
@@ -853,6 +636,9 @@ display:none;
 
 <body>
 
+<div class="bg-glow bg1"></div>
+<div class="bg-glow bg2"></div>
+
 <!-- NAVBAR -->
 
 <nav>
@@ -861,14 +647,9 @@ display:none;
 PURE<span>Step</span>
 </div>
 
-<div class="nav-links">
-
-<a href="index.html">Home</a>
-<a href="rules.html">Rules</a>
-<a href="login.html">Login</a>
-<a href="register.html">Register</a>
-
-</div>
+<a href="dashboard.html" class="nav-btn">
+Dashboard
+</a>
 
 </nav>
 
@@ -877,105 +658,85 @@ PURE<span>Step</span>
 <section class="hero">
 
 <h1>
-PURE<span>STEP</span><br>
-2-STEP CHALLENGE
+
+Trade With <span>PureStep Funding</span>
+
 </h1>
 
 <p>
-Trade with discipline, pass the evaluation and get funded with PureStep Funding. Transparent rules, premium dashboard and fast crypto payouts.
+
+Start your funded trading journey with our professional 2-Step Evaluation Program. 
+Get access to funded accounts, low drawdowns, fast reviews and premium trader support.
+
 </p>
 
 <div class="hero-buttons">
 
-<a href="#plans" class="hero-btn primary">
-START CHALLENGE
+<a href="#plans" class="primary-btn">
+
+Start Challenge
+
 </a>
 
-<a href="#rules" class="hero-btn secondary">
-VIEW RULES
+<a href="#faq" class="secondary-btn">
+
+Learn More
+
 </a>
-
-</div>
-
-<div class="badges">
-
-<div class="badge">
-100% Profit Split
-</div>
-
-<div class="badge">
-Crypto Payouts
-</div>
-
-<div class="badge">
-MT5 Supported
-</div>
-
-<div class="badge">
-Fast Reviews
-</div>
 
 </div>
 
 </section>
 
-<!-- STEPS -->
+<!-- STATS -->
 
-<section class="steps">
+<section class="stats">
 
-<h2 class="section-title">
-How The <span>Challenge Works</span>
-</h2>
-
-<div class="steps-grid">
-
-<div class="step-card">
+<div class="stat">
 
 <h2>
-01
+100%
 </h2>
 
-<h3>
-STEP 1
-</h3>
-
 <p>
-Reach 8% profit target while respecting all drawdown and risk rules.
+Profit Split
 </p>
 
 </div>
 
-<div class="step-card">
+<div class="stat">
 
 <h2>
-02
+24H
 </h2>
 
-<h3>
-STEP 2
-</h3>
-
 <p>
-Reach 5% target to successfully complete the funded evaluation process.
+Fast Reviews
 </p>
 
 </div>
 
-<div class="step-card">
+<div class="stat">
 
 <h2>
-03
+MT5
 </h2>
 
-<h3>
-GET FUNDED
-</h3>
-
 <p>
-Receive your funded account and request crypto payouts directly.
+Trading Platform
 </p>
 
 </div>
+
+<div class="stat">
+
+<h2>
+Crypto
+</h2>
+
+<p>
+Instant Payments
+</p>
 
 </div>
 
@@ -983,249 +744,178 @@ Receive your funded account and request crypto payouts directly.
 
 <!-- CHALLENGES -->
 
-<section class="challenges" id="plans">
+<h1 class="section-title" id="plans">
 
-<h2 class="section-title">
 Choose Your <span>Challenge</span>
-</h2>
 
-<div class="challenge-grid">
+</h1>
 
-<!-- 2500 -->
+<section class="challenges">
 
-<div class="challenge-card">
+<!-- 5K -->
+
+<div class="card">
 
 <h2>
-$2500
+5K
 </h2>
 
-<h3>
-Starter Challenge
-</h3>
+<div class="price">
+$39
+</div>
 
-<ul>
+<ul class="features">
 
-<li>✔ Price: $10</li>
-<li>✔ Daily Drawdown: 4%</li>
-<li>✔ Max Drawdown: 8%</li>
-<li>✔ Risk Limit: 2%</li>
-<li>✔ Max Payout: $75</li>
-<li>✔ MT5 Platform</li>
-<li>✔ 100% Profit Split</li>
+<li>✔ 5,000$ Account</li>
+
+<li>✔ 4% Daily Drawdown</li>
+
+<li>✔ 8% Max Drawdown</li>
+
+<li>✔ 2-Step Evaluation</li>
+
+<li>✔ MT5 Included</li>
+
+<li>✔ Crypto Payouts</li>
 
 </ul>
 
-<a href="checkout.html?plan=2500&price=10" class="buy-btn">
+<div class="table">
+
+<div class="row">
+<span>Profit Target</span>
+<span>8%</span>
+</div>
+
+<div class="row">
+<span>Leverage</span>
+<span>1:100</span>
+</div>
+
+<div class="row">
+<span>Payout</span>
+<span>14 Days</span>
+</div>
+
+</div>
+
+<a href="checkout.html?plan=5&price=39" class="buy-btn">
+
 BUY CHALLENGE
+
 </a>
 
 </div>
 
-<!-- 5000 -->
+<!-- 10K -->
 
-<div class="challenge-card">
+<div class="card popular">
 
-<div class="popular-badge">
+<div class="badge">
 MOST POPULAR
 </div>
 
 <h2>
-$5000
+10K
 </h2>
 
-<h3>
-Pro Challenge
-</h3>
+<div class="price">
+$69
+</div>
 
-<ul>
+<ul class="features">
 
-<li>✔ Price: $35</li>
-<li>✔ Daily Drawdown: 4%</li>
-<li>✔ Max Drawdown: 8%</li>
-<li>✔ Risk Limit: 2%</li>
-<li>✔ Max Payout: $150</li>
-<li>✔ MT5 Platform</li>
-<li>✔ 100% Profit Split</li>
+<li>✔ 10,000$ Account</li>
+
+<li>✔ 4% Daily Drawdown</li>
+
+<li>✔ 8% Max Drawdown</li>
+
+<li>✔ 2-Step Evaluation</li>
+
+<li>✔ MT5 Included</li>
+
+<li>✔ Fast Support</li>
 
 </ul>
 
-<a href="checkout.html?plan=5000&price=35" class="buy-btn">
+<div class="table">
+
+<div class="row">
+<span>Profit Target</span>
+<span>8%</span>
+</div>
+
+<div class="row">
+<span>Leverage</span>
+<span>1:100</span>
+</div>
+
+<div class="row">
+<span>Payout</span>
+<span>14 Days</span>
+</div>
+
+</div>
+
+<a href="checkout.html?plan=10&price=69" class="buy-btn">
+
 BUY CHALLENGE
+
 </a>
 
 </div>
 
-<!-- 10000 -->
+<!-- 25K -->
 
-<div class="challenge-card">
+<div class="card">
 
 <h2>
-$10000
+25K
 </h2>
 
-<h3>
-Elite Challenge
-</h3>
+<div class="price">
+$149
+</div>
 
-<ul>
+<ul class="features">
 
-<li>✔ Price: $60</li>
-<li>✔ Daily Drawdown: 4%</li>
-<li>✔ Max Drawdown: 8%</li>
-<li>✔ Risk Limit: 2%</li>
-<li>✔ Max Payout: $350</li>
-<li>✔ MT5 Platform</li>
-<li>✔ 100% Profit Split</li>
+<li>✔ 25,000$ Account</li>
+
+<li>✔ 4% Daily Drawdown</li>
+
+<li>✔ 8% Max Drawdown</li>
+
+<li>✔ Premium Support</li>
+
+<li>✔ MT5 Included</li>
+
+<li>✔ Fast Withdrawals</li>
 
 </ul>
 
-<a href="checkout.html?plan=10000&price=60" class="buy-btn">
+<div class="table">
+
+<div class="row">
+<span>Profit Target</span>
+<span>8%</span>
+</div>
+
+<div class="row">
+<span>Leverage</span>
+<span>1:100</span>
+</div>
+
+<div class="row">
+<span>Payout</span>
+<span>14 Days</span>
+</div>
+
+</div>
+
+<a href="checkout.html?plan=25&price=149" class="buy-btn">
+
 BUY CHALLENGE
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PAYMENT -->
-
-<section class="payment">
-
-<div class="payment-box">
-
-<h2>
-Payment <span>Methods</span>
-</h2>
-
-<p>
-Secure crypto payments through Binance Pay and USDT wallets.
-</p>
-
-<div class="payment-methods">
-
-<div class="method">
-Binance Pay
-</div>
-
-<div class="method">
-USDT TRC20
-</div>
-
-<div class="method">
-Fast Crypto Payment
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- RULES -->
-
-<section class="rules" id="rules">
-
-<h2 class="section-title">
-Challenge <span>Rules</span>
-</h2>
-
-<div class="rules-grid">
-
-<div class="rule">
-
-<h3>
-Step 1
-</h3>
-
-<p>
-Reach 8% profit target while respecting all risk management rules.
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Step 2
-</h3>
-
-<p>
-Reach 5% target to receive your funded trading account.
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Daily Drawdown
-</h3>
-
-<p>
-Maximum daily drawdown allowed is 4%.
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Max Drawdown
-</h3>
-
-<p>
-Overall account drawdown limit is 8%.
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Risk Limit
-</h3>
-
-<p>
-Maximum risk per trade allowed is 2%.
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Trading Days
-</h3>
-
-<p>
-Minimum required trading days is 5 days.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<div class="cta-box">
-
-<h2>
-START YOUR JOURNEY 🚀
-</h2>
-
-<p>
-Pass the PureStep challenge and become a funded trader today.
-</p>
-
-<a href="checkout.html?plan=5000&price=35" class="cta-btn">
-
-BUY NOW
 
 </a>
 
@@ -1233,15 +923,81 @@ BUY NOW
 
 </section>
 
-<!-- SUPPORT -->
+<!-- FAQ -->
 
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
-class="support-btn">
+<section class="faq" id="faq">
 
-Support
+<h1 class="section-title">
 
-</a>
+Frequently Asked <span>Questions</span>
+
+</h1>
+
+<div class="faq-grid">
+
+<div class="faq-box">
+
+<h3>
+How long does review take?
+</h3>
+
+<p>
+
+Challenge reviews usually take between 1 hour and 24 hours after payment confirmation.
+
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+What payment methods do you accept?
+</h3>
+
+<p>
+
+We currently accept Binance Pay and USDT TRC20 crypto payments.
+
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+When can I request payout?
+</h3>
+
+<p>
+
+Traders can request payouts after meeting challenge requirements and funded conditions.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026 <span>PureStep Funding</span>. All rights reserved.
+
+</p>
+
+<p>
+
+Built for professional traders 🚀
+
+</p>
+
+</footer>
 
 </body>
 
