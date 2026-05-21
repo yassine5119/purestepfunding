@@ -41,6 +41,8 @@ position:fixed;
 
 border-right:1px solid rgba(0,255,153,0.1);
 
+z-index:1000;
+
 }
 
 .logo{
@@ -95,6 +97,8 @@ transition:0.3s;
 background:#00ff99;
 color:black;
 
+transform:translateX(5px);
+
 }
 
 /* MAIN */
@@ -103,8 +107,21 @@ color:black;
 
 margin-left:280px;
 width:100%;
-
 padding:40px;
+
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+
+display:none;
+
+font-size:32px;
+
+cursor:pointer;
+
+margin-bottom:20px;
 
 }
 
@@ -160,7 +177,7 @@ margin-bottom:35px;
 
 color:#cbd5e1;
 
-margin-bottom:12px;
+margin-bottom:10px;
 
 font-size:18px;
 
@@ -175,6 +192,64 @@ font-weight:800;
 color:#00ff99;
 
 letter-spacing:3px;
+
+}
+
+/* BUY NEW ACCOUNT */
+
+.buy-card{
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+padding:40px;
+
+border-radius:30px;
+
+margin-bottom:40px;
+
+color:black;
+
+}
+
+.buy-card h2{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+}
+
+.buy-card p{
+
+font-size:18px;
+
+margin-bottom:25px;
+
+}
+
+.buy-btn{
+
+display:inline-block;
+
+padding:18px 30px;
+
+background:black;
+
+color:#00ff99;
+
+font-weight:700;
+
+border-radius:16px;
+
+text-decoration:none;
+
+transition:0.3s;
+
+}
+
+.buy-btn:hover{
+
+transform:translateY(-5px);
 
 }
 
@@ -210,7 +285,7 @@ transition:0.4s;
 
 transform:translateY(-8px);
 
-box-shadow:0 0 30px rgba(0,255,153,0.25);
+box-shadow:0 0 30px rgba(0,255,153,0.2);
 
 }
 
@@ -344,7 +419,7 @@ border-radius:20px;
 
 }
 
-/* ACCOUNT CARD */
+/* ACCOUNT */
 
 .account-card{
 
@@ -536,7 +611,7 @@ margin-bottom:25px;
 
 }
 
-/* SUPPORT BUTTON */
+/* SUPPORT */
 
 .support-btn{
 
@@ -591,20 +666,6 @@ box-shadow:0 0 15px rgba(0,255,153,0.4);
 
 }
 
-/* MOBILE */
-
-.mobile-menu{
-
-display:none;
-
-font-size:32px;
-
-cursor:pointer;
-
-margin-bottom:20px;
-
-}
-
 /* RESPONSIVE */
 
 @media(max-width:900px){
@@ -614,8 +675,6 @@ margin-bottom:20px;
 left:-100%;
 
 transition:0.4s;
-
-z-index:1000;
 
 }
 
@@ -647,13 +706,19 @@ font-size:30px;
 
 .account-id p{
 
-font-size:30px;
+font-size:28px;
 
 }
 
 .payout h2{
 
 font-size:34px;
+
+}
+
+.buy-card h2{
+
+font-size:32px;
 
 }
 
@@ -685,11 +750,7 @@ PURE<span>Step</span>
 
 <li><a href="settings.html">Settings</a></li>
 
-<li>
-<a href="index.html">
-Logout
-</a>
-</li>
+<li><a href="index.html">Logout</a></li>
 
 </ul>
 
@@ -735,6 +796,26 @@ PSF-58291
 
 </div>
 
+<!-- BUY NEW ACCOUNT -->
+
+<div class="buy-card">
+
+<h2>
+Need Another Challenge? 🚀
+</h2>
+
+<p>
+Purchase a new PureStep Funding challenge instantly and continue your funded journey.
+</p>
+
+<a href="challenge.html" class="buy-btn">
+
+BUY NEW ACCOUNT
+
+</a>
+
+</div>
+
 <!-- STATS -->
 
 <div class="stats">
@@ -770,7 +851,7 @@ Current Profit
 </h2>
 
 <p>
-Daily Drawdown
+Daily Drawdown Left
 </p>
 
 </div>
@@ -800,9 +881,13 @@ Trading <span>Objectives</span>
 <ul>
 
 <li>✔ Reach 8% Profit Target</li>
+
 <li>✔ Respect 4% Daily Drawdown</li>
+
 <li>✔ Respect 8% Overall Drawdown</li>
-<li>✔ Risk Maximum 2% Per Trade</li>
+
+<li>✔ Maximum Risk 2% Per Trade</li>
+
 <li>✔ Complete 5 Trading Days</li>
 
 </ul>
@@ -847,7 +932,7 @@ Trading Days - 3 / 5
 
 </div>
 
-<!-- ACCOUNT -->
+<!-- ACCOUNT DETAILS -->
 
 <div class="account-card">
 
@@ -858,10 +943,15 @@ $5000 <span>Challenge</span>
 <ul>
 
 <li>✔ Phase: Phase 1</li>
+
 <li>✔ Platform: MT5</li>
+
 <li>✔ Profit Split: 100%</li>
+
 <li>✔ Maximum Payout: $150</li>
+
 <li>✔ Review Time: Up To 14 Days</li>
+
 <li>✔ Status: ACTIVE</li>
 
 </ul>
@@ -953,7 +1043,7 @@ Funded <span>Certificate</span>
 </h2>
 
 <p>
-Download your funded trader certificate after completing the challenge.
+Download your funded trader certificate after successfully completing the challenge.
 </p>
 
 <a href="certificate.html" class="btn">
@@ -964,7 +1054,7 @@ VIEW CERTIFICATE
 
 </div>
 
-<!-- SUPPORT BUTTON -->
+<!-- SUPPORT -->
 
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
@@ -986,7 +1076,7 @@ window.location.href = "login.html";
 
 }
 
-/* USER DATA */
+/* USERNAME */
 
 let user = localStorage.getItem("userName");
 
@@ -995,6 +1085,8 @@ if(user){
 document.getElementById("username").innerHTML = user;
 
 }
+
+/* ACCOUNT INFO */
 
 document.getElementById("account-id").innerHTML =
 localStorage.getItem("accountID") || "PSF-58291";
@@ -1024,4 +1116,4 @@ sidebar.classList.toggle("active");
 
 </body>
 
-  </html>
+</html>
