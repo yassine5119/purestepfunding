@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PureStep Funding</title>
+<title>PURESTEP FUNDING</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -21,582 +21,434 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#020817;
+background:#020617;
 color:white;
 overflow-x:hidden;
 }
 
 /* NAVBAR */
 
-nav{
-
-width:100%;
-
-padding:25px 70px;
-
+.navbar{
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-z-index:1000;
-
-background:rgba(2,8,23,0.92);
-
+padding:20px 7%;
+background:rgba(2,6,23,0.95);
 backdrop-filter:blur(10px);
-
+position:sticky;
+top:0;
+z-index:1000;
 border-bottom:1px solid rgba(0,255,153,0.15);
-
 }
 
 .logo{
-
-font-size:42px;
-
+font-size:34px;
 font-weight:800;
-
-color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
 }
 
 .logo span{
-color:#2d7cff;
-}
-
-nav ul{
-
-display:flex;
-
-gap:35px;
-
-list-style:none;
-
-}
-
-nav ul li a{
-
-text-decoration:none;
-
-color:white;
-
-font-weight:600;
-
-font-size:17px;
-
-transition:0.3s;
-
-}
-
-nav ul li a:hover{
-
 color:#00ff99;
+text-shadow:0 0 20px #00ff99;
+}
 
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00ff99;
+}
+
+.menu-toggle{
+display:none;
+font-size:32px;
+cursor:pointer;
+color:white;
 }
 
 /* HERO */
 
 .hero{
-
-height:100vh;
-
-background:
-linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.95)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:100px 7%;
 
-padding:0 20px;
+background:
+linear-gradient(rgba(2,6,23,0.88),rgba(2,6,23,0.95)),
+url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
+background-size:cover;
+background-position:center;
 }
 
-.hero-content{
-
-max-width:1050px;
-
-}
-
-.hero h1{
-
-font-size:95px;
-
-line-height:1.05;
-
+.hero-content h1{
+font-size:90px;
 font-weight:800;
-
+line-height:1.1;
 margin-bottom:25px;
-
-text-shadow:0 0 40px rgba(0,255,153,0.45);
-
+animation:glow 2s infinite alternate;
 }
 
-.hero h1 span{
-
+.hero-content h1 span{
 color:#00ff99;
-
-text-shadow:0 0 40px #00ff99;
-
 }
 
-.hero p{
-
-font-size:28px;
-
-line-height:1.7;
-
-color:#d1d5db;
-
-margin-bottom:45px;
-
+.hero-content p{
+font-size:22px;
+color:#cbd5e1;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.8;
 }
 
 .hero-buttons{
-
 display:flex;
-
 justify-content:center;
-
-gap:25px;
-
+gap:20px;
 flex-wrap:wrap;
-
 }
 
 .btn{
-
-padding:20px 45px;
-
-background:#00ff99;
-
-border-radius:16px;
-
-text-decoration:none;
-
-font-weight:700;
-
+padding:18px 40px;
+border-radius:14px;
 font-size:18px;
-
-color:black;
-
-box-shadow:0 0 30px #00ff99;
-
-transition:0.3s;
-
+font-weight:700;
+text-decoration:none;
+transition:0.4s;
 display:inline-block;
-
 }
 
-.btn:hover{
-
-transform:translateY(-5px);
-
+.btn-primary{
+background:#00ff99;
+color:black;
+box-shadow:0 0 30px #00ff99;
 }
 
-.btn2{
+.btn-primary:hover{
+transform:translateY(-6px);
+box-shadow:0 0 50px #00ff99;
+}
 
-padding:20px 45px;
-
+.btn-secondary{
 border:2px solid #00ff99;
-
-border-radius:16px;
-
-text-decoration:none;
-
-font-weight:700;
-
-font-size:18px;
-
 color:#00ff99;
-
-transition:0.3s;
-
 }
 
-.btn2:hover{
-
+.btn-secondary:hover{
 background:#00ff99;
-
 color:black;
-
-}
-
-/* FEATURES */
-
-.features{
-
-padding:100px 40px;
-
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-
-background:#030d22;
-
-}
-
-.feature{
-
-width:260px;
-
-padding:35px;
-
-border-radius:25px;
-
-background:#081225;
-
-border:1px solid rgba(0,255,153,0.15);
-
-text-align:center;
-
-transition:0.3s;
-
-}
-
-.feature:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.2);
-
-}
-
-.feature h2{
-
-font-size:24px;
-
-margin-bottom:15px;
-
-color:#00ff99;
-
-}
-
-.feature p{
-
-font-size:17px;
-
-line-height:1.7;
-
-color:#d1d5db;
-
-}
-
-/* SECTION TITLE */
-
-.section-title{
-
-text-align:center;
-
-font-size:70px;
-
-margin-bottom:70px;
-
-font-weight:800;
-
-}
-
-/* PLANS */
-
-.plans{
-
-padding:120px 40px;
-
-}
-
-.cards{
-
-display:flex;
-
-justify-content:center;
-
-gap:35px;
-
-flex-wrap:wrap;
-
-}
-
-.card{
-
-width:350px;
-
-padding:45px 35px;
-
-border-radius:30px;
-
-background:#081225;
-
-border:1px solid rgba(0,255,153,0.15);
-
-transition:0.3s;
-
-position:relative;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.2);
-
-}
-
-.popular{
-
-border:1px solid #00ff99;
-
-box-shadow:0 0 35px rgba(0,255,153,0.15);
-
-}
-
-.badge{
-
-position:absolute;
-
-top:18px;
-
-right:18px;
-
-padding:8px 15px;
-
-background:#00ff99;
-
-border-radius:30px;
-
-color:black;
-
-font-size:13px;
-
-font-weight:700;
-
-}
-
-.card h2{
-
-font-size:55px;
-
-margin-bottom:20px;
-
-}
-
-.price{
-
-font-size:68px;
-
-font-weight:800;
-
-color:#00ff99;
-
-margin-bottom:25px;
-
-text-shadow:0 0 25px #00ff99;
-
-}
-
-.card p{
-
-margin:14px 0;
-
-font-size:18px;
-
-color:#d1d5db;
-
-}
-
-/* RULES */
-
-.rules{
-
-padding:120px 40px;
-
-background:#030d22;
-
-}
-
-.rules-box{
-
-max-width:950px;
-
-margin:auto;
-
-padding:55px;
-
-background:#081225;
-
-border-radius:30px;
-
-border:1px solid rgba(0,255,153,0.15);
-
-}
-
-.rules-box p{
-
-font-size:23px;
-
-margin:22px 0;
-
 }
 
 /* STATS */
 
 .stats{
-
-padding:120px 40px;
-
+padding:80px 7%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
-.stats-grid{
-
-display:flex;
-
-justify-content:center;
-
-gap:35px;
-
-flex-wrap:wrap;
-
-}
-
-.stat{
-
-width:260px;
-
-padding:40px;
-
-background:#081225;
-
-border-radius:25px;
-
+.stat-box{
+background:#071226;
+padding:35px;
+border-radius:22px;
 text-align:center;
-
 border:1px solid rgba(0,255,153,0.15);
-
+transition:0.4s;
 }
 
-.stat h1{
+.stat-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,153,0.3);
+}
 
-font-size:60px;
-
+.stat-box h2{
+font-size:42px;
 color:#00ff99;
-
-margin-bottom:15px;
-
-text-shadow:0 0 20px #00ff99;
-
+margin-bottom:10px;
 }
 
-.stat p{
+.stat-box p{
+color:#cbd5e1;
+}
 
-font-size:20px;
+/* TITLES */
 
-color:#d1d5db;
+.section-title{
+font-size:55px;
+font-weight:800;
+text-align:center;
+margin-bottom:70px;
+}
 
+.section-title span{
+color:#00ff99;
+}
+
+/* PLANS */
+
+.plans{
+padding:100px 7%;
+}
+
+.plans-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.plan-card{
+background:#071226;
+padding:45px 30px;
+border-radius:28px;
+position:relative;
+border:1px solid rgba(0,255,153,0.15);
+transition:0.4s;
+}
+
+.plan-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(0,255,153,0.35);
+}
+
+.badge{
+position:absolute;
+top:18px;
+right:18px;
+background:#00ff99;
+color:black;
+padding:8px 16px;
+border-radius:30px;
+font-size:13px;
+font-weight:700;
+}
+
+.plan-card h2{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:65px;
+font-weight:800;
+color:#00ff99;
+margin:20px 0;
+}
+
+.plan-card ul{
+list-style:none;
+margin:30px 0;
+}
+
+.plan-card ul li{
+margin:15px 0;
+font-size:17px;
+color:#cbd5e1;
+}
+
+/* WHY SECTION */
+
+.rules{
+padding:100px 7%;
+}
+
+.rules-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.rule-box{
+background:#071226;
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(0,255,153,0.12);
+transition:0.4s;
+}
+
+.rule-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(0,255,153,0.25);
+}
+
+.rule-box h3{
+font-size:28px;
+margin-bottom:15px;
+color:#00ff99;
+}
+
+.rule-box p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+padding:100px 7%;
+text-align:center;
+}
+
+.dashboard-box{
+background:#071226;
+padding:50px;
+border-radius:30px;
+border:1px solid rgba(0,255,153,0.12);
+}
+
+.dashboard-box img{
+width:100%;
+margin-top:30px;
+border-radius:20px;
 }
 
 /* CTA */
 
-.cta{
+.countdown{
+padding:100px 7%;
+}
 
-padding:120px 40px;
-
+.countdown-box{
+background:linear-gradient(135deg,#00ff99,#00c97a);
+padding:70px 40px;
+border-radius:35px;
 text-align:center;
-
-background:
-linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.95)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-
+color:black;
 }
 
-.cta h1{
-
-font-size:75px;
-
-margin-bottom:25px;
-
+.countdown-box h2{
+font-size:60px;
+margin-bottom:20px;
 }
 
-.cta p{
-
-font-size:25px;
-
-max-width:850px;
-
-margin:auto;
-
-line-height:1.7;
-
-margin-bottom:40px;
-
-color:#d1d5db;
-
+.countdown-box p{
+font-size:22px;
+margin-bottom:35px;
 }
 
 /* FOOTER */
 
 footer{
-
-padding:50px;
-
+background:#01040f;
+padding:70px 7%;
 text-align:center;
+border-top:1px solid rgba(0,255,153,0.1);
+}
 
-background:#01060f;
+footer h2{
+font-size:40px;
+margin-bottom:15px;
+}
 
+footer h2 span{
+color:#00ff99;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:25px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#cbd5e1;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links a:hover{
+color:#00ff99;
+}
+
+footer p{
 color:#94a3b8;
+}
 
-font-size:17px;
+/* GLOW */
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 15px #00ff99;
+}
+
+to{
+text-shadow:0 0 35px #00ff99;
+}
 
 }
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:768px){
 
-.hero h1{
-font-size:60px;
+.menu-toggle{
+display:block;
 }
 
-.hero p{
-font-size:22px;
+.nav-links{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#020617;
+flex-direction:column;
+align-items:center;
+padding:30px 0;
+display:none;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.hero{
+padding-top:140px;
+}
+
+.hero-content h1{
+font-size:52px;
+}
+
+.hero-content p{
+font-size:18px;
 }
 
 .section-title{
+font-size:38px;
+}
+
+.price{
 font-size:50px;
 }
 
-.cta h1{
-font-size:50px;
+.countdown-box h2{
+font-size:38px;
 }
 
-nav{
-padding:20px;
+.btn{
+width:100%;
+max-width:320px;
 }
 
-nav ul{
-gap:18px;
-}
-
-.logo{
-font-size:30px;
+.hero-buttons{
+flex-direction:column;
+align-items:center;
 }
 
 }
@@ -609,32 +461,27 @@ font-size:30px;
 
 <!-- NAVBAR -->
 
-<nav>
+<nav class="navbar">
 
 <div class="logo">
-<span>PURE</span>Step
+PURE<span>Step</span>
 </div>
 
-<ul>
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<ul class="nav-links" id="nav-links">
+
+<li><a href="#">Home</a></li>
+<li><a href="rules.html">Rules</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
 
 <li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="challenges.html">Plans</a>
-</li>
-
-<li>
-<a href="rules.html">Rules</a>
-</li>
-
-<li>
-<a href="login.html">Login</a>
-</li>
-
-<li>
-<a href="dashboard.html">Dashboard</a>
+<a href="https://instagram.com/purestepfunding" target="_blank">
+Instagram
+</a>
 </li>
 
 </ul>
@@ -648,22 +495,22 @@ font-size:30px;
 <div class="hero-content">
 
 <h1>
-Fund Your Skills.<br>
-Keep The <span>Profits.</span>
+PASS THE <span>CHALLENGE</span><br>
+GET <span>FUNDED</span>
 </h1>
 
 <p>
 Professional proprietary trading firm built for disciplined traders.
-Fast payouts, transparent rules and real opportunities.
+Transparent rules, fast payouts and modern dashboard experience.
 </p>
 
 <div class="hero-buttons">
 
-<a href="login.html" class="btn">
+<a href="login.html" class="btn btn-primary">
 START CHALLENGE
 </a>
 
-<a href="rules.html" class="btn2">
+<a href="rules.html" class="btn btn-secondary">
 VIEW RULES
 </a>
 
@@ -673,48 +520,28 @@ VIEW RULES
 
 </section>
 
-<!-- FEATURES -->
+<!-- STATS -->
 
-<section class="features">
+<section class="stats">
 
-<div class="feature">
-
-<h2>FAST PAYOUTS</h2>
-
-<p>
-Receive payouts every 14 days with transparent processing.
-</p>
-
+<div class="stat-box">
+<h2>100%</h2>
+<p>Profit Split</p>
 </div>
 
-<div class="feature">
-
-<h2>100% SPLIT</h2>
-
-<p>
-Keep 100% of your profits after payout request.
-</p>
-
+<div class="stat-box">
+<h2>$10</h2>
+<p>Starting Challenge</p>
 </div>
 
-<div class="feature">
-
-<h2>LOW FEES</h2>
-
-<p>
-Affordable challenges built for disciplined traders.
-</p>
-
+<div class="stat-box">
+<h2>2-Step</h2>
+<p>Evaluation Process</p>
 </div>
 
-<div class="feature">
-
-<h2>NEWS TRADING</h2>
-
-<p>
-Trade news events with no restrictions.
-</p>
-
+<div class="stat-box">
+<h2>24/7</h2>
+<p>Support Team</p>
 </div>
 
 </section>
@@ -724,73 +551,91 @@ Trade news events with no restrictions.
 <section class="plans">
 
 <h2 class="section-title">
-Funding Plans
+Choose Your <span>Challenge</span>
 </h2>
 
-<div class="cards">
+<div class="plans-grid">
 
-<div class="card">
+<!-- 2500 -->
 
-<h2>$2,500</h2>
+<div class="plan-card">
 
-<div class="price">
-$10
-</div>
+<h2>$2500</h2>
 
-<p>Profit Split: 100%</p>
-<p>Max Withdrawal: $75</p>
-<p>Risk Per Trade: 2%</p>
-<p>Daily Drawdown: 4%</p>
-<p>Overall Drawdown: 8%</p>
-<p>Minimum Trading Days: 2</p>
+<div class="price">$10</div>
 
-<a href="checkout.html?account=2500" class="btn" style="margin-top:25px;">
+<ul>
+
+<li>✔ Daily Loss: 4%</li>
+<li>✔ Overall Drawdown: 8%</li>
+<li>✔ Risk Limit Per Trade: 2%</li>
+<li>✔ Step 1 Target: 8%</li>
+<li>✔ Step 2 Target: 5%</li>
+<li>✔ 100% Profit Split</li>
+<li>✔ Maximum Payout: $75</li>
+<li>✔ Minimum Trading Days: 5</li>
+
+</ul>
+
+<a href="login.html" class="btn btn-primary">
 BUY CHALLENGE
 </a>
 
 </div>
 
-<div class="card popular">
+<!-- 5000 -->
+
+<div class="plan-card">
 
 <div class="badge">
 MOST POPULAR
 </div>
 
-<h2>$5,000</h2>
+<h2>$5000</h2>
 
-<div class="price">
-$35
-</div>
+<div class="price">$35</div>
 
-<p>Profit Split: 100%</p>
-<p>Max Withdrawal: $150</p>
-<p>Risk Per Trade: 2%</p>
-<p>Daily Drawdown: 4%</p>
-<p>Overall Drawdown: 8%</p>
-<p>Minimum Trading Days: 2</p>
+<ul>
 
-<a href="checkout.html?account=5000" class="btn" style="margin-top:25px;">
+<li>✔ Daily Loss: 4%</li>
+<li>✔ Overall Drawdown: 8%</li>
+<li>✔ Risk Limit Per Trade: 2%</li>
+<li>✔ Step 1 Target: 8%</li>
+<li>✔ Step 2 Target: 5%</li>
+<li>✔ 100% Profit Split</li>
+<li>✔ Maximum Payout: $150</li>
+<li>✔ Minimum Trading Days: 5</li>
+
+</ul>
+
+<a href="login.html" class="btn btn-primary">
 BUY CHALLENGE
 </a>
 
 </div>
 
-<div class="card">
+<!-- 10000 -->
 
-<h2>$10,000</h2>
+<div class="plan-card">
 
-<div class="price">
-$60
-</div>
+<h2>$10000</h2>
 
-<p>Profit Split: 100%</p>
-<p>Max Withdrawal: $350</p>
-<p>Risk Per Trade: 2%</p>
-<p>Daily Drawdown: 4%</p>
-<p>Overall Drawdown: 8%</p>
-<p>Minimum Trading Days: 2</p>
+<div class="price">$60</div>
 
-<a href="checkout.html?account=10000" class="btn" style="margin-top:25px;">
+<ul>
+
+<li>✔ Daily Loss: 4%</li>
+<li>✔ Overall Drawdown: 8%</li>
+<li>✔ Risk Limit Per Trade: 2%</li>
+<li>✔ Step 1 Target: 8%</li>
+<li>✔ Step 2 Target: 5%</li>
+<li>✔ 100% Profit Split</li>
+<li>✔ Maximum Payout: $350</li>
+<li>✔ Minimum Trading Days: 5</li>
+
+</ul>
+
+<a href="login.html" class="btn btn-primary">
 BUY CHALLENGE
 </a>
 
@@ -800,71 +645,87 @@ BUY CHALLENGE
 
 </section>
 
-<!-- RULES -->
+<!-- WHY PURESTEP -->
 
 <section class="rules">
 
 <h2 class="section-title">
-Trading Rules
+Why <span>PureStep?</span>
 </h2>
 
-<div class="rules-box">
+<div class="rules-grid">
 
-<p>✅ Daily Drawdown: 4%</p>
+<div class="rule-box">
 
-<p>✅ Maximum Drawdown: 8%</p>
+<h3>
+Transparent Rules
+</h3>
 
-<p>✅ Profit Split Up To 100%</p>
+<p>
+Clear risk management, realistic targets and transparent evaluation process.
+</p>
 
-<p>✅ News Trading Allowed</p>
+</div>
 
-<p>✅ Minimum Trading Days: 2</p>
+<div class="rule-box">
 
-<p>✅ Fast Payouts Within 14 Days</p>
+<h3>
+Crypto Payouts
+</h3>
 
-<p>✅ Crypto & Forex Trading Allowed</p>
+<p>
+Fast USDT payouts using Binance Pay and crypto wallet systems.
+</p>
 
-<p>❌ No Martingale Allowed</p>
+</div>
 
-<p>❌ No HFT Allowed</p>
+<div class="rule-box">
+
+<h3>
+Modern Dashboard
+</h3>
+
+<p>
+Track your profits, payouts, funded status and challenge progression.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Built For Traders
+</h3>
+
+<p>
+Made for disciplined traders who respect consistency and risk management.
+</p>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- STATS -->
+<!-- DASHBOARD -->
 
-<section class="stats">
+<section class="dashboard">
 
 <h2 class="section-title">
-PureStep Statistics
+Trader <span>Dashboard</span>
 </h2>
 
-<div class="stats-grid">
+<div class="dashboard-box">
 
-<div class="stat">
+<h3 style="font-size:35px;">
+Track Your Trading Journey
+</h3>
 
-<h1>100%</h1>
+<p style="margin-top:15px;color:#cbd5e1;line-height:1.8;">
+Monitor profits, payouts, account status and challenge progression through a modern dashboard system.
+</p>
 
-<p>Profit Split</p>
-
-</div>
-
-<div class="stat">
-
-<h1>14D</h1>
-
-<p>Payout Cycle</p>
-
-</div>
-
-<div class="stat">
-
-<h1>1:10</h1>
-
-<p>Leverage</p>
-
-</div>
+<img src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1200&auto=format&fit=crop">
 
 </div>
 
@@ -872,20 +733,23 @@ PureStep Statistics
 
 <!-- CTA -->
 
-<section class="cta">
+<section class="countdown">
 
-<h1>
-Ready To Become Funded?
-</h1>
+<div class="countdown-box">
+
+<h2>
+PURESTEP FUNDING
+</h2>
 
 <p>
-Start your funded trading journey today with PureStep Funding.
-Built for serious traders only.
+Website Launching Soon 🚀
 </p>
 
-<a href="login.html" class="btn">
-GET STARTED
+<a href="login.html" class="btn btn-primary">
+JOIN EARLY ACCESS
 </a>
+
+</div>
 
 </section>
 
@@ -893,10 +757,54 @@ GET STARTED
 
 <footer>
 
-© 2026 PureStep Funding — All Rights Reserved
+<h2>
+PURE<span>Step</span>
+</h2>
+
+<p>
+Trade Smart. Get Funded.
+</p>
+
+<div class="footer-links">
+
+<a href="https://instagram.com/purestepfunding" target="_blank">
+Instagram
+</a>
+
+<a href="rules.html">
+Rules
+</a>
+
+<a href="login.html">
+Login
+</a>
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+</div>
+
+<p>
+© 2026 PureStep Funding. All Rights Reserved.
+</p>
 
 </footer>
 
-</body>
+<!-- SCRIPT -->
 
+<script>
+
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+
+toggle.onclick = () => {
+
+nav.classList.toggle("active");
+
+};
+
+</script>
+
+</body>
 </html>
