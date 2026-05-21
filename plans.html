@@ -17,7 +17,6 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
@@ -29,25 +28,38 @@ overflow-x:hidden;
 /* NAVBAR */
 
 nav{
+
 width:100%;
 padding:25px 70px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 position:fixed;
+
 top:0;
 left:0;
+
 z-index:1000;
+
 background:rgba(2,8,23,0.92);
+
 backdrop-filter:blur(10px);
+
 border-bottom:1px solid rgba(0,255,153,0.15);
+
 }
 
 .logo{
-font-size:40px;
+
+font-size:38px;
 font-weight:800;
+
 color:#00ff99;
+
 text-shadow:0 0 25px #00ff99;
+
 }
 
 .logo span{
@@ -55,17 +67,24 @@ color:#2d7cff;
 }
 
 nav ul{
+
 display:flex;
 gap:35px;
+
 list-style:none;
+
 }
 
 nav ul li a{
+
 text-decoration:none;
 color:white;
+
 font-weight:600;
 font-size:17px;
+
 transition:0.3s;
+
 }
 
 nav ul li a:hover{
@@ -76,13 +95,19 @@ color:#00ff99;
 
 .hero{
 
-padding-top:180px;
-padding-bottom:100px;
+height:75vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 
 text-align:center;
 
+padding:40px;
+
 background:
-linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.95)),
+linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.96)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
@@ -91,10 +116,14 @@ background-position:center;
 }
 
 .hero h1{
-font-size:85px;
+
+font-size:90px;
 font-weight:800;
-margin-bottom:20px;
-text-shadow:0 0 35px rgba(0,255,153,0.4);
+
+margin-bottom:25px;
+
+line-height:1.1;
+
 }
 
 .hero h1 span{
@@ -102,33 +131,49 @@ color:#00ff99;
 }
 
 .hero p{
+
 font-size:24px;
-max-width:850px;
-margin:auto;
+
+max-width:900px;
+
 line-height:1.7;
+
 color:#d1d5db;
+
 }
 
-/* SECTION TITLE */
+/* TITLE */
 
-.section-title{
+.title{
+
 text-align:center;
+
 font-size:65px;
-margin-bottom:70px;
+
 font-weight:800;
+
+margin-bottom:70px;
+
 }
 
 /* PLANS */
 
 .plans{
+
 padding:120px 40px;
+
 }
 
 .cards{
+
 display:flex;
+
 justify-content:center;
+
 gap:35px;
+
 flex-wrap:wrap;
+
 }
 
 .card{
@@ -192,7 +237,7 @@ font-weight:700;
 
 font-size:55px;
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 }
 
@@ -288,9 +333,9 @@ background:#081225;
 
 border:1px solid rgba(0,255,153,0.15);
 
-transition:0.3s;
-
 text-align:center;
+
+transition:0.3s;
 
 }
 
@@ -331,7 +376,7 @@ padding:120px 20px;
 text-align:center;
 
 background:
-linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.95)),
+linear-gradient(rgba(2,8,23,0.88),rgba(2,8,23,0.96)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
@@ -391,7 +436,7 @@ font-size:55px;
 font-size:20px;
 }
 
-.section-title{
+.title{
 font-size:45px;
 }
 
@@ -458,11 +503,11 @@ font-size:30px;
 <section class="hero">
 
 <h1>
-Funding <span>Plans</span>
+Choose Your <span>Challenge</span>
 </h1>
 
 <p>
-Choose your funded challenge and start your journey with PureStep Funding.
+Start your funded trading journey with PureStep Funding and keep 100% of your profits.
 </p>
 
 </section>
@@ -471,8 +516,8 @@ Choose your funded challenge and start your journey with PureStep Funding.
 
 <section class="plans">
 
-<h2 class="section-title">
-Choose Your Challenge
+<h2 class="title">
+Funding Plans
 </h2>
 
 <div class="cards">
@@ -488,10 +533,15 @@ $10
 </div>
 
 <p>✔ Profit Split: 100%</p>
+
 <p>✔ Max Withdrawal: $75</p>
+
 <p>✔ Daily Drawdown: 4%</p>
+
 <p>✔ Overall Drawdown: 8%</p>
+
 <p>✔ Risk Per Trade: 2%</p>
+
 <p>✔ Minimum Trading Days: 2</p>
 
 <a href="checkout.html?account=2500" class="btn">
@@ -515,10 +565,15 @@ $35
 </div>
 
 <p>✔ Profit Split: 100%</p>
+
 <p>✔ Max Withdrawal: $150</p>
+
 <p>✔ Daily Drawdown: 4%</p>
+
 <p>✔ Overall Drawdown: 8%</p>
+
 <p>✔ Risk Per Trade: 2%</p>
+
 <p>✔ Minimum Trading Days: 2</p>
 
 <a href="checkout.html?account=5000" class="btn">
@@ -538,10 +593,15 @@ $60
 </div>
 
 <p>✔ Profit Split: 100%</p>
+
 <p>✔ Max Withdrawal: $350</p>
+
 <p>✔ Daily Drawdown: 4%</p>
+
 <p>✔ Overall Drawdown: 8%</p>
+
 <p>✔ Risk Per Trade: 2%</p>
+
 <p>✔ Minimum Trading Days: 2</p>
 
 <a href="checkout.html?account=10000" class="btn">
@@ -558,7 +618,7 @@ BUY CHALLENGE
 
 <section class="features">
 
-<h2 class="section-title">
+<h2 class="title">
 Why Choose PureStep?
 </h2>
 
@@ -569,7 +629,7 @@ Why Choose PureStep?
 <h2>FAST PAYOUTS</h2>
 
 <p>
-Receive payouts every 14 days with transparent processing.
+Receive payouts within 14 days with transparent processing.
 </p>
 
 </div>
@@ -579,7 +639,7 @@ Receive payouts every 14 days with transparent processing.
 <h2>100% PROFIT SPLIT</h2>
 
 <p>
-Keep all your profits after payout approval.
+Keep 100% of your trading profits after payout approval.
 </p>
 
 </div>
@@ -589,7 +649,7 @@ Keep all your profits after payout approval.
 <h2>REAL DASHBOARD</h2>
 
 <p>
-Track your funded account and challenge progress in real time.
+Track your challenge progress and funded account in real time.
 </p>
 
 </div>
@@ -607,7 +667,7 @@ Ready To Become Funded?
 </h1>
 
 <p>
-Start your funded challenge today and trade with PureStep Funding.
+Choose your account and begin your trading journey today.
 </p>
 
 <a href="checkout.html?account=5000" class="btn">
