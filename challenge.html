@@ -22,16 +22,14 @@ font-family:'Poppins',sans-serif;
 body{
 
 background:#020617;
-
 color:white;
-
 overflow-x:hidden;
 
 }
 
 /* BACKGROUND */
 
-.bg-glow{
+.glow{
 
 position:fixed;
 
@@ -40,31 +38,31 @@ height:700px;
 
 background:rgba(0,255,153,0.06);
 
-border-radius:50%;
-
 filter:blur(120px);
+
+border-radius:50%;
 
 z-index:-1;
 
-animation:moveGlow 8s infinite alternate;
+animation:float 8s infinite alternate;
 
 }
 
-.bg1{
+.glow1{
 
 top:-250px;
-left:-200px;
+left:-250px;
 
 }
 
-.bg2{
+.glow2{
 
 bottom:-250px;
-right:-200px;
+right:-250px;
 
 }
 
-@keyframes moveGlow{
+@keyframes float{
 
 0%{
 transform:translateY(0px);
@@ -81,9 +79,7 @@ transform:translateY(60px);
 nav{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 padding:25px 7%;
@@ -92,7 +88,7 @@ background:rgba(7,18,38,0.85);
 
 backdrop-filter:blur(10px);
 
-border-bottom:1px solid rgba(0,255,153,0.1);
+border-bottom:1px solid rgba(0,255,153,0.08);
 
 position:sticky;
 
@@ -120,7 +116,7 @@ text-shadow:0 0 25px #00ff99;
 
 .nav-btn{
 
-padding:14px 24px;
+padding:15px 28px;
 
 border-radius:50px;
 
@@ -132,7 +128,7 @@ font-weight:800;
 
 text-decoration:none;
 
-box-shadow:0 0 25px rgba(0,255,153,0.3);
+box-shadow:0 0 30px rgba(0,255,153,0.3);
 
 }
 
@@ -140,11 +136,9 @@ box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 .hero{
 
-padding:120px 7% 90px;
+padding:110px 7% 80px;
 
 text-align:center;
-
-position:relative;
 
 }
 
@@ -174,7 +168,7 @@ max-width:900px;
 
 margin:auto;
 
-font-size:22px;
+font-size:21px;
 
 line-height:1.8;
 
@@ -184,109 +178,43 @@ margin-bottom:45px;
 
 }
 
-.hero-buttons{
+.hero-btn{
 
-display:flex;
+display:inline-block;
 
-justify-content:center;
+padding:20px 38px;
 
-gap:20px;
-
-flex-wrap:wrap;
-
-}
-
-.hero-buttons a{
-
-padding:18px 34px;
-
-border-radius:18px;
-
-text-decoration:none;
-
-font-weight:800;
-
-transition:0.3s;
-
-}
-
-.primary-btn{
+border-radius:20px;
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-box-shadow:0 0 35px rgba(0,255,153,0.35);
+font-weight:800;
+
+text-decoration:none;
+
+font-size:18px;
+
+box-shadow:0 0 35px rgba(0,255,153,0.3);
+
+transition:0.3s;
 
 }
 
-.secondary-btn{
-
-border:1px solid rgba(255,255,255,0.1);
-
-background:#071226;
-
-color:white;
-
-}
-
-.hero-buttons a:hover{
+.hero-btn:hover{
 
 transform:translateY(-5px);
 
 }
 
-/* STATS */
-
-.stats{
-
-padding:0 7% 80px;
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-}
-
-.stat{
-
-background:#071226;
-
-padding:35px;
-
-border-radius:30px;
-
-text-align:center;
-
-border:1px solid rgba(0,255,153,0.08);
-
-}
-
-.stat h2{
-
-font-size:48px;
-
-color:#00ff99;
-
-margin-bottom:12px;
-
-}
-
-.stat p{
-
-color:#94a3b8;
-
-}
-
-/* CHALLENGES */
+/* SECTION */
 
 .section-title{
 
 text-align:center;
 
-font-size:60px;
+font-size:58px;
 
 margin-bottom:70px;
 
@@ -301,6 +229,8 @@ color:#00ff99;
 text-shadow:0 0 25px #00ff99;
 
 }
+
+/* CHALLENGES */
 
 .challenges{
 
@@ -336,7 +266,7 @@ transition:0.4s;
 
 .card:hover{
 
-transform:translateY(-12px);
+transform:translateY(-10px);
 
 box-shadow:0 0 45px rgba(0,255,153,0.18);
 
@@ -389,7 +319,9 @@ font-size:14px;
 
 }
 
-.card h2{
+/* PLAN */
+
+.plan{
 
 font-size:52px;
 
@@ -402,7 +334,7 @@ z-index:2;
 
 .price{
 
-font-size:72px;
+font-size:70px;
 
 font-weight:800;
 
@@ -410,18 +342,20 @@ color:#00ff99;
 
 margin-bottom:25px;
 
+text-shadow:0 0 25px #00ff99;
+
 position:relative;
 z-index:2;
 
-text-shadow:0 0 20px #00ff99;
-
 }
+
+/* FEATURES */
 
 .features{
 
 list-style:none;
 
-margin-bottom:35px;
+margin-bottom:30px;
 
 position:relative;
 z-index:2;
@@ -432,7 +366,7 @@ z-index:2;
 
 margin:18px 0;
 
-font-size:18px;
+font-size:17px;
 
 color:#cbd5e1;
 
@@ -444,7 +378,7 @@ color:#cbd5e1;
 
 background:#0f172a;
 
-padding:25px;
+padding:24px;
 
 border-radius:25px;
 
@@ -461,7 +395,7 @@ display:flex;
 
 justify-content:space-between;
 
-margin:15px 0;
+margin:16px 0;
 
 font-size:16px;
 
@@ -514,15 +448,15 @@ box-shadow:0 0 45px rgba(0,255,153,0.7);
 
 }
 
-/* FAQ */
+/* RULES */
 
-.faq{
+.rules{
 
 padding:0 7% 120px;
 
 }
 
-.faq-grid{
+.rules-grid{
 
 display:grid;
 
@@ -532,11 +466,11 @@ gap:25px;
 
 }
 
-.faq-box{
+.rule{
 
 background:#071226;
 
-padding:30px;
+padding:35px;
 
 border-radius:30px;
 
@@ -544,9 +478,9 @@ border:1px solid rgba(0,255,153,0.08);
 
 }
 
-.faq-box h3{
+.rule h3{
 
-font-size:24px;
+font-size:26px;
 
 margin-bottom:15px;
 
@@ -554,7 +488,7 @@ color:#00ff99;
 
 }
 
-.faq-box p{
+.rule p{
 
 line-height:1.8;
 
@@ -592,12 +526,6 @@ color:#00ff99;
 
 @media(max-width:768px){
 
-.hero{
-
-padding-top:90px;
-
-}
-
 .hero h1{
 
 font-size:52px;
@@ -616,15 +544,15 @@ font-size:40px;
 
 }
 
-.price{
+.plan{
 
-font-size:55px;
+font-size:40px;
 
 }
 
-.card h2{
+.price{
 
-font-size:40px;
+font-size:55px;
 
 }
 
@@ -636,8 +564,8 @@ font-size:40px;
 
 <body>
 
-<div class="bg-glow bg1"></div>
-<div class="bg-glow bg2"></div>
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
 
 <!-- NAVBAR -->
 
@@ -648,7 +576,9 @@ PURE<span>Step</span>
 </div>
 
 <a href="dashboard.html" class="nav-btn">
+
 Dashboard
+
 </a>
 
 </nav>
@@ -665,80 +595,15 @@ Trade With <span>PureStep Funding</span>
 
 <p>
 
-Start your funded trading journey with our professional 2-Step Evaluation Program. 
-Get access to funded accounts, low drawdowns, fast reviews and premium trader support.
+Start your funded trading journey with PureStep Funding and access professional funded accounts with realistic rules, fast reviews and premium trader support.
 
 </p>
 
-<div class="hero-buttons">
-
-<a href="#plans" class="primary-btn">
+<a href="#plans" class="hero-btn">
 
 Start Challenge
 
 </a>
-
-<a href="#faq" class="secondary-btn">
-
-Learn More
-
-</a>
-
-</div>
-
-</section>
-
-<!-- STATS -->
-
-<section class="stats">
-
-<div class="stat">
-
-<h2>
-100%
-</h2>
-
-<p>
-Profit Split
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-24H
-</h2>
-
-<p>
-Fast Reviews
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-MT5
-</h2>
-
-<p>
-Trading Platform
-</p>
-
-</div>
-
-<div class="stat">
-
-<h2>
-Crypto
-</h2>
-
-<p>
-Instant Payments
-</p>
-
-</div>
 
 </section>
 
@@ -752,54 +617,115 @@ Choose Your <span>Challenge</span>
 
 <section class="challenges">
 
-<!-- 5K -->
+<!-- 2.5K -->
 
 <div class="card">
 
-<h2>
-5K
+<h2 class="plan">
+2.5K
 </h2>
 
 <div class="price">
-$39
+$10
 </div>
 
 <ul class="features">
 
-<li>✔ 5,000$ Account</li>
+<li>✔ 2.5K Funded Account</li>
+
+<li>✔ 2% Risk Limit</li>
 
 <li>✔ 4% Daily Drawdown</li>
 
 <li>✔ 8% Max Drawdown</li>
 
-<li>✔ 2-Step Evaluation</li>
+<li>✔ Max Payout $75</li>
 
 <li>✔ MT5 Included</li>
 
-<li>✔ Crypto Payouts</li>
+<li>✔ 100% Profit Split</li>
 
 </ul>
 
 <div class="table">
 
 <div class="row">
-<span>Profit Target</span>
-<span>8%</span>
+<span>Platform</span>
+<span>MT5</span>
 </div>
 
 <div class="row">
-<span>Leverage</span>
-<span>1:100</span>
+<span>Challenge Type</span>
+<span>2-Step</span>
 </div>
 
 <div class="row">
-<span>Payout</span>
+<span>Payout Time</span>
 <span>14 Days</span>
 </div>
 
 </div>
 
-<a href="checkout.html?plan=5&price=39" class="buy-btn">
+<a href="checkout.html?plan=2.5&price=10"
+class="buy-btn">
+
+BUY CHALLENGE
+
+</a>
+
+</div>
+
+<!-- 5K -->
+
+<div class="card">
+
+<h2 class="plan">
+5K
+</h2>
+
+<div class="price">
+$35
+</div>
+
+<ul class="features">
+
+<li>✔ 5K Funded Account</li>
+
+<li>✔ 2% Risk Limit</li>
+
+<li>✔ 4% Daily Drawdown</li>
+
+<li>✔ 8% Max Drawdown</li>
+
+<li>✔ Max Payout $150</li>
+
+<li>✔ MT5 Included</li>
+
+<li>✔ 100% Profit Split</li>
+
+</ul>
+
+<div class="table">
+
+<div class="row">
+<span>Platform</span>
+<span>MT5</span>
+</div>
+
+<div class="row">
+<span>Challenge Type</span>
+<span>2-Step</span>
+</div>
+
+<div class="row">
+<span>Payout Time</span>
+<span>14 Days</span>
+</div>
+
+</div>
+
+<a href="checkout.html?plan=5&price=35"
+class="buy-btn">
 
 BUY CHALLENGE
 
@@ -815,105 +741,53 @@ BUY CHALLENGE
 MOST POPULAR
 </div>
 
-<h2>
+<h2 class="plan">
 10K
 </h2>
 
 <div class="price">
-$69
+$60
 </div>
 
 <ul class="features">
 
-<li>✔ 10,000$ Account</li>
+<li>✔ 10K Funded Account</li>
+
+<li>✔ 2% Risk Limit</li>
 
 <li>✔ 4% Daily Drawdown</li>
 
 <li>✔ 8% Max Drawdown</li>
 
-<li>✔ 2-Step Evaluation</li>
+<li>✔ Max Payout $350</li>
 
 <li>✔ MT5 Included</li>
 
-<li>✔ Fast Support</li>
+<li>✔ 100% Profit Split</li>
 
 </ul>
 
 <div class="table">
 
 <div class="row">
-<span>Profit Target</span>
-<span>8%</span>
+<span>Platform</span>
+<span>MT5</span>
 </div>
 
 <div class="row">
-<span>Leverage</span>
-<span>1:100</span>
+<span>Challenge Type</span>
+<span>2-Step</span>
 </div>
 
 <div class="row">
-<span>Payout</span>
+<span>Payout Time</span>
 <span>14 Days</span>
 </div>
 
 </div>
 
-<a href="checkout.html?plan=10&price=69" class="buy-btn">
-
-BUY CHALLENGE
-
-</a>
-
-</div>
-
-<!-- 25K -->
-
-<div class="card">
-
-<h2>
-25K
-</h2>
-
-<div class="price">
-$149
-</div>
-
-<ul class="features">
-
-<li>✔ 25,000$ Account</li>
-
-<li>✔ 4% Daily Drawdown</li>
-
-<li>✔ 8% Max Drawdown</li>
-
-<li>✔ Premium Support</li>
-
-<li>✔ MT5 Included</li>
-
-<li>✔ Fast Withdrawals</li>
-
-</ul>
-
-<div class="table">
-
-<div class="row">
-<span>Profit Target</span>
-<span>8%</span>
-</div>
-
-<div class="row">
-<span>Leverage</span>
-<span>1:100</span>
-</div>
-
-<div class="row">
-<span>Payout</span>
-<span>14 Days</span>
-</div>
-
-</div>
-
-<a href="checkout.html?plan=25&price=149" class="buy-btn">
+<a href="checkout.html?plan=10&price=60"
+class="buy-btn">
 
 BUY CHALLENGE
 
@@ -923,55 +797,55 @@ BUY CHALLENGE
 
 </section>
 
-<!-- FAQ -->
+<!-- RULES -->
 
-<section class="faq" id="faq">
+<section class="rules">
 
 <h1 class="section-title">
 
-Frequently Asked <span>Questions</span>
+Trading <span>Rules</span>
 
 </h1>
 
-<div class="faq-grid">
+<div class="rules-grid">
 
-<div class="faq-box">
+<div class="rule">
 
 <h3>
-How long does review take?
+Daily Drawdown
 </h3>
 
 <p>
 
-Challenge reviews usually take between 1 hour and 24 hours after payment confirmation.
+Maximum allowed daily loss is 4% of your account balance. Exceeding this limit will result in account violation.
 
 </p>
 
 </div>
 
-<div class="faq-box">
+<div class="rule">
 
 <h3>
-What payment methods do you accept?
+Maximum Drawdown
 </h3>
 
 <p>
 
-We currently accept Binance Pay and USDT TRC20 crypto payments.
+Maximum overall drawdown is 8%. Traders must manage risk carefully to maintain funded status.
 
 </p>
 
 </div>
 
-<div class="faq-box">
+<div class="rule">
 
 <h3>
-When can I request payout?
+Risk Management
 </h3>
 
 <p>
 
-Traders can request payouts after meeting challenge requirements and funded conditions.
+All accounts use a 2% risk limit policy to encourage disciplined and professional trading behavior.
 
 </p>
 
@@ -993,7 +867,7 @@ Traders can request payouts after meeting challenge requirements and funded cond
 
 <p>
 
-Built for professional traders 🚀
+Built for serious traders 🚀
 
 </p>
 
