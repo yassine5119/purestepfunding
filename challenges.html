@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plans - PureStep Funding</title>
+<title>PURESTEP CHALLENGE</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -17,495 +17,363 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#020817;
+background:#020617;
 color:white;
 overflow-x:hidden;
 }
 
 /* NAVBAR */
 
-nav{
-
-width:100%;
-
-padding:25px 70px;
-
+.navbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-position:fixed;
-
+padding:20px 7%;
+background:rgba(2,6,23,0.95);
+backdrop-filter:blur(10px);
+position:sticky;
 top:0;
-left:0;
-
 z-index:1000;
-
-background:rgba(2,8,23,0.92);
-
-backdrop-filter:blur(12px);
-
 border-bottom:1px solid rgba(0,255,153,0.15);
-
 }
 
 .logo{
-
-font-size:40px;
-
+font-size:34px;
 font-weight:800;
-
-color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
 }
 
 .logo span{
-color:#2d7cff;
-}
-
-nav ul{
-
-display:flex;
-
-gap:35px;
-
-list-style:none;
-
-}
-
-nav ul li a{
-
-text-decoration:none;
-
-color:white;
-
-font-size:17px;
-
-font-weight:600;
-
-transition:0.3s;
-
-}
-
-nav ul li a:hover{
-
 color:#00ff99;
+text-shadow:0 0 20px #00ff99;
+}
 
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#00ff99;
+}
+
+.menu-toggle{
+display:none;
+font-size:32px;
+cursor:pointer;
+color:white;
 }
 
 /* HERO */
 
 .hero{
-
-height:70vh;
-
+min-height:75vh;
 display:flex;
 justify-content:center;
 align-items:center;
-flex-direction:column;
-
 text-align:center;
-
-padding:40px;
+padding:120px 7%;
 
 background:
-linear-gradient(rgba(2,8,23,0.90),rgba(2,8,23,0.96)),
+linear-gradient(rgba(2,6,23,0.88),rgba(2,6,23,0.95)),
 url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
-
 }
 
-.hero h1{
-
+.hero-content h1{
 font-size:90px;
-
 font-weight:800;
-
+line-height:1.1;
 margin-bottom:25px;
-
+animation:glow 2s infinite alternate;
 }
 
-.hero h1 span{
-
+.hero-content h1 span{
 color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
 }
 
-.hero p{
-
-font-size:24px;
-
+.hero-content p{
+font-size:22px;
+color:#cbd5e1;
 max-width:850px;
-
-line-height:1.7;
-
-color:#d1d5db;
-
+margin:auto;
+margin-bottom:40px;
+line-height:1.8;
 }
-
-/* PLANS */
-
-.plans{
-
-padding:120px 40px;
-
-}
-
-.section-title{
-
-text-align:center;
-
-font-size:65px;
-
-margin-bottom:70px;
-
-font-weight:800;
-
-}
-
-.cards{
-
-display:flex;
-
-justify-content:center;
-
-gap:35px;
-
-flex-wrap:wrap;
-
-}
-
-/* CARD */
-
-.card{
-
-width:360px;
-
-padding:45px 35px;
-
-background:#081225;
-
-border-radius:30px;
-
-border:1px solid rgba(0,255,153,0.15);
-
-position:relative;
-
-overflow:hidden;
-
-transition:0.4s;
-
-}
-
-.card::before{
-
-content:"";
-
-position:absolute;
-
-top:-100px;
-left:-100px;
-
-width:250px;
-height:250px;
-
-background:rgba(0,255,153,0.08);
-
-border-radius:50%;
-
-filter:blur(40px);
-
-}
-
-.card:hover{
-
-transform:translateY(-12px) scale(1.02);
-
-box-shadow:
-0 0 25px rgba(0,255,153,0.25),
-0 0 60px rgba(0,255,153,0.12);
-
-border:1px solid rgba(0,255,153,0.35);
-
-}
-
-/* POPULAR */
-
-.popular{
-
-border:1px solid #00ff99;
-
-box-shadow:0 0 30px rgba(0,255,153,0.15);
-
-}
-
-.badge{
-
-position:absolute;
-
-top:18px;
-right:18px;
-
-padding:10px 16px;
-
-background:#00ff99;
-
-color:black;
-
-font-size:13px;
-
-font-weight:700;
-
-border-radius:30px;
-
-box-shadow:0 0 15px #00ff99;
-
-}
-
-/* CARD CONTENT */
-
-.card h2{
-
-font-size:58px;
-
-margin-bottom:20px;
-
-text-align:center;
-
-}
-
-.price{
-
-font-size:70px;
-
-font-weight:800;
-
-color:#00ff99;
-
-text-align:center;
-
-margin-bottom:25px;
-
-text-shadow:0 0 20px #00ff99;
-
-}
-
-.card p{
-
-font-size:18px;
-
-margin:15px 0;
-
-color:#d1d5db;
-
-text-align:center;
-
-}
-
-/* BUTTON */
 
 .btn{
-
-display:block;
-
-text-align:center;
-
-margin-top:30px;
-
-padding:18px;
-
-background:#00ff99;
-
-border-radius:16px;
-
-text-decoration:none;
-
-font-weight:700;
-
+padding:18px 40px;
+border-radius:14px;
 font-size:18px;
-
+font-weight:700;
+text-decoration:none;
+transition:0.4s;
+display:inline-block;
+background:#00ff99;
 color:black;
-
 box-shadow:0 0 25px #00ff99;
-
-transition:0.3s;
-
 }
 
 .btn:hover{
-
-transform:scale(1.05);
-
-box-shadow:
-0 0 30px #00ff99,
-0 0 60px rgba(0,255,153,0.3);
-
+transform:translateY(-5px);
+box-shadow:0 0 40px #00ff99;
 }
 
-/* FEATURES */
+/* TITLES */
 
-.features{
-
-padding:120px 40px;
-
-background:#030d22;
-
-}
-
-.features-grid{
-
-display:flex;
-
-justify-content:center;
-
-gap:30px;
-
-flex-wrap:wrap;
-
-}
-
-.feature{
-
-width:300px;
-
-padding:40px;
-
-border-radius:25px;
-
-background:#081225;
-
-border:1px solid rgba(0,255,153,0.15);
-
-transition:0.3s;
-
+.section-title{
+font-size:55px;
+font-weight:800;
 text-align:center;
-
+margin-bottom:70px;
 }
 
-.feature:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.2);
-
-}
-
-.feature h2{
-
-font-size:28px;
-
-margin-bottom:18px;
-
+.section-title span{
 color:#00ff99;
-
 }
 
-.feature p{
+/* STEPS */
 
-font-size:18px;
-
-line-height:1.7;
-
-color:#d1d5db;
-
+.steps{
+padding:100px 7%;
 }
 
-/* CTA */
+.steps-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
 
-.cta{
+.step-card{
+background:#071226;
+padding:40px;
+border-radius:28px;
+border:1px solid rgba(0,255,153,0.12);
+transition:0.4s;
+}
 
-padding:120px 20px;
+.step-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(0,255,153,0.25);
+}
 
+.step-card h2{
+font-size:42px;
+margin-bottom:15px;
+color:#00ff99;
+}
+
+.step-card p{
+line-height:1.9;
+color:#cbd5e1;
+font-size:17px;
+}
+
+/* RULES */
+
+.rules{
+padding:100px 7%;
+}
+
+.rules-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.rule-box{
+background:#071226;
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(0,255,153,0.12);
+transition:0.4s;
+}
+
+.rule-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(0,255,153,0.2);
+}
+
+.rule-box h3{
+font-size:28px;
+margin-bottom:15px;
+color:#00ff99;
+}
+
+.rule-box p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+/* PAYOUT */
+
+.payout{
+padding:100px 7%;
+}
+
+.payout-box{
+background:linear-gradient(135deg,#00ff99,#00c97a);
+padding:70px 40px;
+border-radius:35px;
 text-align:center;
-
-background:
-linear-gradient(rgba(2,8,23,0.90),rgba(2,8,23,0.96)),
-url('https://images.unsplash.com/photo-1642790106117-e829e14a795f?q=80&w=1920&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-
+color:black;
 }
 
-.cta h1{
-
-font-size:70px;
-
-margin-bottom:25px;
-
+.payout-box h2{
+font-size:60px;
+margin-bottom:20px;
 }
 
-.cta p{
+.payout-box p{
+font-size:22px;
+margin-bottom:35px;
+}
 
+/* FAQ */
+
+.faq{
+padding:100px 7%;
+}
+
+.faq-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.faq-box{
+background:#071226;
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(0,255,153,0.12);
+}
+
+.faq-box h3{
 font-size:24px;
+margin-bottom:15px;
+color:#00ff99;
+}
 
-max-width:850px;
-
-margin:auto;
-
-line-height:1.7;
-
-margin-bottom:40px;
-
-color:#d1d5db;
-
+.faq-box p{
+line-height:1.8;
+color:#cbd5e1;
 }
 
 /* FOOTER */
 
 footer{
-
-padding:50px;
-
+background:#01040f;
+padding:70px 7%;
 text-align:center;
+border-top:1px solid rgba(0,255,153,0.1);
+margin-top:80px;
+}
 
-background:#01060f;
+footer h2{
+font-size:40px;
+margin-bottom:15px;
+}
 
+footer h2 span{
+color:#00ff99;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:25px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#cbd5e1;
+text-decoration:none;
+transition:0.3s;
+}
+
+.footer-links a:hover{
+color:#00ff99;
+}
+
+footer p{
 color:#94a3b8;
+}
 
-font-size:17px;
+/* GLOW */
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 15px #00ff99;
+}
+
+to{
+text-shadow:0 0 35px #00ff99;
+}
 
 }
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:768px){
 
-.hero h1{
-font-size:55px;
+.menu-toggle{
+display:block;
 }
 
-.hero p{
-font-size:20px;
+.nav-links{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#020617;
+flex-direction:column;
+align-items:center;
+padding:30px 0;
+display:none;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.hero{
+padding-top:140px;
+}
+
+.hero-content h1{
+font-size:52px;
+}
+
+.hero-content p{
+font-size:18px;
 }
 
 .section-title{
-font-size:45px;
+font-size:38px;
 }
 
-.cta h1{
-font-size:45px;
+.payout-box h2{
+font-size:38px;
 }
 
-nav{
-padding:20px;
-}
-
-nav ul{
-gap:18px;
-}
-
-.logo{
-font-size:30px;
+.btn{
+width:100%;
+text-align:center;
 }
 
 }
@@ -518,28 +386,27 @@ font-size:30px;
 
 <!-- NAVBAR -->
 
-<nav>
+<nav class="navbar">
 
 <div class="logo">
-<span>PURE</span>Step
+PURE<span>Step</span>
 </div>
 
-<ul>
+<div class="menu-toggle" id="menu-toggle">
+☰
+</div>
+
+<ul class="nav-links" id="nav-links">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="rules.html">Rules</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="checkout.html">Checkout</a></li>
 
 <li>
-<a href="index.html">Home</a>
-</li>
-
-<li>
-<a href="rules.html">Rules</a>
-</li>
-
-<li>
-<a href="login.html">Login</a>
-</li>
-
-<li>
-<a href="dashboard.html">Dashboard</a>
+<a href="https://instagram.com/purestepfunding" target="_blank">
+Instagram
+</a>
 </li>
 
 </ul>
@@ -550,171 +417,242 @@ font-size:30px;
 
 <section class="hero">
 
+<div class="hero-content">
+
 <h1>
-Choose Your <span>Challenge</span>
+$5000 <span>CHALLENGE</span>
 </h1>
 
 <p>
-Start your funded trading journey with PureStep Funding and keep 100% of your profits.
+Pass the evaluation, respect the rules and become a funded trader with PureStep Funding.
 </p>
 
-</section>
-
-<!-- PLANS -->
-
-<section class="plans">
-
-<h2 class="section-title">
-Funding Plans
-</h2>
-
-<div class="cards">
-
-<!-- 2500 -->
-
-<div class="card">
-
-<h2>$2,500</h2>
-
-<div class="price">
-$10
-</div>
-
-<p>✔ Profit Split: 100%</p>
-
-<p>✔ Max Withdrawal: $75</p>
-
-<p>✔ Daily Drawdown: 4%</p>
-
-<p>✔ Overall Drawdown: 8%</p>
-
-<p>✔ Trading Days: 2</p>
-
-<a href="checkout.html?account=2500" class="btn">
-BUY CHALLENGE
-</a>
-
-</div>
-
-<!-- 5000 -->
-
-<div class="card popular">
-
-<div class="badge">
-MOST POPULAR
-</div>
-
-<h2>$5,000</h2>
-
-<div class="price">
-$35
-</div>
-
-<p>✔ Profit Split: 100%</p>
-
-<p>✔ Max Withdrawal: $150</p>
-
-<p>✔ Daily Drawdown: 4%</p>
-
-<p>✔ Overall Drawdown: 8%</p>
-
-<p>✔ Trading Days: 2</p>
-
-<a href="checkout.html?account=5000" class="btn">
-BUY CHALLENGE
-</a>
-
-</div>
-
-<!-- 10000 -->
-
-<div class="card">
-
-<h2>$10,000</h2>
-
-<div class="price">
-$60
-</div>
-
-<p>✔ Profit Split: 100%</p>
-
-<p>✔ Max Withdrawal: $350</p>
-
-<p>✔ Daily Drawdown: 4%</p>
-
-<p>✔ Overall Drawdown: 8%</p>
-
-<p>✔ Trading Days: 2</p>
-
-<a href="checkout.html?account=10000" class="btn">
-BUY CHALLENGE
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- FEATURES -->
-
-<section class="features">
-
-<h2 class="section-title">
-Why Choose PureStep?
-</h2>
-
-<div class="features-grid">
-
-<div class="feature">
-
-<h2>FAST PAYOUTS</h2>
-
-<p>
-Receive payouts within 14 days with transparent processing and fast approval.
-</p>
-
-</div>
-
-<div class="feature">
-
-<h2>100% PROFIT SPLIT</h2>
-
-<p>
-Keep 100% of your profits after payout approval with no hidden conditions.
-</p>
-
-</div>
-
-<div class="feature">
-
-<h2>REAL DASHBOARD</h2>
-
-<p>
-Track your accounts, payouts and challenge progress in real time.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h1>
-Ready To Become Funded?
-</h1>
-
-<p>
-Choose your challenge and start your trading journey today.
-</p>
-
-<a href="checkout.html?account=5000" class="btn">
+<a href="checkout.html" class="btn">
 START NOW
 </a>
+
+</div>
+
+</section>
+
+<!-- STEPS -->
+
+<section class="steps">
+
+<h2 class="section-title">
+2-Step <span>Evaluation</span>
+</h2>
+
+<div class="steps-grid">
+
+<div class="step-card">
+
+<h2>
+STEP 1
+</h2>
+
+<p>
+
+✔ Profit Target: 8%<br>
+✔ Daily Loss: 4%<br>
+✔ Overall Drawdown: 8%<br>
+✔ Risk Limit: 2%<br>
+✔ Minimum Trading Days: 5
+
+</p>
+
+</div>
+
+<div class="step-card">
+
+<h2>
+STEP 2
+</h2>
+
+<p>
+
+✔ Profit Target: 5%<br>
+✔ Same Trading Rules<br>
+✔ Maintain Consistency<br>
+✔ Respect Risk Management<br>
+✔ Get Funded After Completion
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RULES -->
+
+<section class="rules">
+
+<h2 class="section-title">
+Challenge <span>Rules</span>
+</h2>
+
+<div class="rules-grid">
+
+<div class="rule-box">
+
+<h3>
+Daily Drawdown
+</h3>
+
+<p>
+Maximum daily loss allowed is 4%.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Overall Drawdown
+</h3>
+
+<p>
+Maximum total drawdown allowed is 8%.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Risk Limit
+</h3>
+
+<p>
+Maximum risk per trade is 2%.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Minimum Trading Days
+</h3>
+
+<p>
+You must trade at least 5 trading days.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Trading Style
+</h3>
+
+<p>
+Scalping, swing trading and intraday trading are allowed.
+</p>
+
+</div>
+
+<div class="rule-box">
+
+<h3>
+Account Review
+</h3>
+
+<p>
+All funded accounts are manually reviewed before activation.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PAYOUT -->
+
+<section class="payout">
+
+<div class="payout-box">
+
+<h2>
+100% PROFIT SPLIT
+</h2>
+
+<p>
+Keep up to 100% of your profits with fast crypto payouts.
+Maximum payout for this challenge is $150.
+</p>
+
+<a href="checkout.html" class="btn">
+BUY CHALLENGE
+</a>
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<h2 class="section-title">
+Frequently Asked <span>Questions</span>
+</h2>
+
+<div class="faq-grid">
+
+<div class="faq-box">
+
+<h3>
+How do payouts work?
+</h3>
+
+<p>
+Payouts are sent through Binance Pay or USDT wallet after manual review.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+How long are reviews?
+</h3>
+
+<p>
+Challenge and payout reviews may take up to 14 days.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+Can I hold trades overnight?
+</h3>
+
+<p>
+Yes, overnight holding is allowed depending on market conditions.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+Can I use MT5?
+</h3>
+
+<p>
+Yes, PureStep Funding accounts are designed for MT5 trading environments.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
@@ -722,9 +660,48 @@ START NOW
 
 <footer>
 
-© 2026 PureStep Funding — All Rights Reserved
+<h2>
+PURE<span>Step</span>
+</h2>
+
+<p>
+Trade Smart. Get Funded.
+</p>
+
+<div class="footer-links">
+
+<a href="index.html">Home</a>
+
+<a href="rules.html">Rules</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="https://instagram.com/purestepfunding" target="_blank">
+Instagram
+</a>
+
+</div>
+
+<p>
+© 2026 PureStep Funding. All Rights Reserved.
+</p>
 
 </footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+
+toggle.onclick = () => {
+
+nav.classList.toggle("active");
+
+};
+
+</script>
 
 </body>
 
