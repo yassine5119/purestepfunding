@@ -23,11 +23,11 @@ body{
 
 background:#020617;
 
+min-height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
-
-min-height:100vh;
 
 padding:20px;
 
@@ -45,11 +45,11 @@ content:"";
 
 position:absolute;
 
-top:-250px;
-right:-250px;
+top:-200px;
+right:-200px;
 
-width:500px;
-height:500px;
+width:450px;
+height:450px;
 
 background:rgba(0,255,153,0.08);
 
@@ -63,11 +63,11 @@ content:"";
 
 position:absolute;
 
-bottom:-250px;
-left:-250px;
+bottom:-200px;
+left:-200px;
 
-width:500px;
-height:500px;
+width:450px;
+height:450px;
 
 background:rgba(0,255,153,0.08);
 
@@ -80,23 +80,23 @@ border-radius:50%;
 .register-box{
 
 width:100%;
-max-width:520px;
+max-width:500px;
 
 background:#071226;
 
-padding:50px 40px;
+padding:45px 30px;
 
-border-radius:35px;
+border-radius:30px;
 
 border:1px solid rgba(0,255,153,0.1);
 
-position:relative;
+box-shadow:0 0 30px rgba(0,255,153,0.1);
 
-overflow:hidden;
+position:relative;
 
 z-index:2;
 
-box-shadow:0 0 40px rgba(0,255,153,0.08);
+overflow:hidden;
 
 }
 
@@ -106,13 +106,13 @@ content:"";
 
 position:absolute;
 
-top:-120px;
-right:-120px;
+top:-100px;
+right:-100px;
 
-width:240px;
-height:240px;
+width:220px;
+height:220px;
 
-background:rgba(0,255,153,0.06);
+background:rgba(0,255,153,0.05);
 
 border-radius:50%;
 
@@ -124,11 +124,13 @@ border-radius:50%;
 
 text-align:center;
 
-font-size:48px;
+font-size:52px;
 
 font-weight:800;
 
-margin-bottom:15px;
+color:white;
+
+margin-bottom:10px;
 
 position:relative;
 z-index:2;
@@ -143,30 +145,30 @@ text-shadow:0 0 25px #00ff99;
 
 }
 
-/* SUBTITLE */
+/* TEXT */
 
 .subtitle{
 
 text-align:center;
 
-font-size:18px;
-
 color:#cbd5e1;
 
-margin-bottom:40px;
+font-size:17px;
 
 line-height:1.7;
+
+margin-bottom:35px;
 
 position:relative;
 z-index:2;
 
 }
 
-/* INPUTS */
+/* INPUT */
 
 .input-group{
 
-margin-bottom:24px;
+margin-bottom:22px;
 
 position:relative;
 z-index:2;
@@ -181,7 +183,7 @@ margin-bottom:10px;
 
 font-weight:600;
 
-color:#cbd5e1;
+color:white;
 
 }
 
@@ -189,20 +191,21 @@ color:#cbd5e1;
 
 width:100%;
 
-padding:17px;
+padding:16px;
 
 border:none;
+
 outline:none;
 
-background:#0f172a;
+border-radius:16px;
 
-border-radius:18px;
+background:#0f172a;
 
 color:white;
 
 font-size:16px;
 
-border:1px solid rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.05);
 
 transition:0.3s;
 
@@ -212,7 +215,7 @@ transition:0.3s;
 
 border:1px solid #00ff99;
 
-box-shadow:0 0 20px rgba(0,255,153,0.2);
+box-shadow:0 0 20px rgba(0,255,153,0.25);
 
 }
 
@@ -228,7 +231,7 @@ border:none;
 
 border-radius:18px;
 
-background:linear-gradient(135deg,#00ff99,#00c97a);
+background:linear-gradient(135deg,#00ff99,#00d97f);
 
 color:black;
 
@@ -259,11 +262,11 @@ box-shadow:0 0 40px rgba(0,255,153,0.7);
 
 .message{
 
-margin-top:25px;
+margin-top:20px;
 
-padding:18px;
+padding:16px;
 
-border-radius:16px;
+border-radius:14px;
 
 font-weight:700;
 
@@ -296,7 +299,7 @@ color:white;
 
 text-align:center;
 
-margin-top:30px;
+margin-top:25px;
 
 color:#cbd5e1;
 
@@ -324,9 +327,9 @@ position:fixed;
 bottom:25px;
 right:25px;
 
-padding:18px 28px;
+padding:16px 28px;
 
-background:linear-gradient(135deg,#00ff99,#00c97a);
+background:linear-gradient(135deg,#00ff99,#00d97f);
 
 color:black;
 
@@ -338,35 +341,7 @@ text-decoration:none;
 
 box-shadow:0 0 25px rgba(0,255,153,0.5);
 
-z-index:9999;
-
-transition:0.3s;
-
-animation:pulse 2s infinite;
-
-}
-
-.support-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.8);
-
-}
-
-@keyframes pulse{
-
-0%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
+z-index:999;
 
 }
 
@@ -374,21 +349,15 @@ box-shadow:0 0 15px rgba(0,255,153,0.4);
 
 @media(max-width:600px){
 
-.register-box{
-
-padding:40px 25px;
-
-}
-
 .logo{
 
-font-size:40px;
+font-size:42px;
 
 }
 
-.subtitle{
+.register-box{
 
-font-size:16px;
+padding:35px 22px;
 
 }
 
@@ -399,8 +368,6 @@ font-size:16px;
 </head>
 
 <body>
-
-<!-- REGISTER BOX -->
 
 <div class="register-box">
 
@@ -414,43 +381,29 @@ Create your PureStep trader account and start your funded journey today.
 
 </p>
 
-<!-- USERNAME -->
-
 <div class="input-group">
 
-<label>
-Username
-</label>
+<label>Username</label>
 
-<input type="text" id="username" placeholder="Enter username">
+<input type="text" id="username" placeholder="Enter your username">
 
 </div>
 
-<!-- EMAIL -->
-
 <div class="input-group">
 
-<label>
-Email Address
-</label>
+<label>Email Address</label>
 
 <input type="email" id="email" placeholder="Enter your email">
 
 </div>
 
-<!-- PASSWORD -->
-
 <div class="input-group">
 
-<label>
-Password
-</label>
+<label>Password</label>
 
 <input type="password" id="password" placeholder="Create password">
 
 </div>
-
-<!-- BUTTON -->
 
 <button class="register-btn" onclick="registerUser()">
 
@@ -458,23 +411,17 @@ CREATE ACCOUNT
 
 </button>
 
-<!-- SUCCESS -->
-
 <div class="message success" id="success-message">
 
 Account Created Successfully 🚀
 
 </div>
 
-<!-- ERROR -->
-
 <div class="message error" id="error-message">
 
 Registration Failed
 
 </div>
-
-<!-- LOGIN -->
 
 <div class="login">
 
@@ -490,8 +437,6 @@ Login
 
 </div>
 
-<!-- SUPPORT -->
-
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
 class="support-btn">
@@ -500,8 +445,6 @@ Support
 
 </a>
 
-<!-- FIREBASE -->
-
 <script type="module">
 
 import { auth, db } from "./firebase.js";
@@ -518,123 +461,6 @@ doc,
 setDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-/* REGISTER */
-
-window.registerUser = async function(){
-
-const username =
-document.getElementById("username").value;
-
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-const success =
-document.getElementById("success-message");
-
-const error =
-document.getElementById("error-message");
-
-success.style.display = "none";
-
-error.style.display = "none";
-
-try{
-
-const userCredential =
-await createUserWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-const user =
-userCredential.user;
-
-/* SAVE USER */
-
-await setDoc(doc(db,"users",user.uid),{
-
-username: username,
-
-email: email,
-
-balance: 0,
-
-profit: 0,
-
-status: "ACTIVE",
-
-phase: "Phase 1",
-
-accountType: "No Challenge Yet",
-
-createdAt: new Date()
-
-});
-
-/* LOCAL STORAGE */
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-localStorage.setItem(
-"userName",
-username
-);
-
-localStorage.setItem(
-"userEmail",
-email
-);
-
-success.style.display = "block";
-
-setTimeout(() => {
-
-window.location.href =
-"dashboard.html";
-
-},1500);
-
-}
-
-catch(err){
-
-error.style.display = "block";
-
-console.log(err);
-
-}
-
-};
-
-</script>
-<!-- FIREBASE REGISTER SYSTEM -->
-
-<script type="module">
-
-import { auth, db } from "./firebase.js";
-
-import {
-
-createUserWithEmailAndPassword
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-
-doc,
-setDoc
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-/* REGISTER FUNCTION */
 
 window.registerUser = async function(){
 
@@ -681,6 +507,10 @@ balance: 0,
 
 profit: 0,
 
+dailyDrawdown: 0,
+
+maxDrawdown: 0,
+
 status: "ACTIVE",
 
 phase: "Phase 1",
@@ -690,8 +520,6 @@ accountType: "No Challenge Yet",
 createdAt: new Date()
 
 });
-
-/* SAVE LOCAL */
 
 localStorage.setItem(
 "loggedIn",
@@ -730,6 +558,7 @@ error.style.display = "block";
 };
 
 </script>
+
 </body>
 
 </html>
