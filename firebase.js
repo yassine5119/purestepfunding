@@ -6,17 +6,17 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebas
 
 const firebaseConfig = {
 
-apiKey: "YOUR_API_KEY",
+apiKey: "حط apiKey ديالك هنا",
 
-authDomain: "YOUR_AUTH_DOMAIN",
+authDomain: "purestepfunding.firebaseapp.com",
 
-projectId: "YOUR_PROJECT_ID",
+projectId: "purestepfunding",
 
-storageBucket: "YOUR_STORAGE_BUCKET",
+storageBucket: "purestepfunding.appspot.com",
 
-messagingSenderId: "YOUR_MESSAGING_ID",
+messagingSenderId: "حط messagingSenderId ديالك هنا",
 
-appId: "YOUR_APP_ID"
+appId: "حط appId ديالك هنا"
 
 };
 
