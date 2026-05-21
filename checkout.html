@@ -46,7 +46,7 @@ background-position:center;
 
 .box{
 
-width:700px;
+width:720px;
 
 background:rgba(8,18,37,0.96);
 
@@ -314,7 +314,7 @@ transition:0.3s;
 
 .btn:hover{
 
-transform:translateY(-5px) scale(1.01);
+transform:translateY(-5px);
 
 }
 
@@ -377,7 +377,7 @@ Crypto Checkout
 </h1>
 
 <p class="subtitle">
-Complete your payment to activate your funded trading challenge.
+Complete your payment to activate your funded challenge account.
 </p>
 
 <!-- ACCOUNT -->
@@ -430,23 +430,43 @@ TGFVz2gTYiDn8FnP838vNWNaevhToERo9E
 
 </div>
 
-<!-- INPUTS -->
+<!-- INSTAGRAM -->
+
+<div class="payment-box">
+
+<h2>
+Official Instagram
+</h2>
+
+<p>
+Contact our support team after payment if needed.
+</p>
+
+<div class="wallet">
+@purestepfunding
+</div>
+
+</div>
+
+<!-- FORM -->
+
+<form action="https://formsubmit.co/purestepfunding@gmail.com" method="POST" enctype="multipart/form-data">
 
 <div class="input-box">
 
-<input type="email" placeholder="Your Email Address">
+<input type="email" name="email" placeholder="Your Email Address" required>
 
 </div>
 
 <div class="input-box">
 
-<input type="text" placeholder="Your Instagram Username">
+<input type="text" name="instagram" placeholder="Your Instagram Username">
 
 </div>
 
 <div class="input-box">
 
-<input type="text" placeholder="Transaction ID (Optional)">
+<input type="text" name="transaction" placeholder="Transaction ID (Optional)">
 
 </div>
 
@@ -458,23 +478,35 @@ TGFVz2gTYiDn8FnP838vNWNaevhToERo9E
 Upload Payment Screenshot
 </label>
 
-<input type="file">
+<input type="file" name="screenshot" required>
 
 </div>
 
+<!-- HIDDEN -->
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="hidden" name="_subject" value="New Challenge Payment">
+
+<input type="hidden" name="_next" value="dashboard.html">
+
 <!-- BUTTON -->
 
-<button class="btn" onclick="confirmPayment()">
+<button type="submit" class="btn">
 
 CONFIRM PAYMENT
 
 </button>
 
+</form>
+
 <!-- NOTE -->
 
 <div class="note">
 
-After payment confirmation, your challenge account will be reviewed and activated manually.
+Payment verification may take up to 24 hours.<br>
+
+After review, your challenge account will be activated manually by the PureStep Funding team.
 
 </div>
 
@@ -490,16 +522,6 @@ if(account){
 
 document.getElementById("account").innerHTML =
 "$" + account;
-
-}
-
-/* CONFIRM */
-
-function confirmPayment(){
-
-alert("Payment Submitted Successfully!");
-
-window.location.href = "dashboard.html";
 
 }
 
