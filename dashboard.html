@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PURESTEP DASHBOARD</title>
+<title>PURESTEP PREMIUM DASHBOARD</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,12 +22,72 @@ font-family:'Poppins',sans-serif;
 body{
 
 background:#020617;
-
 color:white;
-
 display:flex;
-
 overflow-x:hidden;
+position:relative;
+
+}
+
+/* PREMIUM BACKGROUND */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+top:-250px;
+left:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.07);
+
+filter:blur(120px);
+
+border-radius:50%;
+
+z-index:-2;
+
+animation:glowMove 7s infinite alternate;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+bottom:-250px;
+right:-250px;
+
+width:500px;
+height:500px;
+
+background:rgba(0,255,153,0.05);
+
+filter:blur(120px);
+
+border-radius:50%;
+
+z-index:-2;
+
+animation:glowMove 8s infinite alternate;
+
+}
+
+@keyframes glowMove{
+
+0%{
+transform:translateY(0px);
+}
+
+100%{
+transform:translateY(50px);
+}
 
 }
 
@@ -39,23 +99,29 @@ width:290px;
 
 height:100vh;
 
-background:#071226;
+background:rgba(7,18,38,0.92);
+
+backdrop-filter:blur(12px);
 
 position:fixed;
 
 padding:30px 20px;
 
-border-right:1px solid rgba(0,255,153,0.1);
+border-right:1px solid rgba(0,255,153,0.08);
 
 overflow-y:auto;
 
 z-index:1000;
 
+box-shadow:0 0 35px rgba(0,0,0,0.4);
+
 }
+
+/* LOGO */
 
 .logo{
 
-font-size:40px;
+font-size:42px;
 
 font-weight:800;
 
@@ -74,6 +140,8 @@ color:#00ff99;
 text-shadow:0 0 25px #00ff99;
 
 }
+
+/* SIDEBAR LINKS */
 
 .sidebar-links{
 
@@ -97,7 +165,7 @@ gap:14px;
 
 padding:17px 20px;
 
-background:#0f172a;
+background:rgba(15,23,42,0.85);
 
 border-radius:18px;
 
@@ -109,15 +177,19 @@ font-weight:600;
 
 transition:0.3s;
 
+border:1px solid rgba(255,255,255,0.04);
+
 }
 
 .sidebar-links a:hover{
 
-background:#00ff99;
+background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-transform:translateX(5px);
+transform:translateX(8px);
+
+box-shadow:0 0 35px rgba(0,255,153,0.45);
 
 }
 
@@ -149,13 +221,25 @@ gap:20px;
 
 margin-bottom:35px;
 
+background:rgba(7,18,38,0.75);
+
+padding:25px;
+
+border-radius:30px;
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(0,255,153,0.08);
+
 }
 
 .welcome h1{
 
-font-size:42px;
+font-size:46px;
 
 margin-bottom:8px;
+
+font-weight:800;
 
 }
 
@@ -167,9 +251,11 @@ font-size:17px;
 
 }
 
+/* USER CARD */
+
 .user-card{
 
-background:#071226;
+background:rgba(15,23,42,0.85);
 
 padding:18px 24px;
 
@@ -183,12 +269,16 @@ align-items:center;
 
 gap:15px;
 
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 25px rgba(0,255,153,0.08);
+
 }
 
 .avatar{
 
-width:50px;
-height:50px;
+width:55px;
+height:55px;
 
 border-radius:50%;
 
@@ -203,6 +293,8 @@ font-size:22px;
 font-weight:800;
 
 color:black;
+
+box-shadow:0 0 30px rgba(0,255,153,0.6);
 
 }
 
@@ -222,9 +314,9 @@ margin-bottom:35px;
 
 .overview-card{
 
-background:#071226;
+background:rgba(7,18,38,0.88);
 
-padding:28px;
+padding:30px;
 
 border-radius:30px;
 
@@ -236,13 +328,15 @@ overflow:hidden;
 
 transition:0.3s;
 
+backdrop-filter:blur(12px);
+
 }
 
 .overview-card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-10px) scale(1.02);
 
-box-shadow:0 0 35px rgba(0,255,153,0.15);
+box-shadow:0 0 45px rgba(0,255,153,0.2);
 
 }
 
@@ -255,8 +349,8 @@ position:absolute;
 top:-60px;
 right:-60px;
 
-width:160px;
-height:160px;
+width:180px;
+height:180px;
 
 background:rgba(0,255,153,0.05);
 
@@ -274,6 +368,8 @@ color:#00ff99;
 
 position:relative;
 z-index:2;
+
+text-shadow:0 0 20px rgba(0,255,153,0.5);
 
 }
 
@@ -306,7 +402,7 @@ margin-bottom:35px;
 
 .account-box{
 
-background:#071226;
+background:rgba(7,18,38,0.88);
 
 padding:35px;
 
@@ -317,6 +413,10 @@ border:1px solid rgba(0,255,153,0.08);
 position:relative;
 
 overflow:hidden;
+
+backdrop-filter:blur(12px);
+
+box-shadow:0 0 30px rgba(0,0,0,0.25);
 
 }
 
@@ -365,15 +465,17 @@ font-size:34px;
 
 .account-status{
 
-padding:12px 20px;
+padding:12px 22px;
+
+border-radius:50px;
+
+font-weight:800;
 
 background:#00ff99;
 
 color:black;
 
-border-radius:50px;
-
-font-weight:800;
+box-shadow:0 0 30px rgba(0,255,153,0.5);
 
 }
 
@@ -392,13 +494,25 @@ z-index:2;
 
 .account-item{
 
-background:#0f172a;
+background:rgba(15,23,42,0.85);
 
 padding:24px;
 
 border-radius:22px;
 
 border:1px solid rgba(255,255,255,0.05);
+
+transition:0.3s;
+
+backdrop-filter:blur(8px);
+
+}
+
+.account-item:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 25px rgba(0,255,153,0.15);
 
 }
 
@@ -424,13 +538,17 @@ font-weight:700;
 
 .quick-actions{
 
-background:#071226;
+background:rgba(7,18,38,0.88);
 
 padding:35px;
 
 border-radius:35px;
 
 border:1px solid rgba(0,255,153,0.08);
+
+backdrop-filter:blur(12px);
+
+box-shadow:0 0 30px rgba(0,0,0,0.25);
 
 }
 
@@ -468,13 +586,131 @@ transition:0.3s;
 
 box-shadow:0 0 25px rgba(0,255,153,0.25);
 
+position:relative;
+
+overflow:hidden;
+
+}
+
+.quick-btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:rgba(255,255,255,0.2);
+
+transform:skewX(-20deg);
+
+transition:0.5s;
+
+}
+
+.quick-btn:hover::before{
+
+left:120%;
+
 }
 
 .quick-btn:hover{
 
 transform:translateY(-5px);
 
-box-shadow:0 0 40px rgba(0,255,153,0.6);
+box-shadow:0 0 45px rgba(0,255,153,0.6);
+
+}
+
+/* PROGRESS */
+
+.progress-section{
+
+margin-bottom:35px;
+
+background:rgba(7,18,38,0.88);
+
+padding:35px;
+
+border-radius:35px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+backdrop-filter:blur(12px);
+
+}
+
+.progress-section h2{
+
+font-size:32px;
+
+margin-bottom:25px;
+
+}
+
+.progress-bar{
+
+width:100%;
+
+height:22px;
+
+background:#0f172a;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+.progress-fill{
+
+height:100%;
+
+width:45%;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+border-radius:50px;
+
+box-shadow:0 0 30px rgba(0,255,153,0.6);
+
+animation:progressAnim 3s infinite alternate;
+
+}
+
+@keyframes progressAnim{
+
+0%{
+width:35%;
+}
+
+100%{
+width:55%;
+}
+
+}
+
+.funded-badge{
+
+display:inline-block;
+
+padding:12px 22px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:800;
+
+margin-top:22px;
+
+box-shadow:0 0 35px rgba(0,255,153,0.5);
 
 }
 
@@ -490,6 +726,30 @@ border-radius:35px;
 
 color:black;
 
+position:relative;
+
+overflow:hidden;
+
+box-shadow:0 0 45px rgba(0,255,153,0.25);
+
+}
+
+.certificate::before{
+
+content:"";
+
+position:absolute;
+
+top:-120px;
+right:-120px;
+
+width:260px;
+height:260px;
+
+background:rgba(255,255,255,0.15);
+
+border-radius:50%;
+
 }
 
 .certificate h2{
@@ -500,6 +760,9 @@ margin-bottom:15px;
 
 font-weight:800;
 
+position:relative;
+z-index:2;
+
 }
 
 .certificate p{
@@ -509,6 +772,9 @@ font-size:18px;
 margin-bottom:25px;
 
 line-height:1.7;
+
+position:relative;
+z-index:2;
 
 }
 
@@ -527,6 +793,9 @@ font-weight:800;
 border-radius:18px;
 
 text-decoration:none;
+
+position:relative;
+z-index:2;
 
 }
 
@@ -554,6 +823,24 @@ text-decoration:none;
 box-shadow:0 0 25px rgba(0,255,153,0.5);
 
 z-index:9999;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+box-shadow:0 0 20px rgba(0,255,153,0.4);
+}
+
+50%{
+box-shadow:0 0 40px rgba(0,255,153,0.8);
+}
+
+100%{
+box-shadow:0 0 20px rgba(0,255,153,0.4);
+}
 
 }
 
@@ -605,8 +892,6 @@ font-size:28px;
 
 <body>
 
-<!-- SIDEBAR -->
-
 <div class="sidebar">
 
 <div class="logo">
@@ -633,11 +918,7 @@ PURE<span>Step</span>
 
 </div>
 
-<!-- MAIN -->
-
 <div class="main">
-
-<!-- TOPBAR -->
 
 <div class="topbar">
 
@@ -674,8 +955,6 @@ Trader
 </div>
 
 </div>
-
-<!-- OVERVIEW -->
 
 <div class="overview">
 
@@ -729,11 +1008,27 @@ Account Status
 
 </div>
 
-<!-- GRID -->
+<div class="progress-section">
+
+<h2>
+Trading Progress 🚀
+</h2>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+<div class="funded-badge">
+
+FUNDED TRADER PROGRAM
+
+</div>
+
+</div>
 
 <div class="main-grid">
-
-<!-- ACCOUNT -->
 
 <div class="account-box">
 
@@ -827,8 +1122,6 @@ USD
 
 </div>
 
-<!-- ACTIONS -->
-
 <div class="quick-actions">
 
 <h2>
@@ -869,8 +1162,6 @@ ACCOUNT SETTINGS
 
 </div>
 
-<!-- CERTIFICATE -->
-
 <div class="certificate">
 
 <h2>
@@ -893,8 +1184,6 @@ OPEN CERTIFICATE
 
 </div>
 
-<!-- SUPPORT -->
-
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
 class="support-btn">
@@ -902,8 +1191,6 @@ class="support-btn">
 Support
 
 </a>
-
-<!-- FIREBASE -->
 
 <script type="module">
 
@@ -922,8 +1209,6 @@ getDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* USER CHECK */
-
 onAuthStateChanged(auth, async(user)=>{
 
 if(user){
@@ -936,25 +1221,17 @@ if(docSnap.exists()){
 
 const data = docSnap.data();
 
-/* USERNAME */
-
 document.getElementById("username").innerHTML =
 data.username;
 
 document.getElementById("avatar").innerHTML =
 data.username.charAt(0).toUpperCase();
 
-/* BALANCE */
-
 document.getElementById("balance").innerHTML =
 "$" + data.balance;
 
-/* PROFIT */
-
 document.getElementById("profit").innerHTML =
 "$" + data.profit;
-
-/* ACCOUNT TYPE */
 
 document.getElementById("account-type").innerHTML =
 data.accountType;
@@ -962,12 +1239,8 @@ data.accountType;
 document.getElementById("account-type-small").innerHTML =
 data.accountType;
 
-/* PHASE */
-
 document.getElementById("phase").innerHTML =
 data.phase;
-
-/* STATUS */
 
 document.getElementById("status").innerHTML =
 data.status;
@@ -975,13 +1248,38 @@ data.status;
 document.getElementById("status-badge").innerHTML =
 data.status;
 
-/* DRAWDOWN */
-
 document.getElementById("daily-drawdown").innerHTML =
 data.dailyDrawdown;
 
 document.getElementById("max-drawdown").innerHTML =
 data.maxDrawdown;
+
+const badge =
+document.getElementById("status-badge");
+
+if(data.status === "ACTIVE"){
+
+badge.style.background = "#00ff99";
+
+badge.style.color = "black";
+
+}
+
+if(data.status === "Pending Review"){
+
+badge.style.background = "#ffcc00";
+
+badge.style.color = "black";
+
+}
+
+if(data.status === "BREACHED"){
+
+badge.style.background = "#ef4444";
+
+badge.style.color = "white";
+
+}
 
 }
 
