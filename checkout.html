@@ -20,199 +20,218 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-
 background:#020617;
 color:white;
-padding:40px 20px;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 7%;
+
+background:#071226;
+
+border-bottom:1px solid rgba(0,255,153,0.1);
 
 }
 
-/* CONTAINER */
+.logo{
 
-.checkout-container{
-
-max-width:1100px;
-margin:auto;
+font-size:38px;
+font-weight:800;
 
 }
 
-/* HEADER */
-
-.header{
-
-text-align:center;
-margin-bottom:50px;
-
-}
-
-.header h1{
-
-font-size:60px;
-margin-bottom:15px;
-
-}
-
-.header h1 span{
+.logo span{
 
 color:#00ff99;
-text-shadow:0 0 20px #00ff99;
+text-shadow:0 0 25px #00ff99;
 
 }
 
-.header p{
+/* MAIN */
 
-color:#cbd5e1;
-font-size:20px;
+.checkout{
 
-}
-
-/* GRID */
-
-.checkout-grid{
+padding:80px 7%;
 
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:35px;
+
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+gap:40px;
 
 }
 
-/* BOX */
+/* CARD */
 
-.box{
+.card{
 
 background:#071226;
 
 padding:40px;
 
-border-radius:30px;
+border-radius:35px;
 
-border:1px solid rgba(0,255,153,0.15);
+border:1px solid rgba(0,255,153,0.1);
 
-box-shadow:0 0 25px rgba(0,255,153,0.1);
+position:relative;
+
+overflow:hidden;
 
 }
 
-/* TITLES */
+.card::before{
 
-.box h2{
+content:"";
 
-font-size:32px;
+position:absolute;
+
+top:-100px;
+right:-100px;
+
+width:220px;
+height:220px;
+
+background:rgba(0,255,153,0.06);
+
+border-radius:50%;
+
+}
+
+/* LEFT */
+
+.plan-title{
+
+font-size:50px;
+
+margin-bottom:15px;
+
+position:relative;
+z-index:2;
+
+}
+
+.price{
+
+font-size:65px;
+
+font-weight:800;
+
+color:#00ff99;
+
+margin-bottom:30px;
+
+position:relative;
+z-index:2;
+
+text-shadow:0 0 20px #00ff99;
+
+}
+
+.features{
+
+list-style:none;
+
+position:relative;
+z-index:2;
+
+}
+
+.features li{
+
+margin:18px 0;
+
+font-size:18px;
+
+color:#cbd5e1;
+
+}
+
+/* RIGHT */
+
+.payment-title{
+
+font-size:40px;
+
 margin-bottom:25px;
 
+position:relative;
+z-index:2;
+
 }
 
-.box h2 span{
+.payment-title span{
 
 color:#00ff99;
 
 }
 
-/* PLAN */
-
-.plan{
+.pay-box{
 
 background:#0f172a;
 
 padding:25px;
 
-border-radius:20px;
+border-radius:25px;
 
 margin-bottom:25px;
 
-}
+border:1px solid rgba(0,255,153,0.08);
 
-.plan h3{
-
-font-size:35px;
-margin-bottom:10px;
+position:relative;
+z-index:2;
 
 }
 
-.plan-price{
+.pay-box h3{
 
-font-size:55px;
-font-weight:800;
+margin-bottom:15px;
+
 color:#00ff99;
 
-}
-
-/* RULES */
-
-.rules{
-
-list-style:none;
-margin-top:20px;
+font-size:24px;
 
 }
 
-.rules li{
-
-margin:12px 0;
-color:#cbd5e1;
-
-}
-
-/* PAYMENT BOX */
-
-.payment-box{
-
-background:#0f172a;
-
-padding:22px;
-
-border-radius:20px;
-
-margin-bottom:25px;
-
-}
-
-.payment-title{
-
-font-size:20px;
-margin-bottom:12px;
-font-weight:700;
-
-}
-
-.payment-data{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
+.pay-info{
 
 background:#020617;
 
-padding:15px;
+padding:18px;
 
-border-radius:14px;
+border-radius:15px;
 
-border:1px solid rgba(255,255,255,0.05);
-
-}
-
-.payment-data span{
-
-color:#00ff99;
-font-weight:600;
 word-break:break-all;
 
-}
+font-size:16px;
 
-/* COPY BUTTON */
+margin-bottom:15px;
+
+}
 
 .copy-btn{
 
-padding:10px 18px;
+width:100%;
+
+padding:15px;
 
 border:none;
 
-border-radius:12px;
+border-radius:15px;
 
-background:#00ff99;
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
 
 font-weight:700;
+
 cursor:pointer;
 
 transition:0.3s;
@@ -221,28 +240,34 @@ transition:0.3s;
 
 .copy-btn:hover{
 
-transform:scale(1.05);
+transform:translateY(-4px);
 
 }
 
-/* INPUTS */
+/* FORM */
 
-.input-group{
+.form-group{
 
 margin-bottom:22px;
 
+position:relative;
+z-index:2;
+
 }
 
-.input-group label{
+.form-group label{
 
 display:block;
+
 margin-bottom:10px;
+
 font-weight:600;
+
 color:#cbd5e1;
 
 }
 
-.input-group input{
+.form-group input{
 
 width:100%;
 
@@ -251,41 +276,21 @@ padding:16px;
 border:none;
 outline:none;
 
-border-radius:14px;
+border-radius:16px;
 
 background:#0f172a;
+
 color:white;
 
 font-size:16px;
 
-border:1px solid rgba(255,255,255,0.08);
-
-transition:0.3s;
+border:1px solid rgba(255,255,255,0.06);
 
 }
 
-.input-group input:focus{
+.form-group input:focus{
 
 border:1px solid #00ff99;
-box-shadow:0 0 15px rgba(0,255,153,0.3);
-
-}
-
-/* FILE */
-
-.file-box{
-
-background:#0f172a;
-padding:20px;
-border-radius:20px;
-margin-bottom:25px;
-
-}
-
-.file-box input{
-
-margin-top:15px;
-color:white;
 
 }
 
@@ -298,26 +303,32 @@ width:100%;
 padding:18px;
 
 border:none;
-border-radius:14px;
 
-background:#00ff99;
+border-radius:18px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
 
 font-size:18px;
-font-weight:700;
+
+font-weight:800;
 
 cursor:pointer;
 
-transition:0.4s;
+transition:0.3s;
 
-box-shadow:0 0 25px #00ff99;
+margin-top:10px;
+
+box-shadow:0 0 25px rgba(0,255,153,0.3);
 
 }
 
 .submit-btn:hover{
 
-transform:translateY(-4px);
-box-shadow:0 0 40px #00ff99;
+transform:translateY(-5px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.7);
 
 }
 
@@ -327,56 +338,21 @@ box-shadow:0 0 40px #00ff99;
 
 margin-top:25px;
 
-background:#00ff99;
-color:black;
-
 padding:18px;
 
-border-radius:14px;
+background:#00ff99;
+
+color:black;
 
 font-weight:700;
 
+border-radius:16px;
+
 display:none;
 
-text-align:center;
-
 }
 
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.checkout-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.header h1{
-
-font-size:42px;
-
-}
-
-.payment-data{
-
-flex-direction:column;
-align-items:flex-start;
-
-}
-
-.copy-btn{
-
-width:100%;
-
-}
-
-}
-
-</style>
-<!-- GLOBAL SUPPORT BUTTON -->
-
-<style>
+/* SUPPORT */
 
 .support-btn{
 
@@ -431,187 +407,221 @@ box-shadow:0 0 15px rgba(0,255,153,0.4);
 
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+.plan-title{
+
+font-size:38px;
+
+}
+
+.price{
+
+font-size:48px;
+
+}
+
+.payment-title{
+
+font-size:30px;
+
+}
+
+.checkout{
+
+padding:40px 5%;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="checkout-container">
+<!-- NAVBAR -->
 
-<!-- HEADER -->
+<nav>
 
-<div class="header">
-
-<h1>
-PURE<span>Step</span> Checkout
-</h1>
-
-<p>
-Complete your payment and submit proof for manual review.
-</p>
-
+<div class="logo">
+PURE<span>Step</span>
 </div>
 
-<!-- GRID -->
+</nav>
 
-<div class="checkout-grid">
+<!-- CHECKOUT -->
+
+<section class="checkout">
 
 <!-- LEFT -->
 
-<div class="box">
+<div class="card">
 
-<h2>
-Selected <span>Challenge</span>
-</h2>
+<h1 class="plan-title" id="plan-name">
+Loading...
+</h1>
 
-<div class="plan">
-
-<h3>
-$5000 Challenge
-</h3>
-
-<div class="plan-price">
-$35
+<div class="price" id="plan-price">
+Loading...
 </div>
 
-<ul class="rules">
+<ul class="features">
 
-<li>✔ Daily Loss: 4%</li>
-<li>✔ Overall Drawdown: 8%</li>
-<li>✔ Risk Limit Per Trade: 2%</li>
-<li>✔ Step 1 Target: 8%</li>
-<li>✔ Step 2 Target: 5%</li>
-<li>✔ Profit Split: 100%</li>
-<li>✔ Maximum Payout: $150</li>
+<li>✔ 2-Step Challenge</li>
+
+<li>✔ 100% Profit Split</li>
+
+<li>✔ MT5 Supported</li>
+
+<li>✔ Crypto Payouts</li>
+
+<li>✔ 4% Daily Drawdown</li>
+
+<li>✔ 8% Max Drawdown</li>
+
+<li>✔ Fast Reviews</li>
 
 </ul>
 
 </div>
 
+<!-- RIGHT -->
+
+<div class="card">
+
+<h2 class="payment-title">
+Complete <span>Payment</span>
+</h2>
+
 <!-- BINANCE -->
 
-<div class="payment-box">
+<div class="pay-box">
 
-<div class="payment-title">
+<h3>
 Binance Pay ID
+</h3>
+
+<div class="pay-info" id="binance-id">
+123456789
 </div>
 
-<div class="payment-data">
+<button class="copy-btn"
+onclick="copyText('binance-id')">
 
-<span id="binance">
-1027786179
-</span>
+COPY BINANCE ID
 
-<button class="copy-btn" onclick="copyBinance()">
-COPY
 </button>
-
-</div>
 
 </div>
 
 <!-- WALLET -->
 
-<div class="payment-box">
+<div class="pay-box">
 
-<div class="payment-title">
-USDT TRC20 Wallet
+<h3>
+USDT Wallet (TRC20)
+</h3>
+
+<div class="pay-info" id="wallet">
+TQX8PURESTEPWALLET2026
 </div>
 
-<div class="payment-data">
+<button class="copy-btn"
+onclick="copyText('wallet')">
 
-<span id="wallet">
-TGFVz2gTYiDn8FnP838vNWNaevhToERo9E
-</span>
+COPY WALLET
 
-<button class="copy-btn" onclick="copyWallet()">
-COPY
 </button>
 
 </div>
 
-</div>
+<!-- FORM -->
 
-</div>
-
-<!-- RIGHT -->
-
-<div class="box">
-
-<h2>
-Submit <span>Payment</span>
-</h2>
-
-<div class="input-group">
+<div class="form-group">
 
 <label>
-Your Email
-</label>
-
-<input type="email" placeholder="Enter your email">
-
-</div>
-
-<div class="input-group">
-
-<label>
-Instagram Username
+Your Instagram Username
 </label>
 
 <input type="text" placeholder="@username">
 
 </div>
 
-<div class="file-box">
+<div class="form-group">
 
 <label>
-Upload Payment Screenshot
+Transaction ID
 </label>
 
-<input type="file">
+<input type="text" placeholder="Paste Transaction ID">
 
 </div>
 
 <button class="submit-btn" onclick="submitPayment()">
-SUBMIT PAYMENT
+
+I PAID - CONTACT SUPPORT
+
 </button>
 
 <div class="message" id="message">
 
-Payment Submitted Successfully 🚀<br>
-Review Time: Up To 24 Hours
+Payment Submitted Successfully 🚀
 
 </div>
 
 </div>
 
-</div>
+</section>
 
-</div>
+<!-- SUPPORT -->
+
+<a href="https://instagram.com/purestepfunding"
+target="_blank"
+class="support-btn">
+
+Support
+
+</a>
 
 <!-- SCRIPT -->
 
 <script>
 
-function copyBinance(){
+/* PLAN SYSTEM */
 
-let text = document.getElementById("binance").innerText;
+const params = new URLSearchParams(window.location.search);
+
+const plan = params.get("plan");
+const price = params.get("price");
+
+/* PLAN NAME */
+
+document.getElementById("plan-name").innerHTML =
+"$" + plan + " Challenge";
+
+/* PLAN PRICE */
+
+document.getElementById("plan-price").innerHTML =
+"$" + price;
+
+/* COPY */
+
+function copyText(id){
+
+let text =
+document.getElementById(id).innerText;
 
 navigator.clipboard.writeText(text);
 
-alert("Binance Pay ID Copied 🚀");
+alert("Copied Successfully 🚀");
 
 }
 
-function copyWallet(){
-
-let text = document.getElementById("wallet").innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("Wallet Address Copied 🚀");
-
-}
+/* PAYMENT */
 
 function submitPayment(){
 
@@ -624,19 +634,12 @@ window.open(
 "_blank"
 );
 
-},2000);
+},1500);
 
 }
 
-
 </script>
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
-class="support-btn">
 
-Support
-
-</a>
 </body>
 
 </html>
