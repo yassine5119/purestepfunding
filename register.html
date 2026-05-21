@@ -615,7 +615,121 @@ console.log(err);
 };
 
 </script>
+<!-- FIREBASE REGISTER SYSTEM -->
 
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+
+createUserWithEmailAndPassword
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+
+doc,
+setDoc
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* REGISTER FUNCTION */
+
+window.registerUser = async function(){
+
+const username =
+document.getElementById("username").value;
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+const success =
+document.getElementById("success-message");
+
+const error =
+document.getElementById("error-message");
+
+success.style.display = "none";
+
+error.style.display = "none";
+
+try{
+
+const userCredential =
+await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+const user =
+userCredential.user;
+
+/* SAVE USER DATA */
+
+await setDoc(doc(db,"users",user.uid),{
+
+username: username,
+
+email: email,
+
+balance: 0,
+
+profit: 0,
+
+status: "ACTIVE",
+
+phase: "Phase 1",
+
+accountType: "No Challenge Yet",
+
+createdAt: new Date()
+
+});
+
+/* SAVE LOCAL */
+
+localStorage.setItem(
+"loggedIn",
+"true"
+);
+
+localStorage.setItem(
+"userName",
+username
+);
+
+localStorage.setItem(
+"userEmail",
+email
+);
+
+success.style.display = "block";
+
+setTimeout(() => {
+
+window.location.href =
+"dashboard.html";
+
+},1500);
+
+}
+
+catch(err){
+
+console.log(err);
+
+error.style.display = "block";
+
+}
+
+};
+
+</script>
 </body>
 
 </html>
