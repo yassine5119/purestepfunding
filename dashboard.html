@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trader Dashboard</title>
+<title>Dashboard - PureStep Funding</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,22 +22,24 @@ font-family:'Poppins',sans-serif;
 body{
 background:#020817;
 color:white;
+display:flex;
 }
 
 /* SIDEBAR */
 
 .sidebar{
 
-position:fixed;
-left:0;
-top:0;
-
 width:260px;
 height:100vh;
 
-background:#071224;
+background:#081225;
 
 padding:35px 25px;
+
+position:fixed;
+
+left:0;
+top:0;
 
 border-right:1px solid rgba(0,255,153,0.15);
 
@@ -45,11 +47,12 @@ border-right:1px solid rgba(0,255,153,0.15);
 
 .logo{
 
-font-size:34px;
+font-size:35px;
 font-weight:800;
-margin-bottom:50px;
 
 color:#00ff99;
+
+margin-bottom:50px;
 
 text-shadow:0 0 20px #00ff99;
 
@@ -67,7 +70,7 @@ padding:16px 20px;
 
 margin-bottom:18px;
 
-background:#0b1730;
+background:#020817;
 
 border-radius:14px;
 
@@ -84,6 +87,7 @@ transition:0.3s;
 .sidebar a:hover{
 
 background:#00ff99;
+
 color:black;
 
 }
@@ -93,6 +97,9 @@ color:black;
 .main{
 
 margin-left:260px;
+
+width:100%;
+
 padding:45px;
 
 }
@@ -102,10 +109,12 @@ padding:45px;
 .top{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
-margin-bottom:45px;
+margin-bottom:40px;
 
 }
 
@@ -162,6 +171,7 @@ border:1px solid rgba(0,255,153,0.15);
 .card h3{
 
 color:#94a3b8;
+
 margin-bottom:15px;
 
 }
@@ -169,60 +179,179 @@ margin-bottom:15px;
 .card h2{
 
 font-size:40px;
+
 color:#00ff99;
 
 }
 
-/* STATUS */
+/* ACCOUNT BOX */
 
-.status{
+.account-box{
 
 background:#081225;
 
-padding:35px;
+padding:40px;
 
-border-radius:25px;
+border-radius:30px;
+
+border:1px solid rgba(0,255,153,0.15);
+
+margin-top:40px;
+
+text-align:center;
+
+}
+
+.account-box h1{
+
+font-size:55px;
+
+margin-bottom:20px;
+
+}
+
+.account-box p{
+
+font-size:22px;
+
+line-height:1.7;
+
+color:#d1d5db;
+
+margin-bottom:40px;
+
+}
+
+/* BUTTONS */
+
+.btn{
+
+display:inline-block;
+
+padding:18px 35px;
+
+background:#00ff99;
+
+border-radius:16px;
+
+text-decoration:none;
+
+font-weight:700;
+
+font-size:18px;
+
+color:black;
+
+box-shadow:0 0 25px #00ff99;
+
+transition:0.3s;
+
+border:none;
+
+cursor:pointer;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+}
+
+/* POPUP */
+
+.popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+background:rgba(0,0,0,0.7);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.popup-content{
+
+width:500px;
+
+background:#081225;
+
+padding:40px;
+
+border-radius:30px;
+
+text-align:center;
 
 border:1px solid rgba(0,255,153,0.15);
 
 }
 
-.status h2{
+.popup-content h1{
 
-margin-bottom:25px;
-font-size:34px;
+font-size:42px;
+
+margin-bottom:30px;
 
 }
 
-.progress{
+.plan{
 
-width:100%;
-height:24px;
+padding:18px;
+
+margin:18px 0;
 
 background:#020817;
 
-border-radius:30px;
+border-radius:15px;
 
-overflow:hidden;
+cursor:pointer;
 
-margin-bottom:18px;
+transition:0.3s;
+
+font-size:20px;
+
+font-weight:700;
 
 }
 
-.progress-bar{
-
-width:68%;
-height:100%;
+.plan:hover{
 
 background:#00ff99;
 
+color:black;
+
 }
 
-.info{
+/* MOBILE */
 
-margin-top:18px;
-font-size:18px;
-line-height:1.9;
+@media(max-width:900px){
+
+.sidebar{
+display:none;
+}
+
+.main{
+margin-left:0;
+}
+
+.top h1{
+font-size:30px;
+}
+
+.account-box h1{
+font-size:40px;
+}
 
 }
 
@@ -242,7 +371,7 @@ line-height:1.9;
 
 <a href="index.html">Home</a>
 
-<a href="#">Trader Panel</a>
+<a href="dashboard.html">Dashboard</a>
 
 <a href="#">Accounts</a>
 
@@ -261,8 +390,7 @@ line-height:1.9;
 <div class="top">
 
 <h1>
-Welcome,
-<span id="traderName"></span>
+Welcome Trader 🚀
 </h1>
 
 <button class="logout" onclick="logout()">
@@ -271,23 +399,15 @@ Logout
 
 </div>
 
-<!-- CARDS -->
+<!-- STATS -->
 
 <div class="cards">
 
 <div class="card">
 
-<h3>Account Type</h3>
+<h3>Active Accounts</h3>
 
-<h2>$5K</h2>
-
-</div>
-
-<div class="card">
-
-<h3>Current Balance</h3>
-
-<h2>$5,482</h2>
+<h2>0</h2>
 
 </div>
 
@@ -295,44 +415,68 @@ Logout
 
 <h3>Total Profit</h3>
 
-<h2>+$482</h2>
+<h2>$0</h2>
 
 </div>
 
 <div class="card">
 
-<h3>Max Drawdown</h3>
+<h3>Payouts</h3>
 
-<h2>4%</h2>
+<h2>$0</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Status</h3>
+
+<h2>ACTIVE</h2>
 
 </div>
 
 </div>
 
-<!-- STATUS -->
+<!-- ACCOUNT BOX -->
 
-<div class="status">
+<div class="account-box">
 
-<h2>Challenge Progress</h2>
+<h1>
+Add New Challenge
+</h1>
 
-<div class="progress">
+<p>
+Choose your funded challenge account and start trading with PureStep Funding.
+</p>
 
-<div class="progress-bar"></div>
+<button class="btn" onclick="openPopup()">
+ADD ACCOUNT
+</button>
 
 </div>
 
-<div class="info">
+</div>
 
-<p>✅ Profit Target: 68%</p>
+<!-- POPUP -->
 
-<p>✅ Minimum Trading Days: 2/2</p>
+<div class="popup" id="popup">
 
-<p>✅ Daily Drawdown Respected</p>
+<div class="popup-content">
 
-<p>✅ Account Status: ACTIVE</p>
+<h1>
+Choose Account
+</h1>
 
-<p>✅ Profit Split: 100%</p>
+<div class="plan" onclick="buy(2500)">
+$2,500 Challenge — $10
+</div>
 
+<div class="plan" onclick="buy(5000)">
+$5,000 Challenge — $35
+</div>
+
+<div class="plan" onclick="buy(10000)">
+$10,000 Challenge — $60
 </div>
 
 </div>
@@ -341,13 +485,20 @@ Logout
 
 <script>
 
-let trader = localStorage.getItem("email");
+function openPopup(){
 
-document.getElementById("traderName").innerHTML = trader;
+document.getElementById("popup").style.display = "flex";
+
+}
+
+function buy(account){
+
+window.location.href =
+"checkout.html?account=" + account;
+
+}
 
 function logout(){
-
-localStorage.removeItem("loggedIn");
 
 window.location.href = "login.html";
 
