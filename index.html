@@ -29,7 +29,7 @@ position:relative;
 
 }
 
-/* ===== ANIMATED BACKGROUND ===== */
+/* ===== BACKGROUND PARTICLES ===== */
 
 .bg-animation{
 
@@ -297,6 +297,103 @@ box-shadow:0 0 30px rgba(0,255,153,0.45);
 
 }
 
+/* ===== MOBILE MENU ===== */
+
+.mobile-menu-btn{
+
+display:none;
+
+font-size:32px;
+
+cursor:pointer;
+
+background:rgba(15,23,42,0.9);
+
+padding:10px 18px;
+
+border-radius:14px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+transition:0.3s;
+
+}
+
+.mobile-menu-btn:hover{
+
+background:#00ff99;
+
+color:black;
+
+}
+
+.mobile-menu{
+
+position:fixed;
+
+top:85px;
+right:-100%;
+
+width:280px;
+
+background:rgba(7,18,38,0.96);
+
+backdrop-filter:blur(16px);
+
+padding:30px;
+
+border-radius:24px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+transition:0.4s;
+
+z-index:9999;
+
+border:1px solid rgba(0,255,153,0.08);
+
+box-shadow:0 0 45px rgba(0,255,153,0.15);
+
+}
+
+.mobile-menu.active{
+
+right:20px;
+
+}
+
+.mobile-menu a{
+
+padding:16px 20px;
+
+border-radius:16px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:600;
+
+background:rgba(15,23,42,0.9);
+
+transition:0.3s;
+
+}
+
+.mobile-menu a:hover{
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+transform:translateX(5px);
+
+}
+
 /* ===== HERO ===== */
 
 .hero{
@@ -409,7 +506,17 @@ max-width:700px;
 
 }
 
-/* ===== BUTTON ===== */
+/* ===== BUTTONS ===== */
+
+.hero-buttons{
+
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
 
 .hero-btn{
 
@@ -473,27 +580,254 @@ box-shadow:0 0 55px rgba(0,255,153,0.8);
 
 }
 
-/* ===== FLOAT CARD ===== */
+.rules-btn{
+
+display:inline-block;
+
+padding:22px 40px;
+
+border-radius:20px;
+
+background:rgba(15,23,42,0.88);
+
+color:white;
+
+font-weight:800;
+
+text-decoration:none;
+
+font-size:18px;
+
+border:1px solid rgba(255,255,255,0.06);
+
+transition:0.3s;
+
+backdrop-filter:blur(10px);
+
+}
+
+.rules-btn:hover{
+
+transform:translateY(-6px);
+
+background:white;
+
+color:black;
+
+}
+
+/* ===== WOW CARD ===== */
 
 .live-card{
 
 margin-top:50px;
 
-background:rgba(7,18,38,0.75);
+background:rgba(7,18,38,0.72);
 
-backdrop-filter:blur(16px);
+backdrop-filter:blur(18px);
 
-padding:30px;
+padding:32px;
 
-border-radius:32px;
+border-radius:34px;
 
 border:1px solid rgba(0,255,153,0.08);
 
-max-width:560px;
+max-width:620px;
 
-box-shadow:0 0 45px rgba(0,255,153,0.12);
+box-shadow:0 0 50px rgba(0,255,153,0.14);
 
 animation:floatCard 4s infinite alternate;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.live-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-100px;
+right:-100px;
+
+width:220px;
+height:220px;
+
+background:rgba(0,255,153,0.05);
+
+border-radius:50%;
+
+}
+
+.trading-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:30px;
+
+gap:20px;
+
+position:relative;
+z-index:2;
+
+}
+
+.trading-top h3{
+
+font-size:28px;
+
+margin-bottom:8px;
+
+}
+
+.trading-top p{
+
+color:#94a3b8;
+
+}
+
+.profit-badge{
+
+padding:12px 18px;
+
+border-radius:50px;
+
+background:#00ff99;
+
+color:black;
+
+font-weight:800;
+
+box-shadow:0 0 25px rgba(0,255,153,0.45);
+
+}
+
+/* ===== BARS ===== */
+
+.chart-bars{
+
+display:flex;
+
+align-items:flex-end;
+
+gap:14px;
+
+height:180px;
+
+margin-bottom:35px;
+
+position:relative;
+z-index:2;
+
+}
+
+.bar{
+
+flex:1;
+
+background:linear-gradient(180deg,#00ff99,#00c97a);
+
+border-radius:18px 18px 0 0;
+
+animation:bars 3s infinite alternate;
+
+box-shadow:0 0 25px rgba(0,255,153,0.35);
+
+}
+
+.bar:nth-child(1){
+
+height:45%;
+
+}
+
+.bar:nth-child(2){
+
+height:75%;
+
+}
+
+.bar:nth-child(3){
+
+height:100%;
+
+}
+
+.bar:nth-child(4){
+
+height:65%;
+
+}
+
+.bar:nth-child(5){
+
+height:88%;
+
+}
+
+@keyframes bars{
+
+0%{
+opacity:0.7;
+}
+
+100%{
+opacity:1;
+}
+
+}
+
+/* ===== STATS CARD ===== */
+
+.chart-stats{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:18px;
+
+position:relative;
+z-index:2;
+
+}
+
+.chart-stats div{
+
+background:rgba(15,23,42,0.85);
+
+padding:20px;
+
+border-radius:20px;
+
+text-align:center;
+
+border:1px solid rgba(255,255,255,0.04);
+
+}
+
+.chart-stats span{
+
+color:#94a3b8;
+
+font-size:14px;
+
+}
+
+.chart-stats h4{
+
+font-size:28px;
+
+margin-top:8px;
+
+color:#00ff99;
 
 }
 
@@ -505,64 +839,6 @@ transform:translateY(0px);
 
 100%{
 transform:translateY(-12px);
-}
-
-}
-
-.live-card h3{
-
-font-size:28px;
-
-margin-bottom:20px;
-
-}
-
-.chart-line{
-
-height:12px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-border-radius:50px;
-
-margin:16px 0;
-
-animation:pulseLine 3s infinite alternate;
-
-}
-
-.chart-line:nth-child(2){
-
-width:75%;
-
-}
-
-.chart-line:nth-child(3){
-
-width:95%;
-
-}
-
-.chart-line:nth-child(4){
-
-width:60%;
-
-}
-
-.chart-line:nth-child(5){
-
-width:85%;
-
-}
-
-@keyframes pulseLine{
-
-0%{
-opacity:0.5;
-}
-
-100%{
-opacity:1;
 }
 
 }
@@ -623,24 +899,6 @@ overflow:hidden;
 
 }
 
-.stat::before{
-
-content:"";
-
-position:absolute;
-
-top:-80px;
-right:-80px;
-
-width:180px;
-height:180px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
-}
-
 .stat:hover{
 
 transform:translateY(-10px);
@@ -657,11 +915,6 @@ color:#00ff99;
 
 margin-bottom:12px;
 
-text-shadow:0 0 20px rgba(0,255,153,0.5);
-
-position:relative;
-z-index:2;
-
 }
 
 .stat p{
@@ -669,9 +922,6 @@ z-index:2;
 color:#94a3b8;
 
 font-size:18px;
-
-position:relative;
-z-index:2;
 
 }
 
@@ -694,96 +944,6 @@ font-weight:800;
 color:#00ff99;
 
 text-shadow:0 0 25px #00ff99;
-
-}
-
-/* ===== RULES ===== */
-
-.rules{
-
-padding:0 7% 120px;
-
-}
-
-.rules-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:30px;
-
-}
-
-.rule{
-
-background:rgba(7,18,38,0.82);
-
-padding:40px;
-
-border-radius:34px;
-
-border:1px solid rgba(0,255,153,0.08);
-
-backdrop-filter:blur(12px);
-
-transition:0.3s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.rule::before{
-
-content:"";
-
-position:absolute;
-
-top:-80px;
-right:-80px;
-
-width:200px;
-height:200px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
-}
-
-.rule:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 45px rgba(0,255,153,0.18);
-
-}
-
-.rule h3{
-
-font-size:30px;
-
-margin-bottom:18px;
-
-color:#00ff99;
-
-position:relative;
-z-index:2;
-
-}
-
-.rule p{
-
-line-height:1.9;
-
-color:#d1d5db;
-
-font-size:17px;
-
-position:relative;
-z-index:2;
 
 }
 
@@ -819,28 +979,6 @@ transition:0.3s;
 
 backdrop-filter:blur(12px);
 
-position:relative;
-
-overflow:hidden;
-
-}
-
-.payout-box::before{
-
-content:"";
-
-position:absolute;
-
-top:-80px;
-right:-80px;
-
-width:200px;
-height:200px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
 }
 
 .payout-box:hover{
@@ -859,9 +997,6 @@ margin-bottom:18px;
 
 color:#00ff99;
 
-position:relative;
-z-index:2;
-
 }
 
 .payout-box p{
@@ -871,9 +1006,6 @@ color:#d1d5db;
 line-height:1.9;
 
 font-size:17px;
-
-position:relative;
-z-index:2;
 
 }
 
@@ -940,49 +1072,44 @@ font-weight:700;
 
 /* ===== MOBILE ===== */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
-.hero-content h1{
+.nav-links{
 
-font-size:64px;
+display:none;
 
 }
 
-.section-title{
+.mobile-menu-btn{
 
-font-size:48px;
+display:block;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.rules-btn,
+.hero-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.chart-stats{
+
+grid-template-columns:1fr;
 
 }
 
 }
 
 @media(max-width:768px){
-
-nav{
-
-padding:20px 5%;
-
-}
-
-.logo{
-
-font-size:34px;
-
-}
-
-.nav-links{
-
-gap:10px;
-
-}
-
-.nav-links a{
-
-padding:12px 16px;
-
-font-size:14px;
-
-}
 
 .hero{
 
@@ -1004,36 +1131,15 @@ font-size:18px;
 
 }
 
-.hero-btn{
-
-width:100%;
-
-text-align:center;
-
-}
-
-.live-card{
-
-max-width:100%;
-
-}
-
 .section-title{
 
 font-size:40px;
 
 }
 
-.stat h2{
+.live-card{
 
-font-size:42px;
-
-}
-
-.rule,
-.payout-box{
-
-padding:30px;
+max-width:100%;
 
 }
 
@@ -1081,7 +1187,29 @@ PURE<span>Step</span>
 
 </div>
 
+<div class="mobile-menu-btn" onclick="toggleMenu()">
+
+☰
+
+</div>
+
 </nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Home</a>
+
+<a href="rules.html">Rules</a>
+
+<a href="login.html">Login</a>
+
+<a href="register.html">Sign Up</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+</div>
 
 <!-- HERO -->
 
@@ -1109,24 +1237,87 @@ Professional funded trading experience with realistic rules, premium dashboard, 
 
 </p>
 
+<div class="hero-buttons">
+
 <a href="login.html" class="hero-btn">
 
 START CHALLENGE
 
 </a>
 
+<a href="rules.html" class="rules-btn">
+
+VIEW RULES
+
+</a>
+
+</div>
+
 <div class="live-card">
+
+<div class="trading-top">
+
+<div>
 
 <h3>
 
-📈 Live Trading Performance
+📊 Live Market Analytics
 
 </h3>
 
-<div class="chart-line"></div>
-<div class="chart-line"></div>
-<div class="chart-line"></div>
-<div class="chart-line"></div>
+<p>
+
+Real-time trading environment
+
+</p>
+
+</div>
+
+<div class="profit-badge">
+
++12.4%
+
+</div>
+
+</div>
+
+<div class="chart-bars">
+
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+
+</div>
+
+<div class="chart-stats">
+
+<div>
+
+<span>Win Rate</span>
+
+<h4>87%</h4>
+
+</div>
+
+<div>
+
+<span>Payout Speed</span>
+
+<h4>24H</h4>
+
+</div>
+
+<div>
+
+<span>Risk Rule</span>
+
+<h4>2%</h4>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1183,64 +1374,6 @@ Crypto
 <p>
 Instant Payouts
 </p>
-
-</div>
-
-</section>
-
-<!-- RULES -->
-
-<section class="rules">
-
-<h1 class="section-title">
-
-Trading <span>Rules</span>
-
-</h1>
-
-<div class="rules-grid">
-
-<div class="rule">
-
-<h3>
-Daily Drawdown
-</h3>
-
-<p>
-
-Maximum daily loss allowed is 4% of account balance.
-
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Maximum Drawdown
-</h3>
-
-<p>
-
-Maximum overall drawdown is limited to 8%.
-
-</p>
-
-</div>
-
-<div class="rule">
-
-<h3>
-Risk Management
-</h3>
-
-<p>
-
-All traders must respect the 2% risk limit policy.
-
-</p>
-
-</div>
 
 </div>
 
@@ -1357,6 +1490,17 @@ Instagram: @purestepfunding
 </div>
 
 </footer>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu")
+.classList.toggle("active");
+
+}
+
+</script>
 
 </body>
 
