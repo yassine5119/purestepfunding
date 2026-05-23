@@ -135,27 +135,36 @@ position:fixed;
 top:15px;
 left:15px;
 
-width:50px;
-height:50px;
+width:52px;
+height:52px;
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
 color:black;
 
-font-size:28px;
+font-size:30px;
 
 font-weight:800;
 
-border-radius:14px;
+border-radius:16px;
 
-z-index:99999;
+z-index:999999;
 
 align-items:center;
 justify-content:center;
 
 cursor:pointer;
 
-box-shadow:0 0 30px rgba(0,255,153,0.4);
+box-shadow:
+0 0 25px rgba(0,255,153,0.5);
+
+transition:0.3s;
+
+}
+
+.mobile-menu-btn:hover{
+
+transform:scale(1.08);
 
 }
 
@@ -331,7 +340,7 @@ padding:30px;
 
 }
 
-/* ===== DASHBOARD HEADER ===== */
+/* ===== HEADER ===== */
 
 .dashboard-header{
 
@@ -527,10 +536,6 @@ border-radius:24px;
 
 transition:0.3s;
 
-position:relative;
-
-overflow:hidden;
-
 }
 
 .stat-card:hover{
@@ -565,7 +570,7 @@ color:#94a3b8;
 
 }
 
-/* ===== GRID ===== */
+/* ===== DASHBOARD GRID ===== */
 
 .dashboard-grid{
 
@@ -672,7 +677,7 @@ font-weight:700;
 
 }
 
-/* ===== ACTIONS ===== */
+/* ===== ACTION BUTTONS ===== */
 
 .quick-panel h2{
 
@@ -856,9 +861,7 @@ grid-template-columns:1fr;
 @media(max-width:850px){
 
 .mobile-menu-btn{
-
 display:flex;
-
 }
 
 .sidebar{
@@ -878,6 +881,7 @@ transform:translateX(0);
 margin-left:0;
 
 padding:14px;
+padding-top:80px;
 
 }
 
@@ -969,8 +973,6 @@ PURE<span>Step</span>
 <!-- MAIN -->
 
 <div class="main">
-
-<!-- HEADER -->
 
 <div class="dashboard-header">
 
@@ -1090,7 +1092,7 @@ Account Status
 
 </div>
 
-<!-- DASHBOARD GRID -->
+<!-- GRID -->
 
 <div class="dashboard-grid">
 
@@ -1228,8 +1230,6 @@ Recent Trading Activity
 
 </div>
 
-<div class="history-table">
-
 <div class="history-row">
 
 <span>
@@ -1263,8 +1263,6 @@ EURUSD
 <span class="profit">
 +$80
 </span>
-
-</div>
 
 </div>
 
@@ -1360,9 +1358,7 @@ document.getElementById("status-badge").style.color =
 
 document.querySelector(".quick-panel").innerHTML = `
 
-<h2 style="
-margin-bottom:20px;
-">
+<h2 style="margin-bottom:20px;">
 Account Restricted 🚫
 </h2>
 
@@ -1427,6 +1423,28 @@ document.querySelector(".sidebar")
 .classList.toggle("active");
 
 }
+
+/* CLOSE MENU OUTSIDE */
+
+document.addEventListener("click",(e)=>{
+
+const sidebar =
+document.querySelector(".sidebar");
+
+const menuBtn =
+document.querySelector(".mobile-menu-btn");
+
+if(
+!sidebar.contains(e.target)
+&&
+!menuBtn.contains(e.target)
+){
+
+sidebar.classList.remove("active");
+
+}
+
+});
 
 </script>
 
