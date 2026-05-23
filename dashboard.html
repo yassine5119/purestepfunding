@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -9,7 +8,7 @@
 <title>PUREStep Funding Dashboard</title>
 
 <meta name="description" content="PUREStep Funding Professional Trading Dashboard">
-<meta name="keywords" content="Prop Firm, Trading Dashboard, MT5, Funded Account">
+<meta name="keywords" content="prop firm, funded trading, mt5, forex funding">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -50,39 +49,30 @@ z-index:-10;
 .glow{
 position:absolute;
 border-radius:50%;
-filter:blur(140px);
-opacity:0.16;
-animation:float 12s infinite alternate ease-in-out;
+filter:blur(130px);
+opacity:0.15;
+animation:float 10s infinite alternate ease-in-out;
 }
 
 .glow1{
-width:550px;
-height:550px;
+width:500px;
+height:500px;
 background:#00ff99;
 top:-200px;
 left:-200px;
 }
 
 .glow2{
-width:500px;
-height:500px;
+width:450px;
+height:450px;
 background:#00ff99;
-bottom:-200px;
+bottom:-180px;
 right:-180px;
-}
-
-.glow3{
-width:350px;
-height:350px;
-background:#00ff99;
-top:40%;
-left:45%;
-opacity:0.08;
 }
 
 @keyframes float{
 100%{
-transform:translateY(70px) translateX(20px);
+transform:translateY(60px) translateX(20px);
 }
 }
 
@@ -106,27 +96,21 @@ transition:1s;
 }
 
 .loader-logo{
-font-size:80px;
+font-size:75px;
 font-weight:800;
 animation:pulse 2s infinite;
 }
 
 .loader-logo span{
 color:#00ff99;
-text-shadow:0 0 35px #00ff99;
-}
-
-.loader-text{
-margin-top:12px;
-color:#94a3b8;
-letter-spacing:2px;
+text-shadow:0 0 30px #00ff99;
 }
 
 .loader-bar{
-width:280px;
+width:260px;
 height:6px;
 background:#111827;
-margin-top:25px;
+margin-top:20px;
 border-radius:50px;
 overflow:hidden;
 }
@@ -158,18 +142,18 @@ transform:scale(1.05);
 position:sticky;
 top:0;
 width:100%;
-padding:18px 28px;
+padding:18px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(2,6,23,0.72);
-backdrop-filter:blur(18px);
+background:rgba(2,6,23,0.75);
+backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 z-index:999;
 }
 
 .logo{
-font-size:38px;
+font-size:36px;
 font-weight:800;
 }
 
@@ -178,29 +162,8 @@ color:#00ff99;
 text-shadow:0 0 15px #00ff99;
 }
 
-.nav-right{
-display:flex;
-align-items:center;
-gap:15px;
-}
-
-.live-dot{
-width:10px;
-height:10px;
-background:#00ff99;
-border-radius:50%;
-box-shadow:0 0 15px #00ff99;
-animation:live 1.2s infinite;
-}
-
-@keyframes live{
-50%{
-opacity:0.3;
-}
-}
-
 .menu-btn{
-font-size:32px;
+font-size:30px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -217,7 +180,7 @@ transform:scale(1.1);
 position:fixed;
 top:0;
 right:-320px;
-width:290px;
+width:280px;
 height:100vh;
 background:#08111f;
 padding:30px;
@@ -234,17 +197,14 @@ right:0;
 .sidebar h2{
 margin-bottom:25px;
 color:#00ff99;
-font-size:28px;
 }
 
 .sidebar a{
-display:flex;
-align-items:center;
-gap:10px;
-padding:16px;
+display:block;
+padding:15px;
 margin-bottom:12px;
 background:#0f172a;
-border-radius:16px;
+border-radius:14px;
 text-decoration:none;
 color:white;
 transition:0.3s;
@@ -264,7 +224,7 @@ transform:translateX(-5px);
 .container{
 max-width:1600px;
 margin:auto;
-padding:28px;
+padding:25px;
 }
 
 /* ========================= */
@@ -273,59 +233,57 @@ padding:28px;
 
 .hero{
 background:linear-gradient(135deg,#071421,#0f172a);
-padding:45px;
-border-radius:35px;
+padding:40px;
+border-radius:32px;
 position:relative;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 0 35px rgba(0,255,153,0.08);
+box-shadow:0 0 30px rgba(0,255,153,0.08);
 animation:fadeUp 1s ease;
 }
 
 .hero::before{
 content:"";
 position:absolute;
-width:300px;
-height:300px;
+width:250px;
+height:250px;
 background:#00ff9915;
 border-radius:50%;
-top:-120px;
-right:-120px;
+top:-100px;
+right:-100px;
 }
 
 .hero h1{
-font-size:50px;
+font-size:45px;
 line-height:1.2;
 }
 
 .hero span{
 color:#00ff99;
-text-shadow:0 0 18px #00ff99;
+text-shadow:0 0 15px #00ff99;
 }
 
 .hero p{
 margin-top:14px;
 color:#94a3b8;
 line-height:1.8;
-font-size:17px;
-max-width:850px;
 }
 
 /* ========================= */
-/* STATS */
+/* CARDS */
 /* ========================= */
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:22px;
-margin-top:35px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+margin-top:30px;
 }
 
 .card{
 background:#0f172a;
-padding:30px;
-border-radius:28px;
+padding:28px;
+border-radius:25px;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.3s;
 position:relative;
@@ -334,29 +292,28 @@ animation:fadeUp 1s ease;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px rgba(0,255,153,0.15);
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(0,255,153,0.15);
 }
 
 .card::before{
 content:"";
 position:absolute;
-width:140px;
-height:140px;
+width:120px;
+height:120px;
 background:#00ff9910;
 border-radius:50%;
-top:-50px;
-right:-50px;
+top:-40px;
+right:-40px;
 }
 
 .card h3{
 font-size:14px;
 color:#94a3b8;
-letter-spacing:1px;
 }
 
 .card h2{
-font-size:42px;
+font-size:38px;
 margin-top:12px;
 }
 
@@ -375,14 +332,14 @@ color:#ff4d6d;
 .grid{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:22px;
-margin-top:35px;
+gap:20px;
+margin-top:30px;
 }
 
 .box{
 background:#0f172a;
-padding:28px;
-border-radius:28px;
+padding:25px;
+border-radius:25px;
 border:1px solid rgba(255,255,255,0.05);
 animation:fadeUp 1s ease;
 }
@@ -392,17 +349,17 @@ animation:fadeUp 1s ease;
 /* ========================= */
 
 .chart{
-height:340px;
+height:320px;
 display:flex;
 align-items:flex-end;
-gap:14px;
-margin-top:30px;
+gap:12px;
+margin-top:25px;
 }
 
 .bar{
 flex:1;
 background:linear-gradient(to top,#00ff99,#00b36b);
-border-radius:16px 16px 0 0;
+border-radius:15px 15px 0 0;
 box-shadow:0 0 20px rgba(0,255,153,0.25);
 animation:bars 1.5s ease;
 transition:0.3s;
@@ -419,30 +376,30 @@ height:0;
 }
 
 /* ========================= */
-/* PROGRESS */
+/* INFO */
 /* ========================= */
 
-.progress{
-width:100%;
-height:20px;
-background:#111827;
-border-radius:50px;
-overflow:hidden;
-margin-top:16px;
+.info-item{
+background:#111c30;
+padding:18px;
+border-radius:16px;
+margin-bottom:15px;
+transition:0.3s;
 }
 
-.progress-fill{
-height:100%;
-width:72%;
-background:linear-gradient(to right,#00ff99,#00b36b);
-box-shadow:0 0 20px #00ff99;
-animation:progress 2s ease;
+.info-item:hover{
+transform:translateY(-4px);
 }
 
-@keyframes progress{
-0%{
-width:0;
+.info-item h4{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:8px;
 }
+
+.info-item p{
+font-size:20px;
+font-weight:700;
 }
 
 /* ========================= */
@@ -453,7 +410,7 @@ width:0;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:18px;
-margin-top:35px;
+margin-top:30px;
 }
 
 .btn{
@@ -482,33 +439,6 @@ box-shadow:0 0 25px rgba(0,255,153,0.2);
 }
 
 /* ========================= */
-/* INFO */
-/* ========================= */
-
-.info-item{
-background:#111c30;
-padding:18px;
-border-radius:18px;
-margin-bottom:16px;
-transition:0.3s;
-}
-
-.info-item:hover{
-transform:translateY(-4px);
-}
-
-.info-item h4{
-font-size:14px;
-color:#94a3b8;
-margin-bottom:8px;
-}
-
-.info-item p{
-font-size:20px;
-font-weight:700;
-}
-
-/* ========================= */
 /* TRADES */
 /* ========================= */
 
@@ -516,10 +446,10 @@ font-weight:700;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:16px;
-margin-top:14px;
+padding:15px;
+margin-top:12px;
 background:#111c30;
-border-radius:16px;
+border-radius:14px;
 transition:0.3s;
 }
 
@@ -528,34 +458,20 @@ transform:translateX(5px);
 }
 
 /* ========================= */
-/* LEADERBOARD */
-/* ========================= */
-
-.leader{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px;
-margin-top:12px;
-background:#111c30;
-border-radius:14px;
-}
-
-/* ========================= */
 /* SUPPORT */
 /* ========================= */
 
 .support{
 position:fixed;
-bottom:22px;
-right:22px;
-padding:18px 25px;
+bottom:20px;
+right:20px;
+padding:16px 24px;
 border-radius:50px;
 background:#00ff99;
 color:black;
 font-weight:700;
 text-decoration:none;
-box-shadow:0 0 30px #00ff99;
+box-shadow:0 0 25px #00ff99;
 z-index:9999;
 animation:pulseSupport 2s infinite;
 }
@@ -592,7 +508,7 @@ grid-template-columns:1fr;
 }
 
 .hero h1{
-font-size:34px;
+font-size:32px;
 }
 
 .cards{
@@ -603,20 +519,12 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.container{
-padding:18px;
-}
-
 .logo{
 font-size:30px;
 }
 
-.hero{
-padding:30px;
-}
-
-.card h2{
-font-size:34px;
+.container{
+padding:18px;
 }
 
 }
@@ -635,10 +543,6 @@ font-size:34px;
 PURE<span>Step</span>
 </div>
 
-<div class="loader-text">
-LOADING DASHBOARD
-</div>
-
 <div class="loader-bar">
 <div class="loader-fill"></div>
 </div>
@@ -651,7 +555,6 @@ LOADING DASHBOARD
 
 <div class="glow glow1"></div>
 <div class="glow glow2"></div>
-<div class="glow glow3"></div>
 
 </div>
 
@@ -683,14 +586,8 @@ LOADING DASHBOARD
 PURE<span>Step</span>
 </div>
 
-<div class="nav-right">
-
-<div class="live-dot"></div>
-
 <div class="menu-btn" onclick="toggleMenu()">
 ☰
-</div>
-
 </div>
 
 </div>
@@ -709,32 +606,32 @@ Welcome Back,
 </h1>
 
 <p>
-Professional prop firm dashboard with live analytics, funded account tracking, payout management and future MT5 automation integration.
+Professional prop firm dashboard with real-time analytics and funded account tracking.
 </p>
 
 </div>
 
-<!-- STATS -->
+<!-- CARDS -->
 
 <div class="cards">
 
 <div class="card">
-<h3>BALANCE</h3>
+<h3>Balance</h3>
 <h2 class="green" id="balance">$0</h2>
 </div>
 
 <div class="card">
-<h3>PROFIT</h3>
+<h3>Profit</h3>
 <h2 class="green" id="profit">$0</h2>
 </div>
 
 <div class="card">
-<h3>DAILY DRAWDOWN</h3>
+<h3>Daily Drawdown</h3>
 <h2 class="red" id="dailyDrawdown">0%</h2>
 </div>
 
 <div class="card">
-<h3>MAX DRAWDOWN</h3>
+<h3>Max Drawdown</h3>
 <h2 class="red" id="maxDrawdown">0%</h2>
 </div>
 
@@ -753,20 +650,22 @@ Professional prop firm dashboard with live analytics, funded account tracking, p
 <div class="chart">
 
 <div class="bar" style="height:45%"></div>
-<div class="bar" style="height:72%"></div>
+<div class="bar" style="height:70%"></div>
 <div class="bar" style="height:55%"></div>
-<div class="bar" style="height:98%"></div>
+<div class="bar" style="height:95%"></div>
 <div class="bar" style="height:65%"></div>
 <div class="bar" style="height:100%"></div>
 
 </div>
 
-<div style="margin-top:35px;">
+<div style="margin-top:30px;">
 
-<h3>Profit Target Progress</h3>
+<h3>Profit Target</h3>
 
-<div class="progress">
-<div class="progress-fill"></div>
+<div style="width:100%;height:18px;background:#111827;border-radius:50px;overflow:hidden;margin-top:15px;">
+
+<div style="height:100%;width:72%;background:linear-gradient(to right,#00ff99,#00b36b);box-shadow:0 0 20px #00ff99;"></div>
+
 </div>
 
 </div>
@@ -819,7 +718,7 @@ Professional prop firm dashboard with live analytics, funded account tracking, p
 <p id="email">Loading...</p>
 </div>
 
-<h2 style="margin-top:28px;">Recent Trades</h2>
+<h2 style="margin-top:25px;">Recent Trades</h2>
 
 <div class="trade">
 <span>EURUSD BUY</span>
@@ -836,23 +735,6 @@ Professional prop firm dashboard with live analytics, funded account tracking, p
 <span class="green">+$89</span>
 </div>
 
-<h2 style="margin-top:28px;">Top Traders</h2>
-
-<div class="leader">
-<span>👑 Alex</span>
-<span class="green">+$12,400</span>
-</div>
-
-<div class="leader">
-<span>👑 Sarah</span>
-<span class="green">+$10,120</span>
-</div>
-
-<div class="leader">
-<span>👑 Mike</span>
-<span class="green">+$9,870</span>
-</div>
-
 </div>
 
 </div>
@@ -867,17 +749,21 @@ Support
 
 <script>
 
+/* ========================= */
 /* LOADER */
+/* ========================= */
 
 window.onload = function(){
 
 setTimeout(function(){
 
-document.getElementById("loader").style.opacity = "0";
+const loader = document.getElementById("loader");
+
+loader.style.opacity = "0";
 
 setTimeout(function(){
 
-document.getElementById("loader").style.display = "none";
+loader.style.display = "none";
 
 },1000);
 
@@ -885,7 +771,9 @@ document.getElementById("loader").style.display = "none";
 
 };
 
+/* ========================= */
 /* MENU */
+/* ========================= */
 
 function toggleMenu(){
 
@@ -894,7 +782,9 @@ document.getElementById("sidebar")
 
 }
 
+/* ========================= */
 /* FIREBASE CONFIG */
+/* ========================= */
 
 const firebaseConfig = {
 
@@ -912,13 +802,17 @@ appId: "1:103788045871:web:b8002a5d90deb6616d48da"
 
 };
 
+/* ========================= */
 /* INIT FIREBASE */
+/* ========================= */
 
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-/* USER */
+/* ========================= */
+/* USER LOGIN */
+/* ========================= */
 
 let userId = localStorage.getItem("purestepUserId");
 
@@ -928,7 +822,9 @@ window.location.href = "login.html";
 
 }
 
+/* ========================= */
 /* REALTIME DATA */
+/* ========================= */
 
 db.collection("users")
 
@@ -983,7 +879,9 @@ document.getElementById("status").style.color =
 
 });
 
+/* ========================= */
 /* LOGOUT */
+/* ========================= */
 
 function logout(){
 
