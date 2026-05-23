@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | PureStep Funding</title>
+
+<meta name="description" content="Frequently Asked Questions about PureStep Funding challenges, payouts, rules and funded accounts.">
+
+<meta name="keywords" content="PureStep FAQ, prop firm FAQ, funded trading questions, MT5 prop firm">
+
+<meta name="theme-color" content="#00ff99">
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#020617;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* ===== BACKGROUND ===== */
+
+body::before{
+content:"";
+position:fixed;
+top:-250px;
+left:-250px;
+width:500px;
+height:500px;
+background:rgba(0,255,153,0.08);
+filter:blur(120px);
+border-radius:50%;
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-250px;
+right:-250px;
+width:500px;
+height:500px;
+background:rgba(0,255,153,0.05);
+filter:blur(120px);
+border-radius:50%;
+z-index:-2;
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:24px 7%;
+background:rgba(7,18,38,0.85);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(0,255,153,0.08);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+font-size:42px;
+font-weight:800;
+}
+
+.logo span{
+color:#00ff99;
+text-shadow:0 0 25px #00ff99;
+}
+
+.nav-links{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+padding:14px 22px;
+border-radius:16px;
+text-decoration:none;
+color:white;
+font-weight:600;
+background:rgba(15,23,42,0.85);
+transition:0.3s;
+}
+
+.nav-links a:hover{
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+transform:translateY(-4px);
+
+}
+
+/* ===== HERO ===== */
+
+.hero{
+padding:120px 7% 80px;
+text-align:center;
+}
+
+.hero h1{
+font-size:82px;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.hero h1 span{
+color:#00ff99;
+text-shadow:0 0 30px #00ff99;
+}
+
+.hero p{
+max-width:750px;
+margin:auto;
+font-size:20px;
+line-height:1.8;
+color:#cbd5e1;
+}
+
+/* ===== SEARCH ===== */
+
+.search-box{
+max-width:700px;
+margin:50px auto 0;
+}
+
+.search-box input{
+width:100%;
+padding:22px;
+border:none;
+outline:none;
+border-radius:22px;
+background:rgba(15,23,42,0.9);
+color:white;
+font-size:18px;
+border:1px solid rgba(0,255,153,0.08);
+}
+
+/* ===== FAQ ===== */
+
+.faq-section{
+padding:0 7% 120px;
+}
+
+.faq-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
+}
+
+.faq-card{
+background:rgba(7,18,38,0.85);
+padding:35px;
+border-radius:30px;
+border:1px solid rgba(0,255,153,0.08);
+transition:0.3s;
+backdrop-filter:blur(12px);
+}
+
+.faq-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 40px rgba(0,255,153,0.18);
+}
+
+.faq-card h3{
+font-size:24px;
+margin-bottom:18px;
+color:#00ff99;
+}
+
+.faq-card p{
+line-height:1.9;
+color:#d1d5db;
+font-size:16px;
+}
+
+/* ===== SUPPORT CTA ===== */
+
+.support-section{
+padding:0 7% 140px;
+}
+
+.support-box{
+background:linear-gradient(135deg,#00ff99,#00c97a);
+padding:70px 40px;
+border-radius:40px;
+text-align:center;
+color:black;
+}
+
+.support-box h2{
+font-size:56px;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.support-box p{
+font-size:20px;
+margin-bottom:35px;
+}
+
+.support-box a{
+display:inline-block;
+padding:20px 40px;
+background:black;
+color:white;
+text-decoration:none;
+font-weight:700;
+border-radius:20px;
+transition:0.3s;
+}
+
+.support-box a:hover{
+transform:translateY(-5px);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+padding:70px 7%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:45px;
+background:rgba(7,18,38,0.45);
+border-top:1px solid rgba(0,255,153,0.08);
+}
+
+.footer-box h3{
+font-size:28px;
+margin-bottom:22px;
+}
+
+.footer-box p,
+.footer-box a{
+color:#94a3b8;
+line-height:1.9;
+text-decoration:none;
+display:block;
+margin-bottom:12px;
+transition:0.3s;
+}
+
+.footer-box a:hover{
+color:#00ff99;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.support-box h2{
+font-size:38px;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+PURE<span>Step</span>
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="rules.html">Rules</a>
+
+<a href="plans.html">Get Funded</a>
+
+<a href="payouts.html">Payouts</a>
+
+<a href="faq.html">FAQ</a>
+
+<a href="login.html">Login</a>
+
+<a href="register.html">Sign Up</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Frequently Asked <span>Questions</span>
+</h1>
+
+<p>
+Find answers about challenges, payouts, trading rules and funded accounts with PureStep Funding.
+</p>
+
+<div class="search-box">
+
+<input type="text" placeholder="Search questions...">
+
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="faq-section">
+
+<div class="faq-grid">
+
+<div class="faq-card">
+
+<h3>
+How fast are payouts?
+</h3>
+
+<p>
+Payouts are processed within 1 hour to 24 hours after review approval.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+What platform do you support?
+</h3>
+
+<p>
+PureStep Funding currently supports MetaTrader 5 (MT5).
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Do you offer crypto payouts?
+</h3>
+
+<p>
+Yes. Traders can receive payouts using Binance Pay and USDT.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+What is the profit split?
+</h3>
+
+<p>
+Traders can receive up to 100% profit split depending on account type.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+How long does account review take?
+</h3>
+
+<p>
+Challenge reviews are completed within 1 hour to 24 hours.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Can I trade during news events?
+</h3>
+
+<p>
+Yes, trading during news is allowed unless otherwise specified in account rules.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+What happens if I violate the rules?
+</h3>
+
+<p>
+Accounts that violate trading rules may be breached automatically.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Do you allow Expert Advisors (EAs)?
+</h3>
+
+<p>
+Yes, EAs are allowed if they comply with our policies.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+How do I become funded?
+</h3>
+
+<p>
+Choose a challenge, pass the evaluation and receive a funded trading account.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Do accounts expire?
+</h3>
+
+<p>
+No. Accounts remain active while respecting trading rules.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+Can I hold trades overnight?
+</h3>
+
+<p>
+Yes, overnight and weekend holding is available on selected account types.
+</p>
+
+</div>
+
+<div class="faq-card">
+
+<h3>
+How can I contact support?
+</h3>
+
+<p>
+You can contact our support team through Instagram or dashboard support.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SUPPORT -->
+
+<section class="support-section">
+
+<div class="support-box">
+
+<h2>
+Still Need Help?
+</h2>
+
+<p>
+Our support team is ready to help you with your funded trading journey.
+</p>
+
+<a href="https://instagram.com/purestepfunding" target="_blank">
+
+CONTACT SUPPORT
+
+</a>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-box">
+
+<h3>
+PURESTEP
+</h3>
+
+<p>
+Professional funded trading experience for traders worldwide.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">Home</a>
+<a href="rules.html">Rules</a>
+<a href="plans.html">Get Funded</a>
+<a href="dashboard.html">Dashboard</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Legal
+</h3>
+
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Support
+</h3>
+
+<p>
+support@purestepfunding.com
+</p>
+
+<p>
+Instagram: @purestepfunding
+</p>
+
+</div>
+
+</footer>
+
+</body>
+
+</html>
