@@ -23,7 +23,6 @@ body{
 
 background:#020617;
 color:white;
-display:flex;
 overflow-x:hidden;
 position:relative;
 
@@ -66,57 +65,45 @@ bottom:-150px;
 }
 
 .particles span:nth-child(1){
-
 left:10%;
 width:80px;
 height:80px;
 animation-duration:18s;
-
 }
 
 .particles span:nth-child(2){
-
 left:25%;
 width:140px;
 height:140px;
 animation-duration:22s;
-
 }
 
 .particles span:nth-child(3){
-
 left:40%;
 width:60px;
 height:60px;
 animation-duration:16s;
-
 }
 
 .particles span:nth-child(4){
-
 left:60%;
 width:170px;
 height:170px;
 animation-duration:26s;
-
 }
 
 .particles span:nth-child(5){
-
 left:75%;
 width:100px;
 height:100px;
 animation-duration:20s;
-
 }
 
 .particles span:nth-child(6){
-
 left:90%;
 width:70px;
 height:70px;
 animation-duration:14s;
-
 }
 
 @keyframes particles{
@@ -137,7 +124,7 @@ opacity:0;
 
 }
 
-/* ===== CURSOR GLOW ===== */
+/* ===== CURSOR ===== */
 
 .cursor-glow{
 
@@ -164,15 +151,17 @@ transform:translate(-50%,-50%);
 
 .sidebar{
 
-width:290px;
+position:fixed;
 
+top:0;
+left:0;
+
+width:290px;
 height:100vh;
 
-background:rgba(7,18,38,0.92);
+background:rgba(7,18,38,0.94);
 
 backdrop-filter:blur(15px);
-
-position:fixed;
 
 padding:30px 20px;
 
@@ -180,21 +169,7 @@ border-right:1px solid rgba(255,255,255,0.05);
 
 overflow-y:auto;
 
-animation:sidebarSlide 1s ease;
-
-}
-
-@keyframes sidebarSlide{
-
-0%{
-transform:translateX(-100px);
-opacity:0;
-}
-
-100%{
-transform:translateX(0);
-opacity:1;
-}
+z-index:1000;
 
 }
 
@@ -232,11 +207,7 @@ margin-bottom:18px;
 
 .sidebar-links a{
 
-display:flex;
-
-align-items:center;
-
-gap:14px;
+display:block;
 
 padding:18px 20px;
 
@@ -251,10 +222,6 @@ color:white;
 font-weight:600;
 
 transition:0.3s;
-
-position:relative;
-
-overflow:hidden;
 
 }
 
@@ -275,8 +242,6 @@ box-shadow:0 0 35px rgba(0,255,153,0.4);
 .main{
 
 margin-left:290px;
-
-width:100%;
 
 padding:35px;
 
@@ -314,13 +279,17 @@ border:1px solid rgba(255,255,255,0.05);
 
 font-size:46px;
 
-margin-bottom:8px;
+margin-bottom:10px;
 
 }
 
 .welcome p{
 
+font-size:18px;
+
 color:#94a3b8;
+
+line-height:1.7;
 
 }
 
@@ -338,39 +307,9 @@ padding:16px 22px;
 
 border-radius:20px;
 
-transition:0.3s;
-
 max-width:100%;
 
 overflow:hidden;
-
-}
-
-.user-card:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 30px rgba(0,255,153,0.2);
-
-}
-
-.user-card div{
-
-overflow:hidden;
-
-}
-
-.user-card h3{
-
-white-space:nowrap;
-
-overflow:hidden;
-
-text-overflow:ellipsis;
-
-max-width:180px;
-
-font-size:18px;
 
 }
 
@@ -396,6 +335,20 @@ color:black;
 
 }
 
+.user-card h3{
+
+white-space:nowrap;
+
+overflow:hidden;
+
+text-overflow:ellipsis;
+
+max-width:180px;
+
+font-size:18px;
+
+}
+
 /* ===== OVERVIEW ===== */
 
 .overview{
@@ -414,7 +367,7 @@ margin-bottom:35px;
 
 background:rgba(7,18,38,0.88);
 
-padding:24px;
+padding:25px;
 
 border-radius:28px;
 
@@ -423,40 +376,6 @@ transition:0.3s;
 position:relative;
 
 overflow:hidden;
-
-animation:
-cardReveal 1s ease,
-floatCard 5s ease-in-out infinite;
-
-}
-
-@keyframes cardReveal{
-
-0%{
-opacity:0;
-transform:translateY(50px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-@keyframes floatCard{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
 
 }
 
@@ -480,9 +399,9 @@ border-radius:50%;
 
 .overview-card:hover{
 
-transform:translateY(-10px) scale(1.03);
+transform:translateY(-8px);
 
-box-shadow:0 0 45px rgba(0,255,153,0.2);
+box-shadow:0 0 40px rgba(0,255,153,0.15);
 
 }
 
@@ -516,7 +435,7 @@ margin-bottom:35px;
 
 }
 
-/* ===== ACCOUNT BOX ===== */
+/* ===== BOXES ===== */
 
 .account-box,
 .quick-actions,
@@ -585,16 +504,6 @@ padding:24px;
 
 border-radius:22px;
 
-transition:0.3s;
-
-}
-
-.account-item:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 0 25px rgba(0,255,153,0.15);
-
 }
 
 .account-item h3{
@@ -656,7 +565,7 @@ transition:0.3s;
 
 transform:translateY(-5px);
 
-box-shadow:0 0 45px rgba(0,255,153,0.5);
+box-shadow:0 0 40px rgba(0,255,153,0.4);
 
 }
 
@@ -691,23 +600,7 @@ background:linear-gradient(
 
 background-size:200% 100%;
 
-animation:
-progressAnim 3s infinite alternate,
-gradientMove 4s linear infinite;
-
-border-radius:50px;
-
-}
-
-@keyframes progressAnim{
-
-0%{
-width:35%;
-}
-
-100%{
-width:55%;
-}
+animation:gradientMove 4s linear infinite;
 
 }
 
@@ -818,71 +711,46 @@ padding:16px;
 }
 
 .topbar{
-
 padding:20px;
-
 border-radius:25px;
-
 }
 
 .welcome h1{
-
 font-size:30px;
-
-line-height:1.1;
-
 }
 
 .welcome p{
-
 font-size:16px;
-
-line-height:1.6;
-
 }
 
 .account-box,
 .quick-actions,
 .progress-section,
 .certificate{
-
 padding:24px;
-
 border-radius:28px;
-
 }
 
 .account-header h2{
-
 font-size:26px;
-
 }
 
 .quick-actions h2,
 .progress-section h2{
-
 font-size:28px;
-
 }
 
 .quick-btn{
-
 padding:16px;
-
 font-size:16px;
-
 }
 
 .certificate h2{
-
 font-size:32px;
-
 }
 
 .certificate p{
-
 font-size:16px;
-
 }
 
 }
@@ -915,17 +783,11 @@ PURE<span>Step</span>
 <ul class="sidebar-links">
 
 <li><a href="dashboard.html">🏠 Dashboard</a></li>
-
 <li><a href="accounts.html">📊 My Accounts</a></li>
-
 <li><a href="challenge.html">🚀 Buy Challenge</a></li>
-
 <li><a href="payout.html">💸 Payouts</a></li>
-
 <li><a href="certificate.html">🏆 Certificates</a></li>
-
 <li><a href="settings.html">⚙️ Settings</a></li>
-
 <li><a href="login.html">🚪 Logout</a></li>
 
 </ul>
@@ -969,3 +831,280 @@ Trader
 </div>
 
 </div>
+
+<!-- ===== OVERVIEW ===== -->
+
+<div class="overview">
+
+<div class="overview-card">
+
+<h2 id="balance">
+$0
+</h2>
+
+<p>
+Account Balance
+</p>
+
+</div>
+
+<div class="overview-card">
+
+<h2 id="profit">
+$0
+</h2>
+
+<p>
+Current Profit
+</p>
+
+</div>
+
+<div class="overview-card">
+
+<h2 id="phase">
+Phase 1
+</h2>
+
+<p>
+Challenge Phase
+</p>
+
+</div>
+
+<div class="overview-card">
+
+<h2 id="status">
+ACTIVE
+</h2>
+
+<p>
+Account Status
+</p>
+
+</div>
+
+</div>
+
+<!-- ===== PROGRESS ===== -->
+
+<div class="progress-section">
+
+<h2>
+Trading Progress 🚀
+</h2>
+
+<div class="progress-bar">
+
+<div class="progress-fill"></div>
+
+</div>
+
+</div>
+
+<!-- ===== MAIN GRID ===== -->
+
+<div class="main-grid">
+
+<div class="account-box">
+
+<div class="account-header">
+
+<h2 id="account-type">
+No Challenge Yet
+</h2>
+
+<div class="account-status" id="status-badge">
+ACTIVE
+</div>
+
+</div>
+
+<div class="account-grid">
+
+<div class="account-item">
+
+<h3>
+Daily Drawdown
+</h3>
+
+<p id="daily-drawdown">
+4%
+</p>
+
+</div>
+
+<div class="account-item">
+
+<h3>
+Max Drawdown
+</h3>
+
+<p id="max-drawdown">
+8%
+</p>
+
+</div>
+
+<div class="account-item">
+
+<h3>
+Trading Platform
+</h3>
+
+<p>
+MT5
+</p>
+
+</div>
+
+<div class="account-item">
+
+<h3>
+Profit Split
+</h3>
+
+<p>
+100%
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="quick-actions">
+
+<h2>
+Quick Actions ⚡
+</h2>
+
+<a href="challenge.html" class="quick-btn">
+BUY NEW CHALLENGE
+</a>
+
+<a href="payout.html" class="quick-btn">
+REQUEST PAYOUT
+</a>
+
+<a href="certificate.html" class="quick-btn">
+VIEW CERTIFICATE
+</a>
+
+</div>
+
+</div>
+
+<!-- ===== CERTIFICATE ===== -->
+
+<div class="certificate">
+
+<h2>
+PureStep Funding 🏆
+</h2>
+
+<p>
+Pass your challenge and unlock your funded trader certificate.
+</p>
+
+<a href="certificate.html">
+OPEN CERTIFICATE
+</a>
+
+</div>
+
+</div>
+
+<a href="https://instagram.com/purestepfunding"
+target="_blank"
+class="support-btn">
+
+Support
+
+</a>
+
+<script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+onAuthStateChanged(auth, async(user)=>{
+
+if(user){
+
+const docRef = doc(db,"users",user.uid);
+
+const docSnap = await getDoc(docRef);
+
+if(docSnap.exists()){
+
+const data = docSnap.data();
+
+document.getElementById("username").innerHTML =
+data.username || user.email;
+
+document.getElementById("avatar").innerHTML =
+(data.username || "P").charAt(0).toUpperCase();
+
+document.getElementById("balance").innerHTML =
+"$" + (data.balance || 0);
+
+document.getElementById("profit").innerHTML =
+"$" + (data.profit || 0);
+
+document.getElementById("account-type").innerHTML =
+data.accountType || "Pending Challenge";
+
+document.getElementById("account-type-small").innerHTML =
+data.accountType || "Trader";
+
+document.getElementById("phase").innerHTML =
+data.phase || "Phase 1";
+
+document.getElementById("status").innerHTML =
+data.status || "ACTIVE";
+
+document.getElementById("status-badge").innerHTML =
+data.status || "ACTIVE";
+
+document.getElementById("daily-drawdown").innerHTML =
+data.dailyDrawdown || "4%";
+
+document.getElementById("max-drawdown").innerHTML =
+data.maxDrawdown || "8%";
+
+}
+
+}else{
+
+window.location.href = "login.html";
+
+}
+
+});
+
+/* ===== CURSOR ===== */
+
+const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove",(e)=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+</script>
+
+</body>
+
+</html>
