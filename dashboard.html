@@ -125,6 +125,41 @@ opacity:0;
 
 }
 
+/* ===== MOBILE MENU ===== */
+
+.mobile-menu-btn{
+
+display:none;
+
+position:fixed;
+
+top:15px;
+left:15px;
+
+width:50px;
+height:50px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-size:28px;
+
+font-weight:800;
+
+border-radius:14px;
+
+z-index:99999;
+
+align-items:center;
+justify-content:center;
+
+cursor:pointer;
+
+box-shadow:0 0 30px rgba(0,255,153,0.4);
+
+}
+
 /* ===== SIDEBAR ===== */
 
 .sidebar{
@@ -149,17 +184,55 @@ overflow-y:auto;
 
 z-index:1000;
 
+transition:0.4s;
+
 }
+
+/* ===== LOGO ===== */
 
 .logo{
 
-font-size:42px;
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+font-size:40px;
 
 font-weight:800;
 
-text-align:center;
-
 margin-bottom:50px;
+
+animation:logoFloat 4s ease-in-out infinite;
+
+}
+
+.logo-icon{
+
+width:55px;
+height:55px;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+font-size:28px;
+
+font-weight:800;
+
+color:black;
+
+box-shadow:0 0 35px rgba(0,255,153,0.5);
+
+animation:logoGlow 3s infinite;
 
 }
 
@@ -170,6 +243,40 @@ color:#00ff99;
 text-shadow:0 0 25px #00ff99;
 
 }
+
+@keyframes logoGlow{
+
+0%{
+box-shadow:0 0 25px rgba(0,255,153,0.4);
+}
+
+50%{
+box-shadow:0 0 50px rgba(0,255,153,0.9);
+}
+
+100%{
+box-shadow:0 0 25px rgba(0,255,153,0.4);
+}
+
+}
+
+@keyframes logoFloat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* ===== SIDEBAR LINKS ===== */
 
 .sidebar-links{
 
@@ -258,6 +365,8 @@ line-height:1.7;
 font-size:17px;
 
 }
+
+/* ===== USER CARD ===== */
 
 .user-card{
 
@@ -355,6 +464,16 @@ position:relative;
 
 overflow:hidden;
 
+transition:0.3s;
+
+}
+
+.overview-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.15);
+
 }
 
 .overview-card::before{
@@ -442,6 +561,20 @@ height:100%;
 background:linear-gradient(90deg,#00ff99,#00c97a);
 
 border-radius:50px;
+
+animation:progressGlow 3s infinite alternate;
+
+}
+
+@keyframes progressGlow{
+
+0%{
+box-shadow:0 0 10px rgba(0,255,153,0.4);
+}
+
+100%{
+box-shadow:0 0 35px rgba(0,255,153,0.8);
+}
 
 }
 
@@ -688,13 +821,30 @@ grid-template-columns:1fr;
 
 @media(max-width:850px){
 
+.mobile-menu-btn{
+
+display:flex;
+
+}
+
 .sidebar{
-display:none;
+
+transform:translateX(-110%);
+
+}
+
+.sidebar.active{
+
+transform:translateX(0);
+
 }
 
 .main{
+
 margin-left:0;
+
 padding:14px;
+
 }
 
 .welcome h1{
@@ -765,10 +915,28 @@ padding:15px;
 
 </div>
 
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu-btn" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+<!-- SIDEBAR -->
+
 <div class="sidebar">
 
 <div class="logo">
+
+<div class="logo-icon">
+P
+</div>
+
+<div>
 PURE<span>Step</span>
+</div>
+
 </div>
 
 <ul class="sidebar-links">
@@ -790,6 +958,8 @@ PURE<span>Step</span>
 </ul>
 
 </div>
+
+<!-- MAIN -->
 
 <div class="main">
 
@@ -828,6 +998,8 @@ Trader
 </div>
 
 </div>
+
+<!-- OVERVIEW -->
 
 <div class="overview">
 
@@ -881,6 +1053,8 @@ Account Status
 
 </div>
 
+<!-- PROGRESS -->
+
 <div class="progress-section">
 
 <h2>
@@ -894,6 +1068,8 @@ Trading Progress 🚀
 </div>
 
 </div>
+
+<!-- MAIN GRID -->
 
 <div class="main-grid">
 
@@ -987,6 +1163,8 @@ VIEW CERTIFICATE
 
 </div>
 
+<!-- CERTIFICATE -->
+
 <div class="certificate">
 
 <h2>
@@ -1004,6 +1182,8 @@ OPEN CERTIFICATE
 </div>
 
 </div>
+
+<!-- SUPPORT -->
 
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
@@ -1080,6 +1260,15 @@ window.location.href = "login.html";
 }
 
 });
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+document.querySelector(".sidebar")
+.classList.toggle("active");
+
+}
 
 </script>
 
