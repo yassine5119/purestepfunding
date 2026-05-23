@@ -573,11 +573,11 @@ PURE<span>Step</span>
 <div class="card">
 
 <h1 class="plan-title" id="plan-name">
-Loading...
+10K Challenge
 </h1>
 
 <div class="price" id="plan-price">
-Loading...
+$60
 </div>
 
 <ul class="features">
@@ -614,9 +614,7 @@ Binance Pay ID
 </h3>
 
 <div class="pay-info" id="binance-id">
-
 1027786179
-
 </div>
 
 <button class="copy-btn"
@@ -637,9 +635,7 @@ USDT Wallet (TRC20)
 </h3>
 
 <div class="pay-info" id="wallet">
-
 TGFVz2gTYiDn8FnP838vNWNaevhToERo9E
-
 </div>
 
 <button class="copy-btn"
@@ -728,36 +724,39 @@ class="support-btn">
 import { auth, db, storage } from "./firebase.js";
 
 import {
-
 doc,
 updateDoc
-
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
-
 ref,
 uploadBytes,
 getDownloadURL
-
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-/* ===== PLAN ===== */
+/* ===== URL PARAMS ===== */
 
 const params = new URLSearchParams(window.location.search);
 
-const plan = params.get("plan") || "10K";
+const rawPlan = params.get("plan");
+const rawPrice = params.get("price");
 
-const price = params.get("price") || "60";
+/* ===== FIX LOADING ===== */
+
+const plan = rawPlan && rawPlan !== "null"
+? rawPlan
+: "10K";
+
+const price = rawPrice && rawPrice !== "null"
+? rawPrice
+: "60";
 
 /* ===== UI ===== */
 
 document.getElementById("plan-name").innerHTML =
-
 plan + " Challenge";
 
 document.getElementById("plan-price").innerHTML =
-
 "$" + price;
 
 /* ===== COPY ===== */
@@ -817,7 +816,7 @@ return;
 
 }
 
-/* ===== LOADING ===== */
+/* ===== LOADING BUTTON ===== */
 
 button.innerHTML =
 "Processing Payment...";
@@ -829,18 +828,15 @@ button.style.opacity = "0.7";
 /* ===== STORAGE ===== */
 
 const storageRef = ref(
-
 storage,
-
 "payments/" + user.uid + "_" + Date.now()
-
 );
 
 /* ===== UPLOAD ===== */
 
 await uploadBytes(storageRef,file);
 
-/* ===== IMAGE URL ===== */
+/* ===== URL ===== */
 
 const screenshotURL =
 await getDownloadURL(storageRef);
@@ -880,7 +876,6 @@ createdAt: Date.now()
 message.style.display = "block";
 
 message.innerHTML =
-
 "Payment submitted successfully 🚀<br>Your request is now under review.";
 
 /* ===== BUTTON ===== */
@@ -890,6 +885,9 @@ button.innerHTML =
 
 button.style.background =
 "#00ff99";
+
+button.style.color =
+"black";
 
 /* ===== REDIRECT ===== */
 
