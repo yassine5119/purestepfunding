@@ -37,7 +37,7 @@ position:relative;
 
 }
 
-/* BACKGROUND */
+/* ===== BACKGROUND ===== */
 
 body::before{
 
@@ -54,6 +54,8 @@ height:450px;
 background:rgba(0,255,153,0.08);
 
 border-radius:50%;
+
+filter:blur(20px);
 
 }
 
@@ -73,9 +75,11 @@ background:rgba(0,255,153,0.08);
 
 border-radius:50%;
 
+filter:blur(20px);
+
 }
 
-/* REGISTER BOX */
+/* ===== REGISTER BOX ===== */
 
 .register-box{
 
@@ -98,6 +102,8 @@ z-index:2;
 
 overflow:hidden;
 
+backdrop-filter:blur(12px);
+
 }
 
 .register-box::before{
@@ -118,7 +124,7 @@ border-radius:50%;
 
 }
 
-/* LOGO */
+/* ===== LOGO ===== */
 
 .logo{
 
@@ -145,7 +151,7 @@ text-shadow:0 0 25px #00ff99;
 
 }
 
-/* TEXT */
+/* ===== SUBTITLE ===== */
 
 .subtitle{
 
@@ -164,7 +170,7 @@ z-index:2;
 
 }
 
-/* INPUT */
+/* ===== INPUTS ===== */
 
 .input-group{
 
@@ -219,7 +225,7 @@ box-shadow:0 0 20px rgba(0,255,153,0.25);
 
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 
 .register-btn{
 
@@ -258,7 +264,7 @@ box-shadow:0 0 40px rgba(0,255,153,0.7);
 
 }
 
-/* MESSAGE */
+/* ===== MESSAGE ===== */
 
 .message{
 
@@ -274,6 +280,8 @@ display:none;
 
 position:relative;
 z-index:2;
+
+text-align:center;
 
 }
 
@@ -293,7 +301,7 @@ color:white;
 
 }
 
-/* LOGIN */
+/* ===== LOGIN ===== */
 
 .login{
 
@@ -318,16 +326,16 @@ font-weight:700;
 
 }
 
-/* SUPPORT */
+/* ===== SUPPORT ===== */
 
 .support-btn{
 
 position:fixed;
 
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 
-padding:16px 28px;
+padding:14px 22px;
 
 background:linear-gradient(135deg,#00ff99,#00d97f);
 
@@ -345,19 +353,40 @@ z-index:999;
 
 }
 
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media(max-width:600px){
 
 .logo{
-
 font-size:42px;
-
 }
 
 .register-box{
-
 padding:35px 22px;
+}
+
+.subtitle{
+font-size:15px;
+}
+
+.input-group input{
+padding:15px;
+font-size:15px;
+}
+
+.register-btn{
+padding:16px;
+font-size:16px;
+}
+
+.support-btn{
+
+bottom:12px;
+right:12px;
+
+padding:12px 18px;
+
+font-size:13px;
 
 }
 
@@ -381,47 +410,76 @@ Create your PureStep trader account and start your funded journey today.
 
 </p>
 
-<div class="input-group">
-
-<label>Username</label>
-
-<input type="text" id="username" placeholder="Enter your username">
-
-</div>
+<!-- USERNAME -->
 
 <div class="input-group">
 
-<label>Email Address</label>
+<label>
+Username
+</label>
 
-<input type="email" id="email" placeholder="Enter your email">
+<input type="text"
+id="username"
+placeholder="Enter your username">
 
 </div>
+
+<!-- EMAIL -->
 
 <div class="input-group">
 
-<label>Password</label>
+<label>
+Email Address
+</label>
 
-<input type="password" id="password" placeholder="Create password">
+<input type="email"
+id="email"
+placeholder="Enter your email">
 
 </div>
 
-<button class="register-btn" onclick="registerUser()">
+<!-- PASSWORD -->
+
+<div class="input-group">
+
+<label>
+Password
+</label>
+
+<input type="password"
+id="password"
+placeholder="Create password">
+
+</div>
+
+<!-- BUTTON -->
+
+<button class="register-btn"
+onclick="registerUser()">
 
 CREATE ACCOUNT
 
 </button>
 
-<div class="message success" id="success-message">
+<!-- SUCCESS -->
+
+<div class="message success"
+id="success-message">
 
 Account Created Successfully 🚀
 
 </div>
 
-<div class="message error" id="error-message">
+<!-- ERROR -->
+
+<div class="message error"
+id="error-message">
 
 Registration Failed
 
 </div>
+
+<!-- LOGIN -->
 
 <div class="login">
 
@@ -437,13 +495,17 @@ Login
 
 </div>
 
+<!-- SUPPORT -->
+
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
 class="support-btn">
 
-Support
+💬 Support
 
 </a>
+
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -462,6 +524,8 @@ setDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+/* ===== REGISTER ===== */
+
 window.registerUser = async function(){
 
 const username =
@@ -479,11 +543,29 @@ document.getElementById("success-message");
 const error =
 document.getElementById("error-message");
 
+/* ===== RESET ===== */
+
 success.style.display = "none";
 
 error.style.display = "none";
 
+/* ===== VALIDATION ===== */
+
+if(username === "" || email === "" || password === ""){
+
+error.innerHTML =
+"Please fill all fields";
+
+error.style.display =
+"block";
+
+return;
+
+}
+
 try{
+
+/* ===== CREATE USER ===== */
 
 const userCredential =
 await createUserWithEmailAndPassword(
@@ -495,9 +577,11 @@ password
 const user =
 userCredential.user;
 
-/* SAVE USER DATA */
+/* ===== SAVE USER DATA ===== */
 
 await setDoc(doc(db,"users",user.uid),{
+
+uid: user.uid,
 
 username: username,
 
@@ -507,19 +591,31 @@ balance: 0,
 
 profit: 0,
 
-dailyDrawdown: 0,
+equity: 0,
 
-maxDrawdown: 0,
+dailyDrawdown: "0%",
 
-status: "ACTIVE",
+maxDrawdown: "0%",
 
-phase: "Phase 1",
+status: "Inactive",
 
-accountType: "No Challenge Yet",
+phase: "None",
 
-createdAt: new Date()
+accountType: "No Challenge",
+
+pendingPlan: "",
+
+paymentProof: "",
+
+instagram: "",
+
+payoutEligible: false,
+
+createdAt: Date.now()
 
 });
+
+/* ===== LOCAL STORAGE ===== */
 
 localStorage.setItem(
 "loggedIn",
@@ -536,7 +632,12 @@ localStorage.setItem(
 email
 );
 
-success.style.display = "block";
+/* ===== SUCCESS ===== */
+
+success.style.display =
+"block";
+
+/* ===== REDIRECT ===== */
 
 setTimeout(() => {
 
@@ -551,7 +652,11 @@ catch(err){
 
 console.log(err);
 
-error.style.display = "block";
+error.innerHTML =
+err.message;
+
+error.style.display =
+"block";
 
 }
 
