@@ -30,6 +30,137 @@ body{
 background:#020617;
 color:white;
 overflow-x:hidden;
+position:relative;
+}
+
+/* ===== ANIMATED CIRCLES ===== */
+
+.circles{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-10;
+
+}
+
+.circles span{
+
+position:absolute;
+
+display:block;
+
+border-radius:50%;
+
+background:rgba(0,255,153,0.08);
+
+animation:animateCircles 25s linear infinite;
+
+bottom:-150px;
+
+}
+
+.circles span:nth-child(1){
+
+left:10%;
+
+width:90px;
+height:90px;
+
+animation-duration:18s;
+
+}
+
+.circles span:nth-child(2){
+
+left:25%;
+
+width:140px;
+height:140px;
+
+animation-duration:22s;
+
+animation-delay:2s;
+
+}
+
+.circles span:nth-child(3){
+
+left:40%;
+
+width:60px;
+height:60px;
+
+animation-duration:16s;
+
+}
+
+.circles span:nth-child(4){
+
+left:60%;
+
+width:170px;
+height:170px;
+
+animation-duration:26s;
+
+animation-delay:1s;
+
+}
+
+.circles span:nth-child(5){
+
+left:75%;
+
+width:100px;
+height:100px;
+
+animation-duration:20s;
+
+}
+
+.circles span:nth-child(6){
+
+left:90%;
+
+width:70px;
+height:70px;
+
+animation-duration:14s;
+
+}
+
+@keyframes animateCircles{
+
+0%{
+
+transform:translateY(0) rotate(0deg);
+
+opacity:0;
+
+}
+
+10%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-1200px) rotate(720deg);
+
+opacity:0;
+
+}
+
 }
 
 /* ===== SCROLLBAR ===== */
@@ -47,32 +178,50 @@ border-radius:20px;
 background:#020617;
 }
 
-/* ===== BACKGROUND ===== */
+/* ===== GLOW ===== */
 
 body::before{
+
 content:"";
+
 position:fixed;
+
 top:-300px;
 left:-300px;
+
 width:650px;
 height:650px;
+
 background:rgba(0,255,153,0.10);
+
 filter:blur(140px);
+
 border-radius:50%;
+
 z-index:-5;
+
 }
 
 body::after{
+
 content:"";
+
 position:fixed;
+
 bottom:-300px;
 right:-300px;
+
 width:650px;
 height:650px;
+
 background:rgba(0,255,153,0.07);
+
 filter:blur(140px);
+
 border-radius:50%;
+
 z-index:-5;
+
 }
 
 /* ===== NAVBAR ===== */
@@ -102,6 +251,22 @@ border-bottom:1px solid rgba(255,255,255,0.06);
 
 z-index:9999;
 
+animation:navSlide 1s ease;
+
+}
+
+@keyframes navSlide{
+
+0%{
+opacity:0;
+transform:translateY(-80px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .logo{
@@ -117,6 +282,24 @@ font-weight:800;
 color:#00ff99;
 
 text-shadow:0 0 25px #00ff99;
+
+animation:logoGlow 3s infinite;
+
+}
+
+@keyframes logoGlow{
+
+0%{
+text-shadow:0 0 15px #00ff99;
+}
+
+50%{
+text-shadow:0 0 45px #00ff99;
+}
+
+100%{
+text-shadow:0 0 15px #00ff99;
+}
 
 }
 
@@ -266,7 +449,7 @@ background-attachment:fixed;
 
 }
 
-/* ===== FLOATING CHARTS ===== */
+/* ===== FLOATING CARDS ===== */
 
 .floating-chart{
 
@@ -350,6 +533,22 @@ z-index:2;
 
 max-width:780px;
 
+animation:heroFade 1.4s ease;
+
+}
+
+@keyframes heroFade{
+
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .hero-badge{
@@ -392,7 +591,25 @@ letter-spacing:-3px;
 
 color:#00ff99;
 
-text-shadow:0 0 35px #00ff99;
+animation:titleGlow 3s infinite;
+
+}
+
+@keyframes titleGlow{
+
+0%{
+text-shadow:0 0 20px #00ff99;
+}
+
+50%{
+text-shadow:
+0 0 40px #00ff99,
+0 0 80px #00ff99;
+}
+
+100%{
+text-shadow:0 0 20px #00ff99;
+}
 
 }
 
@@ -442,15 +659,29 @@ text-decoration:none;
 
 transition:0.3s;
 
-box-shadow:0 0 35px rgba(0,255,153,0.4);
+animation:glowPulse 2.5s infinite;
+
+}
+
+@keyframes glowPulse{
+
+0%{
+box-shadow:0 0 20px rgba(0,255,153,0.35);
+}
+
+50%{
+box-shadow:0 0 55px rgba(0,255,153,0.8);
+}
+
+100%{
+box-shadow:0 0 20px rgba(0,255,153,0.35);
+}
 
 }
 
 .hero-btn:hover{
 
 transform:translateY(-6px);
-
-box-shadow:0 0 60px rgba(0,255,153,0.8);
 
 }
 
@@ -514,13 +745,35 @@ border:1px solid rgba(255,255,255,0.06);
 
 transition:0.3s;
 
+animation:floatStat 4s ease-in-out infinite;
+
 }
 
-.hero-stat:hover{
+.hero-stat:nth-child(2){
 
-transform:translateY(-6px);
+animation-delay:1s;
 
-box-shadow:0 0 35px rgba(0,255,153,0.18);
+}
+
+.hero-stat:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+@keyframes floatStat{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0px);
+}
 
 }
 
@@ -591,6 +844,22 @@ border:1px solid rgba(255,255,255,0.06);
 backdrop-filter:blur(16px);
 
 transition:0.3s;
+
+animation:cardReveal 1.2s ease;
+
+}
+
+@keyframes cardReveal{
+
+0%{
+opacity:0;
+transform:translateY(50px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
 
 }
 
@@ -848,6 +1117,19 @@ font-size:42px;
 
 <body>
 
+<!-- ===== CIRCLES ===== -->
+
+<div class="circles">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
 <!-- ===== NAVBAR ===== -->
 
 <nav>
@@ -982,154 +1264,6 @@ Trading Platform
 </div>
 
 </section>
-
-<!-- ===== WHY US ===== -->
-
-<section class="section">
-
-<h1 class="section-title">
-Why <span>Choose Us</span>
-</h1>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-Funded Accounts
-</h3>
-
-<p>
-Trade with funded capital and realistic trading conditions designed for serious traders worldwide.
-</p>
-
-<a href="login.html" class="hero-btn">
-GET STARTED
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>
-Fast Crypto Payouts
-</h3>
-
-<p>
-Receive payouts quickly through Binance Pay and USDT with secure processing.
-</p>
-
-<a href="login.html" class="hero-btn">
-START NOW
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>
-Professional Dashboard
-</h3>
-
-<p>
-Track balances, profits and funded progress with premium trading analytics.
-</p>
-
-<a href="login.html" class="hero-btn">
-VIEW DASHBOARD
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== CTA ===== -->
-
-<section class="cta">
-
-<div class="cta-box">
-
-<h2>
-Start Your Funded Journey
-</h2>
-
-<p>
-Join PureStep Funding and trade with confidence.
-</p>
-
-<a href="login.html">
-GET FUNDED NOW
-</a>
-
-</div>
-
-</section>
-
-<!-- ===== FOOTER ===== -->
-
-<footer>
-
-<div class="footer-box">
-
-<h3>
-PURESTEP
-</h3>
-
-<p>
-Professional funded trading experience for traders worldwide.
-</p>
-
-</div>
-
-<div class="footer-box">
-
-<h3>
-Quick Links
-</h3>
-
-<a href="index.html">Home</a>
-
-<a href="rules.html">Rules</a>
-
-<a href="login.html">Get Funded</a>
-
-<a href="faq.html">FAQ</a>
-
-<a href="login.html">Dashboard</a>
-
-</div>
-
-<div class="footer-box">
-
-<h3>
-Legal
-</h3>
-
-<a href="privacy.html">Privacy Policy</a>
-
-<a href="terms.html">Terms & Conditions</a>
-
-</div>
-
-<div class="footer-box">
-
-<h3>
-Support
-</h3>
-
-<p>
-support@purestepfunding.com
-</p>
-
-<p>
-Instagram: @purestepfunding
-</p>
-
-</div>
-
-</footer>
 
 <script>
 
