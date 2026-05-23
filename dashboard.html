@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PureStep Funding Dashboard</title>
+<title>PUREStep Funding Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -25,284 +23,293 @@ body{
 background:#020617;
 color:white;
 overflow-x:hidden;
-position:relative;
+min-height:100vh;
 
 }
 
-/* ===== BACKGROUND ===== */
+/* ======================== */
+/* ANIMATED BACKGROUND */
+/* ======================== */
 
-.particles{
+.bg{
 
 position:fixed;
+width:100%;
+height:100%;
 
+top:0;
+left:0;
+
+z-index:-1;
+
+background:
+radial-gradient(circle at top left,#00ff9950,transparent 30%),
+radial-gradient(circle at bottom right,#00ff9950,transparent 30%),
+#020617;
+
+overflow:hidden;
+
+}
+
+.bg::before{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+background:#00ff9920;
+
+border-radius:50%;
+
+top:-250px;
+left:-200px;
+
+filter:blur(120px);
+
+animation:float1 12s infinite linear;
+
+}
+
+.bg::after{
+
+content:"";
+
+position:absolute;
+
+width:600px;
+height:600px;
+
+background:#00ff9920;
+
+border-radius:50%;
+
+bottom:-200px;
+right:-200px;
+
+filter:blur(120px);
+
+animation:float2 14s infinite linear;
+
+}
+
+@keyframes float1{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(40px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+@keyframes float2{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-40px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* ======================== */
+/* LOADER */
+/* ======================== */
+
+.loader{
+
+position:fixed;
 top:0;
 left:0;
 
 width:100%;
 height:100%;
 
-overflow:hidden;
+background:#020617;
 
-z-index:-5;
-
-pointer-events:none;
-
-}
-
-.particles span{
-
-position:absolute;
-
-display:block;
-
-border-radius:50%;
-
-background:rgba(0,255,153,0.08);
-
-animation:particles 25s linear infinite;
-
-bottom:-150px;
-
-}
-
-.particles span:nth-child(1){
-left:10%;
-width:80px;
-height:80px;
-animation-duration:18s;
-}
-
-.particles span:nth-child(2){
-left:25%;
-width:140px;
-height:140px;
-animation-duration:22s;
-}
-
-.particles span:nth-child(3){
-left:40%;
-width:60px;
-height:60px;
-animation-duration:16s;
-}
-
-.particles span:nth-child(4){
-left:60%;
-width:170px;
-height:170px;
-animation-duration:26s;
-}
-
-.particles span:nth-child(5){
-left:75%;
-width:100px;
-height:100px;
-animation-duration:20s;
-}
-
-.particles span:nth-child(6){
-left:90%;
-width:70px;
-height:70px;
-animation-duration:14s;
-}
-
-@keyframes particles{
-
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-1200px) rotate(720deg);
-opacity:0;
-}
-
-}
-
-/* ===== MOBILE MENU ===== */
-
-.mobile-menu-btn{
-
-display:none;
-
-position:fixed;
-
-top:15px;
-left:15px;
-
-width:50px;
-height:50px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-color:black;
-
-font-size:28px;
-
-font-weight:800;
-
-border-radius:14px;
+display:flex;
+justify-content:center;
+align-items:center;
 
 z-index:99999;
 
-align-items:center;
-justify-content:center;
-
-cursor:pointer;
-
-box-shadow:0 0 30px rgba(0,255,153,0.4);
+transition:1s;
 
 }
 
-/* ===== SIDEBAR ===== */
+.loader h1{
 
-.sidebar{
+font-size:70px;
+font-weight:800;
+
+animation:pulse 2s infinite;
+
+}
+
+.loader span{
+
+color:#00ff99;
+text-shadow:0 0 25px #00ff99;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+opacity:1;
+}
+
+50%{
+transform:scale(1.05);
+opacity:0.7;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+/* ======================== */
+/* TOPBAR */
+/* ======================== */
+
+.topbar{
 
 position:fixed;
-
 top:0;
 left:0;
 
-width:290px;
-height:100vh;
+width:100%;
+height:85px;
 
-background:rgba(7,18,38,0.95);
+background:rgba(6,18,43,0.7);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 
-padding:30px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-border-right:1px solid rgba(255,255,255,0.05);
-
-overflow-y:auto;
+padding:0 25px;
 
 z-index:1000;
 
-transition:0.4s;
+border-bottom:1px solid rgba(0,255,153,0.1);
 
 }
-
-/* ===== LOGO ===== */
 
 .logo{
 
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:12px;
-
-font-size:40px;
-
+font-size:38px;
 font-weight:800;
-
-margin-bottom:50px;
-
-animation:logoFloat 4s ease-in-out infinite;
-
-}
-
-.logo-icon{
-
-width:55px;
-height:55px;
-
-border-radius:18px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-font-size:28px;
-
-font-weight:800;
-
-color:black;
-
-box-shadow:0 0 35px rgba(0,255,153,0.5);
-
-animation:logoGlow 3s infinite;
 
 }
 
 .logo span{
 
 color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
-}
-
-@keyframes logoGlow{
-
-0%{
-box-shadow:0 0 25px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 50px rgba(0,255,153,0.9);
-}
-
-100%{
-box-shadow:0 0 25px rgba(0,255,153,0.4);
-}
+text-shadow:0 0 20px #00ff99;
 
 }
 
-@keyframes logoFloat{
+.menu-btn{
 
-0%{
-transform:translateY(0px);
-}
+width:60px;
+height:60px;
 
-50%{
-transform:translateY(-8px);
-}
+background:#08142f;
 
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* ===== SIDEBAR LINKS ===== */
-
-.sidebar-links{
-
-list-style:none;
-
-}
-
-.sidebar-links li{
-
-margin-bottom:18px;
-
-}
-
-.sidebar-links a{
-
-display:block;
-
-padding:18px 20px;
+display:flex;
+justify-content:center;
+align-items:center;
 
 border-radius:18px;
 
-background:rgba(15,23,42,0.88);
+font-size:28px;
 
-text-decoration:none;
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 25px rgba(0,255,153,0.25);
+
+}
+
+.menu-btn:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 35px rgba(0,255,153,0.5);
+
+}
+
+/* ======================== */
+/* SIDEBAR */
+/* ======================== */
+
+.sidebar{
+
+position:fixed;
+
+top:0;
+left:-320px;
+
+width:300px;
+height:100%;
+
+background:#06122b;
+
+padding:110px 20px;
+
+z-index:999;
+
+transition:0.4s;
+
+overflow-y:auto;
+
+border-right:1px solid rgba(0,255,153,0.1);
+
+}
+
+.sidebar.active{
+
+left:0;
+
+}
+
+.sidebar a{
+
+display:block;
+
+padding:20px;
+
+margin-bottom:18px;
+
+border-radius:22px;
+
+background:#08142f;
 
 color:white;
+
+text-decoration:none;
 
 font-weight:600;
 
@@ -310,137 +317,253 @@ transition:0.3s;
 
 }
 
-.sidebar-links a:hover{
+.sidebar a:hover{
 
-background:linear-gradient(135deg,#00ff99,#00c97a);
+background:#00ff99;
 
 color:black;
 
-transform:translateX(8px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.4);
+transform:translateX(5px);
 
 }
 
-/* ===== MAIN ===== */
+/* ======================== */
+/* MAIN */
+/* ======================== */
 
 .main{
 
-margin-left:290px;
-
-padding:30px;
+padding:120px 20px 40px;
 
 }
 
-/* ===== TOPBAR ===== */
+/* ======================== */
+/* HERO */
+/* ======================== */
 
-.topbar{
+.hero{
 
-background:rgba(7,18,38,0.88);
+background:linear-gradient(135deg,#00ff99,#00b96f);
 
-padding:24px;
+padding:40px;
 
-border-radius:28px;
-
-margin-bottom:24px;
-
-}
-
-.welcome h1{
-
-font-size:42px;
-
-margin-bottom:10px;
-
-font-weight:800;
-
-}
-
-.welcome p{
-
-color:#94a3b8;
-
-line-height:1.7;
-
-font-size:17px;
-
-}
-
-/* ===== USER CARD ===== */
-
-.user-card{
-
-margin-top:20px;
-
-display:flex;
-
-align-items:center;
-
-gap:14px;
-
-background:rgba(15,23,42,0.85);
-
-padding:14px;
-
-border-radius:20px;
-
-overflow:hidden;
-
-}
-
-.avatar{
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-font-size:22px;
-
-font-weight:800;
+border-radius:35px;
 
 color:black;
 
-}
+margin-bottom:30px;
 
-.user-info{
+position:relative;
 
 overflow:hidden;
 
+animation:heroGlow 3s infinite alternate;
+
 }
 
-.user-info h3{
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:250px;
+height:250px;
+
+background:rgba(255,255,255,0.2);
+
+border-radius:50%;
+
+top:-100px;
+right:-100px;
+
+}
+
+@keyframes heroGlow{
+
+from{
+box-shadow:0 0 20px rgba(0,255,153,0.2);
+}
+
+to{
+box-shadow:0 0 50px rgba(0,255,153,0.5);
+}
+
+}
+
+.hero h1{
+
+font-size:42px;
+font-weight:800;
+
+margin-bottom:12px;
+
+}
+
+.hero p{
+
+font-size:18px;
+font-weight:600;
+
+}
+
+/* ======================== */
+/* CARDS */
+/* ======================== */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+.card{
+
+background:rgba(8,20,47,0.7);
+
+backdrop-filter:blur(20px);
+
+padding:30px;
+
+border-radius:28px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+position:relative;
+
+overflow:hidden;
+
+transition:0.4s;
+
+animation:fadeUp 1s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.25);
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-40px;
+right:-40px;
+
+width:120px;
+height:120px;
+
+background:#00ff9915;
+
+border-radius:50%;
+
+}
+
+.card h3{
 
 font-size:18px;
 
-white-space:nowrap;
+color:#cbd5e1;
 
-overflow:hidden;
-
-text-overflow:ellipsis;
-
-max-width:180px;
+margin-bottom:15px;
 
 }
 
-.user-info p{
+.card p{
 
-color:#d1d5db;
+font-size:36px;
 
-margin-top:3px;
+font-weight:800;
+
+color:#00ff99;
+
+text-shadow:0 0 15px rgba(0,255,153,0.5);
 
 }
 
-/* ===== OVERVIEW ===== */
+/* ======================== */
+/* ACCOUNT BOX */
+/* ======================== */
 
-.overview{
+.info-box{
+
+background:rgba(8,20,47,0.7);
+
+backdrop-filter:blur(20px);
+
+padding:35px;
+
+border-radius:30px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+animation:fadeUp 1.2s ease;
+
+}
+
+.info-box h2{
+
+font-size:34px;
+
+margin-bottom:25px;
+
+}
+
+.info-box h2 span{
+
+color:#00ff99;
+
+}
+
+.info-row{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:18px 0;
+
+border-bottom:1px solid rgba(255,255,255,0.05);
+
+}
+
+.info-row:last-child{
+
+border:none;
+
+}
+
+.label{
+
+color:#94a3b8;
+
+}
+
+.value{
+
+font-weight:700;
+
+font-size:18px;
+
+}
+
+/* ======================== */
+/* BUTTONS */
+/* ======================== */
+
+.buttons{
 
 display:grid;
 
@@ -448,452 +571,149 @@ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
 gap:20px;
 
-margin-bottom:24px;
+margin-top:30px;
 
 }
 
-.overview-card{
+.btn{
 
-background:rgba(7,18,38,0.88);
-
-padding:24px;
+padding:22px;
 
 border-radius:24px;
-
-position:relative;
-
-overflow:hidden;
-
-transition:0.3s;
-
-}
-
-.overview-card:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.15);
-
-}
-
-.overview-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-60px;
-right:-60px;
-
-width:170px;
-height:170px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
-}
-
-.overview-card h2{
-
-font-size:40px;
-
-color:#00ff99;
-
-margin-bottom:10px;
-
-position:relative;
-z-index:2;
-
-}
-
-.overview-card p{
-
-color:#94a3b8;
-
-position:relative;
-z-index:2;
-
-}
-
-/* ===== PROGRESS ===== */
-
-.progress-section{
-
-background:rgba(7,18,38,0.88);
-
-padding:24px;
-
-border-radius:24px;
-
-margin-bottom:24px;
-
-}
-
-.progress-section h2{
-
-font-size:32px;
-
-margin-bottom:20px;
-
-}
-
-.progress-bar{
-
-width:100%;
-
-height:18px;
-
-background:#111827;
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.progress-fill{
-
-width:45%;
-
-height:100%;
-
-background:linear-gradient(90deg,#00ff99,#00c97a);
-
-border-radius:50px;
-
-animation:progressGlow 3s infinite alternate;
-
-}
-
-@keyframes progressGlow{
-
-0%{
-box-shadow:0 0 10px rgba(0,255,153,0.4);
-}
-
-100%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
-}
-
-/* ===== MAIN GRID ===== */
-
-.main-grid{
-
-display:grid;
-
-grid-template-columns:2fr 1fr;
-
-gap:20px;
-
-margin-bottom:24px;
-
-}
-
-/* ===== ACCOUNT BOX ===== */
-
-.account-box{
-
-background:rgba(7,18,38,0.88);
-
-padding:24px;
-
-border-radius:24px;
-
-}
-
-.account-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-gap:15px;
-
-margin-bottom:24px;
-
-}
-
-.account-header h2{
-
-font-size:32px;
-
-}
-
-.account-status{
-
-padding:10px 18px;
-
-border-radius:50px;
-
-background:#00ff99;
-
-color:black;
-
-font-weight:700;
-
-}
-
-.account-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-gap:16px;
-
-}
-
-.account-item{
-
-background:rgba(15,23,42,0.88);
-
-padding:20px;
-
-border-radius:20px;
-
-}
-
-.account-item h3{
-
-color:#00ff99;
-
-font-size:16px;
-
-margin-bottom:10px;
-
-}
-
-.account-item p{
-
-font-size:22px;
-
-font-weight:700;
-
-}
-
-/* ===== QUICK ACTIONS ===== */
-
-.quick-actions{
-
-background:rgba(7,18,38,0.88);
-
-padding:24px;
-
-border-radius:24px;
-
-}
-
-.quick-actions h2{
-
-font-size:30px;
-
-margin-bottom:20px;
-
-}
-
-.quick-btn{
-
-display:block;
-
-width:100%;
-
-padding:16px;
-
-margin-bottom:15px;
-
-border-radius:16px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-text-decoration:none;
 
 text-align:center;
 
-font-weight:800;
+text-decoration:none;
 
-color:black;
+font-size:18px;
+
+font-weight:700;
 
 transition:0.3s;
 
 }
 
-.quick-btn:hover{
+.btn-green{
 
-transform:translateY(-4px);
-
-box-shadow:0 0 30px rgba(0,255,153,0.4);
-
-}
-
-/* ===== CERTIFICATE ===== */
-
-.certificate{
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-padding:26px;
-
-border-radius:24px;
+background:linear-gradient(135deg,#00ff99,#00b96f);
 
 color:black;
 
-}
-
-.certificate h2{
-
-font-size:38px;
-
-margin-bottom:12px;
-
-font-weight:800;
+box-shadow:0 0 30px rgba(0,255,153,0.35);
 
 }
 
-.certificate p{
+.btn-dark{
 
-font-size:17px;
+background:#08142f;
 
-line-height:1.8;
+color:white;
 
-margin-bottom:24px;
-
-}
-
-.certificate a{
-
-display:inline-block;
-
-padding:16px 26px;
-
-background:black;
-
-color:#00ff99;
-
-text-decoration:none;
-
-font-weight:800;
-
-border-radius:16px;
+border:1px solid rgba(0,255,153,0.1);
 
 }
 
-/* ===== SUPPORT ===== */
+.btn:hover{
 
-.support-btn{
+transform:translateY(-5px);
+
+}
+
+/* ======================== */
+/* SUPPORT BUTTON */
+/* ======================== */
+
+.support{
 
 position:fixed;
 
-bottom:15px;
-right:15px;
+bottom:25px;
+right:25px;
 
-padding:13px 20px;
+background:linear-gradient(135deg,#00ff99,#00b96f);
 
-background:linear-gradient(135deg,#00ff99,#00c97a);
+padding:18px 28px;
 
-border-radius:16px;
+border-radius:50px;
 
 color:black;
 
-font-weight:800;
+font-weight:700;
 
 text-decoration:none;
 
-z-index:9999;
+box-shadow:0 0 35px rgba(0,255,153,0.5);
+
+animation:supportPulse 2s infinite;
+
+z-index:999;
 
 }
 
-/* ===== MOBILE ===== */
+@keyframes supportPulse{
 
-@media(max-width:1000px){
+0%{
+transform:scale(1);
+}
 
-.main-grid{
-grid-template-columns:1fr;
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
 }
 
 }
 
-@media(max-width:850px){
+/* ======================== */
+/* FADE */
+/* ======================== */
 
-.mobile-menu-btn{
+@keyframes fadeUp{
 
-display:flex;
+from{
 
-}
+opacity:0;
 
-.sidebar{
-
-transform:translateX(-110%);
-
-}
-
-.sidebar.active{
-
-transform:translateX(0);
+transform:translateY(40px);
 
 }
 
-.main{
+to{
 
-margin-left:0;
+opacity:1;
 
-padding:14px;
+transform:translateY(0px);
 
 }
 
-.welcome h1{
-font-size:28px;
-line-height:1.2;
 }
 
-.welcome p{
-font-size:15px;
-}
+/* ======================== */
+/* MOBILE */
+/* ======================== */
 
-.user-card{
-padding:14px;
-}
+@media(max-width:768px){
 
-.user-info h3{
-font-size:16px;
-max-width:150px;
-}
+.hero h1{
 
-.overview-card{
-padding:20px;
-}
-
-.overview-card h2{
-font-size:28px;
-}
-
-.progress-section h2,
-.quick-actions h2,
-.account-header h2{
-font-size:26px;
-}
-
-.account-item p{
-font-size:18px;
-}
-
-.certificate h2{
 font-size:30px;
+
 }
 
-.certificate p{
-font-size:15px;
+.card p{
+
+font-size:28px;
+
 }
 
-.quick-btn{
-font-size:15px;
-padding:15px;
+.info-row{
+
+flex-direction:column;
+
+gap:8px;
+
 }
 
 }
@@ -904,58 +724,49 @@ padding:15px;
 
 <body>
 
-<div class="particles">
+<div class="bg"></div>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+
+<h1>
+PURE<span>Step</span>
+</h1>
 
 </div>
 
-<!-- MOBILE MENU -->
+<!-- TOPBAR -->
 
-<div class="mobile-menu-btn" onclick="toggleMenu()">
+<div class="topbar">
 
+<div class="logo">
+PURE<span>Step</span>
+</div>
+
+<div class="menu-btn" onclick="toggleMenu()">
 ☰
+</div>
 
 </div>
 
 <!-- SIDEBAR -->
 
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
 
-<div class="logo">
+<a href="#">Dashboard</a>
 
-<div class="logo-icon">
-P
-</div>
+<a href="#">Buy New Account</a>
 
-<div>
-PURE<span>Step</span>
-</div>
+<a href="#">Certificates</a>
 
-</div>
+<a href="#">Payouts</a>
 
-<ul class="sidebar-links">
+<a href="#">Rules</a>
 
-<li><a href="dashboard.html">🏠 Dashboard</a></li>
+<a href="#">Settings</a>
 
-<li><a href="accounts.html">📊 My Accounts</a></li>
-
-<li><a href="challenge.html">🚀 Buy Challenge</a></li>
-
-<li><a href="payout.html">💸 Payouts</a></li>
-
-<li><a href="certificate.html">🏆 Certificates</a></li>
-
-<li><a href="settings.html">⚙️ Settings</a></li>
-
-<li><a href="login.html">🚪 Logout</a></li>
-
-</ul>
+<a href="#">Logout</a>
 
 </div>
 
@@ -963,199 +774,157 @@ PURE<span>Step</span>
 
 <div class="main">
 
-<div class="topbar">
-
-<div class="welcome">
+<div class="hero">
 
 <h1>
-Welcome Back 👋
+Welcome Back,
+<span id="username">
+Trader
+</span>
+🚀
 </h1>
 
 <p>
-Manage your funded trading accounts with PureStep Funding.
+Your funded account is performing live in real time.
 </p>
 
 </div>
 
-<div class="user-card">
+<!-- CARDS -->
 
-<div class="avatar" id="avatar">
-P
-</div>
+<div class="cards">
 
-<div class="user-info">
+<div class="card">
 
-<h3 id="username">
-Loading...
+<h3>
+Balance
 </h3>
 
-<p id="account-type-small">
-Trader
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- OVERVIEW -->
-
-<div class="overview">
-
-<div class="overview-card">
-
-<h2 id="balance">
+<p id="balance">
 $0
-</h2>
-
-<p>
-Account Balance
 </p>
 
 </div>
 
-<div class="overview-card">
+<div class="card">
 
-<h2 id="profit">
+<h3>
+Profit
+</h3>
+
+<p id="profit">
 $0
-</h2>
-
-<p>
-Current Profit
 </p>
 
 </div>
 
-<div class="overview-card">
-
-<h2 id="phase">
-Phase 1
-</h2>
-
-<p>
-Challenge Phase
-</p>
-
-</div>
-
-<div class="overview-card">
-
-<h2 id="status">
-ACTIVE
-</h2>
-
-<p>
-Account Status
-</p>
-
-</div>
-
-</div>
-
-<!-- PROGRESS -->
-
-<div class="progress-section">
-
-<h2>
-Trading Progress 🚀
-</h2>
-
-<div class="progress-bar">
-
-<div class="progress-fill"></div>
-
-</div>
-
-</div>
-
-<!-- MAIN GRID -->
-
-<div class="main-grid">
-
-<div class="account-box">
-
-<div class="account-header">
-
-<h2 id="account-type">
-Pending Challenge
-</h2>
-
-<div class="account-status" id="status-badge">
-ACTIVE
-</div>
-
-</div>
-
-<div class="account-grid">
-
-<div class="account-item">
+<div class="card">
 
 <h3>
 Daily Drawdown
 </h3>
 
-<p id="daily-drawdown">
+<p id="dailyDrawdown">
 0%
 </p>
 
 </div>
 
-<div class="account-item">
+<div class="card">
 
 <h3>
 Max Drawdown
 </h3>
 
-<p id="max-drawdown">
+<p id="maxDrawdown">
 0%
 </p>
 
 </div>
 
-<div class="account-item">
-
-<h3>
-Trading Platform
-</h3>
-
-<p>
-MT5
-</p>
-
 </div>
 
-<div class="account-item">
+<!-- INFO BOX -->
 
-<h3>
-Profit Split
-</h3>
-
-<p>
-100%
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="quick-actions">
+<div class="info-box">
 
 <h2>
-Quick Actions ⚡
+Trading <span>Account</span>
 </h2>
 
-<a href="challenge.html" class="quick-btn">
-BUY NEW CHALLENGE
+<div class="info-row">
+
+<div class="label">
+Account Type
+</div>
+
+<div class="value" id="accountType">
+No Challenge Yet
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="label">
+Phase
+</div>
+
+<div class="value" id="phase">
+Phase 1
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="label">
+Status
+</div>
+
+<div class="value" id="status">
+ACTIVE
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="label">
+Platform
+</div>
+
+<div class="value">
+MetaTrader 5
+</div>
+
+</div>
+
+<div class="info-row">
+
+<div class="label">
+Profit Split
+</div>
+
+<div class="value">
+100%
+</div>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<a href="#" class="btn btn-green">
+BUY NEW ACCOUNT
 </a>
 
-<a href="payout.html" class="quick-btn">
+<a href="#" class="btn btn-dark">
 REQUEST PAYOUT
 </a>
 
-<a href="certificate.html" class="quick-btn">
+<a href="#" class="btn btn-dark">
 VIEW CERTIFICATE
 </a>
 
@@ -1163,115 +932,177 @@ VIEW CERTIFICATE
 
 </div>
 
-<!-- CERTIFICATE -->
-
-<div class="certificate">
-
-<h2>
-PureStep Funding 🏆
-</h2>
-
-<p>
-Pass your challenge and unlock your funded trader certificate.
-</p>
-
-<a href="certificate.html">
-OPEN CERTIFICATE
-</a>
-
-</div>
-
 </div>
 
 <!-- SUPPORT -->
 
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
-class="support-btn">
-
+<a href="#" class="support">
 Support
-
 </a>
+
+<!-- ======================== -->
+<!-- FIREBASE -->
+<!-- ======================== -->
 
 <script type="module">
 
-import { auth, db } from "./firebase.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-import {
+getFirestore,
 doc,
-getDoc
+onSnapshot,
+updateDoc
+
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-onAuthStateChanged(auth, async(user)=>{
+/* FIREBASE CONFIG */
 
-if(user){
+const firebaseConfig = {
 
-const docRef = doc(db,"users",user.uid);
+apiKey: "AIzaSyAn1LPLNF0KATb06Lks4Wupehe0T5yyIEM",
 
-const docSnap = await getDoc(docRef);
+authDomain: "purestep-576a1.firebaseapp.com",
+
+projectId: "purestep-576a1",
+
+storageBucket: "purestep-576a1.firebasestorage.app",
+
+messagingSenderId: "103788045871",
+
+appId: "1:103788045871:web:b8002a5d90deb6616d48da",
+
+measurementId: "G-8MN6J8Z4FS"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+/* USER ID */
+
+const userId = localStorage.getItem("userId");
+
+/* USER REF */
+
+const userRef = doc(db,"users",userId);
+
+/* LIVE DATA */
+
+onSnapshot(userRef,(docSnap)=>{
 
 if(docSnap.exists()){
 
 const data = docSnap.data();
 
 document.getElementById("username").innerHTML =
-data.username || user.email;
+data.username;
 
-document.getElementById("avatar").innerHTML =
-(data.username || "P").charAt(0).toUpperCase();
+animateValue("balance",0,data.balance,1000,"$");
 
-document.getElementById("balance").innerHTML =
-"$" + (data.balance || 0);
+animateValue("profit",0,data.profit,1000,"$");
 
-document.getElementById("profit").innerHTML =
-"$" + (data.profit || 0);
+document.getElementById("dailyDrawdown").innerHTML =
+data.dailyDrawdown + "%";
 
-document.getElementById("account-type").innerHTML =
-data.accountType || "Pending Challenge";
-
-document.getElementById("account-type-small").innerHTML =
-data.accountType || "Trader";
+document.getElementById("maxDrawdown").innerHTML =
+data.maxDrawdown + "%";
 
 document.getElementById("phase").innerHTML =
-data.phase || "Phase 1";
+data.phase;
 
 document.getElementById("status").innerHTML =
-data.status || "ACTIVE";
+data.status;
 
-document.getElementById("status-badge").innerHTML =
-data.status || "ACTIVE";
+document.getElementById("accountType").innerHTML =
+data.accountType;
 
-document.getElementById("daily-drawdown").innerHTML =
-data.dailyDrawdown || "0%";
+if(data.status == "BREACHED"){
 
-document.getElementById("max-drawdown").innerHTML =
-data.maxDrawdown || "0%";
+document.getElementById("status").style.color =
+"red";
 
 }
 
-}else{
+else{
 
-window.location.href = "login.html";
+document.getElementById("status").style.color =
+"#00ff99";
+
+}
 
 }
 
 });
 
-/* MOBILE MENU */
+/* ======================== */
+/* COUNTER ANIMATION */
+/* ======================== */
 
-function toggleMenu(){
+function animateValue(id,start,end,duration,prefix){
 
-document.querySelector(".sidebar")
+let range = end - start;
+
+let current = start;
+
+let increment = end > start ? 1 : -1;
+
+let stepTime = Math.abs(Math.floor(duration / range));
+
+let obj = document.getElementById(id);
+
+let timer = setInterval(function(){
+
+current += increment;
+
+obj.innerHTML = prefix + current;
+
+if(current == end){
+
+clearInterval(timer);
+
+}
+
+},stepTime);
+
+}
+
+/* ======================== */
+/* MENU */
+/* ======================== */
+
+window.toggleMenu = function(){
+
+document.getElementById("sidebar")
 .classList.toggle("active");
+
+}
+
+/* ======================== */
+/* LOADER */
+/* ======================== */
+
+window.onload = ()=>{
+
+setTimeout(()=>{
+
+document.getElementById("loader")
+.style.opacity = "0";
+
+setTimeout(()=>{
+
+document.getElementById("loader")
+.style.display = "none";
+
+},1000);
+
+},1800);
 
 }
 
 </script>
 
 </body>
-
 </html>
