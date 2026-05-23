@@ -8,11 +8,15 @@
 
 <title>PureStep Funding | Next Generation Prop Firm</title>
 
-<meta name="description" content="Trade with PureStep Funding and get funded with realistic rules, fast crypto payouts and premium trading experience.">
+<meta name="description" content="Trade with PureStep Funding and get funded with realistic rules, premium dashboards and fast crypto payouts.">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="keywords" content="prop firm, funded trading, forex funding, crypto payouts, MT5 prop firm">
+
+<meta name="theme-color" content="#00ff99">
 
 <link rel="icon" href="logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -33,7 +37,95 @@ overflow-x:hidden;
 position:relative;
 }
 
-/* ===== ANIMATED CIRCLES ===== */
+/* ===== PRELOADER ===== */
+
+#preloader{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:#020617;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+z-index:999999;
+
+}
+
+.loader{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+border:6px solid rgba(255,255,255,0.1);
+
+border-top:6px solid #00ff99;
+
+animation:spin 1s linear infinite;
+
+margin-bottom:25px;
+
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+#preloader h1{
+
+font-size:42px;
+
+font-weight:800;
+
+}
+
+#preloader span{
+
+color:#00ff99;
+
+}
+
+/* ===== CURSOR GLOW ===== */
+
+.cursor-glow{
+
+position:fixed;
+
+width:300px;
+height:300px;
+
+background:rgba(0,255,153,0.08);
+
+border-radius:50%;
+
+filter:blur(90px);
+
+pointer-events:none;
+
+z-index:-1;
+
+transform:translate(-50%,-50%);
+
+}
+
+/* ===== FLOATING CIRCLES ===== */
 
 .circles{
 
@@ -70,10 +162,8 @@ bottom:-150px;
 .circles span:nth-child(1){
 
 left:10%;
-
 width:90px;
 height:90px;
-
 animation-duration:18s;
 
 }
@@ -81,23 +171,17 @@ animation-duration:18s;
 .circles span:nth-child(2){
 
 left:25%;
-
 width:140px;
 height:140px;
-
 animation-duration:22s;
-
-animation-delay:2s;
 
 }
 
 .circles span:nth-child(3){
 
 left:40%;
-
 width:60px;
 height:60px;
-
 animation-duration:16s;
 
 }
@@ -105,23 +189,17 @@ animation-duration:16s;
 .circles span:nth-child(4){
 
 left:60%;
-
 width:170px;
 height:170px;
-
 animation-duration:26s;
-
-animation-delay:1s;
 
 }
 
 .circles span:nth-child(5){
 
 left:75%;
-
 width:100px;
 height:100px;
-
 animation-duration:20s;
 
 }
@@ -129,10 +207,8 @@ animation-duration:20s;
 .circles span:nth-child(6){
 
 left:90%;
-
 width:70px;
 height:70px;
-
 animation-duration:14s;
 
 }
@@ -140,87 +216,18 @@ animation-duration:14s;
 @keyframes animateCircles{
 
 0%{
-
 transform:translateY(0) rotate(0deg);
-
 opacity:0;
-
 }
 
 10%{
-
 opacity:1;
-
 }
 
 100%{
-
 transform:translateY(-1200px) rotate(720deg);
-
 opacity:0;
-
 }
-
-}
-
-/* ===== SCROLLBAR ===== */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#00ff99;
-border-radius:20px;
-}
-
-::-webkit-scrollbar-track{
-background:#020617;
-}
-
-/* ===== GLOW ===== */
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-top:-300px;
-left:-300px;
-
-width:650px;
-height:650px;
-
-background:rgba(0,255,153,0.10);
-
-filter:blur(140px);
-
-border-radius:50%;
-
-z-index:-5;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-bottom:-300px;
-right:-300px;
-
-width:650px;
-height:650px;
-
-background:rgba(0,255,153,0.07);
-
-filter:blur(140px);
-
-border-radius:50%;
-
-z-index:-5;
 
 }
 
@@ -250,22 +257,6 @@ backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,0.06);
 
 z-index:9999;
-
-animation:navSlide 1s ease;
-
-}
-
-@keyframes navSlide{
-
-0%{
-opacity:0;
-transform:translateY(-80px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
 
 }
 
@@ -421,8 +412,6 @@ min-height:100vh;
 
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
 
 padding:140px 7% 100px;
@@ -449,87 +438,7 @@ background-attachment:fixed;
 
 }
 
-/* ===== FLOATING CARDS ===== */
-
-.floating-chart{
-
-position:absolute;
-
-border-radius:24px;
-
-background:rgba(7,18,38,0.65);
-
-backdrop-filter:blur(14px);
-
-border:1px solid rgba(255,255,255,0.06);
-
-animation:float 5s ease-in-out infinite;
-
-}
-
-.chart1{
-
-top:140px;
-
-right:140px;
-
-width:180px;
-
-height:180px;
-
-}
-
-.chart2{
-
-bottom:120px;
-
-right:300px;
-
-width:140px;
-
-height:140px;
-
-animation-delay:2s;
-
-}
-
-.chart3{
-
-top:280px;
-
-right:420px;
-
-width:100px;
-
-height:100px;
-
-animation-delay:1s;
-
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-18px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* ===== HERO CONTENT ===== */
-
 .hero-content{
-
-position:relative;
-
-z-index:2;
 
 max-width:780px;
 
@@ -569,8 +478,6 @@ font-weight:700;
 
 margin-bottom:30px;
 
-backdrop-filter:blur(12px);
-
 }
 
 .hero-content h1{
@@ -602,9 +509,7 @@ text-shadow:0 0 20px #00ff99;
 }
 
 50%{
-text-shadow:
-0 0 40px #00ff99,
-0 0 80px #00ff99;
+text-shadow:0 0 45px #00ff99;
 }
 
 100%{
@@ -663,22 +568,6 @@ animation:glowPulse 2.5s infinite;
 
 }
 
-@keyframes glowPulse{
-
-0%{
-box-shadow:0 0 20px rgba(0,255,153,0.35);
-}
-
-50%{
-box-shadow:0 0 55px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 20px rgba(0,255,153,0.35);
-}
-
-}
-
 .hero-btn:hover{
 
 transform:translateY(-6px);
@@ -705,8 +594,6 @@ font-size:18px;
 
 transition:0.3s;
 
-border:1px solid rgba(255,255,255,0.06);
-
 }
 
 .rules-btn:hover{
@@ -719,7 +606,23 @@ transform:translateY(-6px);
 
 }
 
-/* ===== STATS ===== */
+@keyframes glowPulse{
+
+0%{
+box-shadow:0 0 20px rgba(0,255,153,0.35);
+}
+
+50%{
+box-shadow:0 0 55px rgba(0,255,153,0.8);
+}
+
+100%{
+box-shadow:0 0 20px rgba(0,255,153,0.35);
+}
+
+}
+
+/* ===== HERO STATS ===== */
 
 .hero-stats{
 
@@ -742,8 +645,6 @@ border-radius:28px;
 backdrop-filter:blur(14px);
 
 border:1px solid rgba(255,255,255,0.06);
-
-transition:0.3s;
 
 animation:floatStat 4s ease-in-out infinite;
 
@@ -793,7 +694,7 @@ color:#94a3b8;
 
 }
 
-/* ===== SECTION ===== */
+/* ===== SECTIONS ===== */
 
 .section{
 
@@ -843,23 +744,19 @@ border:1px solid rgba(255,255,255,0.06);
 
 backdrop-filter:blur(16px);
 
-transition:0.3s;
+transition:0.4s;
 
-animation:cardReveal 1.2s ease;
-
-}
-
-@keyframes cardReveal{
-
-0%{
 opacity:0;
-transform:translateY(50px);
+
+transform:translateY(60px);
+
 }
 
-100%{
+.card.active{
+
 opacity:1;
+
 transform:translateY(0);
-}
 
 }
 
@@ -910,8 +807,6 @@ border-radius:42px;
 text-align:center;
 
 color:black;
-
-box-shadow:0 0 55px rgba(0,255,153,0.2);
 
 }
 
@@ -1021,33 +916,13 @@ display:block;
 }
 
 .hero{
-
-flex-direction:column;
-
-justify-content:center;
-
 text-align:center;
-
-padding-top:160px;
-
+padding-top:170px;
 }
 
-.hero-buttons{
-
-justify-content:center;
-
-}
-
+.hero-buttons,
 .hero-stats{
-
 justify-content:center;
-
-}
-
-.floating-chart{
-
-display:none;
-
 }
 
 }
@@ -1055,58 +930,39 @@ display:none;
 @media(max-width:768px){
 
 .hero{
-
 padding:140px 5% 100px;
-
 background-attachment:scroll;
-
 }
 
 .hero-content h1{
-
 font-size:58px;
-
 letter-spacing:-1px;
-
 }
 
 .hero-content p{
-
 font-size:18px;
-
 }
 
 .hero-buttons{
-
 flex-direction:column;
-
 }
 
 .hero-btn,
 .rules-btn{
-
 width:100%;
-
 text-align:center;
-
 }
 
 .hero-stat{
-
 width:100%;
-
 }
 
 .section-title{
-
 font-size:44px;
-
 }
 
 .cta-box h2{
-
 font-size:42px;
-
 }
 
 }
@@ -1116,6 +972,22 @@ font-size:42px;
 </head>
 
 <body>
+
+<!-- ===== PRELOADER ===== -->
+
+<div id="preloader">
+
+<div class="loader"></div>
+
+<h1>
+PURE<span>STEP</span>
+</h1>
+
+</div>
+
+<!-- ===== CURSOR ===== -->
+
+<div class="cursor-glow"></div>
 
 <!-- ===== CIRCLES ===== -->
 
@@ -1141,17 +1013,11 @@ PURE<span>Step</span>
 <div class="nav-links">
 
 <a href="index.html">Home</a>
-
 <a href="rules.html">Rules</a>
-
 <a href="login.html">Get Funded</a>
-
 <a href="faq.html">FAQ</a>
-
 <a href="login.html">Dashboard</a>
-
 <a href="login.html">Login</a>
-
 <a href="register.html">Sign Up</a>
 
 </div>
@@ -1167,17 +1033,11 @@ PURE<span>Step</span>
 <div class="mobile-menu" id="mobileMenu">
 
 <a href="index.html">Home</a>
-
 <a href="rules.html">Rules</a>
-
 <a href="login.html">Get Funded</a>
-
 <a href="faq.html">FAQ</a>
-
 <a href="login.html">Dashboard</a>
-
 <a href="login.html">Login</a>
-
 <a href="register.html">Sign Up</a>
 
 </div>
@@ -1185,10 +1045,6 @@ PURE<span>Step</span>
 <!-- ===== HERO ===== -->
 
 <section class="hero">
-
-<div class="floating-chart chart1"></div>
-<div class="floating-chart chart2"></div>
-<div class="floating-chart chart3"></div>
 
 <div class="hero-content">
 
@@ -1224,39 +1080,18 @@ VIEW RULES
 <div class="hero-stats">
 
 <div class="hero-stat">
-
-<h2>
-100%
-</h2>
-
-<p>
-Profit Split
-</p>
-
+<h2>100%</h2>
+<p>Profit Split</p>
 </div>
 
 <div class="hero-stat">
-
-<h2>
-24H
-</h2>
-
-<p>
-Fast Reviews
-</p>
-
+<h2>24H</h2>
+<p>Fast Reviews</p>
 </div>
 
 <div class="hero-stat">
-
-<h2>
-MT5
-</h2>
-
-<p>
-Trading Platform
-</p>
-
+<h2>MT5</h2>
+<p>Trading Platform</p>
 </div>
 
 </div>
@@ -1265,12 +1100,202 @@ Trading Platform
 
 </section>
 
+<!-- ===== WHY CHOOSE US ===== -->
+
+<section class="section">
+
+<h1 class="section-title">
+Why <span>Choose Us</span>
+</h1>
+
+<div class="grid">
+
+<div class="card reveal">
+
+<h3>
+Funded Accounts
+</h3>
+
+<p>
+Trade with funded capital and realistic trading conditions designed for serious traders worldwide.
+</p>
+
+<a href="login.html" class="hero-btn">
+GET STARTED
+</a>
+
+</div>
+
+<div class="card reveal">
+
+<h3>
+Fast Crypto Payouts
+</h3>
+
+<p>
+Receive payouts quickly through Binance Pay and USDT with secure processing.
+</p>
+
+<a href="login.html" class="hero-btn">
+START NOW
+</a>
+
+</div>
+
+<div class="card reveal">
+
+<h3>
+Professional Dashboard
+</h3>
+
+<p>
+Track balances, profits and funded progress with premium trading analytics.
+</p>
+
+<a href="login.html" class="hero-btn">
+VIEW DASHBOARD
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===== CTA ===== -->
+
+<section class="cta">
+
+<div class="cta-box">
+
+<h2>
+Start Your Funded Journey
+</h2>
+
+<p>
+Join PureStep Funding and trade with confidence.
+</p>
+
+<a href="login.html">
+GET FUNDED NOW
+</a>
+
+</div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+
+<footer>
+
+<div class="footer-box">
+
+<h3>
+PURESTEP
+</h3>
+
+<p>
+Professional funded trading experience for traders worldwide.
+</p>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">Home</a>
+<a href="rules.html">Rules</a>
+<a href="login.html">Get Funded</a>
+<a href="faq.html">FAQ</a>
+<a href="login.html">Dashboard</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Legal
+</h3>
+
+<a href="privacy.html">Privacy Policy</a>
+<a href="terms.html">Terms & Conditions</a>
+
+</div>
+
+<div class="footer-box">
+
+<h3>
+Support
+</h3>
+
+<p>
+support@purestepfunding.com
+</p>
+
+<p>
+Instagram: @purestepfunding
+</p>
+
+</div>
+
+</footer>
+
 <script>
+
+/* ===== PRELOADER ===== */
+
+window.addEventListener("load", function(){
+
+document.getElementById("preloader").style.display = "none";
+
+});
+
+/* ===== MOBILE MENU ===== */
 
 function toggleMenu(){
 
 document.getElementById("mobileMenu")
 .classList.toggle("active");
+
+}
+
+/* ===== CURSOR GLOW ===== */
+
+const glow = document.querySelector(".cursor-glow");
+
+document.addEventListener("mousemove", (e)=>{
+
+glow.style.left = e.clientX + "px";
+glow.style.top = e.clientY + "px";
+
+});
+
+/* ===== SCROLL REVEAL ===== */
+
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+
+let reveals = document.querySelectorAll(".reveal");
+
+for(let i = 0; i < reveals.length; i++){
+
+let windowHeight = window.innerHeight;
+
+let revealTop = reveals[i].getBoundingClientRect().top;
+
+let revealPoint = 100;
+
+if(revealTop < windowHeight - revealPoint){
+
+reveals[i].classList.add("active");
+
+}
+
+}
 
 }
 
