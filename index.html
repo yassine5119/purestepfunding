@@ -4,37 +4,24 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PureStep Funding | Next Generation Prop Firm</title>
 
-<meta name="description" content="PureStep Funding is a next generation prop firm offering funded trading accounts, MT5 platform, fast crypto payouts and realistic trading rules for traders worldwide.">
+<meta name="description" content="Trade with PureStep Funding and get funded with realistic rules, fast crypto payouts and premium trading experience.">
 
-<meta name="keywords" content="prop firm, funded trading, forex funding, crypto payouts, MT5 prop firm, funded account, trading challenge">
-
-<meta name="author" content="PureStep Funding">
-
-<meta property="og:title" content="PureStep Funding | Next Generation Prop Firm">
-
-<meta property="og:description" content="Trade with PureStep Funding and get funded with realistic rules and fast crypto payouts.">
-
-<meta property="og:type" content="website">
-
-<meta property="og:image" content="logo.png">
-
-<meta property="og:url" content="https://purestepfunding.com">
-
-<meta name="twitter:card" content="summary_large_image">
+<meta name="keywords" content="prop firm, funded trading, forex funding, crypto payouts, MT5 prop firm">
 
 <meta name="theme-color" content="#00ff99">
-
-<link rel="canonical" href="https://purestepfunding.com">
 
 <link rel="icon" type="image/png" href="logo.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ===== RESET ===== */
 
 *{
 margin:0;
@@ -66,78 +53,7 @@ background:#00ff99;
 border-radius:20px;
 }
 
-/* ===== BACKGROUND ===== */
-
-.bg-animation{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-5;
-overflow:hidden;
-}
-
-.bg-animation span{
-position:absolute;
-display:block;
-width:20px;
-height:20px;
-background:#00ff99;
-opacity:0.08;
-border-radius:50%;
-bottom:-150px;
-animation:animate 25s linear infinite;
-}
-
-.bg-animation span:nth-child(1){
-left:10%;
-animation-duration:15s;
-}
-
-.bg-animation span:nth-child(2){
-left:30%;
-width:30px;
-height:30px;
-animation-duration:18s;
-}
-
-.bg-animation span:nth-child(3){
-left:55%;
-animation-duration:12s;
-}
-
-.bg-animation span:nth-child(4){
-left:75%;
-width:25px;
-height:25px;
-animation-duration:22s;
-}
-
-.bg-animation span:nth-child(5){
-left:90%;
-animation-duration:16s;
-}
-
-@keyframes animate{
-
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
-}
-
-10%{
-opacity:0.2;
-}
-
-100%{
-transform:translateY(-1200px) rotate(720deg);
-opacity:0;
-}
-
-}
-
-/* ===== GLOW ===== */
+/* ===== BACKGROUND GLOW ===== */
 
 body::before{
 content:"";
@@ -149,7 +65,7 @@ height:500px;
 background:rgba(0,255,153,0.08);
 filter:blur(120px);
 border-radius:50%;
-z-index:-3;
+z-index:-2;
 }
 
 body::after{
@@ -162,370 +78,645 @@ height:500px;
 background:rgba(0,255,153,0.05);
 filter:blur(120px);
 border-radius:50%;
-z-index:-3;
+z-index:-2;
 }
 
 /* ===== NAVBAR ===== */
 
 nav{
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 padding:24px 7%;
-position:sticky;
+
+position:fixed;
+
 top:0;
-z-index:999;
-background:rgba(7,18,38,0.8);
+
+width:100%;
+
+z-index:9999;
+
+background:rgba(7,18,38,0.72);
+
 backdrop-filter:blur(14px);
+
 border-bottom:1px solid rgba(0,255,153,0.08);
+
 }
 
 .logo{
+
 font-size:42px;
+
 font-weight:800;
+
 }
 
 .logo span{
+
 color:#00ff99;
+
 text-shadow:0 0 25px #00ff99;
+
 }
 
 .nav-links{
+
 display:flex;
+
 gap:16px;
+
 align-items:center;
+
 }
 
 .nav-links a{
+
 padding:14px 22px;
+
 border-radius:16px;
+
 text-decoration:none;
+
 color:white;
+
 font-weight:600;
+
 background:rgba(15,23,42,0.9);
+
 transition:0.3s;
+
 }
 
 .nav-links a:hover{
+
 background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
+
 transform:translateY(-4px);
-box-shadow:0 0 25px rgba(0,255,153,0.45);
+
+box-shadow:0 0 25px rgba(0,255,153,0.4);
+
 }
 
 /* ===== MOBILE MENU ===== */
 
 .mobile-menu-btn{
+
 display:none;
+
 font-size:30px;
+
 cursor:pointer;
+
 background:rgba(15,23,42,0.9);
+
 padding:10px 16px;
+
 border-radius:14px;
+
 }
 
 .mobile-menu{
+
 position:fixed;
+
 top:90px;
+
 right:-100%;
+
 width:280px;
-background:rgba(7,18,38,0.97);
+
+background:rgba(7,18,38,0.96);
+
 padding:30px;
+
 border-radius:24px;
+
 display:flex;
+
 flex-direction:column;
+
 gap:18px;
+
 transition:0.4s;
+
 z-index:9999;
+
 backdrop-filter:blur(16px);
+
 border:1px solid rgba(0,255,153,0.08);
+
 }
 
 .mobile-menu.active{
+
 right:20px;
+
 }
 
 .mobile-menu a{
+
 padding:16px 20px;
+
 border-radius:16px;
+
 text-decoration:none;
+
 color:white;
+
 font-weight:600;
+
 background:rgba(15,23,42,0.9);
+
 transition:0.3s;
+
 }
 
 .mobile-menu a:hover{
+
 background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
+
 }
 
 /* ===== HERO ===== */
 
 .hero{
+
 position:relative;
+
 min-height:100vh;
+
 display:flex;
+
 align-items:center;
-padding:120px 7%;
-background-image:url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
+
+padding:140px 7%;
+
 overflow:hidden;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(2,6,23,0.96),
+rgba(2,6,23,0.82)
+),
+
+url('https://images.unsplash.com/photo-1642104704074-907c0698cbd9?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+
+background-position:center;
+
+background-attachment:fixed;
+
 }
 
 .hero-overlay{
+
 position:absolute;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
-background:linear-gradient(
+
+background:
+linear-gradient(
 to right,
-rgba(2,6,23,0.96),
-rgba(2,6,23,0.72)
+rgba(2,6,23,0.95),
+rgba(2,6,23,0.62)
 );
+
+}
+
+.hero-blur{
+
+position:absolute;
+
+right:-200px;
+top:-150px;
+
+width:600px;
+height:600px;
+
+background:rgba(0,255,153,0.14);
+
+filter:blur(120px);
+
+border-radius:50%;
+
+z-index:1;
+
 }
 
 .hero-content{
+
 position:relative;
+
 z-index:2;
+
 max-width:850px;
+
 }
 
 .hero-badge{
+
 display:inline-block;
-padding:12px 22px;
+
+padding:14px 24px;
+
 border-radius:50px;
+
 background:rgba(0,255,153,0.12);
+
 border:1px solid rgba(0,255,153,0.2);
+
 color:#00ff99;
+
 font-weight:700;
-margin-bottom:28px;
+
+margin-bottom:30px;
+
+backdrop-filter:blur(10px);
+
 }
 
 .hero-content h1{
-font-size:96px;
+
+font-size:100px;
+
 line-height:1;
-margin-bottom:28px;
+
+margin-bottom:30px;
+
 font-weight:800;
+
+letter-spacing:-3px;
+
 }
 
 .hero-content h1 span{
+
 color:#00ff99;
+
 text-shadow:0 0 35px #00ff99;
+
 }
 
 .hero-content p{
+
 font-size:22px;
+
 line-height:1.9;
+
 color:#d1d5db;
-margin-bottom:45px;
-max-width:700px;
+
+margin-bottom:50px;
+
+max-width:720px;
+
 }
 
 /* ===== BUTTONS ===== */
 
 .hero-buttons{
+
 display:flex;
-gap:18px;
+
+gap:20px;
+
 flex-wrap:wrap;
+
+margin-bottom:50px;
+
 }
 
 .hero-btn{
-padding:22px 44px;
-border-radius:20px;
+
+padding:22px 46px;
+
+border-radius:22px;
+
 background:linear-gradient(135deg,#00ff99,#00c97a);
+
 color:black;
+
 font-weight:800;
+
 text-decoration:none;
+
 font-size:18px;
+
 transition:0.3s;
-box-shadow:0 0 35px rgba(0,255,153,0.4);
+
+box-shadow:0 0 35px rgba(0,255,153,0.45);
+
 }
 
 .hero-btn:hover{
+
 transform:translateY(-6px);
+
 box-shadow:0 0 55px rgba(0,255,153,0.8);
+
 }
 
 .rules-btn{
-padding:22px 40px;
-border-radius:20px;
-background:rgba(15,23,42,0.9);
+
+padding:22px 42px;
+
+border-radius:22px;
+
+background:rgba(15,23,42,0.88);
+
+backdrop-filter:blur(12px);
+
 color:white;
+
 font-weight:700;
+
 text-decoration:none;
+
 font-size:18px;
+
 transition:0.3s;
+
+border:1px solid rgba(255,255,255,0.06);
+
 }
 
 .rules-btn:hover{
+
 background:white;
+
 color:black;
+
 transform:translateY(-6px);
-}
 
-/* ===== SECTION ===== */
-
-.section-title{
-text-align:center;
-font-size:68px;
-margin-bottom:80px;
-font-weight:800;
-}
-
-.section-title span{
-color:#00ff99;
 }
 
 /* ===== STATS ===== */
 
-.stats{
-padding:100px 7%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:28px;
+.hero-stats{
+
+display:flex;
+
+gap:22px;
+
+flex-wrap:wrap;
+
 }
 
-.stat{
-background:rgba(7,18,38,0.82);
-padding:40px;
-border-radius:32px;
-text-align:center;
+.hero-stat{
+
+background:rgba(7,18,38,0.78);
+
+padding:24px 32px;
+
+border-radius:26px;
+
 border:1px solid rgba(0,255,153,0.08);
+
+backdrop-filter:blur(14px);
+
 transition:0.3s;
-backdrop-filter:blur(12px);
+
 }
 
-.stat:hover{
-transform:translateY(-10px);
-box-shadow:0 0 45px rgba(0,255,153,0.18);
+.hero-stat:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 0 35px rgba(0,255,153,0.18);
+
 }
 
-.stat h2{
-font-size:58px;
+.hero-stat h2{
+
+font-size:38px;
+
 color:#00ff99;
-margin-bottom:12px;
+
+margin-bottom:8px;
+
 }
 
-.stat p{
+.hero-stat p{
+
+font-size:15px;
+
+margin:0;
+
 color:#94a3b8;
-font-size:18px;
+
+}
+
+/* ===== SECTION ===== */
+
+.section{
+
+padding:120px 7%;
+
+}
+
+.section-title{
+
+text-align:center;
+
+font-size:70px;
+
+margin-bottom:80px;
+
+font-weight:800;
+
+}
+
+.section-title span{
+
+color:#00ff99;
+
 }
 
 /* ===== GRID ===== */
 
-.section{
-padding:0 7% 120px;
-}
-
 .grid{
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
 gap:30px;
+
 }
 
 .card{
+
 background:rgba(7,18,38,0.82);
+
 padding:40px;
+
 border-radius:34px;
+
 border:1px solid rgba(0,255,153,0.08);
+
 transition:0.3s;
+
 backdrop-filter:blur(12px);
+
 }
 
 .card:hover{
+
 transform:translateY(-10px);
+
 box-shadow:0 0 45px rgba(0,255,153,0.18);
+
 }
 
 .card h3{
+
 font-size:30px;
+
 margin-bottom:18px;
+
 color:#00ff99;
+
 }
 
 .card p{
+
 color:#d1d5db;
+
 line-height:1.9;
+
 margin-bottom:25px;
-}
 
-/* ===== TESTIMONIAL ===== */
-
-.testimonial{
-font-style:italic;
 }
 
 /* ===== CTA ===== */
 
 .cta{
+
 padding:0 7% 140px;
+
 }
 
 .cta-box{
+
 background:linear-gradient(135deg,#00ff99,#00c97a);
+
 padding:70px 40px;
+
 border-radius:40px;
+
 text-align:center;
+
 color:black;
+
 }
 
 .cta-box h2{
+
 font-size:58px;
+
 margin-bottom:20px;
+
 font-weight:800;
+
 }
 
 .cta-box p{
+
 font-size:20px;
+
 margin-bottom:35px;
+
 }
 
 .cta-box a{
+
 display:inline-block;
+
 padding:22px 44px;
+
 background:black;
+
 color:white;
+
 text-decoration:none;
+
 font-weight:700;
+
 border-radius:20px;
+
 transition:0.3s;
+
 }
 
 .cta-box a:hover{
+
 transform:translateY(-6px);
+
 }
 
 /* ===== FOOTER ===== */
 
 footer{
+
 padding:70px 7%;
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:45px;
+
 background:rgba(7,18,38,0.5);
+
 border-top:1px solid rgba(0,255,153,0.08);
+
 }
 
 .footer-box h3{
+
 font-size:28px;
+
 margin-bottom:22px;
+
 }
 
 .footer-box p,
 .footer-box a{
+
 color:#94a3b8;
+
 line-height:1.9;
+
 text-decoration:none;
+
 display:block;
+
 margin-bottom:12px;
+
 transition:0.3s;
+
 }
 
 .footer-box a:hover{
+
 color:#00ff99;
+
 }
 
 /* ===== MOBILE ===== */
@@ -545,33 +736,52 @@ display:block;
 @media(max-width:768px){
 
 .hero{
-padding:100px 5%;
+
+padding:140px 5%;
+
+background-attachment:scroll;
+
 }
 
 .hero-content h1{
-font-size:52px;
+
+font-size:58px;
+
+letter-spacing:-1px;
+
 }
 
 .hero-content p{
-font-size:18px;
-}
 
-.section-title{
-font-size:42px;
+font-size:18px;
+
 }
 
 .hero-buttons{
+
 flex-direction:column;
+
 }
 
 .hero-btn,
 .rules-btn{
+
 width:100%;
+
 text-align:center;
+
 }
 
-.cta-box h2{
-font-size:38px;
+.hero-stat{
+
+width:100%;
+
+}
+
+.section-title{
+
+font-size:44px;
+
 }
 
 }
@@ -581,18 +791,6 @@ font-size:38px;
 </head>
 
 <body>
-
-<!-- ===== BACKGROUND ===== -->
-
-<div class="bg-animation">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
 
 <!-- ===== NAVBAR ===== -->
 
@@ -610,15 +808,13 @@ PURE<span>Step</span>
 
 <a href="login.html">Get Funded</a>
 
-<a href="login.html">Payouts</a>
-
 <a href="faq.html">FAQ</a>
+
+<a href="login.html">Dashboard</a>
 
 <a href="login.html">Login</a>
 
 <a href="register.html">Sign Up</a>
-
-<a href="login.html">Dashboard</a>
 
 </div>
 
@@ -638,15 +834,13 @@ PURE<span>Step</span>
 
 <a href="login.html">Get Funded</a>
 
-<a href="login.html">Payouts</a>
-
 <a href="faq.html">FAQ</a>
+
+<a href="login.html">Dashboard</a>
 
 <a href="login.html">Login</a>
 
 <a href="register.html">Sign Up</a>
-
-<a href="login.html">Dashboard</a>
 
 </div>
 
@@ -656,6 +850,8 @@ PURE<span>Step</span>
 
 <div class="hero-overlay"></div>
 
+<div class="hero-blur"></div>
+
 <div class="hero-content">
 
 <div class="hero-badge">
@@ -663,11 +859,16 @@ PURE<span>Step</span>
 </div>
 
 <h1>
-Trade With <span>PureStep Funding</span>
+
+Trade With <span>Confidence</span><br>
+Get Funded By <span>PureStep</span>
+
 </h1>
 
 <p>
-Professional funded trading experience with realistic rules, premium dashboard, fast reviews and instant crypto payouts for serious traders worldwide.
+
+Experience the future of funded trading with premium dashboards, realistic rules, lightning-fast crypto payouts and professional trading conditions built for modern traders.
+
 </p>
 
 <div class="hero-buttons">
@@ -682,37 +883,39 @@ VIEW RULES
 
 </div>
 
-</div>
+<div class="hero-stats">
 
-</section>
+<div class="hero-stat">
 
-<!-- ===== STATS ===== -->
-
-<section class="stats">
-
-<div class="stat">
 <h2>100%</h2>
+
 <p>Profit Split</p>
+
 </div>
 
-<div class="stat">
+<div class="hero-stat">
+
 <h2>24H</h2>
+
 <p>Fast Reviews</p>
+
 </div>
 
-<div class="stat">
+<div class="hero-stat">
+
 <h2>MT5</h2>
+
 <p>Trading Platform</p>
+
 </div>
 
-<div class="stat">
-<h2>Crypto</h2>
-<p>Instant Payouts</p>
+</div>
+
 </div>
 
 </section>
 
-<!-- ===== WHY CHOOSE US ===== -->
+<!-- ===== WHY US ===== -->
 
 <section class="section">
 
@@ -724,10 +927,12 @@ Why <span>Choose Us</span>
 
 <div class="card">
 
-<h3>Funded Accounts</h3>
+<h3>
+Funded Accounts
+</h3>
 
 <p>
-Trade with funded capital and realistic trading conditions designed for serious traders.
+Trade with funded capital and realistic trading conditions designed for serious traders worldwide.
 </p>
 
 <a href="login.html" class="hero-btn">
@@ -738,10 +943,12 @@ GET STARTED
 
 <div class="card">
 
-<h3>Fast Crypto Payouts</h3>
+<h3>
+Fast Crypto Payouts
+</h3>
 
 <p>
-Receive your payouts quickly through Binance Pay and USDT with fast processing.
+Receive payouts quickly through Binance Pay and USDT with secure processing.
 </p>
 
 <a href="login.html" class="hero-btn">
@@ -752,159 +959,17 @@ START NOW
 
 <div class="card">
 
-<h3>Professional Dashboard</h3>
+<h3>
+Professional Dashboard
+</h3>
 
 <p>
-Track balances, profits and funded progress with a premium dashboard experience.
+Track balances, profits and funded progress with premium trading analytics.
 </p>
 
 <a href="login.html" class="hero-btn">
 VIEW DASHBOARD
 </a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== CHALLENGES ===== -->
-
-<section class="section">
-
-<h1 class="section-title">
-Choose Your <span>Challenge</span>
-</h1>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>$5000 Challenge</h3>
-
-<p>
-Perfect for traders starting their funded trading journey.
-</p>
-
-<a href="login.html" class="hero-btn">
-START CHALLENGE
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>$10000 Challenge</h3>
-
-<p>
-Trade bigger capital with realistic trading rules and scaling opportunities.
-</p>
-
-<a href="login.html" class="hero-btn">
-START CHALLENGE
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>$2500 Challenge</h3>
-
-<p>
-Built for advanced traders looking for professional funding opportunities.
-</p>
-
-<a href="login.html" class="hero-btn">
-START CHALLENGE
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-
-<section class="section">
-
-<h1 class="section-title">
-Trader <span>Reviews</span>
-</h1>
-
-<div class="grid">
-
-<div class="card testimonial">
-
-<h3>Forex Trader</h3>
-
-<p>
-“Very smooth experience and fast support. Dashboard feels premium.”
-</p>
-
-</div>
-
-<div class="card testimonial">
-
-<h3>Crypto Trader</h3>
-
-<p>
-“Fast review process and realistic challenge rules compared to other prop firms.”
-</p>
-
-</div>
-
-<div class="card testimonial">
-
-<h3>Funded Trader</h3>
-
-<p>
-“Received my crypto payout quickly. Great experience overall.”
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===== FAQ ===== -->
-
-<section class="section">
-
-<h1 class="section-title">
-Frequently Asked <span>Questions</span>
-</h1>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>How fast are payouts?</h3>
-
-<p>
-Payouts are processed within 1 hour to 24 hours.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>What platform do you support?</h3>
-
-<p>
-We currently support MT5 trading platform.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Do you offer crypto payouts?</h3>
-
-<p>
-Yes, payouts are available through Binance Pay and USDT.
-</p>
 
 </div>
 
@@ -940,7 +1005,9 @@ GET FUNDED NOW
 
 <div class="footer-box">
 
-<h3>PURESTEP</h3>
+<h3>
+PURESTEP
+</h3>
 
 <p>
 Professional funded trading experience for traders worldwide.
@@ -950,28 +1017,39 @@ Professional funded trading experience for traders worldwide.
 
 <div class="footer-box">
 
-<h3>Quick Links</h3>
+<h3>
+Quick Links
+</h3>
 
 <a href="index.html">Home</a>
+
 <a href="rules.html">Rules</a>
+
 <a href="login.html">Get Funded</a>
+
 <a href="faq.html">FAQ</a>
+
 <a href="login.html">Dashboard</a>
 
 </div>
 
 <div class="footer-box">
 
-<h3>Legal</h3>
+<h3>
+Legal
+</h3>
 
 <a href="privacy.html">Privacy Policy</a>
+
 <a href="terms.html">Terms & Conditions</a>
 
 </div>
 
 <div class="footer-box">
 
-<h3>Support</h3>
+<h3>
+Support
+</h3>
 
 <p>
 support@purestepfunding.com
@@ -998,4 +1076,4 @@ document.getElementById("mobileMenu")
 
 </body>
 
-</html>
+  </html>
