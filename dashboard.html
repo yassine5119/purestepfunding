@@ -8,7 +8,15 @@
 
 <title>PURESTEP PREMIUM DASHBOARD</title>
 
+<meta name="description" content="PureStep Funding premium funded trader dashboard with payouts, trading analytics and account management.">
+
+<meta name="theme-color" content="#00ff99">
+
+<link rel="icon" type="image/png" href="logo.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -20,868 +28,518 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-
 background:#020617;
 color:white;
 display:flex;
 overflow-x:hidden;
 position:relative;
-
 }
 
-/* PREMIUM BACKGROUND */
+/* ===== LOADER ===== */
 
-body::before{
-
-content:"";
-
+.loader{
 position:fixed;
-
-top:-250px;
-left:-250px;
-
-width:500px;
-height:500px;
-
-background:rgba(0,255,153,0.07);
-
-filter:blur(120px);
-
-border-radius:50%;
-
-z-index:-2;
-
-animation:glowMove 7s infinite alternate;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-bottom:-250px;
-right:-250px;
-
-width:500px;
-height:500px;
-
-background:rgba(0,255,153,0.05);
-
-filter:blur(120px);
-
-border-radius:50%;
-
-z-index:-2;
-
-animation:glowMove 8s infinite alternate;
-
-}
-
-@keyframes glowMove{
-
-0%{
-transform:translateY(0px);
-}
-
-100%{
-transform:translateY(50px);
-}
-
-}
-
-/* SIDEBAR */
-
-.sidebar{
-
-width:290px;
-
-height:100vh;
-
-background:rgba(7,18,38,0.92);
-
-backdrop-filter:blur(12px);
-
-position:fixed;
-
-padding:30px 20px;
-
-border-right:1px solid rgba(0,255,153,0.08);
-
-overflow-y:auto;
-
-z-index:1000;
-
-box-shadow:0 0 35px rgba(0,0,0,0.4);
-
-}
-
-/* LOGO */
-
-.logo{
-
-font-size:42px;
-
-font-weight:800;
-
-text-align:center;
-
-margin-bottom:50px;
-
-color:white;
-
-}
-
-.logo span{
-
-color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
-}
-
-/* SIDEBAR LINKS */
-
-.sidebar-links{
-
-list-style:none;
-
-}
-
-.sidebar-links li{
-
-margin-bottom:18px;
-
-}
-
-.sidebar-links a{
-
-display:flex;
-
-align-items:center;
-
-gap:14px;
-
-padding:17px 20px;
-
-background:rgba(15,23,42,0.85);
-
-border-radius:18px;
-
-text-decoration:none;
-
-color:white;
-
-font-weight:600;
-
-transition:0.3s;
-
-border:1px solid rgba(255,255,255,0.04);
-
-}
-
-.sidebar-links a:hover{
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-color:black;
-
-transform:translateX(8px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.45);
-
-}
-
-/* MAIN */
-
-.main{
-
-margin-left:290px;
-
+top:0;
+left:0;
 width:100%;
-
-padding:35px;
-
-}
-
-/* TOPBAR */
-
-.topbar{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-flex-wrap:wrap;
-
-gap:20px;
-
-margin-bottom:35px;
-
-background:rgba(7,18,38,0.75);
-
-padding:25px;
-
-border-radius:30px;
-
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(0,255,153,0.08);
-
-}
-
-.welcome h1{
-
-font-size:46px;
-
-margin-bottom:8px;
-
-font-weight:800;
-
-}
-
-.welcome p{
-
-color:#94a3b8;
-
-font-size:17px;
-
-}
-
-/* USER CARD */
-
-.user-card{
-
-background:rgba(15,23,42,0.85);
-
-padding:18px 24px;
-
-border-radius:20px;
-
-border:1px solid rgba(0,255,153,0.08);
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-backdrop-filter:blur(10px);
-
-box-shadow:0 0 25px rgba(0,255,153,0.08);
-
-}
-
-.avatar{
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
+height:100%;
+background:#020617;
 display:flex;
 align-items:center;
 justify-content:center;
-
-font-size:22px;
-
+font-size:42px;
 font-weight:800;
+z-index:99999;
+color:#00ff99;
+letter-spacing:2px;
+animation:loaderFade 2.5s forwards;
+}
 
-color:black;
+@keyframes loaderFade{
 
-box-shadow:0 0 30px rgba(0,255,153,0.6);
+0%{
+opacity:1;
+}
+
+80%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+visibility:hidden;
+}
 
 }
 
-/* OVERVIEW */
+/* ===== ANNOUNCEMENT ===== */
+
+.announcement{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:14px;
+background:linear-gradient(135deg,#00ff99,#00c97a);
+text-align:center;
+font-weight:700;
+color:black;
+z-index:9999;
+}
+
+/* ===== BACKGROUND ===== */
+
+body::before{
+content:"";
+position:fixed;
+top:-250px;
+left:-250px;
+width:500px;
+height:500px;
+background:rgba(0,255,153,0.07);
+filter:blur(120px);
+border-radius:50%;
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-250px;
+right:-250px;
+width:500px;
+height:500px;
+background:rgba(0,255,153,0.05);
+filter:blur(120px);
+border-radius:50%;
+z-index:-2;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar{
+width:290px;
+height:100vh;
+background:rgba(7,18,38,0.92);
+backdrop-filter:blur(12px);
+position:fixed;
+padding:90px 20px 30px;
+border-right:1px solid rgba(0,255,153,0.08);
+overflow-y:auto;
+z-index:1000;
+}
+
+.logo{
+font-size:42px;
+font-weight:800;
+text-align:center;
+margin-bottom:50px;
+}
+
+.logo span{
+color:#00ff99;
+text-shadow:0 0 25px #00ff99;
+}
+
+.sidebar-links{
+list-style:none;
+}
+
+.sidebar-links li{
+margin-bottom:18px;
+}
+
+.sidebar-links a{
+display:flex;
+align-items:center;
+gap:14px;
+padding:17px 20px;
+background:rgba(15,23,42,0.85);
+border-radius:18px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+.sidebar-links a:hover{
+background:linear-gradient(135deg,#00ff99,#00c97a);
+color:black;
+transform:translateX(8px);
+box-shadow:0 0 35px rgba(0,255,153,0.45);
+}
+
+/* ===== MOBILE MENU ===== */
+
+.mobile-btn{
+display:none;
+position:fixed;
+top:70px;
+left:20px;
+z-index:99999;
+background:#00ff99;
+color:black;
+padding:12px 18px;
+border-radius:14px;
+font-weight:800;
+cursor:pointer;
+}
+
+/* ===== MAIN ===== */
+
+.main{
+margin-left:290px;
+width:100%;
+padding:100px 35px 35px;
+}
+
+/* ===== TOPBAR ===== */
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
+margin-bottom:35px;
+background:rgba(7,18,38,0.75);
+padding:25px;
+border-radius:30px;
+border:1px solid rgba(0,255,153,0.08);
+backdrop-filter:blur(10px);
+}
+
+.welcome h1{
+font-size:46px;
+margin-bottom:8px;
+font-weight:800;
+}
+
+.welcome p{
+color:#94a3b8;
+}
+
+.user-card{
+background:rgba(15,23,42,0.85);
+padding:18px 24px;
+border-radius:20px;
+display:flex;
+align-items:center;
+gap:15px;
+border:1px solid rgba(0,255,153,0.08);
+}
+
+.avatar{
+width:55px;
+height:55px;
+border-radius:50%;
+background:linear-gradient(135deg,#00ff99,#00c97a);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:800;
+color:black;
+}
+
+/* ===== OVERVIEW ===== */
 
 .overview{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-
 gap:25px;
-
 margin-bottom:35px;
-
 }
 
 .overview-card{
-
 background:rgba(7,18,38,0.88);
-
 padding:30px;
-
 border-radius:30px;
-
 border:1px solid rgba(0,255,153,0.08);
-
-position:relative;
-
-overflow:hidden;
-
 transition:0.3s;
-
-backdrop-filter:blur(12px);
-
 }
 
 .overview-card:hover{
-
-transform:translateY(-10px) scale(1.02);
-
-box-shadow:0 0 45px rgba(0,255,153,0.2);
-
-}
-
-.overview-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-60px;
-right:-60px;
-
-width:180px;
-height:180px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
+transform:translateY(-8px);
+box-shadow:0 0 40px rgba(0,255,153,0.18);
 }
 
 .overview-card h2{
-
 font-size:42px;
-
 margin-bottom:10px;
-
 color:#00ff99;
-
-position:relative;
-z-index:2;
-
-text-shadow:0 0 20px rgba(0,255,153,0.5);
-
 }
 
 .overview-card p{
-
 color:#94a3b8;
-
-font-size:16px;
-
-position:relative;
-z-index:2;
-
 }
 
-/* MAIN GRID */
+/* ===== OBJECTIVES ===== */
+
+.objectives{
+background:rgba(7,18,38,0.88);
+padding:35px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(0,255,153,0.08);
+}
+
+.objectives h2{
+font-size:32px;
+margin-bottom:25px;
+}
+
+.objective-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.objective-card{
+background:rgba(15,23,42,0.85);
+padding:25px;
+border-radius:22px;
+}
+
+.objective-card h3{
+color:#00ff99;
+margin-bottom:12px;
+font-size:17px;
+}
+
+.objective-card p{
+font-size:26px;
+font-weight:700;
+}
+
+/* ===== CHART ===== */
+
+.chart-section{
+background:rgba(7,18,38,0.88);
+padding:35px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(0,255,153,0.08);
+}
+
+.chart-section h2{
+margin-bottom:25px;
+font-size:30px;
+}
+
+/* ===== MAIN GRID ===== */
 
 .main-grid{
-
 display:grid;
-
 grid-template-columns:2fr 1fr;
-
 gap:30px;
-
 margin-bottom:35px;
-
 }
 
-/* ACCOUNT BOX */
-
-.account-box{
-
+.account-box,
+.quick-actions{
 background:rgba(7,18,38,0.88);
-
 padding:35px;
-
 border-radius:35px;
-
 border:1px solid rgba(0,255,153,0.08);
-
-position:relative;
-
-overflow:hidden;
-
-backdrop-filter:blur(12px);
-
-box-shadow:0 0 30px rgba(0,0,0,0.25);
-
-}
-
-.account-box::before{
-
-content:"";
-
-position:absolute;
-
-top:-100px;
-right:-100px;
-
-width:240px;
-height:240px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
 }
 
 .account-header{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
-flex-wrap:wrap;
-
-gap:20px;
-
 margin-bottom:30px;
-
-position:relative;
-z-index:2;
-
-}
-
-.account-header h2{
-
-font-size:34px;
-
+gap:20px;
+flex-wrap:wrap;
 }
 
 .account-status{
-
 padding:12px 22px;
-
 border-radius:50px;
-
 font-weight:800;
-
 background:#00ff99;
-
 color:black;
-
-box-shadow:0 0 30px rgba(0,255,153,0.5);
-
 }
 
 .account-grid{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
 gap:22px;
-
-position:relative;
-z-index:2;
-
 }
 
 .account-item{
-
 background:rgba(15,23,42,0.85);
-
 padding:24px;
-
 border-radius:22px;
-
-border:1px solid rgba(255,255,255,0.05);
-
-transition:0.3s;
-
-backdrop-filter:blur(8px);
-
-}
-
-.account-item:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 0 25px rgba(0,255,153,0.15);
-
 }
 
 .account-item h3{
-
 font-size:16px;
-
 color:#00ff99;
-
 margin-bottom:10px;
-
 }
 
 .account-item p{
-
 font-size:24px;
-
 font-weight:700;
-
-}
-
-/* QUICK ACTIONS */
-
-.quick-actions{
-
-background:rgba(7,18,38,0.88);
-
-padding:35px;
-
-border-radius:35px;
-
-border:1px solid rgba(0,255,153,0.08);
-
-backdrop-filter:blur(12px);
-
-box-shadow:0 0 30px rgba(0,0,0,0.25);
-
 }
 
 .quick-actions h2{
-
-font-size:30px;
-
 margin-bottom:25px;
-
+font-size:30px;
 }
 
 .quick-btn{
-
 display:block;
-
 width:100%;
-
 padding:18px;
-
 margin-bottom:18px;
-
 border-radius:18px;
-
 background:linear-gradient(135deg,#00ff99,#00c97a);
-
 color:black;
-
 text-align:center;
-
 font-weight:800;
-
 text-decoration:none;
-
 transition:0.3s;
-
-box-shadow:0 0 25px rgba(0,255,153,0.25);
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.quick-btn::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-100%;
-
-width:100%;
-height:100%;
-
-background:rgba(255,255,255,0.2);
-
-transform:skewX(-20deg);
-
-transition:0.5s;
-
-}
-
-.quick-btn:hover::before{
-
-left:120%;
-
 }
 
 .quick-btn:hover{
-
 transform:translateY(-5px);
-
-box-shadow:0 0 45px rgba(0,255,153,0.6);
-
+box-shadow:0 0 40px rgba(0,255,153,0.5);
 }
 
-/* PROGRESS */
+/* ===== PAYOUT TABLE ===== */
 
-.progress-section{
-
-margin-bottom:35px;
-
+.payout-history{
 background:rgba(7,18,38,0.88);
-
 padding:35px;
-
 border-radius:35px;
-
+margin-bottom:35px;
 border:1px solid rgba(0,255,153,0.08);
-
-backdrop-filter:blur(12px);
-
+overflow-x:auto;
 }
 
-.progress-section h2{
-
-font-size:32px;
-
-margin-bottom:25px;
-
-}
-
-.progress-bar{
-
+.payout-history table{
 width:100%;
-
-height:22px;
-
-background:#0f172a;
-
-border-radius:50px;
-
-overflow:hidden;
-
+border-collapse:collapse;
 }
 
-.progress-fill{
-
-height:100%;
-
-width:45%;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-border-radius:50px;
-
-box-shadow:0 0 30px rgba(0,255,153,0.6);
-
-animation:progressAnim 3s infinite alternate;
-
+.payout-history th,
+.payout-history td{
+padding:18px;
+text-align:left;
+border-bottom:1px solid rgba(255,255,255,0.06);
 }
 
-@keyframes progressAnim{
-
-0%{
-width:35%;
+.payout-history th{
+color:#00ff99;
 }
 
-100%{
-width:55%;
+/* ===== LEADERBOARD ===== */
+
+.leaderboard{
+background:rgba(7,18,38,0.88);
+padding:35px;
+border-radius:35px;
+border:1px solid rgba(0,255,153,0.08);
+margin-bottom:35px;
 }
 
+.trader{
+display:flex;
+justify-content:space-between;
+padding:18px;
+margin-bottom:14px;
+background:rgba(15,23,42,0.85);
+border-radius:18px;
 }
 
-.funded-badge{
-
-display:inline-block;
-
-padding:12px 22px;
-
-border-radius:50px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-color:black;
-
-font-weight:800;
-
-margin-top:22px;
-
-box-shadow:0 0 35px rgba(0,255,153,0.5);
-
-}
-
-/* CERTIFICATE */
+/* ===== CERTIFICATE ===== */
 
 .certificate{
-
 background:linear-gradient(135deg,#00ff99,#00c97a);
-
 padding:40px;
-
 border-radius:35px;
-
 color:black;
-
-position:relative;
-
-overflow:hidden;
-
 box-shadow:0 0 45px rgba(0,255,153,0.25);
-
-}
-
-.certificate::before{
-
-content:"";
-
-position:absolute;
-
-top:-120px;
-right:-120px;
-
-width:260px;
-height:260px;
-
-background:rgba(255,255,255,0.15);
-
-border-radius:50%;
-
 }
 
 .certificate h2{
-
 font-size:40px;
-
 margin-bottom:15px;
-
 font-weight:800;
-
-position:relative;
-z-index:2;
-
 }
 
 .certificate p{
-
 font-size:18px;
-
 margin-bottom:25px;
-
 line-height:1.7;
-
-position:relative;
-z-index:2;
-
 }
 
 .certificate a{
-
 display:inline-block;
-
 padding:16px 28px;
-
 background:black;
-
 color:#00ff99;
-
 font-weight:800;
-
 border-radius:18px;
-
 text-decoration:none;
-
-position:relative;
-z-index:2;
-
+margin-right:12px;
+margin-bottom:10px;
 }
 
-/* SUPPORT */
+/* ===== SUPPORT ===== */
 
 .support-btn{
-
 position:fixed;
-
 bottom:25px;
 right:25px;
-
 padding:18px 28px;
-
 background:linear-gradient(135deg,#00ff99,#00c97a);
-
 color:black;
-
 font-weight:700;
-
 border-radius:50px;
-
 text-decoration:none;
-
 box-shadow:0 0 25px rgba(0,255,153,0.5);
-
 z-index:9999;
-
-animation:pulse 2s infinite;
-
 }
 
-@keyframes pulse{
-
-0%{
-box-shadow:0 0 20px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 40px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 20px rgba(0,255,153,0.4);
-}
-
-}
-
-/* MOBILE */
+/* ===== MOBILE ===== */
 
 @media(max-width:1000px){
 
 .main-grid{
-
 grid-template-columns:1fr;
-
 }
 
 }
 
 @media(max-width:850px){
 
+.mobile-btn{
+display:block;
+}
+
 .sidebar{
+left:-100%;
+transition:0.4s;
+}
 
-display:none;
-
+.sidebar.active{
+left:0;
 }
 
 .main{
-
 margin-left:0;
-
-padding:20px;
-
+padding:100px 20px 20px;
 }
 
 .welcome h1{
-
 font-size:34px;
-
 }
 
-.account-header h2{
-
-font-size:28px;
-
+.overview-card h2{
+font-size:34px;
 }
 
 }
@@ -892,7 +550,19 @@ font-size:28px;
 
 <body>
 
-<div class="sidebar">
+<div class="loader">
+PURESTEP FUNDING
+</div>
+
+<div class="announcement">
+🔥 New payouts processed within 1H - Welcome to PureStep Funding
+</div>
+
+<div class="mobile-btn" onclick="toggleSidebar()">
+☰
+</div>
+
+<div class="sidebar" id="sidebar">
 
 <div class="logo">
 PURE<span>Step</span>
@@ -909,6 +579,10 @@ PURE<span>Step</span>
 <li><a href="payout.html">💸 Payouts</a></li>
 
 <li><a href="certificate.html">🏆 Certificates</a></li>
+
+<li><a href="leaderboard.html">🥇 Leaderboard</a></li>
+
+<li><a href="calendar.html">📰 Economic Calendar</a></li>
 
 <li><a href="settings.html">⚙️ Settings</a></li>
 
@@ -959,72 +633,66 @@ Trader
 <div class="overview">
 
 <div class="overview-card">
-
-<h2 id="balance">
-$0
-</h2>
-
-<p>
-Account Balance
-</p>
-
+<h2 id="balance">$0</h2>
+<p>Account Balance</p>
 </div>
 
 <div class="overview-card">
-
-<h2 id="profit">
-$0
-</h2>
-
-<p>
-Current Profit
-</p>
-
+<h2 id="profit">$0</h2>
+<p>Current Profit</p>
 </div>
 
 <div class="overview-card">
-
-<h2 id="phase">
-Phase 1
-</h2>
-
-<p>
-Challenge Phase
-</p>
-
+<h2 id="phase">Phase 1</h2>
+<p>Challenge Phase</p>
 </div>
 
 <div class="overview-card">
-
-<h2 id="status">
-ACTIVE
-</h2>
-
-<p>
-Account Status
-</p>
-
+<h2 id="status">ACTIVE</h2>
+<p>Account Status</p>
 </div>
 
 </div>
 
-<div class="progress-section">
+<div class="objectives">
 
 <h2>
-Trading Progress 🚀
+Trading Objectives 🚀
 </h2>
 
-<div class="progress-bar">
+<div class="objective-grid">
 
-<div class="progress-fill"></div>
+<div class="objective-card">
+<h3>Profit Target</h3>
+<p>8%</p>
+</div>
+
+<div class="objective-card">
+<h3>Current Progress</h3>
+<p>4.3%</p>
+</div>
+
+<div class="objective-card">
+<h3>Trading Days</h3>
+<p>5 Days</p>
+</div>
+
+<div class="objective-card">
+<h3>Remaining Drawdown</h3>
+<p>4%</p>
+</div>
 
 </div>
 
-<div class="funded-badge">
-
-FUNDED TRADER PROGRAM
-
 </div>
+
+<div class="chart-section">
+
+<h2>
+Live Trading Analytics 📈
+</h2>
+
+<canvas id="tradingChart"></canvas>
 
 </div>
 
@@ -1047,75 +715,33 @@ ACTIVE
 <div class="account-grid">
 
 <div class="account-item">
-
-<h3>
-Daily Drawdown
-</h3>
-
-<p id="daily-drawdown">
-4%
-</p>
-
+<h3>Daily Drawdown</h3>
+<p id="daily-drawdown">4%</p>
 </div>
 
 <div class="account-item">
-
-<h3>
-Max Drawdown
-</h3>
-
-<p id="max-drawdown">
-8%
-</p>
-
+<h3>Max Drawdown</h3>
+<p id="max-drawdown">8%</p>
 </div>
 
 <div class="account-item">
-
-<h3>
-Trading Platform
-</h3>
-
-<p>
-MT5
-</p>
-
+<h3>Trading Platform</h3>
+<p>MT5</p>
 </div>
 
 <div class="account-item">
-
-<h3>
-Profit Split
-</h3>
-
-<p>
-100%
-</p>
-
+<h3>Profit Split</h3>
+<p>100%</p>
 </div>
 
 <div class="account-item">
-
-<h3>
-Payout Status
-</h3>
-
-<p>
-Available
-</p>
-
+<h3>Account ID</h3>
+<p>PSF-10482</p>
 </div>
 
 <div class="account-item">
-
-<h3>
-Account Currency
-</h3>
-
-<p>
-USD
-</p>
-
+<h3>Server</h3>
+<p>PureStep-Live01</p>
 </div>
 
 </div>
@@ -1129,35 +755,84 @@ Quick Actions ⚡
 </h2>
 
 <a href="challenge.html" class="quick-btn">
-
 BUY NEW CHALLENGE
-
 </a>
 
 <a href="accounts.html" class="quick-btn">
-
 VIEW ACCOUNTS
-
 </a>
 
 <a href="payout.html" class="quick-btn">
-
 REQUEST PAYOUT
-
 </a>
 
 <a href="certificate.html" class="quick-btn">
-
 VIEW CERTIFICATE
-
 </a>
 
 <a href="settings.html" class="quick-btn">
-
 ACCOUNT SETTINGS
-
 </a>
 
+</div>
+
+</div>
+
+<div class="payout-history">
+
+<h2 style="margin-bottom:25px;">
+Payout History 💸
+</h2>
+
+<table>
+
+<tr>
+<th>Date</th>
+<th>Amount</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>12 May 2026</td>
+<td>$450</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>01 May 2026</td>
+<td>$820</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>18 April 2026</td>
+<td>$300</td>
+<td>Completed</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="leaderboard">
+
+<h2 style="margin-bottom:25px;">
+Top Traders 🏆
+</h2>
+
+<div class="trader">
+<span>Trader Alpha</span>
+<span>+12.4%</span>
+</div>
+
+<div class="trader">
+<span>Forex Master</span>
+<span>+10.1%</span>
+</div>
+
+<div class="trader">
+<span>Crypto King</span>
+<span>+8.9%</span>
 </div>
 
 </div>
@@ -1169,15 +844,15 @@ PureStep Funding 🏆
 </h2>
 
 <p>
-
 Pass your challenge and unlock your funded trader certificate with PureStep Funding.
-
 </p>
 
 <a href="certificate.html">
-
 OPEN CERTIFICATE
+</a>
 
+<a href="#">
+DOWNLOAD PDF
 </a>
 
 </div>
@@ -1192,102 +867,71 @@ Support
 
 </a>
 
-<script type="module">
+<script>
 
-import { auth, db } from "./firebase.js";
+function toggleSidebar(){
 
-import {
-
-onAuthStateChanged
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-
-doc,
-getDoc
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-onAuthStateChanged(auth, async(user)=>{
-
-if(user){
-
-const docRef = doc(db,"users",user.uid);
-
-const docSnap = await getDoc(docRef);
-
-if(docSnap.exists()){
-
-const data = docSnap.data();
-
-document.getElementById("username").innerHTML =
-data.username;
-
-document.getElementById("avatar").innerHTML =
-data.username.charAt(0).toUpperCase();
-
-document.getElementById("balance").innerHTML =
-"$" + data.balance;
-
-document.getElementById("profit").innerHTML =
-"$" + data.profit;
-
-document.getElementById("account-type").innerHTML =
-data.accountType;
-
-document.getElementById("account-type-small").innerHTML =
-data.accountType;
-
-document.getElementById("phase").innerHTML =
-data.phase;
-
-document.getElementById("status").innerHTML =
-data.status;
-
-document.getElementById("status-badge").innerHTML =
-data.status;
-
-document.getElementById("daily-drawdown").innerHTML =
-data.dailyDrawdown;
-
-document.getElementById("max-drawdown").innerHTML =
-data.maxDrawdown;
-
-const badge =
-document.getElementById("status-badge");
-
-if(data.status === "ACTIVE"){
-
-badge.style.background = "#00ff99";
-
-badge.style.color = "black";
+document.getElementById("sidebar")
+.classList.toggle("active");
 
 }
 
-if(data.status === "Pending Review"){
+const ctx =
+document.getElementById('tradingChart');
 
-badge.style.background = "#ffcc00";
+new Chart(ctx, {
 
-badge.style.color = "black";
+type:'line',
 
+data:{
+
+labels:['Mon','Tue','Wed','Thu','Fri','Sat'],
+
+datasets:[{
+
+label:'Profit',
+
+data:[120,190,300,250,420,500],
+
+borderColor:'#00ff99',
+
+backgroundColor:'rgba(0,255,153,0.1)',
+
+tension:0.4,
+
+fill:true
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+labels:{
+color:'white'
+}
+}
+},
+
+scales:{
+
+x:{
+ticks:{
+color:'white'
+}
+},
+
+y:{
+ticks:{
+color:'white'
+}
 }
 
-if(data.status === "BREACHED"){
-
-badge.style.background = "#ef4444";
-
-badge.style.color = "white";
-
 }
-
-}
-
-}
-
-else{
-
-window.location.href = "login.html";
 
 }
 
