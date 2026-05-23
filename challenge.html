@@ -30,8 +30,8 @@ position:relative;
 
 .glow{
 position:fixed;
-width:700px;
-height:700px;
+width:500px;
+height:500px;
 background:rgba(0,255,153,0.06);
 filter:blur(120px);
 border-radius:50%;
@@ -40,13 +40,13 @@ animation:float 8s infinite alternate;
 }
 
 .glow1{
-top:-250px;
-left:-250px;
+top:-200px;
+left:-200px;
 }
 
 .glow2{
-bottom:-250px;
-right:-250px;
+bottom:-200px;
+right:-200px;
 }
 
 @keyframes float{
@@ -69,59 +69,37 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:25px 7%;
+padding:20px 6%;
 
-background:rgba(7,18,38,0.85);
+background:rgba(7,18,38,0.88);
 
 backdrop-filter:blur(12px);
 
 border-bottom:1px solid rgba(0,255,153,0.08);
 
 position:sticky;
-
 top:0;
-
 z-index:1000;
 
 }
 
 .logo{
 
-font-size:42px;
-
+font-size:34px;
 font-weight:800;
-
-animation:logoFloat 4s ease-in-out infinite;
 
 }
 
 .logo span{
 
 color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
-}
-
-@keyframes logoFloat{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-6px);
-}
-
-100%{
-transform:translateY(0px);
-}
+text-shadow:0 0 20px #00ff99;
 
 }
 
 .nav-btn{
 
-padding:15px 28px;
+padding:13px 24px;
 
 border-radius:50px;
 
@@ -133,8 +111,6 @@ font-weight:800;
 
 text-decoration:none;
 
-box-shadow:0 0 30px rgba(0,255,153,0.3);
-
 transition:0.3s;
 
 }
@@ -143,53 +119,25 @@ transition:0.3s;
 
 transform:translateY(-4px);
 
-box-shadow:0 0 45px rgba(0,255,153,0.5);
-
 }
 
 /* ===== HERO ===== */
 
 .hero{
 
-padding:110px 7% 80px;
+padding:70px 6% 45px;
 
 text-align:center;
-
-position:relative;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:650px;
-height:650px;
-
-background:rgba(0,255,153,0.04);
-
-filter:blur(120px);
-
-border-radius:50%;
-
-z-index:-1;
 
 }
 
 .hero h1{
 
-font-size:85px;
+font-size:68px;
 
 line-height:1.1;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 font-weight:800;
 
@@ -199,23 +147,23 @@ font-weight:800;
 
 color:#00ff99;
 
-text-shadow:0 0 35px #00ff99;
+text-shadow:0 0 25px #00ff99;
 
 }
 
 .hero p{
 
-max-width:900px;
+max-width:800px;
 
 margin:auto;
 
-font-size:21px;
+font-size:19px;
 
 line-height:1.8;
 
 color:#94a3b8;
 
-margin-bottom:45px;
+margin-bottom:35px;
 
 }
 
@@ -223,9 +171,9 @@ margin-bottom:45px;
 
 display:inline-block;
 
-padding:20px 38px;
+padding:18px 34px;
 
-border-radius:20px;
+border-radius:18px;
 
 background:linear-gradient(135deg,#00ff99,#00c97a);
 
@@ -235,9 +183,7 @@ font-weight:800;
 
 text-decoration:none;
 
-font-size:18px;
-
-box-shadow:0 0 35px rgba(0,255,153,0.3);
+font-size:17px;
 
 transition:0.3s;
 
@@ -245,9 +191,7 @@ transition:0.3s;
 
 .hero-btn:hover{
 
-transform:translateY(-5px);
-
-box-shadow:0 0 50px rgba(0,255,153,0.6);
+transform:translateY(-4px);
 
 }
 
@@ -259,11 +203,11 @@ display:flex;
 
 justify-content:center;
 
-gap:25px;
+gap:18px;
 
 flex-wrap:wrap;
 
-padding:0 7% 60px;
+padding:0 6% 45px;
 
 }
 
@@ -271,35 +215,25 @@ padding:0 7% 60px;
 
 background:#071226;
 
-padding:18px 28px;
+padding:16px 24px;
 
 border-radius:18px;
 
 border:1px solid rgba(0,255,153,0.08);
 
-backdrop-filter:blur(12px);
-
-transition:0.3s;
+font-size:15px;
 
 }
 
-.trust-box:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 0 30px rgba(0,255,153,0.12);
-
-}
-
-/* ===== SECTION TITLE ===== */
+/* ===== TITLE ===== */
 
 .section-title{
 
 text-align:center;
 
-font-size:58px;
+font-size:48px;
 
-margin-bottom:70px;
+margin-bottom:50px;
 
 font-weight:800;
 
@@ -309,21 +243,19 @@ font-weight:800;
 
 color:#00ff99;
 
-text-shadow:0 0 25px #00ff99;
-
 }
 
 /* ===== CHALLENGES ===== */
 
 .challenges{
 
-padding:20px 7% 120px;
+padding:10px 6% 90px;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
-gap:35px;
+gap:25px;
 
 }
 
@@ -333,9 +265,9 @@ gap:35px;
 
 background:#071226;
 
-padding:40px;
+padding:32px;
 
-border-radius:35px;
+border-radius:30px;
 
 border:1px solid rgba(0,255,153,0.08);
 
@@ -343,33 +275,15 @@ position:relative;
 
 overflow:hidden;
 
-transition:0.4s;
-
-backdrop-filter:blur(15px);
-
-animation:fadeUp 0.8s ease;
-
-}
-
-@keyframes fadeUp{
-
-0%{
-opacity:0;
-transform:translateY(40px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
+transition:0.3s;
 
 }
 
 .card:hover{
 
-transform:translateY(-10px) scale(1.02);
+transform:translateY(-8px);
 
-box-shadow:0 0 45px rgba(0,255,153,0.18);
+box-shadow:0 0 35px rgba(0,255,153,0.15);
 
 }
 
@@ -379,11 +293,11 @@ content:"";
 
 position:absolute;
 
-top:-100px;
-right:-100px;
+top:-90px;
+right:-90px;
 
-width:240px;
-height:240px;
+width:220px;
+height:220px;
 
 background:rgba(0,255,153,0.05);
 
@@ -395,28 +309,26 @@ border-radius:50%;
 
 border:1px solid #00ff99;
 
-box-shadow:0 0 45px rgba(0,255,153,0.15);
-
 }
 
 .badge{
 
 position:absolute;
 
-top:22px;
-right:22px;
+top:18px;
+right:18px;
 
 background:#00ff99;
 
 color:black;
 
-padding:10px 18px;
+padding:8px 15px;
 
 border-radius:50px;
 
-font-weight:800;
+font-size:13px;
 
-font-size:14px;
+font-weight:800;
 
 }
 
@@ -424,7 +336,7 @@ font-size:14px;
 
 .plan{
 
-font-size:52px;
+font-size:42px;
 
 margin-bottom:10px;
 
@@ -435,15 +347,13 @@ z-index:2;
 
 .price{
 
-font-size:70px;
+font-size:55px;
 
 font-weight:800;
 
 color:#00ff99;
 
-margin-bottom:25px;
-
-text-shadow:0 0 25px #00ff99;
+margin-bottom:22px;
 
 position:relative;
 z-index:2;
@@ -456,7 +366,7 @@ z-index:2;
 
 list-style:none;
 
-margin-bottom:30px;
+margin-bottom:28px;
 
 position:relative;
 z-index:2;
@@ -465,11 +375,13 @@ z-index:2;
 
 .features li{
 
-margin:18px 0;
+margin:14px 0;
 
-font-size:17px;
+font-size:15px;
 
-color:#cbd5e1;
+line-height:1.6;
+
+color:#d1d5db;
 
 }
 
@@ -479,11 +391,11 @@ color:#cbd5e1;
 
 background:#0f172a;
 
-padding:24px;
+padding:18px;
 
-border-radius:25px;
+border-radius:20px;
 
-margin-bottom:30px;
+margin-bottom:24px;
 
 position:relative;
 z-index:2;
@@ -496,9 +408,9 @@ display:flex;
 
 justify-content:space-between;
 
-margin:16px 0;
+margin:12px 0;
 
-font-size:16px;
+font-size:14px;
 
 }
 
@@ -516,109 +428,7 @@ display:block;
 
 width:100%;
 
-padding:20px;
-
-text-align:center;
-
-border-radius:20px;
-
-background:linear-gradient(135deg,#00ff99,#00c97a);
-
-color:black;
-
-font-weight:800;
-
-font-size:18px;
-
-text-decoration:none;
-
-transition:0.3s;
-
-box-shadow:0 0 30px rgba(0,255,153,0.3);
-
-position:relative;
-z-index:2;
-
-}
-
-.buy-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 45px rgba(0,255,153,0.7);
-
-}
-
-/* ===== RULES ===== */
-
-.rules{
-
-padding:0 7% 120px;
-
-}
-
-.rules-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:25px;
-
-}
-
-.rule{
-
-background:#071226;
-
-padding:35px;
-
-border-radius:30px;
-
-border:1px solid rgba(0,255,153,0.08);
-
-backdrop-filter:blur(15px);
-
-transition:0.3s;
-
-}
-
-.rule:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 35px rgba(0,255,153,0.12);
-
-}
-
-.rule h3{
-
-font-size:26px;
-
-margin-bottom:15px;
-
-color:#00ff99;
-
-}
-
-.rule p{
-
-line-height:1.8;
-
-color:#cbd5e1;
-
-}
-
-/* ===== SUPPORT ===== */
-
-.support-btn{
-
-position:fixed;
-
-bottom:18px;
-right:18px;
-
-padding:15px 24px;
+padding:18px;
 
 border-radius:18px;
 
@@ -628,41 +438,72 @@ color:black;
 
 font-weight:800;
 
-text-decoration:none;
-
 font-size:16px;
 
-box-shadow:0 0 35px rgba(0,255,153,0.35);
+text-align:center;
 
-z-index:9999;
+text-decoration:none;
 
 transition:0.3s;
 
-animation:supportPulse 2s infinite;
+position:relative;
+z-index:2;
 
 }
 
-.support-btn:hover{
+.buy-btn:hover{
 
-transform:translateY(-5px);
-
-box-shadow:0 0 50px rgba(0,255,153,0.6);
+transform:translateY(-4px);
 
 }
 
-@keyframes supportPulse{
+/* ===== RULES ===== */
 
-0%{
-transform:scale(1);
+.rules{
+
+padding:0 6% 90px;
+
 }
 
-50%{
-transform:scale(1.05);
+.rules-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
 }
 
-100%{
-transform:scale(1);
+.rule{
+
+background:#071226;
+
+padding:28px;
+
+border-radius:26px;
+
+border:1px solid rgba(0,255,153,0.08);
+
 }
+
+.rule h3{
+
+font-size:22px;
+
+margin-bottom:12px;
+
+color:#00ff99;
+
+}
+
+.rule p{
+
+font-size:15px;
+
+line-height:1.7;
+
+color:#d1d5db;
 
 }
 
@@ -670,19 +511,17 @@ transform:scale(1);
 
 footer{
 
-padding:40px 7%;
+padding:30px 6%;
 
 border-top:1px solid rgba(0,255,153,0.08);
 
-display:flex;
-
-justify-content:space-between;
-
-flex-wrap:wrap;
-
-gap:20px;
+text-align:center;
 
 color:#94a3b8;
+
+font-size:14px;
+
+line-height:1.7;
 
 }
 
@@ -692,156 +531,132 @@ color:#00ff99;
 
 }
 
+/* ===== SUPPORT ===== */
+
+.support-btn{
+
+position:fixed;
+
+bottom:12px;
+right:12px;
+
+padding:13px 18px;
+
+border-radius:15px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:800;
+
+font-size:14px;
+
+text-decoration:none;
+
+z-index:99999;
+
+box-shadow:0 0 30px rgba(0,255,153,0.35);
+
+}
+
 /* ===== MOBILE ===== */
 
 @media(max-width:768px){
 
 nav{
-padding:18px 5%;
+padding:16px 5%;
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 }
 
 .nav-btn{
-padding:12px 18px;
-font-size:14px;
-border-radius:15px;
+padding:11px 16px;
+font-size:13px;
 }
 
 .hero{
-padding:65px 5% 50px;
+padding:45px 5% 35px;
 }
 
 .hero h1{
-font-size:46px;
+font-size:38px;
 line-height:1.15;
-margin-bottom:18px;
 }
 
 .hero p{
-font-size:16px;
-line-height:1.7;
-margin-bottom:30px;
+font-size:15px;
+line-height:1.6;
 }
 
 .hero-btn{
 width:100%;
-max-width:300px;
-padding:17px;
-font-size:16px;
-border-radius:18px;
+max-width:280px;
+padding:16px;
+font-size:15px;
 }
 
 .trust-bar{
-padding:0 5% 40px;
-gap:15px;
+padding:0 5% 35px;
+gap:12px;
 }
 
 .trust-box{
 width:100%;
 text-align:center;
-padding:16px;
 font-size:14px;
+padding:15px;
 }
 
 .section-title{
-font-size:38px;
-margin-bottom:40px;
-line-height:1.2;
+font-size:34px;
 padding:0 5%;
+margin-bottom:35px;
 }
 
 .challenges{
 grid-template-columns:1fr;
-padding:10px 5% 80px;
-gap:22px;
+padding:10px 5% 70px;
+gap:20px;
 }
 
 .card{
-padding:28px;
-border-radius:28px;
+padding:26px;
+border-radius:26px;
 }
 
 .plan{
-font-size:42px;
+font-size:38px;
 }
 
 .price{
-font-size:55px;
-margin-bottom:20px;
+font-size:50px;
 }
 
 .features li{
-font-size:15px;
-margin:14px 0;
-line-height:1.6;
-}
-
-.table{
-padding:18px;
-border-radius:18px;
-}
-
-.row{
 font-size:14px;
 }
 
 .buy-btn{
-padding:18px;
-font-size:16px;
-border-radius:18px;
+padding:16px;
+font-size:15px;
 }
 
 .rules{
-padding:0 5% 80px;
-}
-
-.rules-grid{
-gap:18px;
+padding:0 5% 70px;
 }
 
 .rule{
-padding:26px;
-border-radius:24px;
-}
-
-.rule h3{
-font-size:22px;
-margin-bottom:12px;
-}
-
-.rule p{
-font-size:15px;
-line-height:1.7;
+padding:24px;
 }
 
 .support-btn{
-
-bottom:15px;
-right:15px;
-
-padding:14px 20px;
-
-font-size:14px;
-
-border-radius:16px;
-
-}
-
-footer{
-padding:30px 5%;
-text-align:center;
-justify-content:center;
-font-size:14px;
-line-height:1.7;
-}
-
-.glow{
-width:400px;
-height:400px;
-filter:blur(90px);
+bottom:10px;
+right:10px;
+padding:12px 16px;
+font-size:13px;
 }
 
 }
@@ -878,7 +693,7 @@ Trade With <span>PureStep Funding</span>
 </h1>
 
 <p>
-Start your funded trading journey with PureStep Funding and access professional funded accounts with realistic rules, fast reviews and premium trader support.
+Start your funded trading journey with PureStep Funding and access professional funded accounts with realistic rules and fast payouts.
 </p>
 
 <a href="#plans" class="hero-btn">
@@ -914,6 +729,8 @@ Choose Your <span>Challenge</span>
 <!-- CHALLENGES -->
 
 <section class="challenges">
+
+<!-- 2.5K -->
 
 <div class="card">
 
@@ -958,12 +775,12 @@ $10
 
 <a href="checkout.html?plan=2.5&price=10"
 class="buy-btn">
-
 BUY CHALLENGE
-
 </a>
 
 </div>
+
+<!-- 5K -->
 
 <div class="card">
 
@@ -1008,12 +825,12 @@ $35
 
 <a href="checkout.html?plan=5&price=35"
 class="buy-btn">
-
 BUY CHALLENGE
-
 </a>
 
 </div>
+
+<!-- 10K -->
 
 <div class="card popular">
 
@@ -1062,9 +879,7 @@ $60
 
 <a href="checkout.html?plan=10&price=60"
 class="buy-btn">
-
 BUY CHALLENGE
-
 </a>
 
 </div>
@@ -1088,7 +903,7 @@ Daily Drawdown
 </h3>
 
 <p>
-Maximum allowed daily loss is 4% of your account balance. Exceeding this limit will result in account violation.
+Maximum allowed daily loss is 4% of your account balance.
 </p>
 
 </div>
@@ -1100,7 +915,7 @@ Maximum Drawdown
 </h3>
 
 <p>
-Maximum overall drawdown is 8%. Traders must manage risk carefully to maintain funded status.
+Maximum overall drawdown is 8% for all funded accounts.
 </p>
 
 </div>
@@ -1112,7 +927,7 @@ Risk Management
 </h3>
 
 <p>
-All accounts use a 2% risk limit policy to encourage disciplined and professional trading behavior.
+All accounts follow strict professional risk management rules.
 </p>
 
 </div>
@@ -1137,9 +952,7 @@ Built for serious traders 🚀
 
 <!-- SUPPORT -->
 
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
-class="support-btn">
+<a href="support.html" class="support-btn">
 
 💬 Support
 
