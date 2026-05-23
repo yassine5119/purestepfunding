@@ -20,48 +20,32 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-
 background:#020617;
 color:white;
 overflow-x:hidden;
 position:relative;
-
 }
 
-/* ===== PARTICLES ===== */
+/* ===== BACKGROUND ===== */
 
 .particles{
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 overflow:hidden;
-
 z-index:-5;
-
 pointer-events:none;
-
 }
 
 .particles span{
-
 position:absolute;
-
 display:block;
-
 border-radius:50%;
-
 background:rgba(0,255,153,0.08);
-
 animation:particles 25s linear infinite;
-
 bottom:-150px;
-
 }
 
 .particles span:nth-child(1){
@@ -155,17 +139,14 @@ justify-content:center;
 
 cursor:pointer;
 
-box-shadow:
-0 0 25px rgba(0,255,153,0.5);
+box-shadow:0 0 25px rgba(0,255,153,0.5);
 
 transition:0.3s;
 
 }
 
 .mobile-menu-btn:hover{
-
 transform:scale(1.08);
-
 }
 
 /* ===== SIDEBAR ===== */
@@ -192,7 +173,7 @@ overflow-y:auto;
 
 z-index:1000;
 
-transition:0.4s;
+transition:0.4s ease;
 
 }
 
@@ -203,7 +184,6 @@ transition:0.4s;
 display:flex;
 
 align-items:center;
-
 justify-content:center;
 
 gap:12px;
@@ -245,11 +225,8 @@ animation:logoGlow 3s infinite;
 }
 
 .logo span{
-
 color:#00ff99;
-
 text-shadow:0 0 25px #00ff99;
-
 }
 
 @keyframes logoGlow{
@@ -287,15 +264,11 @@ transform:translateY(0px);
 /* ===== SIDEBAR LINKS ===== */
 
 .sidebar-links{
-
 list-style:none;
-
 }
 
 .sidebar-links li{
-
 margin-bottom:18px;
-
 }
 
 .sidebar-links a{
@@ -361,8 +334,6 @@ background:rgba(7,18,38,0.88);
 padding:28px;
 
 border-radius:28px;
-
-backdrop-filter:blur(12px);
 
 }
 
@@ -458,8 +429,6 @@ padding:14px;
 
 border-radius:20px;
 
-overflow:hidden;
-
 }
 
 .avatar{
@@ -484,32 +453,13 @@ color:black;
 
 }
 
-.user-info{
-
-overflow:hidden;
-
-}
-
 .user-info h3{
-
 font-size:18px;
-
-white-space:nowrap;
-
-overflow:hidden;
-
-text-overflow:ellipsis;
-
-max-width:180px;
-
 }
 
 .user-info p{
-
 color:#d1d5db;
-
 margin-top:3px;
-
 }
 
 /* ===== STATS ===== */
@@ -547,11 +497,8 @@ box-shadow:0 0 35px rgba(0,255,153,0.15);
 }
 
 .stat-icon{
-
 font-size:28px;
-
 margin-bottom:14px;
-
 }
 
 .stat-card h2{
@@ -565,12 +512,10 @@ margin-bottom:8px;
 }
 
 .stat-card p{
-
 color:#94a3b8;
-
 }
 
-/* ===== DASHBOARD GRID ===== */
+/* ===== GRID ===== */
 
 .dashboard-grid{
 
@@ -660,31 +605,21 @@ border-radius:20px;
 }
 
 .account-item h3{
-
 font-size:16px;
-
 color:#00ff99;
-
 margin-bottom:10px;
-
 }
 
 .account-item p{
-
 font-size:22px;
-
 font-weight:700;
-
 }
 
 /* ===== ACTION BUTTONS ===== */
 
 .quick-panel h2{
-
 font-size:28px;
-
 margin-bottom:20px;
-
 }
 
 .action-btn{
@@ -735,20 +670,6 @@ margin-bottom:18px;
 
 }
 
-.panel-title h2{
-
-font-size:28px;
-
-}
-
-.panel-title span{
-
-color:#00ff99;
-
-font-weight:700;
-
-}
-
 .progress-bar{
 
 width:100%;
@@ -773,20 +694,6 @@ background:linear-gradient(90deg,#00ff99,#00c97a);
 
 border-radius:50px;
 
-animation:progressGlow 3s infinite alternate;
-
-}
-
-@keyframes progressGlow{
-
-0%{
-box-shadow:0 0 10px rgba(0,255,153,0.4);
-}
-
-100%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
 }
 
 /* ===== HISTORY ===== */
@@ -797,8 +704,6 @@ display:flex;
 
 justify-content:space-between;
 
-align-items:center;
-
 padding:18px 0;
 
 border-bottom:1px solid rgba(255,255,255,0.06);
@@ -808,19 +713,13 @@ font-size:17px;
 }
 
 .profit{
-
 color:#00ff99;
-
 font-weight:700;
-
 }
 
 .loss{
-
 color:#ef4444;
-
 font-weight:700;
-
 }
 
 /* ===== SUPPORT ===== */
@@ -895,16 +794,6 @@ font-size:15px;
 
 .stat-card h2{
 font-size:30px;
-}
-
-.panel-header h2,
-.panel-title h2,
-.quick-panel h2{
-font-size:24px;
-}
-
-.account-item p{
-font-size:18px;
 }
 
 }
@@ -1028,65 +917,41 @@ LIVE
 
 <div class="stat-card">
 
-<div class="stat-icon">
-💰
-</div>
+<div class="stat-icon">💰</div>
 
-<h2 id="balance">
-$0
-</h2>
+<h2 id="balance">$0</h2>
 
-<p>
-Balance
-</p>
+<p>Balance</p>
 
 </div>
 
 <div class="stat-card">
 
-<div class="stat-icon">
-📈
-</div>
+<div class="stat-icon">📈</div>
 
-<h2 id="profit">
-$0
-</h2>
+<h2 id="profit">$0</h2>
 
-<p>
-Profit
-</p>
+<p>Profit</p>
 
 </div>
 
 <div class="stat-card">
 
-<div class="stat-icon">
-🎯
-</div>
+<div class="stat-icon">🎯</div>
 
-<h2 id="phase">
-Phase 1
-</h2>
+<h2 id="phase">Phase 1</h2>
 
-<p>
-Challenge Phase
-</p>
+<p>Challenge Phase</p>
 
 </div>
 
 <div class="stat-card">
 
-<div class="stat-icon">
-🔥
-</div>
+<div class="stat-icon">🔥</div>
 
-<h2 id="status">
-ACTIVE
-</h2>
+<h2 id="status">ACTIVE</h2>
 
-<p>
-Account Status
-</p>
+<p>Account Status</p>
 
 </div>
 
@@ -1095,8 +960,6 @@ Account Status
 <!-- GRID -->
 
 <div class="dashboard-grid">
-
-<!-- ACCOUNT PANEL -->
 
 <div class="account-panel">
 
@@ -1116,49 +979,33 @@ ACTIVE
 
 <div class="account-item">
 
-<h3>
-Daily Drawdown
-</h3>
+<h3>Daily Drawdown</h3>
 
-<p id="daily-drawdown">
-4%
-</p>
+<p id="daily-drawdown">4%</p>
 
 </div>
 
 <div class="account-item">
 
-<h3>
-Max Drawdown
-</h3>
+<h3>Max Drawdown</h3>
 
-<p id="max-drawdown">
-8%
-</p>
+<p id="max-drawdown">8%</p>
 
 </div>
 
 <div class="account-item">
 
-<h3>
-Trading Platform
-</h3>
+<h3>Trading Platform</h3>
 
-<p>
-MT5
-</p>
+<p>MT5</p>
 
 </div>
 
 <div class="account-item">
 
-<h3>
-Profit Split
-</h3>
+<h3>Profit Split</h3>
 
-<p>
-100%
-</p>
+<p>100%</p>
 
 </div>
 
@@ -1166,7 +1013,7 @@ Profit Split
 
 </div>
 
-<!-- QUICK ACTIONS -->
+<!-- QUICK PANEL -->
 
 <div class="quick-panel">
 
@@ -1232,9 +1079,7 @@ Recent Trading Activity
 
 <div class="history-row">
 
-<span>
-BTCUSD
-</span>
+<span>BTCUSD</span>
 
 <span class="profit">
 +$250
@@ -1244,9 +1089,7 @@ BTCUSD
 
 <div class="history-row">
 
-<span>
-XAUUSD
-</span>
+<span>XAUUSD</span>
 
 <span class="loss">
 -$120
@@ -1256,9 +1099,7 @@ XAUUSD
 
 <div class="history-row">
 
-<span>
-EURUSD
-</span>
+<span>EURUSD</span>
 
 <span class="profit">
 +$80
@@ -1293,6 +1134,17 @@ doc,
 getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+/* ===== MOBILE MENU FIX ===== */
+
+window.toggleMenu = function(){
+
+document.querySelector(".sidebar")
+.classList.toggle("active");
+
+}
+
+/* ===== FIREBASE ===== */
+
 onAuthStateChanged(auth, async(user)=>{
 
 if(user){
@@ -1304,8 +1156,6 @@ const docSnap = await getDoc(docRef);
 if(docSnap.exists()){
 
 const data = docSnap.data();
-
-/* USER DATA */
 
 document.getElementById("username").innerHTML =
 data.username || user.email;
@@ -1340,68 +1190,13 @@ data.dailyDrawdown || "0%";
 document.getElementById("max-drawdown").innerHTML =
 data.maxDrawdown || "0%";
 
-/* BREACHED SYSTEM */
-
 if(data.status === "BREACHED"){
-
-document.getElementById("status").innerHTML =
-"BREACHED";
-
-document.getElementById("status-badge").innerHTML =
-"BREACHED";
 
 document.getElementById("status-badge").style.background =
 "#ef4444";
 
 document.getElementById("status-badge").style.color =
 "white";
-
-document.querySelector(".quick-panel").innerHTML = `
-
-<h2 style="margin-bottom:20px;">
-Account Restricted 🚫
-</h2>
-
-<div style="
-background:rgba(239,68,68,0.12);
-padding:22px;
-border-radius:20px;
-border:1px solid rgba(239,68,68,0.3);
-">
-
-<h3 style="
-color:#ff4d4d;
-font-size:24px;
-margin-bottom:15px;
-">
-ACCOUNT BREACHED
-</h3>
-
-<p style="
-color:#cbd5e1;
-line-height:1.8;
-margin-bottom:25px;
-">
-Trading has been disabled because this challenge violated the risk rules.
-</p>
-
-<a href="challenge.html" style="
-display:block;
-width:100%;
-padding:16px;
-border-radius:16px;
-background:#00ff99;
-color:black;
-font-weight:800;
-text-align:center;
-text-decoration:none;
-">
-BUY NEW CHALLENGE
-</a>
-
-</div>
-
-`;
 
 }
 
@@ -1415,16 +1210,7 @@ window.location.href = "login.html";
 
 });
 
-/* MOBILE MENU */
-
-function toggleMenu(){
-
-document.querySelector(".sidebar")
-.classList.toggle("active");
-
-}
-
-/* CLOSE MENU OUTSIDE */
+/* ===== CLOSE MENU ===== */
 
 document.addEventListener("click",(e)=>{
 
