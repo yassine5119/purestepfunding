@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PURESTEP CHECKOUT</title>
@@ -21,50 +20,33 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-
 background:#020617;
-
 color:white;
-
 overflow-x:hidden;
-
 position:relative;
-
 }
 
 /* ===== BACKGROUND ===== */
 
 .glow{
-
 position:fixed;
-
 width:500px;
 height:500px;
-
 background:rgba(0,255,153,0.06);
-
 filter:blur(120px);
-
 border-radius:50%;
-
 z-index:-1;
-
 animation:float 8s infinite alternate;
-
 }
 
 .glow1{
-
 top:-200px;
 left:-200px;
-
 }
 
 .glow2{
-
 bottom:-200px;
 right:-200px;
-
 }
 
 @keyframes float{
@@ -84,9 +66,7 @@ transform:translateY(50px);
 nav{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 padding:20px 6%;
@@ -96,7 +76,6 @@ background:#071226;
 border-bottom:1px solid rgba(0,255,153,0.1);
 
 position:sticky;
-
 top:0;
 
 z-index:1000;
@@ -108,9 +87,7 @@ backdrop-filter:blur(10px);
 .logo{
 
 font-size:34px;
-
 font-weight:800;
-
 color:white;
 
 }
@@ -118,7 +95,6 @@ color:white;
 .logo span{
 
 color:#00ff99;
-
 text-shadow:0 0 20px #00ff99;
 
 }
@@ -415,7 +391,6 @@ z-index:2;
 .info-box span{
 
 color:#00ff99;
-
 font-weight:700;
 
 }
@@ -514,88 +489,58 @@ z-index:9999;
 @media(max-width:768px){
 
 nav{
-
 padding:16px 5%;
-
 }
 
 .logo{
-
 font-size:28px;
-
 }
 
 .checkout{
-
 padding:35px 5% 80px;
-
 gap:22px;
-
 }
 
 .card{
-
 padding:24px;
-
 border-radius:24px;
-
 }
 
 .plan-title{
-
 font-size:34px;
-
 }
 
 .price{
-
 font-size:48px;
-
 }
 
 .payment-title{
-
 font-size:28px;
-
 }
 
 .features li{
-
 font-size:14px;
-
 }
 
 .pay-box{
-
 padding:18px;
-
 }
 
 .info-box{
-
 font-size:14px;
-
 padding:18px;
-
 }
 
 .submit-btn{
-
 padding:16px;
-
 font-size:15px;
-
 }
 
 .support-btn{
-
 bottom:10px;
 right:10px;
-
 padding:12px 16px;
-
 font-size:13px;
-
 }
 
 }
@@ -638,19 +583,12 @@ Loading...
 <ul class="features">
 
 <li>✔ 2-Step Evaluation Challenge</li>
-
 <li>✔ MT5 Platform Included</li>
-
 <li>✔ Crypto Payment Supported</li>
-
 <li>✔ 100% Profit Split</li>
-
 <li>✔ 4% Daily Drawdown</li>
-
 <li>✔ 8% Max Drawdown</li>
-
 <li>✔ Fast Human Review</li>
-
 <li>✔ Real Funded Dashboard</li>
 
 </ul>
@@ -808,15 +746,15 @@ getDownloadURL
 
 const params = new URLSearchParams(window.location.search);
 
-const plan = params.get("plan");
+const plan = params.get("plan") || "10K";
 
-const price = params.get("price");
+const price = params.get("price") || "60";
 
 /* ===== UI ===== */
 
 document.getElementById("plan-name").innerHTML =
 
-"$" + plan + " Challenge";
+plan + " Challenge";
 
 document.getElementById("plan-price").innerHTML =
 
@@ -826,7 +764,8 @@ document.getElementById("plan-price").innerHTML =
 
 window.copyText = function(id){
 
-const text = document.getElementById(id).innerText;
+const text =
+document.getElementById(id).innerText;
 
 navigator.clipboard.writeText(text);
 
@@ -920,7 +859,7 @@ phase: "Waiting Approval",
 
 status: "Pending Review",
 
-pendingPlan: plan + "K Challenge",
+pendingPlan: plan + " Challenge",
 
 instagram: instagram,
 
