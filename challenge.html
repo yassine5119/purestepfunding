@@ -609,6 +609,63 @@ color:#cbd5e1;
 
 }
 
+/* ===== SUPPORT ===== */
+
+.support-btn{
+
+position:fixed;
+
+bottom:18px;
+right:18px;
+
+padding:15px 24px;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,#00ff99,#00c97a);
+
+color:black;
+
+font-weight:800;
+
+text-decoration:none;
+
+font-size:16px;
+
+box-shadow:0 0 35px rgba(0,255,153,0.35);
+
+z-index:9999;
+
+transition:0.3s;
+
+animation:supportPulse 2s infinite;
+
+}
+
+.support-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 50px rgba(0,255,153,0.6);
+
+}
+
+@keyframes supportPulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
 /* ===== FOOTER ===== */
 
 footer{
@@ -760,6 +817,19 @@ font-size:15px;
 line-height:1.7;
 }
 
+.support-btn{
+
+bottom:15px;
+right:15px;
+
+padding:14px 20px;
+
+font-size:14px;
+
+border-radius:16px;
+
+}
+
 footer{
 padding:30px 5%;
 text-align:center;
@@ -845,8 +915,6 @@ Choose Your <span>Challenge</span>
 
 <section class="challenges">
 
-<!-- 2.5K -->
-
 <div class="card">
 
 <h2 class="plan">
@@ -897,8 +965,6 @@ BUY CHALLENGE
 
 </div>
 
-<!-- 5K -->
-
 <div class="card">
 
 <h2 class="plan">
@@ -948,8 +1014,6 @@ BUY CHALLENGE
 </a>
 
 </div>
-
-<!-- 10K -->
 
 <div class="card popular">
 
@@ -1012,9 +1076,7 @@ BUY CHALLENGE
 <section class="rules">
 
 <h1 class="section-title">
-
 Trading <span>Rules</span>
-
 </h1>
 
 <div class="rules-grid">
@@ -1072,6 +1134,16 @@ Built for serious traders 🚀
 </p>
 
 </footer>
+
+<!-- SUPPORT -->
+
+<a href="https://instagram.com/purestepfunding"
+target="_blank"
+class="support-btn">
+
+💬 Support
+
+</a>
 
 </body>
 
