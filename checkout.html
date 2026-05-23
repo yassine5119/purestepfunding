@@ -357,12 +357,6 @@ border:1px solid #00ff99;
 
 }
 
-input[type="file"]{
-
-padding:12px;
-
-}
-
 /* ===== INFO BOX ===== */
 
 .info-box{
@@ -428,8 +422,6 @@ box-shadow:0 0 25px rgba(0,255,153,0.25);
 .submit-btn:hover{
 
 transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.5);
 
 }
 
@@ -518,24 +510,6 @@ font-size:48px;
 font-size:28px;
 }
 
-.features li{
-font-size:14px;
-}
-
-.pay-box{
-padding:18px;
-}
-
-.info-box{
-font-size:14px;
-padding:18px;
-}
-
-.submit-btn{
-padding:16px;
-font-size:15px;
-}
-
 .support-btn{
 bottom:10px;
 right:10px;
@@ -605,8 +579,6 @@ Complete <span>Payment</span>
 
 </h2>
 
-<!-- BINANCE -->
-
 <div class="pay-box">
 
 <h3>
@@ -625,8 +597,6 @@ COPY BINANCE ID
 </button>
 
 </div>
-
-<!-- WALLET -->
 
 <div class="pay-box">
 
@@ -647,25 +617,13 @@ COPY USDT WALLET
 
 </div>
 
-<!-- INFO -->
-
 <div class="info-box">
 
 <span>Important:</span>
 
-After completing your crypto payment, upload your payment screenshot and enter your Instagram username.
-
-<br><br>
-
-⏳ Review time usually takes between <span>1 hour and 24 hours</span>.
-
-<br><br>
-
-✅ Your challenge will only be activated after admin review.
+Upload your payment screenshot and enter your Instagram username after payment.
 
 </div>
-
-<!-- FORM -->
 
 <div class="form-group">
 
@@ -697,20 +655,13 @@ I PAID
 
 </button>
 
-<div class="message" id="message">
-
-Payment submitted successfully 🚀
-
-</div>
+<div class="message" id="message"></div>
 
 </div>
 
 </section>
 
-<!-- SUPPORT -->
-
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
+<a href="support.html"
 class="support-btn">
 
 💬 Support
@@ -725,7 +676,7 @@ import { auth, db, storage } from "./firebase.js";
 
 import {
 doc,
-updateDoc
+setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
@@ -734,14 +685,12 @@ uploadBytes,
 getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-/* ===== URL PARAMS ===== */
+/* ===== PARAMS ===== */
 
 const params = new URLSearchParams(window.location.search);
 
 const rawPlan = params.get("plan");
 const rawPrice = params.get("price");
-
-/* ===== FIX LOADING ===== */
 
 const plan = rawPlan && rawPlan !== "null"
 ? rawPlan
@@ -798,8 +747,6 @@ document.getElementById("instagram").value;
 const file =
 document.getElementById("payment-proof").files[0];
 
-/* ===== VALIDATION ===== */
-
 if(instagram.trim() === ""){
 
 alert("Enter Instagram Username");
@@ -816,14 +763,12 @@ return;
 
 }
 
-/* ===== LOADING BUTTON ===== */
+/* ===== LOADING ===== */
 
 button.innerHTML =
 "Processing Payment...";
 
 button.disabled = true;
-
-button.style.opacity = "0.7";
 
 /* ===== STORAGE ===== */
 
@@ -836,32 +781,34 @@ storage,
 
 await uploadBytes(storageRef,file);
 
-/* ===== URL ===== */
-
 const screenshotURL =
 await getDownloadURL(storageRef);
 
-/* ===== FIREBASE ===== */
+/* ===== SAVE TO FIREBASE ===== */
 
-await updateDoc(doc(db,"users",user.uid),{
+await setDoc(doc(db,"users",user.uid),{
+
+email: user.email,
+
+uid: user.uid,
 
 accountType: "Pending Challenge",
 
-balance: 0,
-
-profit: 0,
-
-phase: "Waiting Approval",
-
-status: "Pending Review",
-
 pendingPlan: plan + " Challenge",
+
+challengePrice: price,
 
 instagram: instagram,
 
 paymentProof: screenshotURL,
 
-challengePrice: price,
+status: "Pending Review",
+
+phase: "Waiting Approval",
+
+balance: 0,
+
+profit: 0,
 
 dailyDrawdown: "0%",
 
@@ -876,9 +823,7 @@ createdAt: Date.now()
 message.style.display = "block";
 
 message.innerHTML =
-"Payment submitted successfully 🚀<br>Your request is now under review.";
-
-/* ===== BUTTON ===== */
+"Payment Submitted Successfully 🚀";
 
 button.innerHTML =
 "Payment Submitted";
@@ -886,17 +831,12 @@ button.innerHTML =
 button.style.background =
 "#00ff99";
 
-button.style.color =
-"black";
-
-/* ===== REDIRECT ===== */
-
 setTimeout(()=>{
 
 window.location.href =
 "dashboard.html";
 
-},3000);
+},2500);
 
 };
 
