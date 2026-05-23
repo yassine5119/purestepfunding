@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -8,7 +9,6 @@
 <title>PUREStep Funding Dashboard</title>
 
 <meta name="description" content="PUREStep Funding Professional Trading Dashboard">
-<meta name="keywords" content="prop firm, funded trading, mt5, forex funding">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -36,22 +36,22 @@ overflow-x:hidden;
 /* BACKGROUND */
 /* ========================= */
 
-.background{
+.bg{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-overflow:hidden;
 z-index:-10;
+overflow:hidden;
 }
 
 .glow{
 position:absolute;
 border-radius:50%;
-filter:blur(130px);
+filter:blur(120px);
 opacity:0.15;
-animation:float 10s infinite alternate ease-in-out;
+animation:float 8s infinite alternate ease-in-out;
 }
 
 .glow1{
@@ -103,7 +103,7 @@ animation:pulse 2s infinite;
 
 .loader-logo span{
 color:#00ff99;
-text-shadow:0 0 30px #00ff99;
+text-shadow:0 0 25px #00ff99;
 }
 
 .loader-bar{
@@ -234,7 +234,7 @@ padding:25px;
 .hero{
 background:linear-gradient(135deg,#071421,#0f172a);
 padding:40px;
-border-radius:32px;
+border-radius:30px;
 position:relative;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
@@ -283,7 +283,7 @@ margin-top:30px;
 .card{
 background:#0f172a;
 padding:28px;
-border-radius:25px;
+border-radius:24px;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.3s;
 position:relative;
@@ -339,7 +339,7 @@ margin-top:30px;
 .box{
 background:#0f172a;
 padding:25px;
-border-radius:25px;
+border-radius:24px;
 border:1px solid rgba(255,255,255,0.05);
 animation:fadeUp 1s ease;
 }
@@ -428,9 +428,8 @@ color:black;
 }
 
 .btn-dark{
-background:#111c30;
+background:#111827;
 color:white;
-border:1px solid rgba(255,255,255,0.05);
 }
 
 .btn:hover{
@@ -448,7 +447,7 @@ justify-content:space-between;
 align-items:center;
 padding:15px;
 margin-top:12px;
-background:#111c30;
+background:#111827;
 border-radius:14px;
 transition:0.3s;
 }
@@ -483,7 +482,7 @@ transform:scale(1.05);
 }
 
 /* ========================= */
-/* ANIMATION */
+/* ANIMATIONS */
 /* ========================= */
 
 @keyframes fadeUp{
@@ -551,7 +550,7 @@ PURE<span>Step</span>
 
 <!-- BACKGROUND -->
 
-<div class="background">
+<div class="bg">
 
 <div class="glow glow1"></div>
 <div class="glow glow2"></div>
@@ -569,12 +568,8 @@ PURE<span>Step</span>
 <a href="accounts.html">📊 Accounts</a>
 <a href="payout.html">💸 Payouts</a>
 <a href="certificate.html">🏆 Certificates</a>
-<a href="leaderboard.html">👑 Leaderboard</a>
 <a href="rules.html">📖 Rules</a>
-<a href="faq.html">❓ FAQ</a>
 <a href="support.html">🛟 Support</a>
-<a href="settings.html">⚙ Settings</a>
-<a href="#" onclick="logout()">🚪 Logout</a>
 
 </div>
 
@@ -596,8 +591,6 @@ PURE<span>Step</span>
 
 <div class="container">
 
-<!-- HERO -->
-
 <div class="hero">
 
 <h1>
@@ -606,7 +599,7 @@ Welcome Back,
 </h1>
 
 <p>
-Professional prop firm dashboard with real-time analytics and funded account tracking.
+Professional prop firm dashboard with live analytics and funded account tracking.
 </p>
 
 </div>
@@ -631,8 +624,8 @@ Professional prop firm dashboard with real-time analytics and funded account tra
 </div>
 
 <div class="card">
-<h3>Max Drawdown</h3>
-<h2 class="red" id="maxDrawdown">0%</h2>
+<h3>Status</h3>
+<h2 class="green" id="status">ACTIVE</h2>
 </div>
 
 </div>
@@ -654,19 +647,6 @@ Professional prop firm dashboard with real-time analytics and funded account tra
 <div class="bar" style="height:55%"></div>
 <div class="bar" style="height:95%"></div>
 <div class="bar" style="height:65%"></div>
-<div class="bar" style="height:100%"></div>
-
-</div>
-
-<div style="margin-top:30px;">
-
-<h3>Profit Target</h3>
-
-<div style="width:100%;height:18px;background:#111827;border-radius:50px;overflow:hidden;margin-top:15px;">
-
-<div style="height:100%;width:72%;background:linear-gradient(to right,#00ff99,#00b36b);box-shadow:0 0 20px #00ff99;"></div>
-
-</div>
 
 </div>
 
@@ -678,14 +658,6 @@ Professional prop firm dashboard with real-time analytics and funded account tra
 
 <a href="payout.html" class="btn btn-dark">
 💸 REQUEST PAYOUT
-</a>
-
-<a href="accounts.html" class="btn btn-dark">
-📊 MY ACCOUNTS
-</a>
-
-<a href="certificate.html" class="btn btn-dark">
-🏆 CERTIFICATES
 </a>
 
 </div>
@@ -709,16 +681,13 @@ Professional prop firm dashboard with real-time analytics and funded account tra
 </div>
 
 <div class="info-item">
-<h4>Status</h4>
-<p id="status" class="green">ACTIVE</p>
-</div>
-
-<div class="info-item">
 <h4>Email</h4>
 <p id="email">Loading...</p>
 </div>
 
-<h2 style="margin-top:25px;">Recent Trades</h2>
+<h2 style="margin-top:25px;">
+Recent Trades
+</h2>
 
 <div class="trade">
 <span>EURUSD BUY</span>
@@ -788,22 +757,22 @@ document.getElementById("sidebar")
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyAn1LPLNF0KATb06Lks4Wupehe0T5yyIEM",
+apiKey: "YOUR_API_KEY",
 
-authDomain: "purestep-576a1.firebaseapp.com",
+authDomain: "YOUR_AUTH_DOMAIN",
 
-projectId: "purestep-576a1",
+projectId: "YOUR_PROJECT_ID",
 
-storageBucket: "purestep-576a1.firebasestorage.app",
+storageBucket: "YOUR_STORAGE_BUCKET",
 
-messagingSenderId: "103788045871",
+messagingSenderId: "YOUR_SENDER_ID",
 
-appId: "1:103788045871:web:b8002a5d90deb6616d48da"
+appId: "YOUR_APP_ID"
 
 };
 
 /* ========================= */
-/* INIT FIREBASE */
+/* FIREBASE INIT */
 /* ========================= */
 
 firebase.initializeApp(firebaseConfig);
@@ -811,14 +780,16 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 /* ========================= */
-/* USER LOGIN */
+/* USER */
 /* ========================= */
 
 let userId = localStorage.getItem("purestepUserId");
 
+/* TEMP TEST */
+
 if(!userId){
 
-window.location.href = "login.html";
+userId = "testUser";
 
 }
 
@@ -827,9 +798,7 @@ window.location.href = "login.html";
 /* ========================= */
 
 db.collection("users")
-
 .doc(userId)
-
 .onSnapshot(function(doc){
 
 if(doc.exists){
@@ -848,17 +817,14 @@ document.getElementById("profit").innerText =
 document.getElementById("dailyDrawdown").innerText =
 (data.dailyDrawdown || 0) + "%";
 
-document.getElementById("maxDrawdown").innerText =
-(data.maxDrawdown || 0) + "%";
-
-document.getElementById("phase").innerText =
-data.phase || "Phase 1";
-
 document.getElementById("status").innerText =
 data.status || "ACTIVE";
 
 document.getElementById("accountType").innerText =
 data.accountType || "No Challenge Yet";
+
+document.getElementById("phase").innerText =
+data.phase || "Phase 1";
 
 document.getElementById("email").innerText =
 data.email || "No Email";
@@ -878,18 +844,6 @@ document.getElementById("status").style.color =
 }
 
 });
-
-/* ========================= */
-/* LOGOUT */
-/* ========================= */
-
-function logout(){
-
-localStorage.removeItem("purestepUserId");
-
-window.location.href = "login.html";
-
-}
 
 </script>
 
