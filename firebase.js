@@ -4,6 +4,10 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-aut
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+/* ===== FIREBASE CONFIG ===== */
+
 const firebaseConfig = {
 
 apiKey: "AIzaSyAn1LPLNf0KATbO6Lks4Wupehe0T5yyIEM",
@@ -20,10 +24,24 @@ appId: "1:103788045871:web:b8002a5d90deb6616d48da"
 
 };
 
+/* ===== INITIALIZE ===== */
+
 const app = initializeApp(firebaseConfig);
+
+/* ===== SERVICES ===== */
 
 const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-export { auth, db };
+const storage = getStorage(app);
+
+/* ===== EXPORT ===== */
+
+export {
+
+auth,
+db,
+storage
+
+};
