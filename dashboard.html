@@ -8,22 +8,14 @@
 
 <title>PUREStep Funding Dashboard</title>
 
-<!-- SEO -->
-
-<meta name="description" content="PUREStep Funding professional prop firm dashboard with live analytics and funded trading accounts.">
-
-<meta name="keywords" content="prop firm, funded trading, forex funding, MT5 dashboard, funded trader">
-
-<meta name="author" content="PUREStep Funding">
-
-<!-- FONT -->
+<meta name="description" content="PUREStep Funding Professional Trading Dashboard">
+<meta name="keywords" content="Prop Firm, Trading Dashboard, MT5, Funded Account">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
 <style>
@@ -41,49 +33,62 @@ color:white;
 overflow-x:hidden;
 }
 
+/* ========================= */
 /* BACKGROUND */
+/* ========================= */
 
 .background{
 position:fixed;
-width:100%;
-height:100%;
 top:0;
 left:0;
-z-index:-10;
+width:100%;
+height:100%;
 overflow:hidden;
+z-index:-10;
 }
 
 .glow{
 position:absolute;
 border-radius:50%;
-filter:blur(120px);
-opacity:0.18;
-animation:float 10s infinite alternate;
+filter:blur(140px);
+opacity:0.16;
+animation:float 12s infinite alternate ease-in-out;
 }
 
 .glow1{
-width:500px;
-height:500px;
+width:550px;
+height:550px;
 background:#00ff99;
 top:-200px;
-left:-150px;
+left:-200px;
 }
 
 .glow2{
-width:450px;
-height:450px;
+width:500px;
+height:500px;
 background:#00ff99;
-bottom:-180px;
+bottom:-200px;
 right:-180px;
+}
+
+.glow3{
+width:350px;
+height:350px;
+background:#00ff99;
+top:40%;
+left:45%;
+opacity:0.08;
 }
 
 @keyframes float{
 100%{
-transform:translateY(60px);
+transform:translateY(70px) translateX(20px);
 }
 }
 
+/* ========================= */
 /* LOADER */
+/* ========================= */
 
 #loader{
 position:fixed;
@@ -97,24 +102,31 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:999999;
+transition:1s;
 }
 
 .loader-logo{
-font-size:70px;
+font-size:80px;
 font-weight:800;
 animation:pulse 2s infinite;
 }
 
 .loader-logo span{
 color:#00ff99;
-text-shadow:0 0 30px #00ff99;
+text-shadow:0 0 35px #00ff99;
+}
+
+.loader-text{
+margin-top:12px;
+color:#94a3b8;
+letter-spacing:2px;
 }
 
 .loader-bar{
-width:260px;
+width:280px;
 height:6px;
 background:#111827;
-margin-top:20px;
+margin-top:25px;
 border-radius:50px;
 overflow:hidden;
 }
@@ -138,24 +150,26 @@ transform:scale(1.05);
 }
 }
 
+/* ========================= */
 /* NAVBAR */
+/* ========================= */
 
 .navbar{
 position:sticky;
 top:0;
 width:100%;
-padding:18px 25px;
+padding:18px 28px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(2,6,23,0.7);
+background:rgba(2,6,23,0.72);
 backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 z-index:999;
 }
 
 .logo{
-font-size:34px;
+font-size:38px;
 font-weight:800;
 }
 
@@ -164,18 +178,46 @@ color:#00ff99;
 text-shadow:0 0 15px #00ff99;
 }
 
-.menu-btn{
-font-size:30px;
-cursor:pointer;
+.nav-right{
+display:flex;
+align-items:center;
+gap:15px;
 }
 
+.live-dot{
+width:10px;
+height:10px;
+background:#00ff99;
+border-radius:50%;
+box-shadow:0 0 15px #00ff99;
+animation:live 1.2s infinite;
+}
+
+@keyframes live{
+50%{
+opacity:0.3;
+}
+}
+
+.menu-btn{
+font-size:32px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.menu-btn:hover{
+transform:scale(1.1);
+}
+
+/* ========================= */
 /* SIDEBAR */
+/* ========================= */
 
 .sidebar{
 position:fixed;
 top:0;
 right:-320px;
-width:280px;
+width:290px;
 height:100vh;
 background:#08111f;
 padding:30px;
@@ -192,14 +234,17 @@ right:0;
 .sidebar h2{
 margin-bottom:25px;
 color:#00ff99;
+font-size:28px;
 }
 
 .sidebar a{
-display:block;
-padding:15px;
+display:flex;
+align-items:center;
+gap:10px;
+padding:16px;
 margin-bottom:12px;
 background:#0f172a;
-border-radius:14px;
+border-radius:16px;
 text-decoration:none;
 color:white;
 transition:0.3s;
@@ -212,95 +257,106 @@ color:black;
 transform:translateX(-5px);
 }
 
+/* ========================= */
 /* MAIN */
+/* ========================= */
 
 .container{
-max-width:1500px;
+max-width:1600px;
 margin:auto;
-padding:25px;
+padding:28px;
 }
 
+/* ========================= */
 /* HERO */
+/* ========================= */
 
 .hero{
 background:linear-gradient(135deg,#071421,#0f172a);
-padding:35px;
-border-radius:30px;
+padding:45px;
+border-radius:35px;
 position:relative;
 overflow:hidden;
 border:1px solid rgba(255,255,255,0.05);
-box-shadow:0 0 30px rgba(0,255,153,0.08);
+box-shadow:0 0 35px rgba(0,255,153,0.08);
+animation:fadeUp 1s ease;
 }
 
 .hero::before{
 content:"";
 position:absolute;
-width:250px;
-height:250px;
+width:300px;
+height:300px;
 background:#00ff9915;
 border-radius:50%;
-top:-100px;
-right:-100px;
+top:-120px;
+right:-120px;
 }
 
 .hero h1{
-font-size:42px;
+font-size:50px;
 line-height:1.2;
 }
 
 .hero span{
 color:#00ff99;
-text-shadow:0 0 15px #00ff99;
+text-shadow:0 0 18px #00ff99;
 }
 
 .hero p{
-margin-top:12px;
+margin-top:14px;
 color:#94a3b8;
-line-height:1.7;
+line-height:1.8;
+font-size:17px;
+max-width:850px;
 }
 
-/* CARDS */
+/* ========================= */
+/* STATS */
+/* ========================= */
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
-margin-top:30px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:22px;
+margin-top:35px;
 }
 
 .card{
 background:#0f172a;
-padding:25px;
-border-radius:24px;
+padding:30px;
+border-radius:28px;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.3s;
 position:relative;
 overflow:hidden;
+animation:fadeUp 1s ease;
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 0 30px rgba(0,255,153,0.15);
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(0,255,153,0.15);
 }
 
 .card::before{
 content:"";
 position:absolute;
-width:120px;
-height:120px;
+width:140px;
+height:140px;
 background:#00ff9910;
 border-radius:50%;
-top:-40px;
-right:-40px;
+top:-50px;
+right:-50px;
 }
 
 .card h3{
 font-size:14px;
 color:#94a3b8;
+letter-spacing:1px;
 }
 
 .card h2{
-font-size:34px;
+font-size:42px;
 margin-top:12px;
 }
 
@@ -312,38 +368,48 @@ color:#00ff99;
 color:#ff4d6d;
 }
 
+/* ========================= */
 /* GRID */
+/* ========================= */
 
 .grid{
 display:grid;
 grid-template-columns:2fr 1fr;
-gap:20px;
-margin-top:30px;
+gap:22px;
+margin-top:35px;
 }
 
 .box{
 background:#0f172a;
-padding:25px;
-border-radius:24px;
+padding:28px;
+border-radius:28px;
 border:1px solid rgba(255,255,255,0.05);
+animation:fadeUp 1s ease;
 }
 
+/* ========================= */
 /* CHART */
+/* ========================= */
 
 .chart{
-height:300px;
+height:340px;
 display:flex;
 align-items:flex-end;
-gap:12px;
-margin-top:20px;
+gap:14px;
+margin-top:30px;
 }
 
 .bar{
 flex:1;
 background:linear-gradient(to top,#00ff99,#00b36b);
-border-radius:15px 15px 0 0;
+border-radius:16px 16px 0 0;
 box-shadow:0 0 20px rgba(0,255,153,0.25);
 animation:bars 1.5s ease;
+transition:0.3s;
+}
+
+.bar:hover{
+transform:scaleY(1.05);
 }
 
 @keyframes bars{
@@ -352,33 +418,42 @@ height:0;
 }
 }
 
-/* INFO */
+/* ========================= */
+/* PROGRESS */
+/* ========================= */
 
-.info-item{
-background:#111c30;
-padding:18px;
-border-radius:16px;
-margin-bottom:15px;
+.progress{
+width:100%;
+height:20px;
+background:#111827;
+border-radius:50px;
+overflow:hidden;
+margin-top:16px;
 }
 
-.info-item h4{
-font-size:14px;
-color:#94a3b8;
-margin-bottom:8px;
+.progress-fill{
+height:100%;
+width:72%;
+background:linear-gradient(to right,#00ff99,#00b36b);
+box-shadow:0 0 20px #00ff99;
+animation:progress 2s ease;
 }
 
-.info-item p{
-font-size:20px;
-font-weight:700;
+@keyframes progress{
+0%{
+width:0;
+}
 }
 
+/* ========================= */
 /* BUTTONS */
+/* ========================= */
 
 .buttons{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:18px;
-margin-top:30px;
+margin-top:35px;
 }
 
 .btn{
@@ -402,12 +477,61 @@ border:1px solid rgba(255,255,255,0.05);
 }
 
 .btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(0,255,153,0.2);
+}
+
+/* ========================= */
+/* INFO */
+/* ========================= */
+
+.info-item{
+background:#111c30;
+padding:18px;
+border-radius:18px;
+margin-bottom:16px;
+transition:0.3s;
+}
+
+.info-item:hover{
 transform:translateY(-4px);
 }
 
+.info-item h4{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:8px;
+}
+
+.info-item p{
+font-size:20px;
+font-weight:700;
+}
+
+/* ========================= */
 /* TRADES */
+/* ========================= */
 
 .trade{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px;
+margin-top:14px;
+background:#111c30;
+border-radius:16px;
+transition:0.3s;
+}
+
+.trade:hover{
+transform:translateX(5px);
+}
+
+/* ========================= */
+/* LEADERBOARD */
+/* ========================= */
+
+.leader{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -417,61 +541,82 @@ background:#111c30;
 border-radius:14px;
 }
 
-/* PROGRESS */
-
-.progress{
-width:100%;
-height:18px;
-background:#111827;
-border-radius:50px;
-overflow:hidden;
-margin-top:15px;
-}
-
-.progress-fill{
-height:100%;
-width:70%;
-background:linear-gradient(to right,#00ff99,#00b36b);
-box-shadow:0 0 20px #00ff99;
-animation:progress 2s ease;
-}
-
-@keyframes progress{
-0%{
-width:0;
-}
-}
-
+/* ========================= */
 /* SUPPORT */
+/* ========================= */
 
 .support{
 position:fixed;
-bottom:20px;
-right:20px;
-padding:16px 24px;
+bottom:22px;
+right:22px;
+padding:18px 25px;
 border-radius:50px;
 background:#00ff99;
 color:black;
 font-weight:700;
 text-decoration:none;
-box-shadow:0 0 25px #00ff99;
+box-shadow:0 0 30px #00ff99;
 z-index:9999;
+animation:pulseSupport 2s infinite;
 }
 
-/* MOBILE */
+@keyframes pulseSupport{
+50%{
+transform:scale(1.05);
+}
+}
 
-@media(max-width:900px){
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(30px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:1000px){
 
 .grid{
 grid-template-columns:1fr;
 }
 
 .hero h1{
-font-size:30px;
+font-size:34px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.buttons{
+grid-template-columns:1fr;
+}
+
+.container{
+padding:18px;
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
+}
+
+.hero{
+padding:30px;
+}
+
+.card h2{
+font-size:34px;
 }
 
 }
@@ -490,6 +635,10 @@ font-size:28px;
 PURE<span>Step</span>
 </div>
 
+<div class="loader-text">
+LOADING DASHBOARD
+</div>
+
 <div class="loader-bar">
 <div class="loader-fill"></div>
 </div>
@@ -501,8 +650,8 @@ PURE<span>Step</span>
 <div class="background">
 
 <div class="glow glow1"></div>
-
 <div class="glow glow2"></div>
+<div class="glow glow3"></div>
 
 </div>
 
@@ -513,23 +662,15 @@ PURE<span>Step</span>
 <h2>PUREStep</h2>
 
 <a href="dashboard.html">🏠 Dashboard</a>
-
 <a href="challenge.html">🚀 Buy Challenge</a>
-
 <a href="accounts.html">📊 Accounts</a>
-
 <a href="payout.html">💸 Payouts</a>
-
 <a href="certificate.html">🏆 Certificates</a>
-
+<a href="leaderboard.html">👑 Leaderboard</a>
 <a href="rules.html">📖 Rules</a>
-
 <a href="faq.html">❓ FAQ</a>
-
 <a href="support.html">🛟 Support</a>
-
 <a href="settings.html">⚙ Settings</a>
-
 <a href="#" onclick="logout()">🚪 Logout</a>
 
 </div>
@@ -542,8 +683,14 @@ PURE<span>Step</span>
 PURE<span>Step</span>
 </div>
 
+<div class="nav-right">
+
+<div class="live-dot"></div>
+
 <div class="menu-btn" onclick="toggleMenu()">
 ☰
+</div>
+
 </div>
 
 </div>
@@ -562,7 +709,7 @@ Welcome Back,
 </h1>
 
 <p>
-Professional prop firm dashboard with real-time analytics and funded trading account tracking.
+Professional prop firm dashboard with live analytics, funded account tracking, payout management and future MT5 automation integration.
 </p>
 
 </div>
@@ -572,22 +719,22 @@ Professional prop firm dashboard with real-time analytics and funded trading acc
 <div class="cards">
 
 <div class="card">
-<h3>Balance</h3>
+<h3>BALANCE</h3>
 <h2 class="green" id="balance">$0</h2>
 </div>
 
 <div class="card">
-<h3>Profit</h3>
+<h3>PROFIT</h3>
 <h2 class="green" id="profit">$0</h2>
 </div>
 
 <div class="card">
-<h3>Daily Drawdown</h3>
+<h3>DAILY DRAWDOWN</h3>
 <h2 class="red" id="dailyDrawdown">0%</h2>
 </div>
 
 <div class="card">
-<h3>Max Drawdown</h3>
+<h3>MAX DRAWDOWN</h3>
 <h2 class="red" id="maxDrawdown">0%</h2>
 </div>
 
@@ -606,17 +753,17 @@ Professional prop firm dashboard with real-time analytics and funded trading acc
 <div class="chart">
 
 <div class="bar" style="height:45%"></div>
-<div class="bar" style="height:70%"></div>
+<div class="bar" style="height:72%"></div>
 <div class="bar" style="height:55%"></div>
-<div class="bar" style="height:95%"></div>
+<div class="bar" style="height:98%"></div>
 <div class="bar" style="height:65%"></div>
 <div class="bar" style="height:100%"></div>
 
 </div>
 
-<div style="margin-top:30px;">
+<div style="margin-top:35px;">
 
-<h3>Profit Target</h3>
+<h3>Profit Target Progress</h3>
 
 <div class="progress">
 <div class="progress-fill"></div>
@@ -650,7 +797,7 @@ Professional prop firm dashboard with real-time analytics and funded trading acc
 
 <div class="box">
 
-<h2>Account Info</h2>
+<h2>Account Information</h2>
 
 <div class="info-item">
 <h4>Account Type</h4>
@@ -672,9 +819,7 @@ Professional prop firm dashboard with real-time analytics and funded trading acc
 <p id="email">Loading...</p>
 </div>
 
-<h2 style="margin-top:25px;">
-Recent Trades
-</h2>
+<h2 style="margin-top:28px;">Recent Trades</h2>
 
 <div class="trade">
 <span>EURUSD BUY</span>
@@ -689,6 +834,23 @@ Recent Trades
 <div class="trade">
 <span>GBPJPY BUY</span>
 <span class="green">+$89</span>
+</div>
+
+<h2 style="margin-top:28px;">Top Traders</h2>
+
+<div class="leader">
+<span>👑 Alex</span>
+<span class="green">+$12,400</span>
+</div>
+
+<div class="leader">
+<span>👑 Sarah</span>
+<span class="green">+$10,120</span>
+</div>
+
+<div class="leader">
+<span>👑 Mike</span>
+<span class="green">+$9,870</span>
 </div>
 
 </div>
@@ -711,7 +873,13 @@ window.onload = function(){
 
 setTimeout(function(){
 
+document.getElementById("loader").style.opacity = "0";
+
+setTimeout(function(){
+
 document.getElementById("loader").style.display = "none";
+
+},1000);
 
 },1800);
 
@@ -750,15 +918,13 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-/* USER ID */
+/* USER */
 
 let userId = localStorage.getItem("purestepUserId");
 
-/* TEMP USER */
-
 if(!userId){
 
-userId = "mVMvWpS78ggT99gY8xQzUxvHGbm2";
+window.location.href = "login.html";
 
 }
 
@@ -774,30 +940,20 @@ if(doc.exists){
 
 const data = doc.data();
 
-/* USERNAME */
-
 document.getElementById("username").innerText =
 data.username || "Trader";
-
-/* BALANCE */
 
 document.getElementById("balance").innerText =
 "$" + (data.balance || 0);
 
-/* PROFIT */
-
 document.getElementById("profit").innerText =
 "$" + (data.profit || 0);
-
-/* DRAWDOWNS */
 
 document.getElementById("dailyDrawdown").innerText =
 (data.dailyDrawdown || 0) + "%";
 
 document.getElementById("maxDrawdown").innerText =
 (data.maxDrawdown || 0) + "%";
-
-/* ACCOUNT INFO */
 
 document.getElementById("phase").innerText =
 data.phase || "Phase 1";
@@ -810,8 +966,6 @@ data.accountType || "No Challenge Yet";
 
 document.getElementById("email").innerText =
 data.email || "No Email";
-
-/* STATUS COLOR */
 
 if(data.status == "BREACHED"){
 
@@ -842,5 +996,4 @@ window.location.href = "login.html";
 </script>
 
 </body>
-
 </html>
