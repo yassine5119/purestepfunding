@@ -27,31 +27,31 @@ min-height:100vh;
 
 }
 
-/* ======================== */
+/* ========================= */
 /* ANIMATED BACKGROUND */
-/* ======================== */
+/* ========================= */
 
-.bg{
+.background{
 
 position:fixed;
-width:100%;
-height:100%;
-
 top:0;
 left:0;
 
-z-index:-1;
+width:100%;
+height:100%;
+
+z-index:-2;
 
 background:
-radial-gradient(circle at top left,#00ff9950,transparent 30%),
-radial-gradient(circle at bottom right,#00ff9950,transparent 30%),
+radial-gradient(circle at top left,#00ff9930,transparent 25%),
+radial-gradient(circle at bottom right,#00ff9920,transparent 25%),
 #020617;
 
 overflow:hidden;
 
 }
 
-.bg::before{
+.background::before{
 
 content:"";
 
@@ -73,7 +73,7 @@ animation:float1 12s infinite linear;
 
 }
 
-.bg::after{
+.background::after{
 
 content:"";
 
@@ -91,7 +91,7 @@ right:-200px;
 
 filter:blur(120px);
 
-animation:float2 14s infinite linear;
+animation:float2 15s infinite linear;
 
 }
 
@@ -127,9 +127,9 @@ transform:translateY(0px);
 
 }
 
-/* ======================== */
+/* ========================= */
 /* LOADER */
-/* ======================== */
+/* ========================= */
 
 .loader{
 
@@ -148,6 +148,8 @@ align-items:center;
 
 z-index:99999;
 
+flex-direction:column;
+
 transition:1s;
 
 }
@@ -164,7 +166,18 @@ animation:pulse 2s infinite;
 .loader span{
 
 color:#00ff99;
+
 text-shadow:0 0 25px #00ff99;
+
+}
+
+.loader p{
+
+margin-top:10px;
+
+font-size:18px;
+
+color:#94a3b8;
 
 }
 
@@ -172,37 +185,31 @@ text-shadow:0 0 25px #00ff99;
 
 0%{
 transform:scale(1);
-opacity:1;
 }
 
 50%{
 transform:scale(1.05);
-opacity:0.7;
 }
 
 100%{
 transform:scale(1);
-opacity:1;
 }
 
 }
 
-/* ======================== */
+/* ========================= */
 /* TOPBAR */
-/* ======================== */
+/* ========================= */
 
 .topbar{
 
 position:fixed;
+
 top:0;
 left:0;
 
 width:100%;
 height:85px;
-
-background:rgba(6,18,43,0.7);
-
-backdrop-filter:blur(20px);
 
 display:flex;
 justify-content:space-between;
@@ -210,15 +217,19 @@ align-items:center;
 
 padding:0 25px;
 
-z-index:1000;
+background:rgba(6,18,43,0.7);
+
+backdrop-filter:blur(15px);
 
 border-bottom:1px solid rgba(0,255,153,0.1);
+
+z-index:9999;
 
 }
 
 .logo{
 
-font-size:38px;
+font-size:40px;
 font-weight:800;
 
 }
@@ -226,14 +237,17 @@ font-weight:800;
 .logo span{
 
 color:#00ff99;
+
 text-shadow:0 0 20px #00ff99;
 
 }
 
 .menu-btn{
 
-width:60px;
-height:60px;
+width:58px;
+height:58px;
+
+border-radius:18px;
 
 background:#08142f;
 
@@ -241,15 +255,13 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-border-radius:18px;
-
 font-size:28px;
 
 cursor:pointer;
 
 transition:0.3s;
 
-box-shadow:0 0 25px rgba(0,255,153,0.25);
+box-shadow:0 0 20px rgba(0,255,153,0.3);
 
 }
 
@@ -257,13 +269,11 @@ box-shadow:0 0 25px rgba(0,255,153,0.25);
 
 transform:scale(1.05);
 
-box-shadow:0 0 35px rgba(0,255,153,0.5);
-
 }
 
-/* ======================== */
+/* ========================= */
 /* SIDEBAR */
-/* ======================== */
+/* ========================= */
 
 .sidebar{
 
@@ -279,9 +289,9 @@ background:#06122b;
 
 padding:110px 20px;
 
-z-index:999;
-
 transition:0.4s;
+
+z-index:999;
 
 overflow-y:auto;
 
@@ -307,9 +317,9 @@ border-radius:22px;
 
 background:#08142f;
 
-color:white;
-
 text-decoration:none;
+
+color:white;
 
 font-weight:600;
 
@@ -327,9 +337,9 @@ transform:translateX(5px);
 
 }
 
-/* ======================== */
+/* ========================= */
 /* MAIN */
-/* ======================== */
+/* ========================= */
 
 .main{
 
@@ -337,25 +347,27 @@ padding:120px 20px 40px;
 
 }
 
-/* ======================== */
+/* ========================= */
 /* HERO */
-/* ======================== */
+/* ========================= */
 
 .hero{
 
 background:linear-gradient(135deg,#00ff99,#00b96f);
 
-padding:40px;
+padding:45px;
 
 border-radius:35px;
 
 color:black;
 
-margin-bottom:30px;
-
 position:relative;
 
 overflow:hidden;
+
+margin-bottom:30px;
+
+box-shadow:0 0 45px rgba(0,255,153,0.3);
 
 animation:heroGlow 3s infinite alternate;
 
@@ -379,21 +391,9 @@ right:-100px;
 
 }
 
-@keyframes heroGlow{
-
-from{
-box-shadow:0 0 20px rgba(0,255,153,0.2);
-}
-
-to{
-box-shadow:0 0 50px rgba(0,255,153,0.5);
-}
-
-}
-
 .hero h1{
 
-font-size:42px;
+font-size:45px;
 font-weight:800;
 
 margin-bottom:12px;
@@ -405,11 +405,25 @@ margin-bottom:12px;
 font-size:18px;
 font-weight:600;
 
+max-width:700px;
+
 }
 
-/* ======================== */
-/* CARDS */
-/* ======================== */
+@keyframes heroGlow{
+
+from{
+box-shadow:0 0 20px rgba(0,255,153,0.2);
+}
+
+to{
+box-shadow:0 0 55px rgba(0,255,153,0.5);
+}
+
+}
+
+/* ========================= */
+/* STATS */
+/* ========================= */
 
 .cards{
 
@@ -435,13 +449,11 @@ border-radius:28px;
 
 border:1px solid rgba(0,255,153,0.08);
 
+transition:0.4s;
+
 position:relative;
 
 overflow:hidden;
-
-transition:0.4s;
-
-animation:fadeUp 1s ease;
 
 }
 
@@ -449,7 +461,7 @@ animation:fadeUp 1s ease;
 
 transform:translateY(-10px);
 
-box-shadow:0 0 40px rgba(0,255,153,0.25);
+box-shadow:0 0 35px rgba(0,255,153,0.2);
 
 }
 
@@ -465,7 +477,7 @@ right:-40px;
 width:120px;
 height:120px;
 
-background:#00ff9915;
+background:#00ff9910;
 
 border-radius:50%;
 
@@ -475,9 +487,9 @@ border-radius:50%;
 
 font-size:18px;
 
-color:#cbd5e1;
-
 margin-bottom:15px;
+
+color:#94a3b8;
 
 }
 
@@ -493,11 +505,11 @@ text-shadow:0 0 15px rgba(0,255,153,0.5);
 
 }
 
-/* ======================== */
+/* ========================= */
 /* ACCOUNT BOX */
-/* ======================== */
+/* ========================= */
 
-.info-box{
+.account-box{
 
 background:rgba(8,20,47,0.7);
 
@@ -509,11 +521,11 @@ border-radius:30px;
 
 border:1px solid rgba(0,255,153,0.08);
 
-animation:fadeUp 1.2s ease;
+margin-bottom:30px;
 
 }
 
-.info-box h2{
+.account-box h2{
 
 font-size:34px;
 
@@ -521,7 +533,7 @@ margin-bottom:25px;
 
 }
 
-.info-box h2 span{
+.account-box h2 span{
 
 color:#00ff99;
 
@@ -553,15 +565,15 @@ color:#94a3b8;
 
 .value{
 
-font-weight:700;
-
 font-size:18px;
+
+font-weight:700;
 
 }
 
-/* ======================== */
+/* ========================= */
 /* BUTTONS */
-/* ======================== */
+/* ========================= */
 
 .buttons{
 
@@ -607,9 +619,9 @@ box-shadow:0 0 30px rgba(0,255,153,0.35);
 
 background:#08142f;
 
-color:white;
-
 border:1px solid rgba(0,255,153,0.1);
+
+color:white;
 
 }
 
@@ -619,9 +631,65 @@ transform:translateY(-5px);
 
 }
 
-/* ======================== */
+/* ========================= */
+/* CHART */
+/* ========================= */
+
+.chart-box{
+
+background:rgba(8,20,47,0.7);
+
+backdrop-filter:blur(20px);
+
+padding:35px;
+
+border-radius:30px;
+
+margin-bottom:30px;
+
+border:1px solid rgba(0,255,153,0.08);
+
+}
+
+.chart{
+
+height:250px;
+
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
+
+gap:12px;
+
+margin-top:25px;
+
+}
+
+.bar{
+
+flex:1;
+
+background:linear-gradient(180deg,#00ff99,#00b96f);
+
+border-radius:20px 20px 5px 5px;
+
+animation:grow 2s ease;
+
+box-shadow:0 0 20px rgba(0,255,153,0.4);
+
+}
+
+@keyframes grow{
+
+from{
+height:0;
+}
+
+}
+
+/* ========================= */
 /* SUPPORT BUTTON */
-/* ======================== */
+/* ========================= */
 
 .support{
 
@@ -666,33 +734,9 @@ transform:scale(1);
 
 }
 
-/* ======================== */
-/* FADE */
-/* ======================== */
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0px);
-
-}
-
-}
-
-/* ======================== */
+/* ========================= */
 /* MOBILE */
-/* ======================== */
+/* ========================= */
 
 @media(max-width:768px){
 
@@ -716,6 +760,12 @@ gap:8px;
 
 }
 
+.loader h1{
+
+font-size:50px;
+
+}
+
 }
 
 </style>
@@ -724,7 +774,7 @@ gap:8px;
 
 <body>
 
-<div class="bg"></div>
+<div class="background"></div>
 
 <!-- LOADER -->
 
@@ -733,6 +783,10 @@ gap:8px;
 <h1>
 PURE<span>Step</span>
 </h1>
+
+<p>
+Loading Dashboard...
+</p>
 
 </div>
 
@@ -764,6 +818,8 @@ PURE<span>Step</span>
 
 <a href="#">Rules</a>
 
+<a href="#">Leaderboard</a>
+
 <a href="#">Settings</a>
 
 <a href="#">Logout</a>
@@ -773,6 +829,8 @@ PURE<span>Step</span>
 <!-- MAIN -->
 
 <div class="main">
+
+<!-- HERO -->
 
 <div class="hero">
 
@@ -785,12 +843,12 @@ Trader
 </h1>
 
 <p>
-Your funded account is performing live in real time.
+Manage your funded account performance with real-time tracking, payout system and advanced trading analytics.
 </p>
 
 </div>
 
-<!-- CARDS -->
+<!-- STATS -->
 
 <div class="cards">
 
@@ -844,9 +902,9 @@ Max Drawdown
 
 </div>
 
-<!-- INFO BOX -->
+<!-- ACCOUNT -->
 
-<div class="info-box">
+<div class="account-box">
 
 <h2>
 Trading <span>Account</span>
@@ -912,8 +970,6 @@ Profit Split
 
 </div>
 
-<!-- BUTTONS -->
-
 <div class="buttons">
 
 <a href="#" class="btn btn-green">
@@ -932,6 +988,34 @@ VIEW CERTIFICATE
 
 </div>
 
+<!-- CHART -->
+
+<div class="chart-box">
+
+<h2>
+Performance Analytics
+</h2>
+
+<div class="chart">
+
+<div class="bar" style="height:40%"></div>
+
+<div class="bar" style="height:60%"></div>
+
+<div class="bar" style="height:75%"></div>
+
+<div class="bar" style="height:50%"></div>
+
+<div class="bar" style="height:90%"></div>
+
+<div class="bar" style="height:65%"></div>
+
+<div class="bar" style="height:100%"></div>
+
+</div>
+
+</div>
+
 </div>
 
 <!-- SUPPORT -->
@@ -940,24 +1024,17 @@ VIEW CERTIFICATE
 Support
 </a>
 
-<!-- ======================== -->
 <!-- FIREBASE -->
-<!-- ======================== -->
 
-<script type="module">
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-import {
+<script>
 
-getFirestore,
-doc,
-onSnapshot,
-updateDoc
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-/* FIREBASE CONFIG */
+/* ========================= */
+/* FIREBASE */
+/* ========================= */
 
 const firebaseConfig = {
 
@@ -977,69 +1054,64 @@ measurementId: "G-8MN6J8Z4FS"
 
 };
 
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db = firebase.firestore();
 
 /* USER ID */
 
-const userId = localStorage.getItem("userId");
-
-/* USER REF */
-
-const userRef = doc(db,"users",userId);
+const userId = "mVMvWpS78ggT99gY8xQzUxvHGbm2";
 
 /* LIVE DATA */
 
-onSnapshot(userRef,(docSnap)=>{
+db.collection("users")
+.doc(userId)
 
-if(docSnap.exists()){
+.onSnapshot((doc)=>{
 
-const data = docSnap.data();
+const data = doc.data();
 
-document.getElementById("username").innerHTML =
-data.username;
+document.getElementById("username")
+.innerHTML = data.username;
 
 animateValue("balance",0,data.balance,1000,"$");
 
 animateValue("profit",0,data.profit,1000,"$");
 
-document.getElementById("dailyDrawdown").innerHTML =
-data.dailyDrawdown + "%";
+document.getElementById("dailyDrawdown")
+.innerHTML = data.dailyDrawdown + "%";
 
-document.getElementById("maxDrawdown").innerHTML =
-data.maxDrawdown + "%";
+document.getElementById("maxDrawdown")
+.innerHTML = data.maxDrawdown + "%";
 
-document.getElementById("phase").innerHTML =
-data.phase;
+document.getElementById("phase")
+.innerHTML = data.phase;
 
-document.getElementById("status").innerHTML =
-data.status;
+document.getElementById("status")
+.innerHTML = data.status;
 
-document.getElementById("accountType").innerHTML =
-data.accountType;
+document.getElementById("accountType")
+.innerHTML = data.accountType;
 
 if(data.status == "BREACHED"){
 
-document.getElementById("status").style.color =
-"red";
+document.getElementById("status")
+.style.color = "red";
 
 }
 
 else{
 
-document.getElementById("status").style.color =
-"#00ff99";
-
-}
+document.getElementById("status")
+.style.color = "#00ff99";
 
 }
 
 });
 
-/* ======================== */
-/* COUNTER ANIMATION */
-/* ======================== */
+/* ========================= */
+/* COUNTER */
+/* ========================= */
 
 function animateValue(id,start,end,duration,prefix){
 
@@ -1069,20 +1141,20 @@ clearInterval(timer);
 
 }
 
-/* ======================== */
+/* ========================= */
 /* MENU */
-/* ======================== */
+/* ========================= */
 
-window.toggleMenu = function(){
+function toggleMenu(){
 
 document.getElementById("sidebar")
 .classList.toggle("active");
 
 }
 
-/* ======================== */
+/* ========================= */
 /* LOADER */
-/* ======================== */
+/* ========================= */
 
 window.onload = ()=>{
 
