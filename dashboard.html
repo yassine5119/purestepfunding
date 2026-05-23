@@ -764,24 +764,17 @@ display:flex;
 }
 
 .sidebar{
-
 transform:translateX(-110%);
-
 }
 
 .sidebar.active{
-
 transform:translateX(0);
-
 }
 
 .main{
-
 margin-left:0;
-
 padding:14px;
 padding-top:80px;
-
 }
 
 .header-left h1{
@@ -853,7 +846,16 @@ PURE<span>Step</span>
 
 <li><a href="settings.html">⚙️ Settings</a></li>
 
-<li><a href="login.html">🚪 Logout</a></li>
+<li>
+
+<a href="#"
+onclick="logoutUser()">
+
+🚪 Logout
+
+</a>
+
+</li>
 
 </ul>
 
@@ -939,7 +941,7 @@ LIVE
 
 <div class="stat-icon">🎯</div>
 
-<h2 id="phase">Phase 1</h2>
+<h2 id="phase">None</h2>
 
 <p>Challenge Phase</p>
 
@@ -949,7 +951,7 @@ LIVE
 
 <div class="stat-icon">🔥</div>
 
-<h2 id="status">ACTIVE</h2>
+<h2 id="status">Inactive</h2>
 
 <p>Account Status</p>
 
@@ -966,11 +968,11 @@ LIVE
 <div class="panel-header">
 
 <h2 id="account-type">
-10K Challenge
+No Challenge
 </h2>
 
 <div class="status-badge" id="status-badge">
-ACTIVE
+Inactive
 </div>
 
 </div>
@@ -981,7 +983,7 @@ ACTIVE
 
 <h3>Daily Drawdown</h3>
 
-<p id="daily-drawdown">4%</p>
+<p id="daily-drawdown">0%</p>
 
 </div>
 
@@ -989,7 +991,7 @@ ACTIVE
 
 <h3>Max Drawdown</h3>
 
-<p id="max-drawdown">8%</p>
+<p id="max-drawdown">0%</p>
 
 </div>
 
@@ -1117,7 +1119,7 @@ Recent Trading Activity
 target="_blank"
 class="support-btn">
 
-Support
+💬 Support
 
 </a>
 
@@ -1126,7 +1128,8 @@ Support
 import { auth, db } from "./firebase.js";
 
 import {
-onAuthStateChanged
+onAuthStateChanged,
+signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
@@ -1134,12 +1137,23 @@ doc,
 getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* ===== MOBILE MENU FIX ===== */
+/* ===== MOBILE MENU ===== */
 
 window.toggleMenu = function(){
 
 document.querySelector(".sidebar")
 .classList.toggle("active");
+
+}
+
+/* ===== LOGOUT ===== */
+
+window.logoutUser = async function(){
+
+await signOut(auth);
+
+window.location.href =
+"login.html";
 
 }
 
@@ -1149,46 +1163,77 @@ onAuthStateChanged(auth, async(user)=>{
 
 if(user){
 
-const docRef = doc(db,"users",user.uid);
+const docRef =
+doc(db,"users",user.uid);
 
-const docSnap = await getDoc(docRef);
+const docSnap =
+await getDoc(docRef);
 
 if(docSnap.exists()){
 
-const data = docSnap.data();
+const data =
+docSnap.data();
+
+/* ===== USER ===== */
 
 document.getElementById("username").innerHTML =
 data.username || user.email;
 
 document.getElementById("avatar").innerHTML =
-(data.username || "P").charAt(0).toUpperCase();
+(data.username || "P")
+.charAt(0)
+.toUpperCase();
+
+/* ===== BALANCE ===== */
 
 document.getElementById("balance").innerHTML =
 "$" + (data.balance || 0);
 
+/* ===== PROFIT ===== */
+
 document.getElementById("profit").innerHTML =
 "$" + (data.profit || 0);
 
+/* ===== ACCOUNT TYPE ===== */
+
 document.getElementById("account-type").innerHTML =
-data.accountType || "Pending Challenge";
+
+data.pendingPlan ||
+
+data.accountType ||
+
+"No Challenge";
 
 document.getElementById("account-type-small").innerHTML =
-data.accountType || "Trader";
+
+data.pendingPlan ||
+
+data.accountType ||
+
+"Trader";
+
+/* ===== PHASE ===== */
 
 document.getElementById("phase").innerHTML =
-data.phase || "Phase 1";
+data.phase || "None";
+
+/* ===== STATUS ===== */
 
 document.getElementById("status").innerHTML =
-data.status || "ACTIVE";
+data.status || "Inactive";
 
 document.getElementById("status-badge").innerHTML =
-data.status || "ACTIVE";
+data.status || "Inactive";
+
+/* ===== DRAWDOWN ===== */
 
 document.getElementById("daily-drawdown").innerHTML =
 data.dailyDrawdown || "0%";
 
 document.getElementById("max-drawdown").innerHTML =
 data.maxDrawdown || "0%";
+
+/* ===== BREACHED ===== */
 
 if(data.status === "BREACHED"){
 
@@ -1198,13 +1243,29 @@ document.getElementById("status-badge").style.background =
 document.getElementById("status-badge").style.color =
 "white";
 
+document.getElementById("status").style.color =
+"#ef4444";
+
+}
+
+/* ===== ACTIVE ===== */
+
+if(data.status === "ACTIVE"){
+
+document.getElementById("status-badge").style.background =
+"#00ff99";
+
+document.getElementById("status-badge").style.color =
+"black";
+
 }
 
 }
 
 }else{
 
-window.location.href = "login.html";
+window.location.href =
+"login.html";
 
 }
 
