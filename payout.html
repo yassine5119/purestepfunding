@@ -163,16 +163,6 @@ border-radius:28px;
 
 border:1px solid rgba(0,255,153,0.1);
 
-transition:0.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 0 30px rgba(0,255,153,0.2);
-
 }
 
 .card h2{
@@ -191,7 +181,7 @@ color:#cbd5e1;
 
 }
 
-/* PAYOUT FORM */
+/* FORM */
 
 .payout-form{
 
@@ -418,34 +408,6 @@ box-shadow:0 0 25px rgba(0,255,153,0.5);
 
 z-index:9999;
 
-transition:0.3s;
-
-animation:pulse 2s infinite;
-
-}
-
-.support-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.8);
-
-}
-
-@keyframes pulse{
-
-0%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
-
-50%{
-box-shadow:0 0 35px rgba(0,255,153,0.8);
-}
-
-100%{
-box-shadow:0 0 15px rgba(0,255,153,0.4);
-}
-
 }
 
 /* MOBILE */
@@ -462,8 +424,6 @@ margin-bottom:20px;
 
 }
 
-/* RESPONSIVE */
-
 @media(max-width:900px){
 
 .sidebar{
@@ -473,6 +433,8 @@ left:-100%;
 transition:0.4s;
 
 z-index:1000;
+
+position:fixed;
 
 }
 
@@ -531,7 +493,7 @@ PURE<span>Step</span>
 <li><a href="settings.html">Settings</a></li>
 
 <li>
-<a href="index.html">
+<a href="login.html">
 Logout
 </a>
 </li>
@@ -559,7 +521,7 @@ Payout Center 💸
 <div class="user-box">
 
 <span id="username">
-Trader
+Loading...
 </span>
 
 </div>
@@ -572,8 +534,8 @@ Trader
 
 <div class="card">
 
-<h2>
-$150
+<h2 id="availablePayout">
+$0
 </h2>
 
 <p>
@@ -584,8 +546,8 @@ Available Payout
 
 <div class="card">
 
-<h2>
-2
+<h2 id="approvedPayouts">
+0
 </h2>
 
 <p>
@@ -596,8 +558,8 @@ Approved Payouts
 
 <div class="card">
 
-<h2>
-PENDING
+<h2 id="currentStatus">
+NONE
 </h2>
 
 <p>
@@ -622,7 +584,10 @@ Request <span>Payout</span>
 Payout Amount
 </label>
 
-<input type="text" placeholder="$150">
+<input
+type="text"
+placeholder="$150"
+id="amount">
 
 </div>
 
@@ -632,7 +597,10 @@ Payout Amount
 Binance ID
 </label>
 
-<input type="text" placeholder="Your Binance ID">
+<input
+type="text"
+placeholder="Your Binance ID"
+id="binance">
 
 </div>
 
@@ -642,7 +610,10 @@ Binance ID
 USDT Wallet Address
 </label>
 
-<input type="text" placeholder="Your Wallet">
+<input
+type="text"
+placeholder="Your Wallet"
+id="wallet">
 
 </div>
 
@@ -668,51 +639,7 @@ Payout Request Submitted Successfully 🚀
 Payout <span>History</span>
 </h2>
 
-<div class="history-item">
-
-<span>
-12/05/2026 - $150
-</span>
-
-<span class="pending">
-PENDING
-</span>
-
-</div>
-
-<div class="history-item">
-
-<span>
-01/05/2026 - $120
-</span>
-
-<span class="approved">
-APPROVED
-</span>
-
-</div>
-
-<div class="history-item">
-
-<span>
-20/04/2026 - $80
-</span>
-
-<span class="approved">
-APPROVED
-</span>
-
-</div>
-
-<div class="history-item">
-
-<span>
-10/04/2026 - $60
-</span>
-
-<span class="rejected">
-REJECTED
-</span>
+<div id="history-container">
 
 </div>
 
@@ -730,33 +657,60 @@ Support
 
 </a>
 
-<!-- SCRIPT -->
+<!-- FIREBASE -->
 
-<script>
+<script type="module">
 
-/* LOGIN PROTECTION */
+import { auth, db }
+from "./firebase.js";
 
-if(localStorage.getItem("loggedIn") !== "true"){
-
-window.location.href = "login.html";
-
+import {
+onAuthStateChanged
 }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-/* USERNAME */
+import {
+collection,
+addDoc,
+query,
+where,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-let user = localStorage.getItem("userName");
+/* USER */
+
+let currentUser = null;
+
+/* FIREBASE */
+
+onAuthStateChanged(auth, async(user)=>{
 
 if(user){
 
-document.getElementById("username").innerHTML = user;
+currentUser = user;
+
+document.getElementById("username").innerHTML =
+user.email;
+
+loadPayouts();
+
+}else{
+
+window.location.href =
+"login.html";
 
 }
 
+});
+
 /* MOBILE MENU */
 
-const sidebar = document.getElementById("sidebar");
+const sidebar =
+document.getElementById("sidebar");
 
-const menuBtn = document.getElementById("menu-btn");
+const menuBtn =
+document.getElementById("menu-btn");
 
 menuBtn.onclick = () => {
 
@@ -764,20 +718,165 @@ sidebar.classList.toggle("active");
 
 };
 
-/* PAYOUT */
+/* SUBMIT PAYOUT */
 
-function submitPayout(){
+window.submitPayout = async function(){
 
-document.getElementById("message").style.display = "block";
+const amount =
+document.getElementById("amount").value;
 
-setTimeout(() => {
+const binance =
+document.getElementById("binance").value;
 
-window.open(
-"https://instagram.com/purestepfunding",
-"_blank"
+const wallet =
+document.getElementById("wallet").value;
+
+/* VALIDATION */
+
+if(!amount || !binance || !wallet){
+
+alert("Fill All Fields");
+
+return;
+
+}
+
+/* CREATE PAYOUT */
+
+await addDoc(
+collection(db,"payouts"),
+{
+
+uid: currentUser.uid,
+
+email: currentUser.email,
+
+amount: amount,
+
+binanceId: binance,
+
+wallet: wallet,
+
+status: "PENDING",
+
+createdAt: Date.now()
+
+}
 );
 
-},2000);
+/* MESSAGE */
+
+document.getElementById("message")
+.style.display = "block";
+
+/* CLEAR */
+
+document.getElementById("amount").value = "";
+document.getElementById("binance").value = "";
+document.getElementById("wallet").value = "";
+
+/* RELOAD */
+
+loadPayouts();
+
+};
+
+/* LOAD PAYOUTS */
+
+async function loadPayouts(){
+
+const history =
+document.getElementById("history-container");
+
+history.innerHTML = "";
+
+const q = query(
+
+collection(db,"payouts"),
+
+where("uid","==",currentUser.uid)
+
+);
+
+const querySnapshot =
+await getDocs(q);
+
+let total = 0;
+let approved = 0;
+let currentStatus = "NONE";
+
+querySnapshot.forEach((docSnap)=>{
+
+const data =
+docSnap.data();
+
+total += Number(data.amount || 0);
+
+if(data.status === "APPROVED"){
+
+approved++;
+
+}
+
+currentStatus = data.status;
+
+/* STATUS */
+
+let statusClass = "pending";
+
+if(data.status === "APPROVED"){
+
+statusClass = "approved";
+
+}
+
+if(data.status === "REJECTED"){
+
+statusClass = "rejected";
+
+}
+
+/* HISTORY */
+
+history.innerHTML += `
+
+<div class="history-item">
+
+<span>
+
+${new Date(
+data.createdAt
+).toLocaleDateString()}
+-
+$${data.amount}
+
+</span>
+
+<span class="${statusClass}">
+
+${data.status}
+
+</span>
+
+</div>
+
+`;
+
+});
+
+/* UPDATE */
+
+document.getElementById("availablePayout")
+.innerHTML =
+"$" + total;
+
+document.getElementById("approvedPayouts")
+.innerHTML =
+approved;
+
+document.getElementById("currentStatus")
+.innerHTML =
+currentStatus;
 
 }
 
