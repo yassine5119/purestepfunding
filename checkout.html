@@ -26,8 +26,6 @@ overflow-x:hidden;
 position:relative;
 }
 
-/* ===== BACKGROUND ===== */
-
 .glow{
 position:fixed;
 width:500px;
@@ -60,8 +58,6 @@ transform:translateY(50px);
 }
 
 }
-
-/* ===== NAVBAR ===== */
 
 nav{
 
@@ -99,8 +95,6 @@ text-shadow:0 0 20px #00ff99;
 
 }
 
-/* ===== MAIN ===== */
-
 .checkout{
 
 padding:60px 6%;
@@ -112,8 +106,6 @@ grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:30px;
 
 }
-
-/* ===== CARD ===== */
 
 .card{
 
@@ -160,8 +152,6 @@ background:rgba(0,255,153,0.05);
 border-radius:50%;
 
 }
-
-/* ===== PLAN ===== */
 
 .plan-title{
 
@@ -211,8 +201,6 @@ line-height:1.6;
 color:#d1d5db;
 
 }
-
-/* ===== PAYMENT ===== */
 
 .payment-title{
 
@@ -276,8 +264,6 @@ line-height:1.6;
 
 }
 
-/* ===== COPY BUTTON ===== */
-
 .copy-btn{
 
 width:100%;
@@ -305,8 +291,6 @@ transition:0.3s;
 transform:translateY(-4px);
 
 }
-
-/* ===== FORM ===== */
 
 .form-group{
 
@@ -363,8 +347,6 @@ padding:12px;
 
 }
 
-/* ===== INFO BOX ===== */
-
 .info-box{
 
 background:rgba(0,255,153,0.08);
@@ -394,8 +376,6 @@ color:#00ff99;
 font-weight:700;
 
 }
-
-/* ===== BUTTON ===== */
 
 .submit-btn{
 
@@ -433,8 +413,6 @@ box-shadow:0 0 40px rgba(0,255,153,0.5);
 
 }
 
-/* ===== MESSAGE ===== */
-
 .message{
 
 margin-top:22px;
@@ -454,8 +432,6 @@ display:none;
 line-height:1.7;
 
 }
-
-/* ===== SUPPORT ===== */
 
 .support-btn{
 
@@ -483,8 +459,6 @@ box-shadow:0 0 25px rgba(0,255,153,0.35);
 z-index:9999;
 
 }
-
-/* ===== MOBILE ===== */
 
 @media(max-width:768px){
 
@@ -536,8 +510,6 @@ font-size:13px;
 <div class="glow glow1"></div>
 <div class="glow glow2"></div>
 
-<!-- NAVBAR -->
-
 <nav>
 
 <div class="logo">
@@ -545,8 +517,6 @@ PURE<span>Step</span>
 </div>
 
 </nav>
-
-<!-- CHECKOUT -->
 
 <section class="checkout">
 
@@ -587,8 +557,6 @@ Complete <span>Payment</span>
 
 </h2>
 
-<!-- BINANCE -->
-
 <div class="pay-box">
 
 <h3>
@@ -607,8 +575,6 @@ COPY BINANCE ID
 </button>
 
 </div>
-
-<!-- WALLET -->
 
 <div class="pay-box">
 
@@ -629,23 +595,20 @@ COPY USDT WALLET
 
 </div>
 
-<!-- INFO -->
-
 <div class="info-box">
 
 <span>Important:</span>
 
-After completing your payment:
-
+After payment:
 <br><br>
 
-✅ Upload payment screenshot  
-✅ Enter your Instagram username  
-✅ Wait for admin review  
+✅ Upload payment screenshot
+<br>
+✅ Enter Instagram username
+<br>
+✅ Wait for admin approval
 
 </div>
-
-<!-- FORM -->
 
 <div class="form-group">
 
@@ -689,8 +652,6 @@ Payment Submitted Successfully 🚀
 
 </section>
 
-<!-- SUPPORT -->
-
 <a href="https://instagram.com/purestepfunding"
 target="_blank"
 class="support-btn">
@@ -699,15 +660,14 @@ class="support-btn">
 
 </a>
 
-<!-- FIREBASE -->
-
 <script type="module">
 
 import { auth, db, storage } from "./firebase.js";
 
 import {
 doc,
-setDoc
+setDoc,
+increment
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
@@ -716,7 +676,7 @@ uploadBytes,
 getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-/* ===== PARAMS ===== */
+/* ===== URL PARAMS ===== */
 
 const params = new URLSearchParams(window.location.search);
 
@@ -844,7 +804,9 @@ dailyDrawdown: "0%",
 
 maxDrawdown: "0%",
 
-createdAt: Date.now()
+lastPurchase: Date.now(),
+
+purchaseCount: increment(1)
 
 },{ merge:true });
 
