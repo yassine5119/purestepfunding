@@ -357,6 +357,12 @@ border:1px solid #00ff99;
 
 }
 
+input[type="file"]{
+
+padding:12px;
+
+}
+
 /* ===== INFO BOX ===== */
 
 .info-box{
@@ -422,6 +428,8 @@ box-shadow:0 0 25px rgba(0,255,153,0.25);
 .submit-btn:hover{
 
 transform:translateY(-5px);
+
+box-shadow:0 0 40px rgba(0,255,153,0.5);
 
 }
 
@@ -579,6 +587,8 @@ Complete <span>Payment</span>
 
 </h2>
 
+<!-- BINANCE -->
+
 <div class="pay-box">
 
 <h3>
@@ -597,6 +607,8 @@ COPY BINANCE ID
 </button>
 
 </div>
+
+<!-- WALLET -->
 
 <div class="pay-box">
 
@@ -617,13 +629,23 @@ COPY USDT WALLET
 
 </div>
 
+<!-- INFO -->
+
 <div class="info-box">
 
 <span>Important:</span>
 
-Upload your payment screenshot and enter your Instagram username after payment.
+After completing your payment:
+
+<br><br>
+
+✅ Upload payment screenshot  
+✅ Enter your Instagram username  
+✅ Wait for admin review  
 
 </div>
+
+<!-- FORM -->
 
 <div class="form-group">
 
@@ -648,20 +670,29 @@ id="payment-proof">
 
 </div>
 
-<button class="submit-btn"
+<button type="button"
+class="submit-btn"
 onclick="submitPayment()">
 
 I PAID
 
 </button>
 
-<div class="message" id="message"></div>
+<div class="message"
+id="message">
+
+Payment Submitted Successfully 🚀
+
+</div>
 
 </div>
 
 </section>
 
-<a href="support.html"
+<!-- SUPPORT -->
+
+<a href="https://instagram.com/purestepfunding"
+target="_blank"
 class="support-btn">
 
 💬 Support
@@ -731,7 +762,8 @@ document.querySelector(".submit-btn");
 const message =
 document.getElementById("message");
 
-const user = auth.currentUser;
+const user =
+auth.currentUser;
 
 if(!user){
 
@@ -746,6 +778,8 @@ document.getElementById("instagram").value;
 
 const file =
 document.getElementById("payment-proof").files[0];
+
+/* ===== VALIDATION ===== */
 
 if(instagram.trim() === ""){
 
@@ -784,13 +818,9 @@ await uploadBytes(storageRef,file);
 const screenshotURL =
 await getDownloadURL(storageRef);
 
-/* ===== SAVE TO FIREBASE ===== */
+/* ===== FIREBASE ===== */
 
 await setDoc(doc(db,"users",user.uid),{
-
-email: user.email,
-
-uid: user.uid,
 
 accountType: "Pending Challenge",
 
@@ -816,20 +846,23 @@ maxDrawdown: "0%",
 
 createdAt: Date.now()
 
-});
+},{ merge:true });
 
 /* ===== SUCCESS ===== */
 
-message.style.display = "block";
-
-message.innerHTML =
-"Payment Submitted Successfully 🚀";
+message.style.display =
+"block";
 
 button.innerHTML =
 "Payment Submitted";
 
 button.style.background =
 "#00ff99";
+
+button.style.color =
+"black";
+
+/* ===== REDIRECT ===== */
 
 setTimeout(()=>{
 
