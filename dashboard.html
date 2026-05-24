@@ -1,287 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PureStep Funding Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#020617;color:white;overflow-x:hidden;}
-
-/* ===== BACKGROUND PARTICLES ===== */
-.particles{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:-5;pointer-events:none;}
-.particles span{position:absolute;display:block;border-radius:50%;background:rgba(0,255,153,0.06);animation:particles 25s linear infinite;bottom:-150px;}
-.particles span:nth-child(1){left:10%;width:80px;height:80px;animation-duration:18s;}
-.particles span:nth-child(2){left:30%;width:120px;height:120px;animation-duration:22s;}
-.particles span:nth-child(3){left:70%;width:90px;height:90px;animation-duration:16s;}
-@keyframes particles{0%{transform:translateY(0) rotate(0deg);opacity:0;}10%{opacity:1;}100%{transform:translateY(-1200px) rotate(720deg);opacity:0;}}
-
-/* ===== MOBILE MENU BUTTON ===== */
-.mobile-menu-btn{display:none;position:fixed;top:15px;left:15px;width:52px;height:52px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-size:30px;font-weight:800;border-radius:16px;z-index:999999;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 25px rgba(0,255,153,0.4);}
-
-/* ===== SIDEBAR ===== */
-.sidebar{position:fixed;top:0;left:0;width:290px;height:100vh;background:rgba(7,18,38,0.95);backdrop-filter:blur(15px);padding:30px 20px;border-right:1px solid rgba(255,255,255,0.05);overflow-y:auto;z-index:1000;transition:0.4s ease;}
-.logo{display:flex;align-items:center;justify-content:center;gap:12px;font-size:40px;font-weight:800;margin-bottom:50px;}
-.logo span{color:#00ff99;text-shadow:0 0 25px #00ff99;}
-.sidebar-links{list-style:none;}
-.sidebar-links li{margin-bottom:18px;}
-.sidebar-links a{display:block;padding:18px 20px;border-radius:18px;background:rgba(15,23,42,0.88);text-decoration:none;color:white;font-weight:600;transition:0.3s;}
-.sidebar-links a:hover{background:linear-gradient(135deg,#00ff99,#00c97a);color:black;transform:translateX(8px);}
-
-/* ===== MAIN CONTAINER ===== */
-.main{margin-left:290px;padding:30px;}
-
-/* ===== HEADER ===== */
-.dashboard-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:25px;background:rgba(7,18,38,0.88);padding:28px;border-radius:28px;}
-.header-left h1{font-size:42px;font-weight:800;margin-bottom:10px;}
-.header-left p{color:#94a3b8;font-size:17px;}
-.user-card{margin-top:20px;display:flex;align-items:center;gap:14px;background:rgba(15,23,42,0.85);padding:14px;border-radius:20px;}
-.avatar{width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg,#00ff99,#00c97a);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:black;}
-.user-info h3{font-size:18px;}
-.live-status{display:flex;align-items:center;gap:10px;padding:12px 20px;border-radius:50px;background:rgba(0,255,153,0.12);color:#00ff99;font-weight:700;}
-.dot{width:12px;height:12px;border-radius:50%;background:#00ff99;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:0.5;}100%{transform:scale(1);opacity:1;}}
-
-/* ===== 1. NO ACCOUNTS VIEW (STAYS UNTIL PURCHASE) ===== */
-.no-accounts-panel{background:rgba(7,18,38,0.88);padding:50px;border-radius:26px;text-align:center;border:1px solid rgba(0,255,153,0.05);display:none;}
-.no-accounts-panel h2{font-size:28px;margin-bottom:15px;font-weight:700;}
-.no-accounts-panel p{color:#94a3b8;margin-bottom:30px;font-size:16px;}
-.buy-now-btn{display:inline-block;padding:18px 36px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-weight:800;text-decoration:none;border-radius:16px;transition:0.3s;}
-.buy-now-btn:hover{transform:translateY(-3px);box-shadow:0 0 30px rgba(0,255,153,0.4);}
-
-/* ===== 2. ACTIVE MULTI-DASHBOARD CONTAINER ===== */
-.active-dashboard-panel{display:none;}
-.panel-title{font-size:22px;margin-bottom:20px;font-weight:700;}
-.accounts-container{display:grid;grid-template-columns:1fr;gap:20px;}
-
-/* ===== ACCORDION FOR EACH ACCOUNT ===== */
-.account-wrapper{background:#0f172a;border:1px solid rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;transition:0.3s;}
-.account-wrapper:hover{border-color:rgba(0,255,153,0.3);}
-.account-wrapper-header{padding:22px 28px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:rgba(15,23,42,0.6);transition:0.2s;}
-.account-wrapper-header:hover{background:rgba(15,23,42,1);}
-.acc-header-info h3{font-size:18px;color:white;font-weight:700;}
-.acc-header-info span{font-size:13px;color:#94a3b8;display:block;margin-top:3px;}
-.acc-header-badge{padding:8px 16px;border-radius:50px;font-size:12px;font-weight:700;text-transform:uppercase;}
-
-/* ACCORDION CONTENT (THE DASHBOARD INDSIDE) */
-.account-dashboard-body{display:none;padding:25px;background:#071226;border-top:1px solid rgba(255,255,255,0.04);animation:fadeIn 0.3s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
-
-/* ===== STATS INNER ===== */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:20px;}
-.stat-card{background:#0f172a;padding:20px;border-radius:18px;}
-.stat-icon{font-size:13px;color:#94a3b8;margin-bottom:8px;text-transform:uppercase;}
-.stat-card h2{font-size:32px;color:#00ff99;font-weight:800;margin-bottom:4px;}
-.stat-card p{color:#64748b;font-size:13px;}
-
-/* ===== LAYOUT INNER ===== */
-.dashboard-inner-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:20px;}
-.details-panel, .actions-panel, .progress-panel{background:#0f172a;padding:20px;border-radius:20px;}
-.inner-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.inner-panel-header h4{font-size:20px;font-weight:700;}
-
-.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;}
-.metric-item{background:#071226;padding:16px;border-radius:14px;}
-.metric-item h5{font-size:12px;color:#94a3b8;margin-bottom:6px;text-transform:uppercase;}
-.metric-item p{font-size:18px;font-weight:700;}
-
-.action-btn{display:block;width:100%;padding:14px;margin-bottom:12px;border-radius:14px;background:#071226;border:1px solid rgba(255,255,255,0.05);text-decoration:none;text-align:center;font-weight:700;color:white;font-size:14px;transition:0.2s;}
-.action-btn:hover{background:linear-gradient(135deg,#00ff99,#00c97a);color:black;}
-
-.progress-title-area{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.progress-bar{width:100%;height:14px;background:#071226;border-radius:50px;overflow:hidden;}
-.progress-fill{height:100%;background:linear-gradient(90deg,#00ff99,#00c97a);border-radius:50px;width:0%;}
-
-/* ===== MOBILE ===== */
-@media(max-width:1000px){.dashboard-inner-grid{grid-template-columns:1fr;}}
-@media(max-width:850px){
-.mobile-menu-btn{display:flex;}
-.sidebar{transform:translateX(-110%);}
-.sidebar.active{transform:translateX(0);}
-.main{margin-left:0;padding:14px;padding-top:80px;}
-.header-left h1{font-size:30px;}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0b0e14; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: auto; }
+        
+        /* Account Card Style */
+        .account-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; margin-bottom: 20px; overflow: hidden; transition: 0.3s; }
+        .card-header { padding: 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #0d1117; }
+        .card-header:hover { background: #161b22; }
+        
+        /* Body Details */
+        .card-body { padding: 30px; display: none; border-top: 1px solid #30363d; }
+        
+        /* Stats Grid */
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .stat-box { background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d; }
+        
+        /* Progress */
+        .progress-container { margin: 20px 0; }
+        .progress-bar { height: 8px; background: #0d1117; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: #238636; }
+        
+        /* Buttons */
+        .btn { padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; cursor: pointer; border: none; display: inline-block; font-size: 14px; }
+        .btn-green { background: #238636; color: white; }
+        .btn-gray { background: #30363d; color: white; margin-left: 10px; }
+        .btn-disabled { background: #30363d; color: #8b949e; cursor: not-allowed; }
+        
+        /* Status Badges */
+        .status-badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status-active { background: #1a3a2a; color: #238636; }
+        .status-breached { background: #3d2222; color: #da3633; }
+        
+        .empty-state { text-align: center; padding: 100px 20px; border: 2px dashed #30363d; border-radius: 12px; }
+    </style>
 </head>
-
 <body>
 
-<div class="particles"><span></span><span></span></div>
-
-<div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-<div class="logo"><div>PURE<span>Step</span></div></div>
-<ul class="sidebar-links">
-<li><a href="dashboard.html">Dashboard</a></li>
-<li><a href="challenge.html">Buy Challenge</a></li>
-<li><a href="#" onclick="logoutUser()">Logout</a></li>
-</ul>
-</div>
-
-<!-- MAIN CONTAINER -->
-<div class="main">
-    <!-- HEADER -->
-    <div class="dashboard-header">
-        <div class="header-left">
-            <h1>Trading Dashboard</h1>
-            <p>Welcome back to your trading control center.</p>
-            <div class="user-card">
-                <div class="avatar" id="avatar">P</div>
-                <div class="user-info"><h3 id="username">Loading...</h3><p>Trader Account</p></div>
-            </div>
+<div class="container">
+    <h1>Dashboard</h1>
+    <div id="accounts-list">
+        <div id="empty-view" class="empty-state">
+            <h2>No active accounts</h2>
+            <p>Purchase a challenge to get started.</p>
+            <br>
+            <a href="challenge.html" class="btn btn-green">View Challenges</a>
         </div>
-        <div class="header-right"><div class="live-status"><span class="dot"></span>LIVE</div></div>
-    </div>
-
-    <!-- 1. لوحة الشراء (كتطلع غير يلا مكانش شاري) -->
-    <div class="no-accounts-panel" id="no-accounts-view">
-        <h2>No Active Trading Accounts</h2>
-        <p>You do not have any trading challenges active. Purchase your challenge to unlock your professional trading dashboard.</p>
-        <a href="challenge.html" class="buy-now-btn">Get Started Now</a>
-    </div>
-
-    <!-- 2. لوحة الحسابات والداشبورد (مكتطلع حتى يشري) -->
-    <div class="active-dashboard-panel" id="active-dashboard-view">
-        <h2 class="panel-title">Select Account Dashboard</h2>
-        <div class="accounts-container" id="accounts-container"></div>
     </div>
 </div>
 
 <script type="module">
-import { auth, db } from "./firebase.js";
-import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { collection, onSnapshot, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { auth, db } from "./firebase.js";
+    import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-window.toggleMenu = function(){
-    document.querySelector(".sidebar").classList.toggle("active");
-}
+    onAuthStateChanged(auth, (user) => {
+        if (!user) { window.location.href = "login.html"; return; }
 
-window.logoutUser = async function(){
-    await signOut(auth);
-    window.location.href = "login.html";
-}
+        const list = document.getElementById("accounts-list");
+        const emptyView = document.getElementById("empty-view");
 
-onAuthStateChanged(auth, async(user) => {
-    if(user){
-        // جلب إسم المستخدم للترحيب
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if(docSnap.exists()){
-            const data = docSnap.data();
-            document.getElementById("username").innerHTML = data.username || user.email;
-            document.getElementById("avatar").innerHTML = (data.username || "P").charAt(0).toUpperCase();
-        }
-
-        const noAccountsView = document.getElementById("no-accounts-view");
-        const activeDashboardView = document.getElementById("active-dashboard-view");
-        const accountsContainer = document.getElementById("accounts-container");
-        
-        const accountsRef = collection(db, "users", user.uid, "accounts");
-        
-        // مراقبة لايف للحسابات ف الـ Sub-collection
-        onSnapshot(accountsRef, (snapshot) => {
-            accountsContainer.innerHTML = "";
-
-            if(snapshot.empty){
-                // الـ Flow الأول: ما شاري والو = ما كاينش داشبورد، بان غير زر الشراء
-                activeDashboardView.style.display = "none";
-                noAccountsView.style.display = "block";
-                return;
-            }
-
-            // الـ Flow الثاني: شاري = خبّي لوحة الشراء وظهر الداشبورد الحقيقي فالبلاصة
-            noAccountsView.style.display = "none";
-            activeDashboardView.style.display = "block";
-
-            snapshot.forEach((accountDoc) => {
-                const accId = accountDoc.id;
-                const accData = accountDoc.data();
-
-                const wrapper = document.createElement("div");
-                wrapper.className = "account-wrapper";
-
-                let badgeBg = "#00ff99"; let badgeColor = "black";
-                if(accData.status === "BREACHED") { badgeBg = "#ef4444"; badgeColor = "white"; }
-                else if(accData.status === "PENDING") { badgeBg = "#64748b"; badgeColor = "white"; }
-
-                const headerHtml = `
-                    <div class="account-wrapper-header" onclick="toggleAccountDashboard('${accId}')">
-                        <div class="acc-header-info">
-                            <h3>${accData.accountType || 'Evaluation Challenge'}</h3>
-                            <span>Account ID: ${accId.substring(0, 8)}</span>
-                        </div>
-                        <div class="acc-header-badge" style="background: ${badgeBg}; color: ${badgeColor};">
-                            ${accData.status || 'ACTIVE'}
-                        </div>
-                    </div>
-                `;
-
-                const bodyHtml = `
-                    <div class="account-dashboard-body" id="db-body-${accId}">
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-icon">Current Balance</div>
-                                <h2>$${accData.balance || 0}</h2>
-                                <p>Available Funds</p>
+        onSnapshot(collection(db, "users", user.uid, "accounts"), (snapshot) => {
+            if (snapshot.empty) {
+                emptyView.style.display = "block";
+                list.innerHTML = "";
+                list.appendChild(emptyView);
+            } else {
+                emptyView.style.display = "none";
+                list.innerHTML = "";
+                snapshot.forEach((doc) => {
+                    const d = doc.data();
+                    const id = doc.id;
+                    const isActive = d.status === 'Active';
+                    
+                    list.innerHTML += `
+                        <div class="account-card">
+                            <div class="card-header" onclick="toggle('${id}')">
+                                <div><h3 style="margin:0">${d.plan}</h3></div>
+                                <div><span class="status-badge ${isActive ? 'status-active' : 'status-breached'}">${d.status}</span></div>
                             </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">Profit / Loss</div>
-                                <h2 style="color: ${accData.profit >= 0 ? '#00ff99' : '#ef4444'}">$${accData.profit || 0}</h2>
-                                <p>Total Growth</p>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">Phase</div>
-                                <h2>${accData.phase || 'Phase 1'}</h2>
-                                <p>Target Stage</p>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-inner-grid">
-                            <div class="details-panel">
-                                <div class="inner-panel-header"><h4>Account Credentials & Risk</h4></div>
-                                <div class="metrics-grid">
-                                    <div class="metric-item"><h5>Daily Drawdown</h5><p>${accData.dailyDrawdown || '0%'}</p></div>
-                                    <div class="metric-item"><h5>Max Drawdown</h5><p>${accData.maxDrawdown || '0%'}</p></div>
-                                    <div class="metric-item"><h5>MT5 Login</h5><p>${accData.mt5Login || 'Pending'}</p></div>
-                                    <div class="metric-item"><h5>MT5 Password</h5><p>${accData.mt5Password || 'Pending'}</p></div>
+                            <div class="card-body" id="body-${id}">
+                                <div class="stats-row">
+                                    <div class="stat-box"><small>Login</small><h4>${d.mt5Login}</h4></div>
+                                    <div class="stat-box"><small>Balance</small><h4>$${d.balance}</h4></div>
+                                </div>
+                                <div class="progress-container">
+                                    <div style="display:flex; justify-content:space-between"><span>Profit Target Progress</span><span>${d.progress}%</span></div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width:${d.progress}%"></div></div>
+                                </div>
+                                <div style="margin-top:20px;">
+                                    ${isActive ? 
+                                        `<a href="payout.html" class="btn btn-green">Request Payout</a>` : 
+                                        `<button class="btn btn-disabled">Payout Locked</button>`
+                                    }
+                                    <a href="certificate.html" class="btn btn-gray">View Certificate</a>
                                 </div>
                             </div>
-                            <div class="actions-panel">
-                                <div class="inner-panel-header"><h4>Actions</h4></div>
-                                <a href="#" class="action-btn" style="background: linear-gradient(135deg,#00ff99,#00c97a); color:black;">Request Payout</a>
-                                <a href="https://instagram.com/purestepfunding" target="_blank" class="action-btn">Report Issue</a>
-                            </div>
                         </div>
-
-                        <div class="progress-panel">
-                            <div class="progress-title-area"><h4>Target Progress</h4><span>${accData.progress || '0%'}</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width: ${accData.progress || '0%'}"></div></div>
-                        </div>
-                    </div>
-                `;
-
-                wrapper.innerHTML = headerHtml + bodyHtml;
-                accountsContainer.appendChild(wrapper);
-            });
+                    `;
+                });
+            }
         });
+    });
 
-        window.toggleAccountDashboard = function(id) {
-            const allBodies = document.querySelectorAll(".account-dashboard-body");
-            const targetBody = document.getElementById(`db-body-${id}`);
-            const isCurrentlyOpen = targetBody.style.display === "block";
-
-            allBodies.forEach(body => body.style.display = "none");
-            if(!isCurrentlyOpen) { targetBody.style.display = "block"; }
-        }
-
-    } else {
-        window.location.href = "login.html";
-    }
-});
+    window.toggle = (id) => {
+        const body = document.getElementById(`body-${id}`);
+        body.style.display = (body.style.display === "block") ? "none" : "block";
+    };
 </script>
+
 </body>
 </html>
