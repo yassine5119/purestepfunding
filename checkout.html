@@ -35,7 +35,6 @@
         .form-group label{display:block;margin-bottom:10px;font-weight:600;color:#d1d5db;}
         .form-group input{width:100%;padding:15px;border:none;outline:none;border-radius:15px;background:#0f172a;color:white;font-size:15px;border:1px solid rgba(255,255,255,0.05);}
         .form-group input:focus{border:1px solid #00ff99;}
-        input[type="file"]{padding:12px;}
         .info-box{background:rgba(0,255,153,0.08);border:1px solid rgba(0,255,153,0.15);padding:20px;border-radius:18px;margin-bottom:22px;line-height:1.8;color:#d1d5db;font-size:15px;position:relative;z-index:2;}
         .info-box span{color:#00ff99;font-weight:700;}
         .submit-btn{width:100%;padding:17px;border:none;border-radius:18px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-size:17px;font-weight:800;cursor:pointer;transition:0.3s;margin-top:10px;box-shadow:0 0 25px rgba(0,255,153,0.25);}
@@ -87,33 +86,27 @@
             </div>
 
             <div class="info-box">
-                <span>Important:</span> After payment:<br><br>
-                ✅ Enter Instagram username<br>
-                ✅ Upload payment screenshot<br>
-                ✅ Wait for admin approval
+                <span>Important Steps:</span><br>
+                1️⃣ Copy the Payment ID and complete the transfer.<br>
+                2️⃣ Enter your Instagram username below.<br>
+                3️⃣ Click <b>"I PAID"</b> to send your screenshot on Instagram!
             </div>
 
             <div class="form-group">
-                <label>Instagram Username</label>
+                <label>Your Instagram Username</label>
                 <input type="text" id="instagram" placeholder="@username">
             </div>
 
-            <div class="form-group">
-                <label>Upload Payment Screenshot</label>
-                <input type="file" id="payment-proof">
-            </div>
-
-            <button type="button" class="submit-btn" onclick="submitPayment()">I PAID</button>
-            <div class="message" id="message">Payment Submitted Successfully 🚀</div>
+            <button type="button" class="submit-btn" onclick="submitPayment()">I PAID (SEND SCREENSHOT)</button>
+            <div class="message" id="message">Redirecting to Instagram... 🚀</div>
         </div>
     </section>
 
     <a href="https://instagram.com/purestepfunding" target="_blank" class="support-btn">💬 Support</a>
 
     <script type="module">
-        import { auth, db, storage } from "./firebase.js";
+        import { auth, db } from "./firebase.js";
         import { doc, setDoc, increment, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
         import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
         /* ===== PARAMS ===== */
@@ -135,7 +128,7 @@
             alert("Copied Successfully 🚀");
         };
 
-        /* ===== تفحص الـ LOGIN بطريقة ذكية ===== */
+        /* ===== CHECK AUTH ===== */
         let activeUser = null;
         let isAuthChecked = false; 
 
@@ -148,7 +141,7 @@
         window.submitPayment = async function(){
             try{
                 if (!isAuthChecked) {
-                    alert("Checking authentication, please wait a moment.");
+                    alert("Checking authentication, please wait...");
                     return;
                 }
 
@@ -158,75 +151,52 @@
                     return;
                 }
 
+                const instagram = document.getElementById("instagram").value;
+
+                if(instagram.trim() === ""){
+                    alert("Please enter your Instagram username");
+                    return;
+                }
+
                 const button = document.querySelector(".submit-btn");
                 const message = document.getElementById("message");
 
-                const instagram = document.getElementById("instagram").value;
-                const file = document.getElementById("payment-proof").files[0];
-
-                if(instagram.trim() === ""){
-                    alert("Enter Instagram Username");
-                    return;
-                }
-
-                if(!file){
-                    alert("Upload Payment Screenshot");
-                    return;
-                }
-
-                /* ===== LOADING ===== */
-                button.innerHTML = "Processing Payment...";
+                button.innerHTML = "Processing...";
                 button.disabled = true;
 
-                /* ===== STORAGE ===== */
-                const fileExtension = file.name.split('.').pop() || 'png';
-                const storageRef = ref(storage, `payments/${activeUser.uid}_${Date.now()}.${fileExtension}`);
-                
-                await uploadBytes(storageRef, file);
-                const screenshotURL = await getDownloadURL(storageRef);
-
-                /* ===== UPDATE USER DB ===== */
+                /* ===== هاد الكود كيسجل الطلب فـ Firestore باش الحساب ديالو يتحول لـ Pending ===== */
                 await setDoc(doc(db, "users", activeUser.uid), {
                     accountType: "Pending Challenge",
                     pendingPlan: plan + " Challenge",
                     challengePrice: price,
                     instagram: instagram,
-                    paymentProof: screenshotURL,
                     status: "Pending Review",
                     phase: "Waiting Approval",
                     lastPurchase: Date.now(),
                     purchaseCount: increment(1)
                 }, { merge: true });
 
-                /* ===== ADD TO PURCHASES ===== */
                 await addDoc(collection(db, "purchases"), {
                     uid: activeUser.uid,
                     email: activeUser.email, 
                     plan: plan + " Challenge",
                     price: price,
                     instagram: instagram,
-                    paymentProof: screenshotURL,
                     status: "Pending Review",
                     createdAt: Date.now()
                 });
 
-                /* ===== SUCCESS ===== */
                 message.style.display = "block";
-                message.innerHTML = "Payment Submitted Successfully 🚀";
-                button.innerHTML = "Payment Submitted";
-                button.style.background = "#00ff99";
-                button.style.color = "black";
 
-                setTimeout(()=>{
-                    window.location.href = "dashboard.html";
-                }, 2500);
+                // دابا غيصيفطو نيشان لـ الانستغرام ديالك باش يعطيك السكرينشوت
+                setTimeout(() => {
+                    window.location.href = "https://instagram.com/purestepfunding";
+                }, 1500);
 
             }catch(error){
                 console.error("Firebase Error:", error);
-                alert("Error: " + error.message);
-                const button = document.querySelector(".submit-btn");
-                button.innerHTML = "I PAID";
-                button.disabled = false;
+                alert("Something went wrong, but you can still send the screenshot directly on Instagram.");
+                window.location.href = "https://instagram.com/purestepfunding";
             }
         };
     </script>
