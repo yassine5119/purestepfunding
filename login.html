@@ -1,562 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en)
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PURESTEP LOGIN</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-
-background:#020617;
-
-min-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:20px;
-
-overflow:hidden;
-
-position:relative;
-
-}
-
-/* BACKGROUND */
-
-body::before{
-
-content:"";
-
-position:absolute;
-
-top:-200px;
-right:-200px;
-
-width:450px;
-height:450px;
-
-background:rgba(0,255,153,0.08);
-
-border-radius:50%;
-
-}
-
-body::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-200px;
-left:-200px;
-
-width:450px;
-height:450px;
-
-background:rgba(0,255,153,0.08);
-
-border-radius:50%;
-
-}
-
-/* LOGIN BOX */
-
-.login-box{
-
-width:100%;
-max-width:450px;
-
-background:#071226;
-
-padding:45px 30px;
-
-border-radius:30px;
-
-border:1px solid rgba(0,255,153,0.1);
-
-box-shadow:0 0 30px rgba(0,255,153,0.1);
-
-position:relative;
-
-z-index:2;
-
-overflow:hidden;
-
-}
-
-.login-box::before{
-
-content:"";
-
-position:absolute;
-
-top:-100px;
-right:-100px;
-
-width:220px;
-height:220px;
-
-background:rgba(0,255,153,0.05);
-
-border-radius:50%;
-
-}
-
-/* LOGO */
-
-.logo{
-
-text-align:center;
-
-font-size:52px;
-
-font-weight:800;
-
-color:white;
-
-margin-bottom:10px;
-
-position:relative;
-z-index:2;
-
-}
-
-.logo span{
-
-color:#00ff99;
-
-text-shadow:0 0 25px #00ff99;
-
-}
-
-/* TEXT */
-
-.subtitle{
-
-text-align:center;
-
-color:#cbd5e1;
-
-font-size:17px;
-
-line-height:1.7;
-
-margin-bottom:35px;
-
-position:relative;
-z-index:2;
-
-}
-
-/* INPUT */
-
-.input-group{
-
-margin-bottom:22px;
-
-position:relative;
-z-index:2;
-
-}
-
-.input-group label{
-
-display:block;
-
-margin-bottom:10px;
-
-font-weight:600;
-
-color:white;
-
-}
-
-.input-group input{
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-outline:none;
-
-border-radius:16px;
-
-background:#0f172a;
-
-color:white;
-
-font-size:16px;
-
-border:1px solid rgba(255,255,255,0.05);
-
-transition:0.3s;
-
-}
-
-.input-group input:focus{
-
-border:1px solid #00ff99;
-
-box-shadow:0 0 20px rgba(0,255,153,0.25);
-
-}
-
-/* OPTIONS */
-
-.options{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:25px;
-
-font-size:14px;
-
-position:relative;
-z-index:2;
-
-}
-
-.options label{
-
-color:#cbd5e1;
-
-}
-
-.options a{
-
-color:#00ff99;
-
-text-decoration:none;
-
-font-weight:600;
-
-}
-
-/* BUTTON */
-
-.login-btn{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:18px;
-
-background:linear-gradient(135deg,#00ff99,#00d97f);
-
-color:black;
-
-font-size:18px;
-
-font-weight:800;
-
-cursor:pointer;
-
-transition:0.3s;
-
-box-shadow:0 0 25px rgba(0,255,153,0.35);
-
-position:relative;
-z-index:2;
-
-}
-
-.login-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 40px rgba(0,255,153,0.7);
-
-}
-
-/* MESSAGE */
-
-.message{
-
-margin-top:20px;
-
-padding:16px;
-
-border-radius:14px;
-
-font-weight:700;
-
-display:none;
-
-position:relative;
-z-index:2;
-
-}
-
-.success{
-
-background:#00ff99;
-
-color:black;
-
-}
-
-.error{
-
-background:#ef4444;
-
-color:white;
-
-}
-
-/* REGISTER */
-
-.register{
-
-text-align:center;
-
-margin-top:25px;
-
-color:#cbd5e1;
-
-position:relative;
-z-index:2;
-
-}
-
-.register a{
-
-color:#00ff99;
-
-text-decoration:none;
-
-font-weight:700;
-
-}
-
-/* SUPPORT */
-
-.support-btn{
-
-position:fixed;
-
-bottom:25px;
-right:25px;
-
-padding:16px 28px;
-
-background:linear-gradient(135deg,#00ff99,#00d97f);
-
-color:black;
-
-font-weight:700;
-
-border-radius:50px;
-
-text-decoration:none;
-
-box-shadow:0 0 25px rgba(0,255,153,0.5);
-
-z-index:999;
-
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-.logo{
-
-font-size:42px;
-
-}
-
-.login-box{
-
-padding:35px 22px;
-
-}
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PURESTEP CHECKOUT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+        body{background:#020617;color:white;overflow-x:hidden;position:relative;}
+        .glow{position:fixed;width:500px;height:500px;background:rgba(0,255,153,0.06);filter:blur(120px);border-radius:50%;z-index:-1;animation:float 8s infinite alternate;}
+        .glow1{top:-200px;left:-200px;}
+        .glow2{bottom:-200px;right:-200px;}
+        @keyframes float{0%{transform:translateY(0px);}100%{transform:translateY(50px);}}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:20px 6%;background:#071226;border-bottom:1px solid rgba(0,255,153,0.1);position:sticky;top:0;z-index:1000;backdrop-filter:blur(10px);}
+        .logo{font-size:34px;font-weight:800;color:white;}
+        .logo span{color:#00ff99;text-shadow:0 0 20px #00ff99;}
+        .checkout{padding:60px 6%;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;}
+        .card{background:#071226;padding:32px;border-radius:30px;border:1px solid rgba(0,255,153,0.08);position:relative;overflow:hidden;backdrop-filter:blur(12px);transition:0.3s;}
+        .card:hover{transform:translateY(-5px);box-shadow:0 0 35px rgba(0,255,153,0.15);}
+        .card::before{content:"";position:absolute;top:-100px;right:-100px;width:220px;height:220px;background:rgba(0,255,153,0.05);border-radius:50%;}
+        .plan-title{font-size:42px;margin-bottom:10px;position:relative;z-index:2;}
+        .price{font-size:58px;font-weight:800;color:#00ff99;margin-bottom:25px;text-shadow:0 0 20px #00ff99;position:relative;z-index:2;}
+        .features{list-style:none;position:relative;z-index:2;}
+        .features li{margin:14px 0;font-size:15px;line-height:1.6;color:#d1d5db;}
+        .payment-title{font-size:34px;margin-bottom:22px;position:relative;z-index:2;}
+        .payment-title span{color:#00ff99;}
+        .pay-box{background:#0f172a;padding:20px;border-radius:22px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.05);position:relative;z-index:2;}
+        .pay-box h3{margin-bottom:14px;color:#00ff99;font-size:20px;}
+        .pay-info{background:#020617;padding:16px;border-radius:15px;word-break:break-all;font-size:14px;margin-bottom:14px;line-height:1.6;}
+        .copy-btn{width:100%;padding:14px;border:none;border-radius:15px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-weight:800;cursor:pointer;transition:0.3s;}
+        .copy-btn:hover{transform:translateY(-4px);}
+        .form-group{margin-bottom:20px;position:relative;z-index:2;}
+        .form-group label{display:block;margin-bottom:10px;font-weight:600;color:#d1d5db;}
+        .form-group input{width:100%;padding:15px;border:none;outline:none;border-radius:15px;background:#0f172a;color:white;font-size:15px;border:1px solid rgba(255,255,255,0.05);}
+        .form-group input:focus{border:1px solid #00ff99;}
+        input[type="file"]{padding:12px;}
+        .info-box{background:rgba(0,255,153,0.08);border:1px solid rgba(0,255,153,0.15);padding:20px;border-radius:18px;margin-bottom:22px;line-height:1.8;color:#d1d5db;font-size:15px;position:relative;z-index:2;}
+        .info-box span{color:#00ff99;font-weight:700;}
+        .submit-btn{width:100%;padding:17px;border:none;border-radius:18px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-size:17px;font-weight:800;cursor:pointer;transition:0.3s;margin-top:10px;box-shadow:0 0 25px rgba(0,255,153,0.25);}
+        .submit-btn:hover{transform:translateY(-5px);box-shadow:0 0 40px rgba(0,255,153,0.5);}
+        .message{margin-top:22px;padding:16px;background:#00ff99;color:black;font-weight:700;border-radius:16px;display:none;line-height:1.7;}
+        .support-btn{position:fixed;bottom:12px;right:12px;padding:13px 18px;background:linear-gradient(135deg,#00ff99,#00c97a);color:black;font-weight:800;border-radius:15px;text-decoration:none;font-size:14px;box-shadow:0 0 25px rgba(0,255,153,0.35);z-index:9999;}
+        @media(max-width:768px){nav{padding:16px 5%;} .logo{font-size:28px;} .checkout{padding:35px 5% 80px;gap:22px;} .card{padding:24px;border-radius:24px;} .plan-title{font-size:34px;} .price{font-size:48px;} .payment-title{font-size:28px;} .support-btn{bottom:10px;right:10px;padding:12px 16px;font-size:13px;}}
+    </style>
 </head>
 
 <body>
 
-<div class="login-box">
-
-<div class="logo">
-PURE<span>Step</span>
-</div>
-
-<p class="subtitle">
-
-Login to your funded trader dashboard and manage your PureStep accounts.
-
-</p>
-
-<div class="input-group">
-
-<label>Email Address</label>
-
-<input type="email" id="email" placeholder="Enter your email">
-
-</div>
-
-<div class="input-group">
-
-<label>Password</label>
-
-<input type="password" id="password" placeholder="Enter your password">
-
-</div>
-
-<div class="options">
-
-<label>
-
-<input type="checkbox">
-
- Remember me
-
-</label>
-
-<a href="#">
-Forgot Password?
-</a>
-
-</div>
-
-<button class="login-btn" onclick="loginUser()">
-
-LOGIN
-
-</button>
-
-<div class="message success" id="success-message">
-
-Login Successful 🚀
-
-</div>
-
-<div class="message error" id="error-message">
-
-Invalid Email or Password
-
-</div>
-
-<div class="register">
-
-Don't have an account?
-
-<a href="register.html">
-
-Create Account
-
-</a>
-
-</div>
-
-</div>
-
-<a href="https://instagram.com/purestepfunding"
-target="_blank"
-class="support-btn">
-
-Support
-
-</a>
-
-<script type="module">
-
-import { auth } from "./firebase.js";
-
-import {
-
-signInWithEmailAndPassword
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-window.loginUser = async function(){
-
-const email =
-document.getElementById("email").value;
-
-const password =
-document.getElementById("password").value;
-
-const success =
-document.getElementById("success-message");
-
-const error =
-document.getElementById("error-message");
-
-success.style.display = "none";
-
-error.style.display = "none";
-
-try{
-
-await signInWithEmailAndPassword(
-auth,
-email,
-password
-);
-
-localStorage.setItem(
-"loggedIn",
-"true"
-);
-
-localStorage.setItem(
-"userEmail",
-email
-);
-
-success.style.display = "block";
-
-setTimeout(() => {
-
-window.location.href =
-"dashboard.html";
-
-},1500);
-
-}
-
-catch(err){
-
-console.log(err);
-
-error.style.display = "block";
-
-}
-
-};
-
-</script>
-
+    <div class="glow glow1"></div>
+    <div class="glow glow2"></div>
+
+    <nav>
+        <div class="logo">PURE<span>Step</span></div>
+    </nav>
+
+    <section class="checkout">
+        <div class="card">
+            <h1 class="plan-title" id="plan-name">10K Challenge</h1>
+            <div class="price" id="plan-price">$60</div>
+            <ul class="features">
+                <li>✔ 2-Step Evaluation Challenge</li>
+                <li>✔ MT5 Platform Included</li>
+                <li>✔ Crypto Payment Supported</li>
+                <li>✔ 100% Profit Split</li>
+                <li>✔ 4% Daily Drawdown</li>
+                <li>✔ 8% Max Drawdown</li>
+                <li>✔ Fast Human Review</li>
+                <li>✔ Real Funded Dashboard</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2 class="payment-title">Complete <span>Payment</span></h2>
+
+            <div class="pay-box">
+                <h3>Binance Pay ID</h3>
+                <div class="pay-info" id="binance-id">1027786179</div>
+                <button class="copy-btn" onclick="copyText('binance-id')">COPY BINANCE ID</button>
+            </div>
+
+            <div class="pay-box">
+                <h3>USDT Wallet (TRC20)</h3>
+                <div class="pay-info" id="wallet">TGFVz2gTYiDn8FnP838vNWNaevhToERo9E</div>
+                <button class="copy-btn" onclick="copyText('wallet')">COPY USDT WALLET</button>
+            </div>
+
+            <div class="info-box">
+                <span>Important:</span> After payment:<br><br>
+                ✅ Enter Instagram username<br>
+                ✅ Upload payment screenshot<br>
+                ✅ Wait for admin approval
+            </div>
+
+            <div class="form-group">
+                <label>Instagram Username</label>
+                <input type="text" id="instagram" placeholder="@username">
+            </div>
+
+            <div class="form-group">
+                <label>Upload Payment Screenshot</label>
+                <input type="file" id="payment-proof">
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitPayment()">I PAID</button>
+            <div class="message" id="message">Payment Submitted Successfully 🚀</div>
+        </div>
+    </section>
+
+    <a href="https://instagram.com/purestepfunding" target="_blank" class="support-btn">💬 Support</a>
+
+    <script type="module">
+        import { auth, db, storage } from "./firebase.js";
+        import { doc, setDoc, increment, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        /* ===== PARAMS ===== */
+        const params = new URLSearchParams(window.location.search);
+        const rawPlan = params.get("plan");
+        const rawPrice = params.get("price");
+
+        const plan = rawPlan && rawPlan !== "null" ? rawPlan : "10K";
+        const price = rawPrice && rawPrice !== "null" ? rawPrice : "60";
+
+        /* ===== UI ===== */
+        document.getElementById("plan-name").innerHTML = plan + " Challenge";
+        document.getElementById("plan-price").innerHTML = "$" + price;
+
+        /* ===== COPY ===== */
+        window.copyText = function(id){
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text);
+            alert("Copied Successfully 🚀");
+        };
+
+        /* ===== AUTH CHECK ===== */
+        let activeUser = null;
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                activeUser = user;
+                console.log("User detected successfully:", user.email);
+            } else {
+                alert("Please Login First Before Checkout");
+                window.location.href = "login.html";
+            }
+        });
+
+        /* ===== SUBMIT PAYMENT ===== */
+        window.submitPayment = async function(){
+            try{
+                if(!activeUser){
+                    alert("Auth error. Please wait for page to load completely or re-login.");
+                    return;
+                }
+
+                const button = document.querySelector(".submit-btn");
+                const message = document.getElementById("message");
+
+                const instagram = document.getElementById("instagram").value;
+                const file = document.getElementById("payment-proof").files[0];
+
+                if(instagram.trim() === ""){
+                    alert("Enter Instagram Username");
+                    return;
+                }
+
+                if(!file){
+                    alert("Upload Payment Screenshot");
+                    return;
+                }
+
+                /* ===== LOADING STATUS ===== */
+                button.innerHTML = "Processing Payment...";
+                button.disabled = true;
+
+                /* ===== STORAGE ===== */
+                const fileExtension = file.name.split('.').pop() || 'png';
+                const storageRef = ref(storage, `payments/${activeUser.uid}_${Date.now()}.${fileExtension}`);
+                
+                await uploadBytes(storageRef, file);
+                const screenshotURL = await getDownloadURL(storageRef);
+
+                /* ===== 1. UPDATE USER IN FIRESTORE ===== */
+                await setDoc(doc(db, "users", activeUser.uid), {
+                    accountType: "Pending Challenge",
+                    pendingPlan: plan + " Challenge",
+                    challengePrice: price,
+                    instagram: instagram,
+                    paymentProof: screenshotURL,
+                    status: "Pending Review",
+                    phase: "Waiting Approval",
+                    lastPurchase: Date.now(),
+                    purchaseCount: increment(1)
+                }, { merge: true });
+
+                /* ===== 2. ADD TO PURCHASES COLLECTION FOR ADMIN ===== */
+                await addDoc(collection(db, "purchases"), {
+                    uid: activeUser.uid,
+                    email: activeUser.email, 
+                    plan: plan + " Challenge",
+                    price: price,
+                    instagram: instagram,
+                    paymentProof: screenshotURL,
+                    status: "Pending Review",
+                    createdAt: Date.now()
+                });
+
+                console.log("Success: Sent to Firebase database!");
+
+                /* ===== SUCCESS UI ===== */
+                message.style.display = "block";
+                message.innerHTML = "Payment Submitted Successfully 🚀";
+                button.innerHTML = "Payment Submitted";
+                button.style.background = "#00ff99";
+                button.style.color = "black";
+
+                setTimeout(()=>{
+                    window.location.href = "dashboard.html";
+                }, 2500);
+
+            }catch(error){
+                console.error("Firebase Error:", error);
+                alert("Error: " + error.message);
+                const button = document.querySelector(".submit-btn");
+                button.innerHTML = "I PAID";
+                button.disabled = false;
+            }
+        };
+    </script>
 </body>
-
 </html>
