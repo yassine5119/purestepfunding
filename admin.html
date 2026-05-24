@@ -5,11 +5,15 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>PURESTEP SECURE ADMIN PANEL</title>
+<title>
+PURESTEP SECURE ADMIN PANEL
+</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -403,7 +407,7 @@ Secure Admin Dashboard 🚀
 
 <p class="subtitle">
 
-Manage traders, approve funded accounts, monitor balances and control PureStep Funding.
+Manage traders, approve funded accounts and create MT5 accounts automatically.
 
 </p>
 
@@ -430,7 +434,8 @@ import {
 collection,
 getDocs,
 doc,
-updateDoc
+updateDoc,
+addDoc
 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -533,64 +538,52 @@ container.innerHTML += `
 <div class="card">
 
 <h2>
-${data.username}
+${data.username || "Trader"}
 </h2>
 
 <p>
-📧 ${data.email}
+📧 ${data.email || "No Email"}
 </p>
 
 <p>
-💰 Balance:
-<b>$${data.balance}</b>
-</p>
-
-<p>
-📈 Profit:
-<b>$${data.profit}</b>
-</p>
-
-<p>
-🏆 Account:
-<b>${data.accountType}</b>
-</p>
-
-<p>
-⚡ Phase:
-<b>${data.phase}</b>
+🆔 UID:
+<b>${uid}</b>
 </p>
 
 <p>
 📌 Status:
 <b class="${statusClass}">
-${data.status}
+${data.status || "PENDING"}
 </b>
 </p>
 
 <p>
 🛒 Pending Plan:
-<b>${data.pendingPlan || "None"}</b>
+<b>${data.pendingPlan || "None"}
+</b>
 </p>
 
 <p>
 📷 Instagram:
-<b>${data.instagram || "None"}</b>
+<b>${data.instagram || "None"}
+</b>
 </p>
 
 <p>
 🧾 Transaction ID:
-<b>${data.transactionID || "None"}</b>
+<b>${data.transactionID || "None"}
+</b>
 </p>
 
 <input
 type="number"
-placeholder="Balance"
+placeholder="Balance Example 10000"
 class="input"
 id="balance-${uid}">
 
 <input
 type="text"
-placeholder="Challenge Type"
+placeholder="Challenge Type Example 10K Account"
 class="input"
 id="type-${uid}">
 
@@ -628,25 +621,80 @@ document.getElementById(
 `type-${uid}`
 ).value;
 
-/* UPDATE */
+/* VALIDATION */
 
-await updateDoc(doc(db,"users",uid),{
+if(!balance || !type){
 
-balance:Number(balance),
+alert(
+"Fill Balance And Challenge Type"
+);
 
-accountType:type,
+return;
 
-status:"ACTIVE",
+}
 
-phase:"Phase 1",
+/* MT5 */
 
-dailyDrawdown:"4%",
+const mt5Login =
+Math.floor(
+100000 + Math.random() * 900000
+);
 
-maxDrawdown:"8%"
+const mt5Password =
+"PureStep" +
+Math.floor(
+1000 + Math.random() * 9000
+);
 
-});
+/* CREATE ACCOUNT */
 
-alert("Account Approved Successfully 🚀");
+await addDoc(
+collection(db,"accounts"),
+{
+
+uid: uid,
+
+accountSize: type,
+
+balance: Number(balance),
+
+profit: 0,
+
+status: "ACTIVE",
+
+phase: "STEP 1",
+
+dailyDrawdown: "4%",
+
+maxDrawdown: "8%",
+
+mt5Login: mt5Login,
+
+mt5Password: mt5Password,
+
+mt5Server: "PureStep-Live",
+
+platform: "MetaTrader 5",
+
+createdAt: Date.now()
+
+}
+);
+
+/* UPDATE USER */
+
+await updateDoc(
+doc(db,"users",uid),
+{
+
+status:"ACTIVE"
+
+}
+);
+
+alert(
+"Account Approved Successfully 🚀"
+);
 
 loadUsers();
 
