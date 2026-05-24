@@ -526,31 +526,66 @@ font-weight:700;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-gap:16px;
+gap:18px;
 
 }
 
 .account-item{
 
-background:rgba(15,23,42,0.88);
+background:rgba(15,23,42,0.95);
 
-padding:20px;
+padding:22px;
 
-border-radius:20px;
+border-radius:24px;
+
+border:1px solid rgba(0,255,153,0.12);
 
 }
 
 .account-item h3{
-font-size:18px;
+
+font-size:24px;
+
+margin-bottom:14px;
+
 color:#00ff99;
-margin-bottom:10px;
+
 }
 
 .account-item p{
-font-size:17px;
-margin-bottom:6px;
+
+margin-bottom:10px;
+
+font-size:15px;
+
+line-height:1.6;
+
+}
+
+.mt5-box{
+
+background:#020617;
+
+padding:16px;
+
+border-radius:18px;
+
+border:1px solid rgba(0,255,153,0.15);
+
+margin-top:18px;
+
+}
+
+.mt5-box h4{
+
+color:#00ff99;
+
+margin-bottom:14px;
+
+font-size:18px;
+
 }
 
 /* ===== ACTIONS ===== */
@@ -582,70 +617,6 @@ font-weight:800;
 
 color:black;
 
-}
-
-/* ===== PROGRESS ===== */
-
-.panel-title{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:18px;
-
-}
-
-.progress-bar{
-
-width:100%;
-
-height:18px;
-
-background:#111827;
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.progress-fill{
-
-width:45%;
-
-height:100%;
-
-background:linear-gradient(90deg,#00ff99,#00c97a);
-
-}
-
-/* ===== HISTORY ===== */
-
-.history-row{
-
-display:flex;
-
-justify-content:space-between;
-
-padding:18px 0;
-
-border-bottom:1px solid rgba(255,255,255,0.06);
-
-font-size:17px;
-
-}
-
-.profit{
-color:#00ff99;
-font-weight:700;
-}
-
-.loss{
-color:#ef4444;
-font-weight:700;
 }
 
 /* ===== SUPPORT ===== */
@@ -978,64 +949,6 @@ MY ACCOUNTS
 
 </div>
 
-<!-- PROGRESS -->
-
-<div class="progress-panel">
-
-<div class="panel-title">
-
-<h2>
-Challenge Progress
-</h2>
-
-<span>
-45%
-</span>
-
-</div>
-
-<div class="progress-bar">
-
-<div class="progress-fill"></div>
-
-</div>
-
-</div>
-
-<!-- HISTORY -->
-
-<div class="history-panel">
-
-<div class="panel-title">
-
-<h2>
-Recent Trading Activity
-</h2>
-
-</div>
-
-<div class="history-row">
-
-<span>BTCUSD</span>
-
-<span class="profit">
-+$250
-</span>
-
-</div>
-
-<div class="history-row">
-
-<span>XAUUSD</span>
-
-<span class="loss">
--$120
-</span>
-
-</div>
-
-</div>
-
 </div>
 
 <!-- SUPPORT -->
@@ -1095,22 +1008,16 @@ onAuthStateChanged(auth, async(user)=>{
 
 if(user){
 
-/* ===== USER ===== */
-
 document.getElementById("username").innerHTML =
 user.email;
 
 document.getElementById("avatar").innerHTML =
 user.email.charAt(0).toUpperCase();
 
-/* ===== ACCOUNTS ===== */
-
 const accountsContainer =
 document.getElementById("accounts-container");
 
 accountsContainer.innerHTML = "";
-
-/* ===== QUERY ===== */
 
 const q = query(
 
@@ -1122,8 +1029,6 @@ where("uid","==",user.uid)
 
 const querySnapshot =
 await getDocs(q);
-
-/* ===== EMPTY ===== */
 
 if(querySnapshot.empty){
 
@@ -1147,8 +1052,6 @@ return;
 
 }
 
-/* ===== LOAD ACCOUNTS ===== */
-
 let first = true;
 
 querySnapshot.forEach((docSnap)=>{
@@ -1163,31 +1066,96 @@ accountsContainer.innerHTML += `
 <div class="account-item">
 
 <h3>
+
 ${data.accountSize || "Challenge"}
+
 </h3>
 
 <p>
-Balance: $${data.balance || 0}
+
+💰 Balance:
+<b>
+$${data.balance || 0}
+</b>
+
 </p>
 
 <p>
-Profit: $${data.profit || 0}
+
+📈 Profit:
+<b>
+$${data.profit || 0}
+</b>
+
 </p>
 
-<p style="color:#00ff99;font-weight:700;">
-${data.status || "ACTIVE"}
+<p style="
+color:#00ff99;
+font-weight:700;
+">
+
+🔥 ${data.status || "ACTIVE"}
+
 </p>
 
 <p>
-Phase:
+
+🎯 Phase:
+<b>
 ${data.phase || "STEP 1"}
+</b>
+
+</p>
+
+<div class="mt5-box">
+
+<h4>
+
+🔐 MT5 Credentials
+
+</h4>
+
+<p>
+
+Login:
+<b>
+${data.mt5Login || "Pending"}
+</b>
+
+</p>
+
+<p>
+
+Password:
+<b>
+${data.mt5Password || "Pending"}
+</b>
+
+</p>
+
+<p>
+
+Server:
+<b>
+${data.mt5Server || "Pending"}
+</b>
+
+</p>
+
+<p>
+
+Platform:
+<b>
+${data.platform || "MetaTrader 5"}
+</b>
+
 </p>
 
 </div>
 
-`;
+</div>
 
-/* ===== MAIN ACCOUNT ===== */
+`;
 
 if(first){
 
@@ -1253,4 +1221,4 @@ sidebar.classList.remove("active");
 
 </body>
 
-    </html>
+</html>
