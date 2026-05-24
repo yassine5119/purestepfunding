@@ -600,7 +600,7 @@ PURE<span>Step</span>
 
 <li><a href="settings.html">Settings</a></li>
 
-<li><a href="index.html">Logout</a></li>
+<li><a href="#" onclick="logoutUser()">Logout</a></li>
 
 </ul>
 
@@ -625,7 +625,7 @@ My Accounts 📈
 <div class="user-box">
 
 <span id="username">
-Trader
+Loading...
 </span>
 
 </div>
@@ -638,8 +638,8 @@ Trader
 
 <div class="stat-card">
 
-<h2>
-3
+<h2 id="totalAccounts">
+0
 </h2>
 
 <p>
@@ -650,8 +650,8 @@ Total Accounts
 
 <div class="stat-card">
 
-<h2>
-+$420
+<h2 id="totalProfit">
+$0
 </h2>
 
 <p>
@@ -662,8 +662,8 @@ Total Profit
 
 <div class="stat-card">
 
-<h2>
-2
+<h2 id="activeAccounts">
+0
 </h2>
 
 <p>
@@ -674,8 +674,8 @@ Active Accounts
 
 <div class="stat-card">
 
-<h2>
-1
+<h2 id="fundedAccounts">
+0
 </h2>
 
 <p>
@@ -688,136 +688,38 @@ Funded Accounts
 
 <!-- ACCOUNTS -->
 
-<div class="accounts-grid">
-
-<!-- ACCOUNT -->
-
-<div class="account-card">
-
-<div class="status active">
-ACTIVE
-</div>
-
-<h2 class="account-size">
-$5000
-</h2>
-
-<h3 class="account-type">
-Pro Challenge
-</h3>
-
-<ul class="account-info">
-
-<li>✔ Account ID: PSF-58291</li>
-
-<li>✔ Phase: Phase 1</li>
-
-<li>✔ Balance: $5240</li>
-
-<li>✔ Profit: +$240</li>
-
-<li>✔ Daily Drawdown Left: 4%</li>
-
-<li>✔ Platform: MT5</li>
-
-</ul>
-
-<div class="buttons">
-
-<a href="dashboard.html" class="btn">
-OPEN
-</a>
-
-<a href="payout.html" class="btn">
-PAYOUT
-</a>
-
-</div>
-
-</div>
-
-<!-- ACCOUNT -->
+<div class="accounts-grid"
+id="accounts-container">
 
 <div class="account-card">
 
 <div class="status pending">
-PENDING
+NO ACCOUNTS
 </div>
 
 <h2 class="account-size">
-$10000
+$0
 </h2>
 
 <h3 class="account-type">
-Elite Challenge
+Buy Your First Challenge
 </h3>
 
 <ul class="account-info">
 
-<li>✔ Account ID: PSF-77421</li>
-
-<li>✔ Phase: Review</li>
-
-<li>✔ Balance: $10120</li>
-
-<li>✔ Profit: +$120</li>
-
-<li>✔ Daily Drawdown Left: 3%</li>
-
-<li>✔ Platform: MT5</li>
+<li>
+✔ No active accounts yet
+</li>
 
 </ul>
 
 <div class="buttons">
 
-<a href="dashboard.html" class="btn">
-OPEN
-</a>
+<a href="challenge.html"
+class="btn">
 
-<a href="certificate.html" class="btn">
-CERTIFICATE
-</a>
+BUY NOW
 
-</div>
-
-</div>
-
-<!-- ACCOUNT -->
-
-<div class="account-card">
-
-<div class="status breached">
-BREACHED
-</div>
-
-<h2 class="account-size">
-$2500
-</h2>
-
-<h3 class="account-type">
-Starter Challenge
-</h3>
-
-<ul class="account-info">
-
-<li>✔ Account ID: PSF-44120</li>
-
-<li>✔ Phase: Failed</li>
-
-<li>✔ Balance: $2280</li>
-
-<li>✔ Profit: -$220</li>
-
-<li>✔ Max Drawdown Hit</li>
-
-<li>✔ Platform: MT5</li>
-
-</ul>
-
-<div class="buttons">
-
-<a href="challenge.html" class="btn">
-RETRY
 </a>
 
 </div>
@@ -858,33 +760,273 @@ Support
 
 </a>
 
-<!-- SCRIPT -->
+<!-- FIREBASE -->
 
-<script>
+<script type="module">
 
-/* LOGIN */
+import { auth, db }
+from "./firebase.js";
 
-if(localStorage.getItem("loggedIn") !== "true"){
+import {
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-window.location.href = "login.html";
+import {
+collection,
+query,
+where,
+getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* ===== LOGOUT ===== */
+
+window.logoutUser = async function(){
+
+await signOut(auth);
+
+window.location.href =
+"login.html";
 
 }
 
-/* USER */
+/* ===== FIREBASE ===== */
 
-let user = localStorage.getItem("userName");
+onAuthStateChanged(auth, async(user)=>{
 
 if(user){
 
-document.getElementById("username").innerHTML = user;
+document.getElementById("username").innerHTML =
+user.email;
+
+const accountsContainer =
+document.getElementById("accounts-container");
+
+accountsContainer.innerHTML = "";
+
+const q = query(
+
+collection(db,"accounts"),
+
+where("uid","==",user.uid)
+
+);
+
+const querySnapshot =
+await getDocs(q);
+
+/* ===== EMPTY ===== */
+
+if(querySnapshot.empty){
+
+accountsContainer.innerHTML = `
+
+<div class="account-card">
+
+<div class="status pending">
+NO ACCOUNTS
+</div>
+
+<h2 class="account-size">
+$0
+</h2>
+
+<h3 class="account-type">
+Buy Your First Challenge
+</h3>
+
+<ul class="account-info">
+
+<li>
+✔ No active accounts yet
+</li>
+
+</ul>
+
+<div class="buttons">
+
+<a href="challenge.html"
+class="btn">
+
+BUY NOW
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+return;
 
 }
 
-/* MOBILE */
+/* ===== STATS ===== */
 
-const sidebar = document.getElementById("sidebar");
+let totalAccounts = 0;
+let totalProfit = 0;
+let activeAccounts = 0;
+let fundedAccounts = 0;
 
-const menuBtn = document.getElementById("menu-btn");
+/* ===== LOAD ACCOUNTS ===== */
+
+querySnapshot.forEach((docSnap)=>{
+
+const data =
+docSnap.data();
+
+totalAccounts++;
+
+totalProfit += Number(data.profit || 0);
+
+if(data.status === "ACTIVE"){
+
+activeAccounts++;
+
+}
+
+if(data.phase === "FUNDED"){
+
+fundedAccounts++;
+
+}
+
+/* ===== STATUS ===== */
+
+let statusClass = "active";
+
+if(data.status === "PENDING"){
+
+statusClass = "pending";
+
+}
+
+if(data.status === "BREACHED"){
+
+statusClass = "breached";
+
+}
+
+/* ===== ACCOUNT CARD ===== */
+
+accountsContainer.innerHTML += `
+
+<div class="account-card">
+
+<div class="status ${statusClass}">
+
+${data.status || "ACTIVE"}
+
+</div>
+
+<h2 class="account-size">
+
+$${data.balance || 0}
+
+</h2>
+
+<h3 class="account-type">
+
+${data.accountSize || "Challenge"}
+
+</h3>
+
+<ul class="account-info">
+
+<li>
+✔ MT5 Login:
+${data.mt5Login || "Pending"}
+</li>
+
+<li>
+✔ MT5 Password:
+${data.mt5Password || "Pending"}
+</li>
+
+<li>
+✔ Server:
+${data.mt5Server || "Pending"}
+</li>
+
+<li>
+✔ Phase:
+${data.phase || "STEP 1"}
+</li>
+
+<li>
+✔ Profit:
+$${data.profit || 0}
+</li>
+
+<li>
+✔ Daily Drawdown:
+${data.dailyDrawdown || "4%"}
+</li>
+
+<li>
+✔ Platform:
+${data.platform || "MT5"}
+</li>
+
+</ul>
+
+<div class="buttons">
+
+<a href="dashboard.html"
+class="btn">
+
+OPEN
+
+</a>
+
+<a href="payout.html"
+class="btn">
+
+PAYOUT
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+/* ===== UPDATE STATS ===== */
+
+document.getElementById("totalAccounts").innerHTML =
+totalAccounts;
+
+document.getElementById("totalProfit").innerHTML =
+"$" + totalProfit;
+
+document.getElementById("activeAccounts").innerHTML =
+activeAccounts;
+
+document.getElementById("fundedAccounts").innerHTML =
+fundedAccounts;
+
+}else{
+
+window.location.href =
+"login.html";
+
+}
+
+});
+
+/* ===== MOBILE ===== */
+
+const sidebar =
+document.getElementById("sidebar");
+
+const menuBtn =
+document.getElementById("menu-btn");
 
 menuBtn.onclick = () => {
 
