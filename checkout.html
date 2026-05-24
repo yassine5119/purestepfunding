@@ -518,8 +518,6 @@ PURE<span>Step</span>
 
 <section class="checkout">
 
-<!-- LEFT -->
-
 <div class="card">
 
 <h1 class="plan-title" id="plan-name">
@@ -544,8 +542,6 @@ $60
 </ul>
 
 </div>
-
-<!-- RIGHT -->
 
 <div class="card">
 
@@ -716,6 +712,8 @@ alert("Copied Successfully 🚀");
 
 window.submitPayment = async function(){
 
+try{
+
 const button =
 document.querySelector(".submit-btn");
 
@@ -738,8 +736,6 @@ document.getElementById("instagram").value;
 
 const file =
 document.getElementById("payment-proof").files[0];
-
-/* ===== VALIDATION ===== */
 
 if(instagram.trim() === ""){
 
@@ -804,6 +800,8 @@ purchaseCount: increment(1)
 
 /* ===== ADD PURCHASE ===== */
 
+console.log("ADDING PURCHASE");
+
 await addDoc(collection(db,"purchases"),{
 
 uid: user.uid,
@@ -824,6 +822,8 @@ createdAt: Date.now()
 
 });
 
+console.log("PURCHASE ADDED");
+
 /* ===== SUCCESS ===== */
 
 message.style.display =
@@ -841,14 +841,20 @@ button.style.background =
 button.style.color =
 "black";
 
-/* ===== REDIRECT ===== */
-
 setTimeout(()=>{
 
 window.location.href =
 "dashboard.html";
 
 },2500);
+
+}catch(error){
+
+console.log(error);
+
+alert(error.message);
+
+}
 
 };
 
